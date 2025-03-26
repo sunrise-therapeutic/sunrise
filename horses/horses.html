@@ -129,10 +129,9 @@
             })
             .catch(error => console.error('Error loading footer:', error));
 
- // Generate breadcrumb trail
-function generateBreadcrumb() {
+            function generateBreadcrumb() {
     const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test' && part !== 'sunrise');
+    const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test' && part !== 'sunrise' && part !== 'horses');
     let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
     let currentPath = '/sunrise_test';
 
@@ -166,23 +165,20 @@ function generateBreadcrumb() {
     };
 
     if (path.length === 0 || (path.length === 1 && (path[0] === 'index.html' || path[0] === ''))) {
-        // Only display "Home" without the carat and additional "Home"
         breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
     } else {
         let parent = 'index.html';
         path.forEach((part, index) => {
-            if (part !== 'sunrise') {  // Skip 'sunrise' in path construction
-                currentPath += '/' + part;
-                const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
-                if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
-                    const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
-                    if (parentInfo) {
-                        breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
-                    }
+            currentPath += '/' + part;
+            const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
+            if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
+                const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
+                if (parentInfo) {
+                    breadcrumbHtml += ` > <a href="./${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
                 }
-                breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
-                parent = part;
             }
+            breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
+            parent = part;
         });
     }
 
