@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chance - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Chance</p>
+        <div class="feature-image">
+            <img src="horses/chance/Chance_H.jpg" alt="Chance" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/chance/chance-standing.jpg" alt="Chance" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 2002</p>
+                <p><strong>Gender:</strong> Gelding</p>
+                <p><strong>Breed:</strong> Quarter Horse X</p>
+                <p><strong>Height:</strong> 15 hh</p>
+                <p><strong>Colour:</strong> Liver Chestnut</p>
+                <p class="horse-description">Chance is a liver chestnut Quarter Horse x gelding, who had given many years of riding pleasure before arriving at Sunrise in the late fall of 2018. He is a gentle, patient horse, and very popular with our students.</p>
+                <p><strong>Sponsor:</strong> I need a sponsor</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/chance/chance-1.jpg" alt="Chance" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/chance/chance-2.jpg" alt="Chance" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/chance/chance-3.jpg" alt="Chance" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/chance/chance-4.jpg" alt="Chance" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/chance/chance-5.jpg" alt="Chance" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Chance</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

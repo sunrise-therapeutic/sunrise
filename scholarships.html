@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <!-- Main content goes here -->
+    
+        Sunrise programs embrace inclusion. We believe every child should experience companionship, fun, a healthy lifestyle and acceptance by peers and the community, and that finances should not be a barrier.  With this in mind, a scholarship program is presently available for Therapeutic Riding / Driving and Summer Camp programs.   Participants (or their parents / caregivers) who require financial assistance with program fees can complete a confidential Scholarship Application Form.
+
+Each applicant family is asked to “pay what they can” in order to stretch scholarship donations to benefit as many participants as possible.   Each approved application is matched to a designated Scholarship Fund donation.   If there are not sufficient funds available, we can provide information to parents about potential alternate sources.
+
+If you are interested in supporting or applying to our Scholarship Program, please contact Lynne O’Brien, Executive Director at 519-837-0558, ext. 31 or lynne@sunrise-therapeutic.ca
+
+Click here to download the <a href="uploads/scholarship-application-form-Fillable-PDF.pdf">Scholarships Application Form</a>   
+    </main>
+
+    <!-- Include the footer -->>
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > Scholarships';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

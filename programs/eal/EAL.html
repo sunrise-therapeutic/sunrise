@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equine Assisted Learning (EAL)</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div class="content-section">
+            <p class="text-medium-small">
+                Equine Assisted Learning (EAL) is an empowering method used to develop effective personal development through the use of a horse. Similar to horses, people interact in various group settings throughout their lives. Families, friends, sports teams, and colleagues develop their dynamics from which communication and effectiveness emerge.
+            </p>
+    
+            <p class="text-medium-small">
+                With the assistance of horses, participants take part in various experiential learning exercises that aid in relationship and life skills. The activities are selected by a certified EAL facilitator based on your needs and dynamics. This is not a riding program, although horses are an integral part of these sessions. EAL is proven to improve: Communication, Problem Solving, Leadership Skills, Team Building and Life Skills.
+            </p>
+    
+            <p class="text-medium-small">
+                Sessions are led by Suzy Bender, Certified EAL Facilitator, EC Coach 1, and CanTRA Coach
+            </p>
+    
+            <p class="text-medium-small">This program is great for:</p>
+            <ul class="text-medium-small bulleted-list">
+                <li>Family Workshops</li>
+                <li>Youth Leadership</li>
+                <li>Corporate Groups</li>
+                <li>Sports Teams</li>
+                <li>Personal Development</li>
+            </ul>
+    
+            <p class="text-medium-small">Interested in finding out more?</p>
+            <p class="text-medium-small">
+                Contact Suzy at <a href="tel:519-837-0558">519-837-0558 x22</a> or 
+                <a href="mailto:suzy@sunrise-therapeutic.ca">suzy@sunrise-therapeutic.ca</a>
+            </p>
+        </div>
+    
+        <div style="display: flex; gap: 1rem; margin: 2rem 0;">
+            <img src="programs/eal/eal-1.jpg" alt="Equine Assisted Learning" style="width: calc(33.333% - 0.667rem); height: auto;">
+            <img src="programs/eal/eal-2.jpg" alt="Equine Assisted Learning" style="width: calc(33.333% - 0.667rem); height: auto;">
+            <img src="programs/eal/eal-3.jpg" alt="Equine Assisted Learning" style="width: calc(33.333% - 0.667rem); height: auto;">
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+    breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Equine Assisted Learning</a>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+   
+    </script>
+</body>
+</html>

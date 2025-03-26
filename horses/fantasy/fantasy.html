@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Fantasy</p>
+        <div class="feature-image">
+            <img src="horses/fantasy/fantasy-main.jpg" alt="Fantasy" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/fantasy/fantasy-standing.jpg" alt="Fantasy" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 1998</p>
+                <p><strong>Gender:</strong> Mare</p>
+                <p><strong>Breed:</strong> Arab</p>
+                <p><strong>Height:</strong> 14.1 hh</p>
+                <p><strong>Colour:</strong> Grey</p>
+                <p class="horse-description">Fantasy is a grey Arab pony mare, with a great disposition, who enjoys her role as a therapeutic riding pony. Being grey, it is not easy to keep her clean. She is also quite fond of the mud, and it is not uncommon to see her covered head to toe, much to the chagrin of anyone who has to get her ready for her lesson!</p>
+                <p><strong>Sponsor:</strong> Private Sponsor</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/fantasy/fantasy-1.jpg" alt="Fantasy" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/fantasy/fantasy-2.jpg" alt="Fantasy" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/fantasy/fantasy-3.jpg" alt="Fantasy" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/fantasy/fantasy-4.jpg" alt="Fantasy" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/fantasy/fantasy-5.jpg" alt="Fantasy" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/fantasy/fantasy-6.jpg" alt="Fantasy" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Fantasy</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

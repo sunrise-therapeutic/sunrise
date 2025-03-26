@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Horses</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <!-- Main content goes here -->
+        <p class="text-large">Meet Our Horses and their Little Friends</p>
+        
+        <div class="horse-grid">
+            <a href="horses/cadbury/cadbury.html" class="horse-card">
+                <img src="horses/cadbury/cadbury_H.jpg" alt="Cadbury">
+                <div class="horse-name">Cadbury</div>
+            </a>
+            <a href="horses/chance/chance.html" class="horse-card">
+                <img src="horses/chance/Chance_H.jpg" alt="Chance">
+                <div class="horse-name">Chance</div>
+            </a>
+            <a href="horses/ella/ella.html" class="horse-card">
+                <img src="horses/ella/ella_H.png" alt="Ella">
+                <div class="horse-name">Ella</div>
+            </a>
+            <a href="horses/firefly/firefly.html" class="horse-card">
+                <img src="horses/firefly/Firefly_H.jpg" alt="Firefly">
+                <div class="horse-name">Firefly</div>
+            </a>
+            <a href="horses/fantasy/fantasy.html" class="horse-card">
+                <img src="horses/fantasy/Fantasy_H.jpg" alt="Fantasy">
+                <div class="horse-name">Fantasy</div>
+            </a>
+            <a href="horses/huey/huey.html" class="horse-card">
+                <img src="horses/huey/Huey_H.jpg" alt="Huey">
+                <div class="horse-name">Huey</div>
+            </a>
+            <a href="horses/jack/jack.html" class="horse-card">
+                <img src="horses/jack/jack_H.png" alt="Jack">
+                <div class="horse-name">Jack</div>
+            </a>
+            <a href="horses/jackie/jackie.html" class="horse-card">
+                <img src="horses/jackie/Jackie_H.jpg" alt="Jackie">
+                <div class="horse-name">Jackie</div>
+            </a>
+            <a href="horses/lena/lena.html" class="horse-card">
+                <img src="horses/lena/Lena_H.jpg" alt="Lena">
+                <div class="horse-name">Lena</div>
+            </a>
+            <a href="horses/lily/lily.html" class="horse-card">
+                <img src="horses/lily/Lily_H.jpg" alt="Lily">
+                <div class="horse-name">Lily</div>
+            </a>
+            <a href="horses/marley/marley.html" class="horse-card">
+                <img src="horses/marley/Marley_H.jpg" alt="Marley">
+                <div class="horse-name">Marley</div>
+            </a>
+            <a href="horses/miami/miami.html" class="horse-card">
+                <img src="horses/miami/Miami_H.jpg" alt="Miami">
+                <div class="horse-name">Miami</div>
+            </a>
+            <a href="horses/nos/nos.html" class="horse-card">
+                <img src="horses/nos/Nos_H.jpg" alt="Nos">
+                <div class="horse-name">Nos</div>
+            </a>
+            <a href="horses/peven/peven.html" class="horse-card">
+                <img src="horses/peven/Peven_H.jpg" alt="Pevensie">
+                <div class="horse-name">Pevensie</div>
+            </a>
+            <a href="horses/rolex/rolex.html" class="horse-card">
+                <img src="horses/rolex/Rolex_H.jpg" alt="Rolex">
+                <div class="horse-name">Rolex</div>
+            </a>
+            <a href="horses/snoopy/snoopy.html" class="horse-card">
+                <img src="horses/snoopy/Snoopy_H.jpg" alt="Snoopy">
+                <div class="horse-name">Snoopy</div>
+            </a>
+            <a href="horses/sparkle/sparkle.html" class="horse-card">
+                <img src="horses/sparkle/Sparkle_H.jpg" alt="Sparkle">
+                <div class="horse-name">Sparkle</div>
+            </a>
+            <a href="horses/tucker/tucker.html" class="horse-card">
+                <img src="horses/tucker/Tucker_H.jpg" alt="Tucker">
+                <div class="horse-name">Tucker</div>
+            </a>
+            <a href="horses/titan/titan.html" class="horse-card">
+                <img src="horses/titan/titan_H.png" alt="Titan">
+                <div class="horse-name">Titan</div>
+            </a>
+            <!-- Repeat for each horse -->
+            <a href="horses/minis/minis.html" class="horse-card">
+                <img src="horses/minis/minis_H.png" alt="Our Mini Horses">
+                <div class="horse-name">The Minis</div>
+            </a>
+            <a href="horses/cats/cats.html" class="horse-card">
+                <img src="horses/cats/cats_H.png" alt="Our Barn Cats">
+                <div class="horse-name">Our Barn Cats</div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+       // Generate breadcrumb trail
+       function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test' && part !== 'horses');
+            let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            let currentPath = '/sunrise_test';
+
+            // Mapping of URLs to breadcrumb names and their hierarchy
+            const breadcrumbMapping = {
+                'index.html': { name: 'Home', parent: '' },
+                'about.html': { name: 'About Us', parent: 'index.html' },
+                'history.html': { name: 'History', parent: 'about.html' },
+                'governance.html': { name: 'Governance and Accountability', parent: 'about.html' },
+                'staff.html': { name: 'Sunrise Staff', parent: 'about.html' },
+                'facilities.html': { name: 'Our Facilities', parent: 'about.html' },
+                'horses.html': { name: 'Our Horses', parent: 'about.html' },
+                'programs.html': { name: 'Programs', parent: 'index.html' },
+                'therapyprograms.html': { name: 'Therapy Programs', parent: 'programs.html' },
+                'campsunrise.html': { name: 'Camp Sunrise', parent: 'programs.html' },
+                'lifeskills.html': { name: 'Lifeskills Day Program', parent: 'programs.html' },
+                'littlebreeches.html': { name: 'Little Breeches', parent: 'programs.html' },
+                'studentinstructors.html': { name: 'Student Instructors', parent: 'programs.html' },
+                'EAL.html': { name: 'Equine Assisted Learning', parent: 'programs.html' },
+                'volunteer.html': { name: 'Volunteer', parent: 'index.html' },
+                'support.html': { name: 'Support Us', parent: 'index.html' },
+                'supportopportunities.html': { name: 'Support Opportunities', parent: 'support.html' },
+                'therapyforest.html': { name: 'Sunrise Therapy Forest', parent: 'support.html' },
+                'dropitoff.html': { name: 'Drop it Off for Sunrise', parent: 'support.html' },
+                'friendsofsunrise.html': { name: 'Friends of Sunrise', parent: 'support.html' },
+                'trailblazers.html': { name: 'Monthly Mini Trailblazers', parent: 'support.html' },
+                'whatshappening.html': { name: "What's Happening", parent: 'index.html' },
+                'celebratesunrise.html': { name: 'Celebrate Sunrise', parent: 'whatshappening.html' },
+                'newsletter.html': { name: 'Newsletter', parent: 'whatshappening.html' },
+                'upcomingevents.html': { name: 'Other Upcoming Events', parent: 'whatshappening.html' },
+                'contact.html': { name: 'Contact Us', parent: 'index.html' }
+            };
+
+            if (path.length === 0 || (path.length === 1 && (path[0] === 'index.html' || path[0] === ''))) {
+                // Only display "Home" without the carat and additional "Home"
+                breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            } else {
+                let parent = 'index.html';
+                path.forEach((part, index) => {
+                    currentPath += '/' + part;
+                    const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
+                    if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
+                        const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
+                        if (parentInfo) {
+                            breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
+                        }
+                    }
+                    breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
+                    parent = part;
+                });
+            }
+
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>

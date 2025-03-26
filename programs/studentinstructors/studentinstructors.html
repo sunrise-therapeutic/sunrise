@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Instructor Program</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <div style="flex: 2;">
+                <p class="text-large">Student Instructor Program at Sunrise</p>
+                <p class="text-medium-small">Sunrise provides experiential learning opportunities for individuals interested in preparing for instructor certification through the Canadian Therapeutic Riding Association (CanTRA).</p>
+    
+                <p class="text-medium-small">Through full-participation in all aspects of the Sunrise program, Student Instructors gain knowledge in therapeutic riding, horse care and stable management. Working as part of the Sunrise team five days per week, Student Instructors live in the century stone farmhouse on the Sunrise property free-of-charge. This is an unpaid position. The cost of the CanTRA study materials and examination fees for full-time residential student instructors is covered by Sunrise.</p>
+    
+                <p class="text-medium-small">All of Sunrise's instructors are certified through CanTRA and Student Instructors will have the opportunity to work with, and learn from, these instructors. The level of certification that will be achieved by the Student Instructors is dependent on the candidate's background, length of stay at Sunrise and ability to prepare for the examination.</p>
+    
+                <p class="text-medium-small">Click <a href="programs/studentinstructors/Student-Instructor-Application-Fillable.pdf">here</a> for an Application Form</p>
+    
+                <p class="text-medium-small">For more information or to apply, contact:</p>
+    
+                <p class="text-medium-small">
+                    Suzy Bender – Program Coordinator/Instructor<br>
+                    Phone: (519) 837-0558 x22<br>
+                    E-mail: <a href="mailto:suzy@sunrise-theapeutic.ca">suzy@sunrise-theapeutic.ca</a>
+                </p>
+            </div>
+            <div style="flex: 1;">
+                <img src="programs/studentinstructors/studentinstructor.jpg" alt="Student Instructor" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+    breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Student Instructor Program</a>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+   
+    </script>
+</body>
+</html>

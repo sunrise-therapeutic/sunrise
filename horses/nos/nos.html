@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Nos</p>
+        <div class="feature-image">
+            <img src="horses/nos/nos-main.jpg" alt="Nos" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/nos/nos-standing.jpg" alt="Nos" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 2000</p>
+                <p><strong>Gender:</strong> Gelding</p>
+                <p><strong>Breed:</strong> Quarter horse</p>
+                <p><strong>Height:</strong> 15.3 hh</p>
+                <p><strong>Colour:</strong> Chestnut</p>
+                <p class="horse-description">Nos is a gentle chestnut Quarter Horse gelding who joined the Sunrise team in 2015. He is another one of our horses that excel in all areas of Sunrise programming. He is particularly popular with adult independent riders.</p>
+                <p><strong>Sponsor:</strong> Toyota Motor Manufacturing Canada</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/nos/nos-1.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-2.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-3.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-4.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-5.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-6.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-7.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/nos/nos-8.jpg" alt="Nos" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Nos</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

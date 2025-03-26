@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Happening</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        
+        
+        <div class="thumbnail-row">
+            <div class="thumbnail-wrapper">
+                <a href="whatshappening/celebratesunrise.html">
+                    <img src="whatshappening/whatshappening-celebrate_sunrise.jpg" alt="Celebrate Sunrise" class="thumbnail">
+                    <button class="thumbnail-button">Celebrate Sunrise!</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="whatshappeing/newsletter.html">
+                    <img src="whatshappening/whatshappening-newsletter.jpg" alt="Newsletter" class="thumbnail">
+                    <button class="thumbnail-button">Newsletter</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="whatshappening/other-upcoming-events.html">
+                    <img src="whatshappening/whatshappening-other-upcoming-events.jpg" alt="Other Upcoming Events" class="thumbnail">   
+                    <button class="thumbnail-button">Other Upcoming Events</button>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+    // Simple breadcrumb generation
+    function generateBreadcrumb() {
+        const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+        let breadcrumbHtml = '<nav class="breadcrumb">';
+        breadcrumbHtml += '<a href="./">Home</a>';
+        breadcrumbHtml += " > <span>What's Happening</span>";
+        breadcrumbHtml += '</nav>';
+        breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+    }
+
+    // Call the function to generate the breadcrumb after the header is loaded
+    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>

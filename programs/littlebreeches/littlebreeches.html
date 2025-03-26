@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Breeches</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-very-large" style="text-align: center;">Registration for Spring 2025 is Now Open!!</p>
+    
+        <p class="text-medium-small">Little Breeches is an inclusive farm-based program for children aged 5-8 and 9-12 years old.</p>
+    
+        <p class="text-medium-small">This program provides the opportunity for children to visit the Sunrise farm to learn about horses and participate in horse care and other activities such as:</p>
+    
+        <ul class="text-medium-small bulleted-list">
+            <li>Weekly seasonal and horse-related themes</li>
+            <li>Interactive and hands-on activities</li>
+            <li>Grooming, leading & washing miniature horses</li>
+            <li>Equine Assisted Learning (EAL)</li>
+            <li>Crafts</li>
+            <li>Outdoor Games</li>
+            <li>Playground</li>
+            <li>Archery</li>
+            <li>Low Ropes Course</li>
+        </ul>
+    
+        <p class="text-medium-small"><strong>Little Breeches Spring 2025 (ages 5-8 years)</strong></p>
+        <p class="text-medium-small">
+            Dates: Sundays- April 13th, April 27th, May 11th and May 25th (ride day)<br>
+            Time: 10:00am - 12:00pm
+        </p>
+    
+        <p class="text-medium-small"><strong>Little Breeches Spring 2025 (ages 9-12)</strong></p>
+        <p class="text-medium-small">
+            Dates: Sundays- April 13th, April 27th, May 11th and May 25th (ride day)<br>
+            Time: 1:30pm - 3:30pm
+        </p>
+    
+        <p class="text-medium-small">We hope you can join us this Spring for some animal-based, educational, outdoor fun!</p>
+    
+        <p class="text-medium-small">Please continue to check our website, or email campcoordinator@sunrise-therapeutic.ca regarding any questions or inquiries. Thank you!</p>
+    
+        <p class="text-medium-small"><strong>
+            New participants with a diagnosis/special need are required to come to Sunrise before the start of the program for an assessment with the Little Breeches Coordinator. The assessment allows for the Little Breeches Coordinator to meet the participant and determine if any additional support will be needed for a successful experience.<br><br>
+            Participants with a diagnosis/special need are required to complete the Physician Referral and Individual Profile Form, which can be found below under the Forms heading.<br><br>
+            Waiver: Please complete the <a href="programs/littlebreeches/WAIVER-2016-2.pdf">waiver</a> and attach it to the application form.
+        </strong></p>
+    
+        <div class="form-section">
+            <p class="text-medium-small">Form: <a href="https://form.123formbuilder.com/6809914/little-breeches-application-spring-2024-ages-5-8" target="_blank">Little Breeches & Mini Moments Application Form (ages 5-8)</a></p>
+            
+            <p class="text-medium-small">Form: <a href="https://form.123formbuilder.com/6821120/little-breeches-application-spring-2024-ages-9-12" target="_blank">Little Breeches & Mini Moments Application Form (ages 9-12)</a></p>
+        </div>
+    
+        <p class="text-large">Contact Information</p>
+        <p class="text-medium-small">Email: <a href="mailto:campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a></p>
+    
+        <div style="text-align: center; margin: 2rem 0;">
+            <img src="programs/littlebreeches/little-breeches-craft.jpg" alt="Little Breeches Craft" style="max-width: 80%; margin-bottom: 2rem;">
+            <img src="programs/littlebreeches/LITTLE-BREECHES-CLUB.jpg" alt="Little Breeches Club" style="max-width: 80%;">
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+    breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Little Breeches</a>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+   
+    </script>
+</body>
+</html>

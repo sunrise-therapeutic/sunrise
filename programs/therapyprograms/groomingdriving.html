@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grooming & Driving Programs</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <!-- Left column - Text content -->
+            <div style="flex: 2;">
+                <h2 class="text-medium-large">Grooming Program</h2>
+                <p class="text-medium-small">
+                    Those that choose not to ride, or are unable to ride for medical reasons, can participate in our grooming program. Many participants find grooming and working with the horse on the ground to be therapeutic. The cost of the program is $35 for 30 minutes, taught by a CanTRA certified instructor. Registration is by term, which is typically 8 to 12 weeks in length.
+                </p>
+
+                <h2 class="text-medium-large">Driving Program</h2>
+                <p class="text-medium-small">
+                    Sunrise offers a therapeutic driving program using our miniature horses. (A team of two miniature horses can pull a small wagon that seats the instructor and driving student). This is another option for clients who choose not to ride, use a wheelchair, or are unable to ride for a variety of reasons. Therapeutic driving is an excellent means of developing upper body strength and/or cognitive reasoning skills. Registration is by term, which is typically 8 to 12 weeks in length and costs $45 per lesson.
+                </p>
+
+                <div style="margin-top: 2rem;">
+                    <p class="text-medium-small">
+                        <strong>For more information, contact:</strong><br><br>
+                        Camilla Giffen<br>
+                        Ph. (519) 837-0558 x29<br>
+                        Email: <a href="mailto:camilla@sunrise-therapeutic.ca">camilla@sunrise-therapeutic.ca</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right column - Images -->
+            <div style="flex: 1;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <img src="programs/therapyprograms/grooming-driving-2.jpg" 
+                         alt="Grooming Program" 
+                         style="width: 100%; height: auto;">
+                    <img src="programs/therapyprograms/grooming-driving-3.jpg" 
+                         alt="Driving Program" 
+                         style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb
+        function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            let breadcrumbHtml = '<nav class="breadcrumb">';
+            breadcrumbHtml += '<a href="./">Home</a>';
+            breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+            breadcrumbHtml += ' > <a href="programs/therapyprograms/therapyprograms.html">Therapy Programs</a>';
+            breadcrumbHtml += ' > <span>Grooming & Driving Programs</span>';
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

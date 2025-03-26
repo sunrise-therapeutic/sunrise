@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp Contact Information & FAQ</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <h2 class="text-medium-large" style="color: #000;">Contact Information</h2>
+            <p class="text-medium-small">
+                Jenna Sinclair<br>
+                Phone: 519-837-0558 Ext. 23<br>
+                Email: <a href="mailto:campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a>
+            </p>
+
+            <h2 class="text-medium-large" style="color: #000; margin-top: 3rem;">Frequently Asked Questions</h2>
+            <p class="text-medium-small">Click on the questions below to expand.</p>
+
+            <div class="faq-container">
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        What time does camp start and finish? ▼
+                    </summary>
+                    <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        Camp begins at 8:45 am and finishes at 4:00pm. However, we have staff here for drop off as early as 8:00am and pick up as late as 5:00pm. Any pick up after 5:00pm has an extra fee of $10.00 for every 10 minutes.
+                    </p>
+                </details>
+            
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        What is the difference between Farm Discovery and Riding Camp? ▼
+                    </summary>
+                    <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        Farm Discovery Camp is for children aged 5 – 8. Campers in Farm Discovery Camp will ride once a week and go on one wagon ride. Farm Discovery Camp is offered in one-week camp sessions. Riding Camp is for campers aged 8 and above. Riding Camp campers ride every day as well spend an hour in the barn learning about basic horse care and management. Riding Camp is offered in two-week sessions for the first six weeks of camp and one-week sessions of the last two weeks of camp.
+                    </p>
+                </details>
+            
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        What will my child do while at Camp Sunrise? ▼
+                    </summary>
+                    <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        Camp Sunrise has a wide variety of activities for our campers. Farm Discovery campers will partake in a number of daily activities such as: swimming, grooming and leading the miniature horses, archery, team-building on our ropes course, playing on the playground, nature based activities, crafts and spending time at the frog pond. Once a week campers will go for a wagon ride and a pony ride. Riding Camp campers ride for an hour a day, spend an hour in the barn learning about basic horse care, and participate in other activities such as swimming, archery, nature based activities, team-building on our ropes course, playing on the playground and spending time at the frog pond.
+                    </p>
+                </details>
+            
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        My child needs medication while at camp, what is the protocol? ▼
+                    </summary>
+                    <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        If your camper requires medication while at Sunrise, whether prescription, over the counter medication or medication in emergency situations, a medical dispensing form must be filled out on or before or on the first day your camper comes to camp. Sunrise staff cannot administer any medication without the medical dispensing form filled out or if the medication is not in a properly labelled container. All medications are stored according to Ontario Camp Association standards in a secure location.
+                    </p>
+                </details>
+            
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        Do I need to pack a lunch for my camper? ▼
+                    </summary>
+                    <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        Parents must send lunches and snacks with their campers to Sunrise. Sunrise is a peanut and nut-free facility. Peanut butter substitutes, such as wow butter, must be properly labelled or they will be disposed of. Water coolers are placed throughout our facility to ensure campers stay well-hydrated while at camp.
+                    </p>
+                </details>
+            
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        What do you do if it rains during the day? ▼
+                    </summary>
+                    <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        Modifications will be made to programming in the event of a thunder and/or lightning storm. Sunrise's camp facilities include a variety of indoor activity spaces.
+                    </p>
+                </details>
+            
+                <details class="text-medium-small" style="margin-bottom: 1rem;">
+                    <summary style="cursor: pointer; color: #1a69e0; font-weight: bold; list-style: none;">
+                        Do I have to purchase a riding helmet or boots for my camper? ▼
+                    </summary>
+                    <div style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <p>Sunrise has ASTM approved riding helmets that riders can borrow while attending camp.</p>
+                        <p style="margin-top: 0.5rem;">Campers are encouraged to bring appropriate footwear for riding: any type of boot with a ½" to ¾" heel and enclosed toes. Adaptations to riding equipment will be made if the camper's footwear does not meet the standard.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb
+        function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            let breadcrumbHtml = '<nav class="breadcrumb">';
+            breadcrumbHtml += '<a href="./">Home</a>';
+            breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+            breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Camp Sunrise</a>';
+            breadcrumbHtml += ' > <span>Contact Information & FAQ</span>';
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+    </script>
+</body>
+</html>

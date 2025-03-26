@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huey - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Huey</p>
+        <div class="feature-image">
+            <img src="horses/huey/huey-main.jpg" alt="Huey" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/huey/huey-standing.jpg" alt="Huey" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> year</p>
+                <p><strong>Gender:</strong> text</p>
+                <p><strong>Breed:</strong> text</p>
+                <p><strong>Height:</strong> ## hh</p>
+                <p><strong>Colour:</strong> text</p>
+                <p class="horse-description">Huey is a... .</p>
+                <p><strong>Sponsor:</strong> text</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/huey/huey-1.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-2.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-3.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-4.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-5.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-6.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-7.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-8.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-9.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-10.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/huey/huey-11.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Huey</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

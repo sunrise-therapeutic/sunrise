@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefly - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Firefly</p>
+        <div class="feature-image">
+            <img src="horses/firefly/firefly-main.jpg" alt="Firefly" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/firefly/firefly-standing.jpg" alt="Firefly" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 2002</p>
+                <p><strong>Gender:</strong> Mare</p>
+                <p><strong>Breed:</strong> Clydesdale/Thoroughbred</p>
+                <p><strong>Height:</strong> 16 hh</p>
+                <p><strong>Colour:</strong> Chestnut with flaxen mane and tail</p>
+                <p class="horse-description">Firefly is a Clydesdale/Thoroughbred chestnut mare with a wide blaze.<br>
+
+                    Firefly arrived in late Spring of 2018, just in time for summer camp. She proved herself to be easygoing, calm, and hardworking. She quickly became a favourite amongst riders and volunteers alike. She has a patient and gentle nature.<br>
+                    
+                    Fun Firefly fact: she got her name because she was born late one spring night, and was found resting in the field surrounded by fireflies.</p>
+                <p><strong>Sponsor:</strong> I need a sponsor</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/firefly/firefly-1.jpg" alt="Firefly" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/firefly/firefly-2.jpg" alt="Firefly" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/firefly/firefly-3.jpg" alt="Firefly" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/firefly/firefly-4.jpg" alt="Firefly" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/firefly/firefly-5.jpg" alt="Firefly" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Firefly</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

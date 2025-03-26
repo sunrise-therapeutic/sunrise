@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <p class="text-medium-small">
+                Click on one of the links below to view an online version of our newsletter! 
+                You can also view our most recent <strong>Annual Report</strong> on the 
+                <a href="governance.html">Governance and Accountability</a> page.
+            </p>
+    
+            <h2 class="text-large" style="color: #1a69e0; margin-top: 2rem;">2024</h2>
+            
+            <p class="text-medium-small">
+                2024 Fall <a href="uploads/Pony-Express-Fall-2024.pdf">Newsletter1</a> and 
+                <a href="uploads/Fall-2024-Donor-Insert.pdf">Insert</a>
+            </p>
+            
+            <p class="text-medium-small">
+                2024 Winter <a href="uploads/Pony-Express-Winter-2024.pdf">Newsletter</a> and 
+                <a href="uploads/Winter-2024-Newsletter-Insert.pdf">Insert</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+    // Simple breadcrumb generation
+    function generateBreadcrumb() {
+        const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+        let breadcrumbHtml = '<nav class="breadcrumb">';
+        breadcrumbHtml += '<a href="./">Home</a>';
+        breadcrumbHtml += " > <span>What's Happening</span>";
+        breadcrumbHtml += ' > <span>Newsletter</span>';
+        breadcrumbHtml += '</nav>';
+        breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+    }
+
+    // Call the function to generate the breadcrumb after the header is loaded
+    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>

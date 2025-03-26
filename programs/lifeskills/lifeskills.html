@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotiabank Life Skills Day Program</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div class="image-row">
+            <img src="programs/lifeskills/life-skills1.jpg" alt="Haley V. with Mini" class="top-image">
+            <img src="programs/lifeskills/life-skills2.jpg" alt="LS Participants on Bench" class="top-image">
+            <img src="programs/lifeskills/life-skills3.jpg" alt="Watering Plants" class="top-image">
+            <img src="programs/lifeskills/life-skills4.jpg" alt="Life Skills with Pumpkins" class="top-image">
+        </div>
+    
+        <div class="content-section">
+            <p class="text-medium-small">The Life Skills Day Program is an innovative farm-based program for adults 18+ with special needs, particularly those with cognitive delays. The program currently runs weekly on Tuesday, Wednesday, Thursday and Friday year round, with additional days to be added in the future. Sunrise provides the opportunity for participants to practice and learn new skills in a supportive, safe and structured environment. Activities are designed to match participants' capabilities, with the goal of having of each participant reach and work at their fullest potential.</p>
+    
+            <p class="text-medium-small">The program presently runs on Tuesdays, Wednesdays, Thursdays & Fridays year round, from 9am- 3pm.</p>
+    
+            <p class="text-medium-small">Activities include, but are not limited to:</p>
+            <ul class="text-medium-small bulleted-list">
+                <li>Horse Care & Handling</li>
+                <li>Farm Chores</li>
+                <li>Horse Knowledge & Stable Management</li>
+                <li>Gardening & Maintaining the Flower and Vegetable Beds</li>
+                <li>Cooking & Baking</li>
+                <li>Life Skills Building</li>
+                <li>Painting & Crafts</li>
+                <li>Seasonal Activities</li>
+            </ul>
+    
+            <p class="text-medium-small">All interested applicants are required to complete an application and intake form, as well as visit Sunrise for an intake meeting with the Life Skills Coordinator. This meeting allows for the Life Skills Coordinator and the applicant to meet each other as well as determine goals which the interested applicant would like to work towards. After the intake, applicants are able to book a trial day to observe and participate in various activities to assess whether the Scotiabank Life Skills Day Program will meet the needs and personal goals of the participant.</p>
+    
+            <p class="text-medium-small">We hope you can join us for some farm-based learning and fun!</p>
+        </div>
+    
+        <div class="gallery-container">
+            <div class="image-row gallery">
+                <img src="programs/lifeskills/life_skills-gallery1.jpg" alt="Life Skills Gallery" class="gallery-image" onclick="openGallery(0)">
+                <img src="programs/lifeskills/life_skills-gallery2.jpg" alt="Life Skills Gallery" class="gallery-image" onclick="openGallery(1)">
+                <img src="programs/lifeskills/life_skills-gallery3.jpg" alt="Life Skills Gallery" class="gallery-image" onclick="openGallery(2)">
+                <img src="programs/lifeskills/life_skills-gallery4.jpg" alt="Life Skills Gallery" class="gallery-image" onclick="openGallery(3)">
+                <img src="programs/lifeskills/life_skills-gallery5.jpg" alt="Life Skills Gallery" class="gallery-image" onclick="openGallery(4)">
+                <img src="programs/lifeskills/life_skills-gallery6.jpg" alt="Life Skills Gallery" class="gallery-image" onclick="openGallery(5)">
+            </div>
+        </div>
+    
+        <div id="gallery-modal" class="modal">
+            <span class="close" onclick="closeGallery()">&times;</span>
+            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+            <img id="modal-image" class="modal-content">
+            <button class="next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+    
+        <p class="text-large">Program Benefits</p>
+        <p class="text-medium-small">Through skill building and collaborative learning, participants directly benefit in many ways. The observed benefits are:</p>
+        <div class="centered-image">
+            <img src="programs/lifeskills/life-skills-graphic.png" alt="Life Skills Benefits">
+        </div>
+    
+        <p class="text-large">Forms</p>
+        <p class="text-medium-small">
+            <a href="programs/lifeskills/LifeSkills-Application-Form.pdf" target="_blank">Life Skills Information Package and Application Form</a>
+        </p>
+    
+        <p class="text-large">Contact</p>
+        <p class="text-medium-small">
+            Katie Bergin, Life Skills Coordinator<br>
+            Email: <a href="mailto:katie@sunrise-therapeutic.ca">katie@sunrise-therapeutic.ca</a><br>
+            (519) 763-5517 (Life Skills House)
+        </p>
+    
+        <div class="image-row portrait">
+            <img src="programs/lifeskills/Cadbury-and-Brooke.jpg" alt="Life Skills Portrait" class="portrait-image">
+            <img src="programs/lifeskills/LS-in-Barn-with-Horse.jpg" alt="Life Skills Portrait" class="portrait-image">
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+    breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Life Skills Day Program</a>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+// Script to support the image gallery
+let currentImageIndex = 0;
+const galleryImages = [
+    "programs/lifeskills/life_skills-gallery1.jpg",
+    "programs/lifeskills/life_skills-gallery2.jpg",
+    "programs/lifeskills/life_skills-gallery3.jpg",
+    "programs/lifeskills/life_skills-gallery4.jpg",
+    "programs/lifeskills/life_skills-gallery5.jpg",
+    "programs/lifeskills/life_skills-gallery6.jpg"
+];
+
+function openGallery(index) {
+    currentImageIndex = index;
+    document.getElementById('gallery-modal').style.display = 'flex';
+    document.getElementById('modal-image').src = galleryImages[currentImageIndex];
+}
+
+function closeGallery() {
+    document.getElementById('gallery-modal').style.display = 'none';
+}
+
+function changeImage(direction) {
+    currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+    document.getElementById('modal-image').src = galleryImages[currentImageIndex];
+}
+
+// Close modal when clicking outside the image
+window.onclick = function(event) {
+    if (event.target === document.getElementById('gallery-modal')) {
+        closeGallery();
+    }
+}     
+    </script>
+</body>
+</html>

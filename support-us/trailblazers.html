@@ -1,0 +1,82 @@
+ailblazers.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Mini Trailblazers</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <!-- Left column - image -->
+            <div style="flex: 1.5;">
+                <img src="support-us/monthly-mini-trailblazers.jpg" alt="Monthly Mini Trailblazers" style="width: 100%; height: auto;">
+            </div>
+
+            <!-- Right column - text and button -->
+            <div style="flex: 1.5;">
+                <h2 style="font-weight: bold;" class="text-large">MONTHLY MINI TRAILBLAZERS!</h2>
+                
+                <p class="text-medium-small">Become a monthly donor and make your mark as A MINI TRAILBLAZER, helping to develop the full potential of children and adults with special needs through therapy, education, horse riding, recreation, and life skills programs, farm-related and social activities.</p>
+                
+                <p class="text-medium-small">The first 25 new monthly donors to join as a Mini Trailblazer will receive a horseshoe magnet made by our life skills program participants!</p>
+
+                <!-- Button centered in column -->
+                <div style="text-align: center; margin: 2rem 0;">
+                    <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E363411QE&id=2" 
+                       class="donate-button" 
+                       target="_blank">
+                        SIGN UP TODAY!
+                    </a>
+                </div>
+
+                <!-- Newsletter link centered -->
+                <p style="text-align: center;">
+                    <a href="https://www.canva.com/design/DAGAP39r6rw/QtDu5kW2UKVTwUcllaKwcw/view?utm_content=DAGAP39r6rw&utm_campaign=designshare&utm_medium=link&utm_source=editor">
+                        Check out our Spring Pony Express Newsletter
+                    </a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Simple breadcrumb generation
+        function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            let breadcrumbHtml = '<nav class="breadcrumb">';
+            breadcrumbHtml += '<a href="./">Home</a>';
+            breadcrumbHtml += ' > <a href="../support-us.html">Support Us</a>';
+            breadcrumbHtml += ' > <span>Monthly Mini Trailblazers</span>';
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackie - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Jackie</p>
+        <div class="feature-image">
+            <img src="horses/jackie/jackie-main.jpg" alt="Jackie" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/jackie/jackie-standing.jpg" alt="Jackie" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 2000</p>
+                <p><strong>Gender:</strong> Mare</p>
+                <p><strong>Breed:</strong> Shire/Quarter horse</p>
+                <p><strong>Height:</strong> 15.3 hh</p>
+                <p><strong>Colour:</strong> Grey</p>
+                <p class="horse-description">Jackie is a solid grey Shire/Quarter Horse mare with a lovely disposition, who came to Sunrise in 2015. She is extremely gentle and quiet, and her patient nature makes her a wonderful horse for our therapeutic riding program.</p>
+                <p><strong>Sponsor:</strong> Private Sponsor</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/jackie/jackie-1.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-2.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-3.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-4.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-5.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-6.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-7.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-8.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-9.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-10.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/jackie/jackie-11.jpg" alt="Jackie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Jackie</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

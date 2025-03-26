@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Visits</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <h1 class="text-very-large" style="text-align: center;">Group Visits</h1>
+
+        <!-- Image row -->
+        <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
+            <img src="programs/therapyprograms/groups-1.jpg" alt="Group Visit 1" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="programs/therapyprograms/groups-2.jpg" alt="Group Visit 2" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="programs/therapyprograms/groups-3.jpg" alt="Group Visit 3" style="width: 300px; height: 300px; object-fit: cover;">
+        </div>
+
+        <!-- Text content -->
+        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <p class="text-medium-small">
+                Therapeutic riding lessons are available for classes of children with special needs. The "School Group" program generally consists of a set of four visits to the farm (held on subsequent weeks) for a group riding lesson. Prior to the first ride, a Sunrise Instructor will visit the classroom, or a site visit may be arranged for the class.
+            </p>
+
+            <p class="text-medium-small">
+                Other agency groups are welcome to book a program at Sunrise. Non-riding options are available, including grooming or driving. Please contact Sunrise's Program Coordinator to discuss your goals, suitable program options and booking availability.
+            </p>
+
+            <p class="text-medium-small" style="margin-top: 2rem;">
+                <strong>For more information, contact:</strong><br><br>
+                Suzy Bender, Instructor, Program Coordinator<br>
+                Ph. (519) 837-0558 x22<br>
+                Email: <a href="mailto:suzy@sunrise-therapeutic.ca">suzy@sunrise-therapeutic.ca</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+            breadcrumbHtml += ' > <a href="programs/therapyprograms/therapyprograms.html">Therapy Programs</a>';
+            breadcrumbHtml += ' > <span>Group Visits</span>';
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miami - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Miami</p>
+        <div class="feature-image">
+            <img src="horses/miami/miami-main.jpg" alt="Miami" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/miami/miami-standing.jpg" alt="Miami" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 2004</p>
+                <p><strong>Gender:</strong> Mare</p>
+                <p><strong>Breed:</strong> Paint X</p>
+                <p><strong>Height:</strong> 14.3 hh</p>
+                <p><strong>Colour:</strong> Chestnut</p>
+                <p class="horse-description">Miami is a chestnut mare with slight overo Paint breed patterning. She came to Sunrise in the late fall of 2018. She has a very gentle personality and has an incredibly smooth trot which is enjoyed by her students. Miami is great for all Sunrise programming.</p>
+                <p><strong>Sponsor:</strong> I need a sponsor</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/miami/miami-1.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-2.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-3.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-4.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-5.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-6.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-7.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-8.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-9.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-10.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/miami/miami-11.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Miami</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div class="blue-divider"></div>
+        <p class="text-large">Therapy Programs</p>
+        <div class="thumbnail-row">
+            <div class="thumbnail-wrapper">
+                <a href="programs/therapyprograms/therapeutic-riding.html">
+                    <img src="programs/graphics/therapeutic-riding.jpg" alt="Therapeutic Riding" class="thumbnail">
+                    <button class="thumbnail-button">Therapeutic Riding</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/therapyprograms/efw.html">
+                    <img src="programs/graphics/equine-wellness.jpg" alt="Equine Facilitated Wellness" class="thumbnail">
+                    <button class="thumbnail-button">Equine Facilitated Wellness</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/therapyprograms/groupvisits.html">
+                    <img src="programs/graphics/group-visits.jpg" alt="Group Visits" class="thumbnail">
+                    <button class="thumbnail-button">Group Visits</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/therapyprograms/groomingdriving.html">
+                    <img src="programs/graphics/grooming.jpg" alt="Grooming Program" class="thumbnail">
+                    <button class="thumbnail-button">Grooming Program</button>
+                </a>
+            </div>
+        </div>
+    
+        <div class="blue-divider"></div>
+        <p class="text-large">Camp Sunrise</p>
+        <div class="thumbnail-row">
+            <div class="thumbnail-wrapper">
+                <a href="programs/campsunrise/camp-farm-discovery.html">
+                    <img src="programs/graphics/farm-discovery.jpg" alt="Farm Discovery" class="thumbnail">
+                    <button class="thumbnail-button">Farm Discovery (Ages 5-8)</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/campsunrise/camp-horse-camp.html">
+                    <img src="programs/graphics/riding-camp.jpg" alt="Riding Camp" class="thumbnail">
+                    <button class="thumbnail-button">Riding Camp (Ages 8-13)</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/campsunrise/camp-lit.html">
+                    <img src="programs/graphics/leader-training.jpg" alt="Leader in Training" class="thumbnail">
+                    <button class="thumbnail-button">Leader in Training (Ages 13+)</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/campsunrise/camp-contact-faq.html">
+                    <img src="programs/graphics/camp-faq.jpg" alt="Contact & FAQ" class="thumbnail">
+                    <button class="thumbnail-button">Contact & FAQ</button>
+                </a>
+            </div>
+        </div>
+    
+        <div class="blue-divider"></div>
+        <p class="text-large">Life Skills</p>
+        <div class="thumbnail-row">
+            <div class="thumbnail-wrapper">
+                <a href="programs/lifeskills/lifeskills.html">
+                    <img src="programs/graphics/life-skills.jpg" alt="Life Skills Day Program" class="thumbnail">
+                    <button class="thumbnail-button">Life Skills Day Program</button>
+                </a>
+            </div>
+        </div>
+    
+        <div class="blue-divider"></div>
+        <p class="text-large">Other Programs</p>
+        <div class="thumbnail-row">
+            <div class="thumbnail-wrapper">
+                <a href="programs/littlebreeches/littlebreeches.html">
+                    <img src="programs/graphics/little-breeches.jpg" alt="Little Breeches & Mini Moments" class="thumbnail">
+                    <button class="thumbnail-button">Little Breeches & Mini Moments</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs/eal/EAL.html">
+                    <img src="programs/graphics/equine-learning.jpg" alt="Equine Assisted Learning" class="thumbnail">
+                    <button class="thumbnail-button">Equine Assisted Learning</button>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+    // Simple breadcrumb generation
+    function generateBreadcrumb() {
+        const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+        let breadcrumbHtml = '<nav class="breadcrumb">';
+        breadcrumbHtml += '<a href="./">Home</a>';
+        breadcrumbHtml += ' > <span>Programs</span>';
+        breadcrumbHtml += '</nav>';
+        breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+    }
+
+    // Call the function to generate the breadcrumb after the header is loaded
+    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>

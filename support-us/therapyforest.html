@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <div style="flex: 2;">
+                <p class="text-very-large" style="color: #228B22;">SUNRISE THERAPY FOREST</p>
+                
+                <p class="text-very-large" style="color: #228B22;">Project Goals</p>
+                <p class="text-medium-small">To establish managed forest and meadow habitats at Sunrise, which would:</p>
+                <ul class="text-medium-small">
+                    <li>Enhance existing biodiversity through planting of native species, and provide new habitats and food sources for pollinators</li>
+                    <li>Provide accessible natural spaces for innovative, inclusive programming for children and adults with disabilities, with a focus on fitness, wellness and nature appreciation.</li>
+                </ul>
+    
+                <p class="text-very-large" style="color: #228B22;">Project Description</p>
+                <p class="text-medium-small">When complete, the project will include 20 acres of managed forest and meadows, and will include pollinator friendly species.</p>
+                <p class="text-medium-small">The forest will include riding trails, accessible walkways, memorial areas, program spaces, benches and accessible interpretive signage.</p>
+    
+                <p class="text-very-large" style="color: #228B22;">Project Uses and Beneficiaries</p>
+                <p class="text-medium-small">The forest will be used for riding lesson activities, inclusive children's nature and recreation programs, and accessible fitness / wellness activities for adults with disabilities:</p>
+                <ul class="text-medium-small">
+                    <li>The forest will provide additional programming space for over 500 individuals presently participating in Sunrise's day camps, 'Little Breeches', therapeutic riding lessons and life skills programs every year.</li>
+                    <li>This resource will also enable new programming (some of which will be planned and implemented with partner agencies) for up to 200 more children and youth annually, and will be the site of wellness programs for Sunrise's future respite and residential clients.</li>
+                </ul>
+    
+                <p class="text-very-large" style="color: #228B22;">Come Grow with Us!</p>
+                <ul class="text-medium-small">
+                    <li><strong>Trailblazer:</strong> Donate a bench or 6'+ tree to the therapy forest. Includes a custom, individual recognition / memorial plaque on your bench, or in front of your tree. (Trees & benches will be procured by Sunrise)</li>
+                    <li><strong>Friends of the Forest:</strong> Honour or remember a loved one in perpetuity within the forest. Add a loved one's name to the collective Memorial or In Honour sign, which will be officially unveiled each September.</li>
+                    <li><strong>Adopt-A-Tree:</strong> Support the forest by 'adopting' one of several designated trees. Donors receive a card with information about their adopted tree. (Trees are on-site, with multiple sponsors per tree)</li>
+                </ul>
+    
+                <p class="text-very-large" style="color: #228B22;">Project Details</p>
+                <ul class="text-medium-small">
+                    <li>A recognition/sign unveiling event will be held once per year, in September, to which all recent Therapy Forest supporters will be invited.</li>
+                    <li>Adopt-A-Tree supporters will receive information about 'their' tree. Each tree will have multiple 'adopters'.</li>
+                    <li>Sunrise staff will determine the species and location of sponsored trees and benches, in keeping with the overall forest design.</li>
+                    <li>Should a sponsored bench or tree become damaged within 5 years, the sponsor's sign will be moved to another bench or tree.</li>
+                    <li>Benches are made of recycled composite materials, and are weather resistant. A limited number of benches are available.</li>
+                    <li>All supporters will receive a tax receipt and a customized certificate or card, suitable for giving as a gift to someone being recognized through this project.</li>
+                    <li>Please note that for the safety of all, the Sunrise Therapy Forest is not open to the general public. Visits are available by appointment, and must be booked in advance with Sunrise office staff.</li>
+                </ul>
+    
+                <p class="text-very-large" style="color: #228B22;">To Make A Donation</p>
+                <p class="text-medium-small">Please print and complete this form: Forest donation Form, which can be sent to SUNRISE 6920 Concession 1, Puslinch, ON N0B 2J0, or emailed to lynne@sunrise-therapeutic.ca</p>
+                <p class="text-medium-small">or purchase elements below and we will be in touch to finalize the details!</p>
+                <p class="text-medium-small">Thank you!</p>
+                <p class="text-medium-small">Please note that payment plans are available for Trailblazer donations!</p>
+            </div>
+    
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                <img src="support-us/therapy-forest-sign.jpg" alt="Therapy Forest Sign" style="width: 100%; height: auto;">
+                <img src="support-us/therapy-forest-tree-planting.jpg" alt="Tree Planting" style="width: 100%; height: auto;">
+                <img src="support-us/therapy-forest-trail.jpg" alt="Forest Trail" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    
+        <hr style="border: none; height: 2px; background-color: #1a69e0; margin: 2rem 4rem;">
+    
+        <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
+            <div style="width: 300px; height: 200px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                Graphic Placeholder 1
+            </div>
+            <div style="width: 300px; height: 200px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                Graphic Placeholder 2
+            </div>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+
+
+// Simple breadcrumb generation
+function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="../support-us.html">Support Us</a>';
+    breadcrumbHtml += ' > <span>Sunrise Therapy Forest</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+    // Call the function to generate the breadcrumb after the header is loaded
+    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>

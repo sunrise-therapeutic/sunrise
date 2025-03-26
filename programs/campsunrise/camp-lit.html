@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader in Training (LIT) Program</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <!-- Heading -->
+        <h1 class="text-very-large" style="text-align: center; color: #1a69e0;">Registration for Camp 2025 is Now Open!!</h1>
+
+        <!-- Image row -->
+        <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
+            <img src="programs/campsunrise/camp-lit-1.jpg" alt="LIT Camp 1" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="programs/campsunrise/camp-lit-2.jpg" alt="LIT Camp 2" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="programs/campsunrise/camp-lit-3.jpg" alt="LIT Camp 3" style="width: 300px; height: 300px; object-fit: cover;">
+        </div>
+
+        <!-- Text content -->
+        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <p class="text-medium-small">
+                Being a Leader-in-Training (LIT) at Sunrise is an extremely unique experience for youth aged 13-16. This program provides leadership opportunities, enabling youth to gain and strengthen valuable skills. LIT's will gain first-hand experience as they assist a group of campers while shadowing an experienced camp counsellor. In addition, LIT's earn 40 volunteer hours per session.
+            </p>
+
+            <p class="text-medium-small">LIT's are expected to be engaged, participate fully in the program and help in all of the activities that their group undertakes. They must also:</p>
+
+            <ul class="text-medium-small" style="list-style: none; padding-left: 0;">
+                <li>• Enjoy and be comfortable working with children of all ages</li>
+                <li>• Be interested in furthering their leadership skills</li>
+                <li>• Be able to communicate openly with campers, peers and supervisors</li>
+                <li>• Be an appropriate role model for campers</li>
+                <li>• Behave in a mature, responsible manner at all times during camp</li>
+            </ul>
+
+            <p class="text-medium-small">
+                The cost of the LIT program is $30 for each 2-week session and includes training, mentorship, completion certificate, t-shirt and administration.
+            </p>
+
+            <h2 class="text-medium-large">Leadership Opportunities</h2>
+            <p class="text-medium-small">
+                Each LIT will have at least two opportunities to develop independent leadership skills by planning, organizing and leading a group activity. The Camp Coordinator, Assistant Camp Coordinator and Counsellors serve as resource staff to provide LIT's with assistance, guidance and feedback. Upon completion of the two-week session, each LIT will receive a written evaluation and a certificate.
+            </p>
+
+            <h2 class="text-medium-large">Application Process</h2>
+            <p class="text-medium-small">
+                If you are interested in becoming an LIT at Camp Sunrise, please complete the LIT Application Form and submit it with your resume. Applicants are expected to come to Sunrise for a group interview (3 or 4 applicants per group). This gives LIT's the chance to develop interview skills in a comfortable setting. The interview is also a time to meet the Camp Coordinator, enabling the coordinator to match each LIT with an appropriate counsellor and camper group, thus ensuring an enjoyable experience for the LIT.
+            </p>
+
+            <!-- Application button -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="https://form.123formbuilder.com/6808447/lit-application-2025-ages-13-17" 
+                   class="donate-button" 
+                   target="_blank">
+                    Application Form for 2025
+                </a>
+            </div>
+
+            <h2 class="text-medium-large">Training Day</h2>
+            <p class="text-medium-small">
+                All LIT's are expected to participate in a one-day orientation and training prior to the start of camp. The training day is led by the Camp Coordinator and will cover:
+            </p>
+            <ul class="text-medium-small" style="list-style: none; padding-left: 0;">
+                <li>• Introduction to Sunrise</li>
+                <li>• Expectations of a Leader-in-Training</li>
+                <li>• Safety on the Farm</li>
+                <li>• Grooming and Tacking Horses</li>
+                <li>• Leading and Sidewalking</li>
+                <li>• Leadership skills</li>
+                <li>• Child Development/Behaviour</li>
+                <li>• Game Adaptation and Creativity</li>
+            </ul>
+
+            <p class="text-medium-small">
+                LIT's will also receive a manual which will include resources on the above topics.
+            </p>
+
+            <h2 class="text-medium-large">Contact</h2>
+            <p class="text-medium-small">
+                Jenna Sinclair, Camp Coordinator<br>
+                (519) 837-0558 Ext: 23<br>
+                Email: <a href="mailto:campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a>
+            </p>
+
+            <h2 class="text-medium-large">Additional Forms</h2>
+            <p class="text-medium-small">
+                <a href="uploads/WAIVER-2019.pdf">Waiver</a>
+            </p>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // ... header and footer loading code ...
+
+ // Load the header content from header.html
+ fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+
+
+        function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            let breadcrumbHtml = '<nav class="breadcrumb">';
+            breadcrumbHtml += '<a href="./">Home</a>';
+            breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+            breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Camp Sunrise</a>';
+            breadcrumbHtml += ' > <span>Leader in Training (LIT) Program</span>';
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+    </script>
+</body>
+</html>

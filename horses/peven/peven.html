@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pevensie - Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <p class="text-large page-title">Pevensie</p>
+        <div class="feature-image">
+            <img src="horses/peven/peven-main.jpg" alt="Pevensie" id="main-photo">
+        </div>
+
+        <div class="horse-profile">
+            <div class="profile-photo">
+                <img src="horses/peven/peven-standing.jpg" alt="Pevensie" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Born:</strong> 1999</p>
+                <p><strong>Gender:</strong> Mare</p>
+                <p><strong>Breed:</strong> Norwegian Fjord</p>
+                <p><strong>Height:</strong> 15.1 hh</p>
+                <p><strong>Colour:</strong> Dun</p>
+                <p class="horse-description">Peven, as she is known around the farm, is a Norwegian Fjord mare, who is extremely dependable and trustworthy.<br><br>
+                Pevensie worked in a Narnia focussed summer camp in British Columbia for many years (hence her name from the characters in the book by C.S. Lewis) Peven then lived for a while on a private farm in Ontario before coming to Sunrise.<br><br>
+                Her Ontario owners kindly donated her, wanting her to be enjoyed by the children in the Sunrise therapeutic riding programs. She has certainly become an integral part of the team.</p>
+                <p><strong>Sponsor:</strong> A Friend of Sunrise</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <p class="gallery-caption">Click on any image below to view more photos!</p>
+            <div class="photo-gallery">
+                <img src="horses/peven/peven-1.jpg" alt="Pevensie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/peven/peven-2.jpg" alt="Pevensie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/peven/peven-3.jpg" alt="Pevensie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+                <img src="horses/peven/peven-4.png" alt="Pevensie" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer with correct paths
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        function updateProfilePhoto(src) {
+            document.getElementById('profile-photo').src = src;
+        }
+
+        function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
+    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
+    breadcrumbHtml += ' > <span>Pevensie</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+    </script>
+</body>
+</html>

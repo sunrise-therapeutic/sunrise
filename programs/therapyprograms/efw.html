@@ -1,0 +1,101 @@
+fw.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equine Facilitated Wellness</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <!-- Two-column layout -->
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <!-- Left column - Text content -->
+            <div style="flex: 2;">
+                <h2 class="text-large">Equine Facilitated Wellness</h2>
+                <p class="text-medium-small">
+                    The Equine Facilitated Wellness program uses horses to offer an experiential, client-centered and strength-based approach to counselling and therapy. Our goal is to create safe, nurturing, healing spaces where clients can develop insight into their difficulties, give meaning to their experiences and develop effective coping strategies and skills to contribute to their overall mental health and wellness.
+                </p>
+
+                <h2 class="text-large">Who can benefit from EFW?</h2>
+                <p class="text-medium-small">
+                    EFW can be used as an intervention for children, adolescents, adults and families experiencing the following (but not limited to) mental health and wellness challenges:
+                </p>
+                <ul class="text-medium-small">
+                    <li>Anxiety</li>
+                    <li>Depression</li>
+                    <li>OCD</li>
+                    <li>ADHD</li>
+                    <li>Trauma</li>
+                    <li>PTSD</li>
+                    <li>Conduct Disorder/ODD</li>
+                    <li>Eating Disorders</li>
+                    <li>Substance Abuse Issues</li>
+                    <li>Attachment/Relational-Based Difficulties</li>
+                    <li>High Risk Behaviour</li>
+                </ul>
+
+                <h2 class="text-large">What can I expect from EFW sessions?</h2>
+                <p class="text-medium-small">
+                    EFW sessions are typically one hour in length and are conducted at Sunrise on a weekly or bi-weekly basis. Sessions are facilitated by a registered clinician along with an equine professional certified through CanTRA. Sessions are $170/hour and may be covered by some medical insurance programs.
+                </p>
+
+                <h2 class="text-large">For more information, contact:</h2>
+                <p class="text-medium-small">
+                    Lynne O'Brien<br>
+                    Ph. (519) 837-0558 x31<br>
+                    Email: <a href="mailto:lynne@sunrise-therapeutic.ca">lynne@sunrise-therapeutic.ca</a>
+                </p>
+            </div>
+
+            <!-- Right column - Images -->
+            <div style="flex: 1;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <img src="programs/therapyprograms/efw-1.jpg" alt="EFW 1" style="width: 100%; height: auto;">
+                    <img src="programs/therapyprograms/efw-2.jpg" alt="EFW 2" style="width: 100%; height: auto;">
+                </div>
+                <p class="text-medium-small" style="font-style: italic; margin-top: 1rem;">
+                    All EFW related photographs are models representing the EFW program and are not actual clients for reasons of confidentiality.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load header and footer
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // Generate breadcrumb
+        function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            let breadcrumbHtml = '<nav class="breadcrumb">';
+            breadcrumbHtml += '<a href="./">Home</a>';
+            breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
+            breadcrumbHtml += ' > <a href="programs/therapyprograms/therapyprograms.html">Therapy Programs</a>';
+            breadcrumbHtml += ' > <span>Equine Facilitated Wellness</span>';
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+    </script>
+</body>
+</html>

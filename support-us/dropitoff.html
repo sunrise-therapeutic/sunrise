@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop it Off for Sunrise!</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <div style="flex: 2;">
+                <p class="text-medium-small">Any of the following can be dropped off at Sunrise – your donations will be used to help support Sunrise programs.</p>
+    
+                <ul class="text-medium-small">
+                    <li>Canadian Tire Money</li>
+                    <li>Metal Recycling – (in black bin in parking lot) Stainless steel, aluminum, copper, tin, etc.</li>
+                    <li>Tack – We can accept used tack and related supplies that are in very good/ like new condition. If you are donating riding or horse equipment, please note tax receipts will reflect the current market value of the item accepted for the program. It should be understood that we sell items on consignment that we are unable to use for the program. The proceeds will be used to purchase adaptive/program equipment. Please note that we cannot accept used helmets. Please call ahead to ensure someone can meet you to accept delivery. We request a Tack Donation Form be submitted with your donation.</li>
+                    <li>Prizes / Auction Items – We are always seeking gifts-in-kind of NEW, quality items for upcoming events. Examples include horse, culinary or garden themed giftware.</li>
+                </ul>
+    
+                <p class="text-medium-small">Office & Stable Supplies Wishlist</p>
+                <p class="text-medium-small">We appreciate any donations of supplies, which help to keep down our operating costs. Ideas include:</p>
+    
+                <ul class="text-medium-small" style="columns: 2;">
+                    <li>60W light bulbs</li>
+                    <li>Rubbermaid storage bins</li>
+                    <li>Postage stamps</li>
+                    <li>Scotch Tape</li>
+                    <li>Kleenex</li>
+                    <li>Dish Soap</li>
+                    <li>Liquid hand soap refills</li>
+                    <li>Scissors—especially for children</li>
+                    <li>Corn Brooms—heavy duty</li>
+                    <li>Photocopy / inkjet printer paper</li>
+                    <li>1 ply toilet paper</li>
+                    <li>Batteries AA, AAA, 9V</li>
+                    <li>Pens, whiteboard markers, children's markers</li>
+                    <li>Lead ropes</li>
+                    <li>Rubber feed buckets</li>
+                    <li>Carrots</li>
+                </ul>
+    
+                <p class="text-medium-small">Thank you for your support!</p>
+            </div>
+    
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                <img src="support-us/drop-it-off-1.jpg" alt="Drop it off example" style="width: 100%; height: auto;">
+                <img src="support-us/drop-it-off-2.jpg" alt="Tack Room" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+
+
+// Simple breadcrumb generation
+function generateBreadcrumb() {
+    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+    let breadcrumbHtml = '<nav class="breadcrumb">';
+    breadcrumbHtml += '<a href="./">Home</a>';
+    breadcrumbHtml += ' > <a href="../support-us.html">Support Us</a>';
+    breadcrumbHtml += ' > <span>Drop it Off for Sunrise!</span>';
+    breadcrumbHtml += '</nav>';
+    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+}
+
+    // Call the function to generate the breadcrumb after the header is loaded
+    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>
