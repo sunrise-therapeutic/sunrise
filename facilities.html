@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+        <!-- Main content goes here -->
+        <div class="staff-section">
+            <p class="staff-info">
+                Sunrise is located on a 102-acre farm just south of the 401 in Puslinch Township. The farm is just a 15-minute drive from both Cambridge and Guelph, Ontario. We are pleased to offer a variety of accessible and innovative facility resources, made possible by capital grants from local service clubs, corporations, individuals and foundation, including the Ontario Trillium Foundation.
+            </p>
+
+            <p class="text-large">Sunrise facilities include:</p>
+            <ul class="bulleted-list text-medium-small">
+                <li>Marguerite Clayton indoor riding arena, with separate mounting area (by UPI Energy LP) and accessible upstairs viewing lounge ("Kristen's View")</li>
+                <li>Outdoor riding ring</li>
+                <li>Kate Welch Tack Room</li>
+                <li>McDonald's Children's Charities- Quiet Room</li>
+                <li>Children's camp and activity spaces, including "Marguerite's Discovery Centre"</li>
+                <li>Warren Milas Accessible Playground</li>
+                <li>Salt-water pool (by Bridgeway Foundation, The Ronald McDonald House Charities Canada and D.H. Falle Family Foundation)</li>
+                <li>Rotary Club of Guelph Children's Nature Project, including teaching ponds, nature pavilion, accessible boardwalks, Mawgan's butterfly gardens, raised vegetable garden beds</li>
+                <li>Therapy & Memorial Forest</li>
+                <li>Low ropes course</li>
+                <li>Ann Caine Farmhouse</li>
+                <li>Raised garden beds</li>
+                <li>Archery range (seasonal)</li>
+                <li>Riding/hiking trails</li>
+            </ul>
+        </div>
+
+        <div class="gallery-container">
+            <div id="featured-image">
+                <img src="graphics/Facilities_nature-1.jpg" alt="Featured facility image" id="main-image">
+            </div>
+            
+            <div class="thumbnail-gallery">
+                <div class="gallery-scroll">
+                    <img src="graphics/Facilities_nature-1.jpg" alt="Facility thumbnail 1" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/CONTACTUS-1.jpg" alt="The arena" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/Sunrise-Forest-Entrance.png" alt="Therapy Forest" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/IMG_6985-1024x812.jpg" alt="Tack Room" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/IMG_2912-1024x683.jpg" alt="Grounds" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/Facilities_nature-1.jpg" alt="Natural Areas" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/Facilities_farmhouse-1.jpg" alt="Farm House" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/Facilities_farmhouse-1.jpg" alt="Trails" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/facilities_playground-1.jpg" alt="Playground" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/facilities_ropes-1.jpg" alt="Ropes" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/facilities_quietroom-1.jpg" alt="Quiet Room" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/Facilities_trails-1.jpg" alt="Trails" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    <img src="graphics/full-moon.jpg" alt="Arena (evening view)" class="gallery-thumb" onclick="changeFeaturedImage(this.src)">
+                    
+                    
+                    
+                    <!-- Add more thumbnails as needed -->
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+         // Generate breadcrumb trail
+         function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test');
+            let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            let currentPath = '/sunrise_test';
+
+            // Mapping of URLs to breadcrumb names and their hierarchy
+            const breadcrumbMapping = {
+                'index.html': { name: 'Home', parent: '' },
+                'about.html': { name: 'About Us', parent: 'index.html' },
+                'history.html': { name: 'History', parent: 'about.html' },
+                'governance.html': { name: 'Governance and Accountability', parent: 'about.html' },
+                'staff.html': { name: 'Sunrise Staff', parent: 'about.html' },
+                'facilities.html': { name: 'Our Facilities', parent: 'about.html' },
+                'horses.html': { name: 'Our Horses', parent: 'about.html' },
+                'programs.html': { name: 'Programs', parent: 'index.html' },
+                'therapyprograms.html': { name: 'Therapy Programs', parent: 'programs.html' },
+                'campsunrise.html': { name: 'Camp Sunrise', parent: 'programs.html' },
+                'lifeskills.html': { name: 'Lifeskills Day Program', parent: 'programs.html' },
+                'littlebreeches.html': { name: 'Little Breeches', parent: 'programs.html' },
+                'studentinstructors.html': { name: 'Student Instructors', parent: 'programs.html' },
+                'EAL.html': { name: 'Equine Assisted Learning', parent: 'programs.html' },
+                'volunteer.html': { name: 'Volunteer', parent: 'index.html' },
+                'support.html': { name: 'Support Us', parent: 'index.html' },
+                'supportopportunities.html': { name: 'Support Opportunities', parent: 'support.html' },
+                'therapyforest.html': { name: 'Sunrise Therapy Forest', parent: 'support.html' },
+                'dropitoff.html': { name: 'Drop it Off for Sunrise', parent: 'support.html' },
+                'friendsofsunrise.html': { name: 'Friends of Sunrise', parent: 'support.html' },
+                'trailblazers.html': { name: 'Monthly Mini Trailblazers', parent: 'support.html' },
+                'whatshappening.html': { name: "What's Happening", parent: 'index.html' },
+                'celebratesunrise.html': { name: 'Celebrate Sunrise', parent: 'whatshappening.html' },
+                'newsletter.html': { name: 'Newsletter', parent: 'whatshappening.html' },
+                'upcomingevents.html': { name: 'Other Upcoming Events', parent: 'whatshappening.html' },
+                'contact.html': { name: 'Contact Us', parent: 'index.html' }
+            };
+
+            if (path.length === 0 || (path.length === 1 && (path[0] === 'index.html' || path[0] === ''))) {
+                // Only display "Home" without the carat and additional "Home"
+                breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            } else {
+                let parent = 'index.html';
+                path.forEach((part, index) => {
+                    currentPath += '/' + part;
+                    const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
+                    if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
+                        const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
+                        if (parentInfo) {
+                            breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
+                        }
+                    }
+                    breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
+                    parent = part;
+                });
+            }
+
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+
+        // Call the function to load the selected photo into the main image area from the gallery.
+        function changeFeaturedImage(src) {
+            document.getElementById('main-image').src = src;
+        }
+
+
+    </script>
+</body>
+</html>

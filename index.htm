@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    <div id="header-placeholder"></div>
+  
+    <main class="bottom-padding">
+    <center>
+        <img src="graphics/eventAnnouncement.jpeg" alt="Celebrate Sunrise 2025" width="100%" height="auto">
+        <p class="text-very-large">Sunrise Therapeutic Riding & Learning Centre</p>
+        <p class="text-large">Puslinch, Ontario, Canada</p>
+        <img src="graphics/sunriselogo-250x250.png" alt="Sunrise Logo" width="25%" height="auto">
+        <p class="text-medium">To develop the full potential of children and adults with special needs through therapy, education, horse riding, recreation, and life skills programs, farm-related and social activities, and to further develop and expand Sunrise’s programming to support a Residence/Respite Village Community.</p>
+        <div class="flex-container">
+            <div class="left-element">
+                <img src="graphics/cantra-1.png" alt="Left Image" width="100" height="100">
+            </div>
+            <div class="center-element">
+                <p class="text-medium-small">  <b>Accredited Member of:</b><br><br>
+                    Canadian Therapeutic Riding Association (CanTRA)<br>
+                    Ontario Camps Association (OCA)</p>
+            </div>
+            <div class="right-element">
+                <img src="graphics/oca.png" alt="Right Image" width="100" height="100">
+            </div>
+        </div>
+    </center>
+    <div class="transparent-box">
+        <p>We acknowledge with gratitude this traditional territory inhabited by the Attawandaron people before Europeans settled here. We acknowledge other First Nations neighbours including the Haudenosaunee, the Anishnaabe and The Métis nation. We seek a new relationship with the Original Peoples of this land based on honour and deep respect.</p>
+    </div>
+    
+    <div class="thumbnail-container">
+        <div class="thumbnail-row">
+            <div class="thumbnail-wrapper">
+                <a href="about.html">
+                    <img src="graphics/ABOUTUS.jpg" alt="Thumbnail 1" class="thumbnail">
+                    <button class="thumbnail-button">About Us</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="programs.html">
+                    <img src="graphics/PROGRAMS-1.jpg" alt="Thumbnail 2" class="thumbnail">
+                    <button class="thumbnail-button">Programs</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="getinvolved.html">
+                    <img src="graphics/GETINVOLVED.jpg" alt="Thumbnail 3" class="thumbnail">
+                    <button class="thumbnail-button">Get Involved</button>
+                </a>
+            </div>
+        </div>
+        <div class="thumbnail-row small-thumbnails">
+            <div class="thumbnail-wrapper">
+                <a href="support.html">
+                    <img src="graphics/SUPPORTUS.jpg" alt="Thumbnail 4" class="thumbnail">
+                    <button class="thumbnail-button">Support Us</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="whatshappening.html">
+                    <img src="graphics/WHATSHAPPENING.jpg" alt="Thumbnail 5" class="thumbnail">
+                    <button class="thumbnail-button">What's Happening</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="contact.html">
+                    <img src="graphics/CONTACTUS-1.jpg" alt="Thumbnail 6" class="thumbnail">
+                    <button class="thumbnail-button">Contact Us</button>
+                </a>
+            </div>
+            <div class="thumbnail-wrapper">
+                <a href="gallery.html">
+                    <img src="graphics/Lagallo-fall-2-200x200.jpg" alt="Thumbnail 7" class="thumbnail">
+                    <button class="thumbnail-button">Sunrise Horses</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content goes here -->
+    </main>
+
+    <!-- Include the footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    
+        // Generate breadcrumb trail
+        function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test');
+            let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            let currentPath = '/sunrise_test';
+
+            // Mapping of URLs to breadcrumb names and their hierarchy
+            const breadcrumbMapping = {
+                'index.html': { name: 'Home', parent: '' },
+                'about.html': { name: 'About Us', parent: 'index.html' },
+                'history.html': { name: 'History', parent: 'about.html' },
+                'governance.html': { name: 'Governance and Accountability', parent: 'about.html' },
+                'staff.html': { name: 'Sunrise Staff', parent: 'about.html' },
+                'facilities.html': { name: 'Our Facilities', parent: 'about.html' },
+                'horses.html': { name: 'Our Horses', parent: 'about.html' },
+                'programs.html': { name: 'Programs', parent: 'index.html' },
+                'therapyprograms.html': { name: 'Therapy Programs', parent: 'programs.html' },
+                'campsunrise.html': { name: 'Camp Sunrise', parent: 'programs.html' },
+                'lifeskills.html': { name: 'Lifeskills Day Program', parent: 'programs.html' },
+                'littlebreeches.html': { name: 'Little Breeches', parent: 'programs.html' },
+                'studentinstructors.html': { name: 'Student Instructors', parent: 'programs.html' },
+                'EAL.html': { name: 'Equine Assisted Learning', parent: 'programs.html' },
+                'volunteer.html': { name: 'Volunteer', parent: 'index.html' },
+                'support.html': { name: 'Support Us', parent: 'index.html' },
+                'supportopportunities.html': { name: 'Support Opportunities', parent: 'support.html' },
+                'therapyforest.html': { name: 'Sunrise Therapy Forest', parent: 'support.html' },
+                'dropitoff.html': { name: 'Drop it Off for Sunrise', parent: 'support.html' },
+                'friendsofsunrise.html': { name: 'Friends of Sunrise', parent: 'support.html' },
+                'trailblazers.html': { name: 'Monthly Mini Trailblazers', parent: 'support.html' },
+                'whatshappening.html': { name: "What's Happening", parent: 'index.html' },
+                'celebratesunrise.html': { name: 'Celebrate Sunrise', parent: 'whatshappening.html' },
+                'newsletter.html': { name: 'Newsletter', parent: 'whatshappening.html' },
+                'upcomingevents.html': { name: 'Other Upcoming Events', parent: 'whatshappening.html' },
+                'contact.html': { name: 'Contact Us', parent: 'index.html' }
+            };
+
+            if (path.length === 0 || (path.length === 1 && (path[0] === 'index.html' || path[0] === ''))) {
+                // Only display "Home" without the carat and additional "Home"
+                breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            } else {
+                let parent = 'index.html';
+                path.forEach((part, index) => {
+                    currentPath += '/' + part;
+                    const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
+                    if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
+                        const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
+                        if (parentInfo) {
+                            breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
+                        }
+                    }
+                    breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
+                    parent = part;
+                });
+            }
+
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+ 
+</script>
+
+
+</body>
+</html>

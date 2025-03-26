@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the header -->
+    
+    <header><div id="header-placeholder"></div></header>
+
+    <main class="bottom-padding">
+
+        <div style="width: 66%; margin: 2rem auto;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    src="https://www.youtube.com/embed/7hWDXvV1r5s" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    title="Volunteer at Sunrise">
+                </iframe>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <div style="flex: 2;">
+                <p class="text-very-large">Can You Help?</p>
+    
+                <p class="text-medium-small">Are you interested in making a difference in your community? Do you enjoy working with children and animals? Can you share even one hour per week of your time?</p>
+    
+                <p class="text-large">Volunteer Leaders and Sidewalkers assist in therapy lessons.</p>
+    
+                <p class="text-medium-small">More than 100 volunteers are needed each week to share their time with a child or adult with special needs. Volunteer Leaders are responsible for leading the horse following direction from the lesson instructor. Sidewalkers provide physical support and encouragement to the rider.</p>
+    
+                <p class="text-medium-small">Sunrise's goal is to have volunteers work with the same rider and horse each week – this is the Sunrise Therapy Team!</p>
+    
+                <p class="text-large">Volunteer Requirements</p>
+                <ul class="text-medium-small bulleted-list">
+                    <li>Be at least 14 years old</li>
+                    <li>Attend an Orientation</li>
+                    <li>Attend a Volunteer Training Clinic (for Lesson Volunteers only)</li>
+                    <li>Provide two references</li>
+                    <li>Submit a Police Record Check, Vulnerable Sector Check (only those 18 years of age and over)</li>
+                </ul>
+    
+                <p class="text-medium-small">Volunteer Orientations are provided each week by appointment during lesson times where visitors can see volunteers "in action" in the Sunrise riding arena. During an Orientation visit, volunteers tour the Sunrise facility, view a therapeutic riding lesson, and discuss their participation in the program.</p>
+    
+                <p class="text-medium-small">Volunteer Training Clinics are a two-hour hands-on session in the Sunrise barn and arena to prepare volunteers to assist in therapy lessons. All Lesson Volunteers must attend one Volunteer Training Clinic.</p>
+    
+                <p class="text-medium-small">Please contact Fiona Ryder, Volunteer Coordinator/Instructor, to make an Orientation appointment and for the dates of upcoming volunteer training opportunities:</p>
+    
+                <p class="text-medium-small">
+                    Phone: <a href="tel:519-837-0558">519-837-0558, ext. 35</a><br>
+                    Email: <a href="mailto:fiona@sunrise-therapeutic.ca">fiona@sunrise-therapeutic.ca</a><br>
+                    <a href="uploads/Volunteer-Application-2017.pdf">Download a Volunteer Application (PDF)</a>
+                </p>
+    
+                <p class="text-large">Other Volunteer Opportunities</p>
+                <p class="text-medium-small">Other volunteer opportunities are available on a more irregular basis as assistance is required. This activity could include special events, fundraising, gardening, painting, barn chores, property and building maintenance, housekeeping, mailings & other office functions.</p>
+    
+                <p class="text-large">Placement Students</p>
+                <p class="text-medium-small">Sunrise encourages both secondary school, college and university students to consider Sunrise for their Co-op or Practicum placements. Acceptance into the program is based on an interview and space availability. Sunrise welcomes the energy, fresh perspective and knowledge of best practices that students bring to our program!</p>
+            </div>
+    
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                <img src="graphics/volunteer-1.jpg" alt="Volunteers at Sunrise" style="width: 100%; height: auto;">
+                <img src="graphics/volunteer-2.jpg" alt="Volunteers at Sunrise" style="width: 100%; height: auto;">
+                <img src="graphics/volunteer-3.jpg" alt="Volunteers at Sunrise" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </main>
+
+    <!-- Include the footer -->
+    
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the header content from header.html
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Call the function to generate the breadcrumb after the header is loaded
+                generateBreadcrumb();
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load the footer content from footer.html
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+       // Generate breadcrumb trail
+       function generateBreadcrumb() {
+            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
+            const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test');
+            let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            let currentPath = '/sunrise_test';
+
+            // Mapping of URLs to breadcrumb names and their hierarchy
+            const breadcrumbMapping = {
+                'index.html': { name: 'Home', parent: '' },
+                'about.html': { name: 'About Us', parent: 'index.html' },
+                'history.html': { name: 'History', parent: 'about.html' },
+                'governance.html': { name: 'Governance and Accountability', parent: 'about.html' },
+                'staff.html': { name: 'Sunrise Staff', parent: 'about.html' },
+                'facilities.html': { name: 'Our Facilities', parent: 'about.html' },
+                'horses.html': { name: 'Our Horses', parent: 'about.html' },
+                'programs.html': { name: 'Programs', parent: 'index.html' },
+                'therapyprograms.html': { name: 'Therapy Programs', parent: 'programs.html' },
+                'campsunrise.html': { name: 'Camp Sunrise', parent: 'programs.html' },
+                'lifeskills.html': { name: 'Lifeskills Day Program', parent: 'programs.html' },
+                'littlebreeches.html': { name: 'Little Breeches', parent: 'programs.html' },
+                'studentinstructors.html': { name: 'Student Instructors', parent: 'programs.html' },
+                'EAL.html': { name: 'Equine Assisted Learning', parent: 'programs.html' },
+                'volunteer.html': { name: 'Volunteer', parent: 'index.html' },
+                'support.html': { name: 'Support Us', parent: 'index.html' },
+                'supportopportunities.html': { name: 'Support Opportunities', parent: 'support.html' },
+                'therapyforest.html': { name: 'Sunrise Therapy Forest', parent: 'support.html' },
+                'dropitoff.html': { name: 'Drop it Off for Sunrise', parent: 'support.html' },
+                'friendsofsunrise.html': { name: 'Friends of Sunrise', parent: 'support.html' },
+                'trailblazers.html': { name: 'Monthly Mini Trailblazers', parent: 'support.html' },
+                'whatshappening.html': { name: "What's Happening", parent: 'index.html' },
+                'celebratesunrise.html': { name: 'Celebrate Sunrise', parent: 'whatshappening.html' },
+                'newsletter.html': { name: 'Newsletter', parent: 'whatshappening.html' },
+                'upcomingevents.html': { name: 'Other Upcoming Events', parent: 'whatshappening.html' },
+                'contact.html': { name: 'Contact Us', parent: 'index.html' }
+            };
+
+            if (path.length === 0 || (path.length === 1 && (path[0] === 'index.html' || path[0] === ''))) {
+                // Only display "Home" without the carat and additional "Home"
+                breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
+            } else {
+                let parent = 'index.html';
+                path.forEach((part, index) => {
+                    currentPath += '/' + part;
+                    const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
+                    if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
+                        const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
+                        if (parentInfo) {
+                            breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
+                        }
+                    }
+                    breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
+                    parent = part;
+                });
+            }
+
+            breadcrumbHtml += '</nav>';
+            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+        }
+
+        // Call the function to generate the breadcrumb after the header is loaded
+        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+
+    </script>
+</body>
+</html>
