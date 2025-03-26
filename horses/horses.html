@@ -129,7 +129,7 @@
             })
             .catch(error => console.error('Error loading footer:', error));
 
-    // Generate breadcrumb trail
+ // Generate breadcrumb trail
 function generateBreadcrumb() {
     const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
     const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test' && part !== 'sunrise');
