@@ -131,9 +131,9 @@
        // Generate breadcrumb trail
 function generateBreadcrumb() {
     const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test' && part !== 'sunrise');
+    const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise' && part !== 'sunrise');
     let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
-    let currentPath = '/sunrise_test';
+    let currentPath = '/sunrise';
 
     // Mapping of URLs to breadcrumb names and their hierarchy
     const breadcrumbMapping = {
@@ -176,7 +176,7 @@ function generateBreadcrumb() {
                 if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
                     const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
                     if (parentInfo) {
-                        breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
+                        breadcrumbHtml += ` > <a href="/sunrise/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
                     }
                 }
                 breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
