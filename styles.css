@@ -3,11 +3,13 @@ body {
     font-family: 'Montserrat', Arial, sans-serif;
     margin: 5px;
     padding: 0;
+    background-color: #fff;
 }
 
 /* Typography */
 .text-very-large {
     font-size: 2.5rem;
+    padding: 0 15px;
 }
 
 .text-large {
@@ -16,6 +18,7 @@ body {
 
 .text-medium {
     font-size: 1.5rem;
+    padding: 0 15px;
 }
 
 .text-medium-small {
@@ -130,14 +133,16 @@ nav ul {
 nav ul li {
     position: relative;
     margin-right: 0.3%;
+    padding: 8px 0;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 0.3rem 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
     font-size: 0.9rem;
     white-space: nowrap;
+    display: block;
 }
 
 nav ul li a:hover {
@@ -161,6 +166,10 @@ nav ul li .submenu {
 
 nav ul li:hover .submenu {
     display: block;
+}
+
+nav ul li .submenu li {
+    padding: 10px 0;
 }
 
 /* Breadcrumb */
@@ -232,23 +241,6 @@ main {
     border-radius: 8px;
 }
 
-.thumbnail-button {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #1a69e0;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.thumbnail-button:hover {
-    background-color: #1552b3;
-}
-
 /* Horse grid */
 .horse-grid {
     display: grid;
@@ -290,17 +282,41 @@ main {
 }
 
 /* Footer */
+.footer-top {
+    background-color: #303030;
+    padding: 20px 0;
+    color: white;
+}
+
+.footer-bottom {
+    background-color: #000;
+    padding: 20px 0;
+    color: #cccccca7;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
 .footer-content {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #303030;
 }
 
 .footer-column {
     flex: 1;
     margin: 0 10px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.542);
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    font-size: 0.8rem;
 }
 
 /* Mobile Menu Toggle (hidden by default) */
@@ -313,6 +329,7 @@ main {
     /* Typography */
     .text-very-large {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
+        padding: 0;
     }
     
     .text-large {
@@ -321,6 +338,17 @@ main {
     
     .text-medium {
         font-size: clamp(1rem, 3vw, 1.5rem);
+        padding: 0;
+    }
+
+    /* Layout */
+    main {
+        margin: 0 15px;
+        padding: 20px 0;
+    }
+
+    .bottom-padding {
+        padding: 1rem 0;
     }
 
     /* Header */
@@ -335,6 +363,7 @@ main {
 
     .contact-info {
         margin-right: 15px;
+        text-align: center;
     }
 
     /* Navigation */
@@ -386,10 +415,10 @@ main {
         width: 100%;
         margin: 0;
         text-align: left;
+        padding: 0;
     }
 
     nav ul li a {
-        display: block;
         padding: 10px 15px;
     }
 
@@ -399,7 +428,7 @@ main {
         box-shadow: none !important;
     }
 
-    /* Layout */
+    /* Content */
     .flex-container {
         flex-direction: column;
         gap: 20px;
@@ -418,12 +447,15 @@ main {
 
     .horse-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
     }
 
     /* Footer */
     .footer-content {
         flex-direction: column;
         text-align: center;
+        margin: 0 15px;
     }
 
     .footer-column {
