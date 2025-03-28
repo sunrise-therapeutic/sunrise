@@ -133,7 +133,7 @@ nav ul {
 nav ul li {
     position: relative;
     margin-right: 0.3%;
-    padding: 8px 0;
+    padding: 4px 0;
 }
 
 nav ul li a {
@@ -169,7 +169,7 @@ nav ul li:hover .submenu {
 }
 
 nav ul li .submenu li {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 /* Breadcrumb */
@@ -354,6 +354,8 @@ main {
     /* Header */
     .header-content {
         margin: 0 15px;
+        position: relative;
+        padding-bottom: 60px;
     }
 
     .social-media {
@@ -371,11 +373,12 @@ main {
         display: block;
         position: absolute;
         right: 15px;
-        top: 15px;
+        bottom: 15px;
         background: none;
         border: none;
         padding: 10px;
         cursor: pointer;
+        z-index: 1000;
     }
 
     .hamburger {
@@ -401,6 +404,11 @@ main {
     .nav-menu {
         display: none;
         width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #1a69e0;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -409,6 +417,7 @@ main {
 
     nav ul {
         flex-direction: column;
+        padding: 10px 0;
     }
 
     nav ul li {
@@ -420,12 +429,23 @@ main {
 
     nav ul li a {
         padding: 10px 15px;
+        display: block;
     }
 
     .submenu {
+        display: none;
         position: static !important;
         width: 100% !important;
         box-shadow: none !important;
+        padding-left: 20px !important;
+    }
+
+    nav ul li:hover .submenu {
+        display: block;
+    }
+
+    .submenu li a {
+        padding-left: 30px !important;
     }
 
     /* Content */
