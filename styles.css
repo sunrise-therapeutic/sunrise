@@ -1,3 +1,75 @@
+/* Mobile Navigation - Add this near top of file */
+@media screen and (max-width: 768px) {
+    /* Header adjustments */
+    .header-content {
+        margin: 0 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-title {
+        margin-top: 0;
+    }
+
+    .title-breadcrumb-wrapper {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    /* Navigation adjustments */
+    .menu {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    nav ul li .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        display: none;
+        background-color: #1552b3;
+    }
+
+    nav ul li:hover .submenu {
+        display: block;
+    }
+
+    /* Contact and social adjustments */
+    .social-media {
+        text-indent: 0;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin-right: 15px;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 5;
@@ -744,18 +816,6 @@ main {
     margin: 2rem 0;
 }
 
-/* Styles for smaller screens (tablets, mobile devices) */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 2% 0;
-    }
-
-    nav ul {
-        text-align: left;
-        padding-left: 10%;
-    }
-}
 
 /* styles for the camp sunrise rotating quotes */
 .quote-section {
