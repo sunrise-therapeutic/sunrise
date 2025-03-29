@@ -5,9 +5,10 @@
         margin: 0 15px;
         flex-direction: column;
         align-items: center;
-        padding: 30px 0;  /* Increased padding */
+        padding: 20px 0;
         position: relative;
-        gap: 25px;       /* Added gap between elements */
+        gap: 30px;
+        background-color: #1a69e0;
     }
 
     .donate-button {
@@ -19,7 +20,7 @@
     
     
     .logo-title {
-        margin: 30px 0 0 0;
+        margin: 60px 0 0 0;  /* Increased top margin */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -36,7 +37,9 @@
 
     .logo {
         width: 120px;
-        margin: 20px 0;  /* Add vertical margin */
+        margin: 0;          /* Removed vertical margin */
+        position: relative;
+        z-index: 2;
     }
 
     .org-name {
@@ -86,8 +89,10 @@
         text-indent: 0;
         text-align: center;
         padding: 20px 0;
+        width: 100%;
+        background-color: #1a69e0;
         position: relative;
-        z-index: 2;  /* Ensure it's above other elements */
+        z-index: 3;
     }
 
     .contact-info {
@@ -98,8 +103,9 @@
         margin: 0;
         padding: 15px;
         width: 100%;
+        background-color: #1a69e0;
         position: relative;
-        z-index: 2;  /* Ensure it's above other elements */
+        z-index: 3;
     }
 }
 
