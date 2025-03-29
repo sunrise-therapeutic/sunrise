@@ -13,14 +13,10 @@
     }
 
     .donate-button {
-        margin: 15px auto;
-        display: block;
+        margin: 15px;              /* Changed from margin: 15px auto */
+        display: inline-block;      /* Changed from block */
         position: relative;
-        z-index: 5;  /* Higher z-index */
-        background-color: #ffcc00;
-        color: black;
-        padding: 10px 20px;
-        border-radius: 5px;
+        z-index: 5;
     }
     
     
@@ -92,25 +88,25 @@
     /* Contact and social adjustments */
     .social-media {
         text-indent: 0;
-        text-align: center;
-        padding: 20px 0;
+        text-align: left;          /* Changed from center */
+        padding: 20px 15px;        /* Added left padding */
         width: 100%;
         background-color: #1a69e0;
         position: relative;
-        z-index: 5;  /* Higher z-index */
+        z-index: 5;
     }
 
     .contact-info {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;   /* Changed from center */
         gap: 15px;
         margin: 0;
         padding: 15px;
         width: 100%;
         background-color: #1a69e0;
         position: relative;
-        z-index: 5;  /* Higher z-index */
+        z-index: 5;
     }
 }
 
