@@ -89,7 +89,10 @@
     .social-media {
         text-indent: 0;
         text-align: left;
-        padding: 20px 10px;    /* Reduced left padding */
+        padding-top: 20px;
+        padding-right: 10px;
+        padding-bottom: 20px;
+        padding-left: 0px;
         width: 100%;
         background-color: #1a69e0;
         position: relative;
