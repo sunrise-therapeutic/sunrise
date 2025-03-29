@@ -42,7 +42,7 @@
 
     .logo {
         width: 120px;
-        margin: 0;          /* Removed vertical margin */
+        margin: 20px;          /* Removed vertical margin */
         position: relative;
         z-index: 2;
     }
