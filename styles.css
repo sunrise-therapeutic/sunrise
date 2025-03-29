@@ -2,7 +2,7 @@
 @media screen and (max-width: 768px) {
     /* Header adjustments */
     .header-content {
-        margin: 0 15px;
+        margin: 0 10px;        /* Reduced side margins */
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
@@ -13,8 +13,8 @@
     }
 
     .donate-button {
-        margin: 15px;              /* Changed from margin: 15px auto */
-        display: inline-block;      /* Changed from block */
+        margin: 15px 10px;     /* Reduced left margin */
+        display: inline-block;
         position: relative;
         z-index: 5;
     }
@@ -88,8 +88,8 @@
     /* Contact and social adjustments */
     .social-media {
         text-indent: 0;
-        text-align: left;          /* Changed from center */
-        padding: 20px 15px;        /* Added left padding */
+        text-align: left;
+        padding: 20px 10px;    /* Reduced left padding */
         width: 100%;
         background-color: #1a69e0;
         position: relative;
@@ -99,10 +99,10 @@
     .contact-info {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;   /* Changed from center */
+        align-items: flex-start;
         gap: 15px;
         margin: 0;
-        padding: 15px;
+        padding: 15px 10px;    /* Reduced left padding */
         width: 100%;
         background-color: #1a69e0;
         position: relative;
