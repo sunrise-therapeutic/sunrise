@@ -49,7 +49,7 @@ body {
     max-width: 160px;     /* Hard limit on maximum size */
     transition: all 0.3s ease;
     padding-left: 3rem;   /* Match social media left margin */
-    padding-top: .5rem; 
+    padding-top: 0rem; 
 }
 
 /* Add specific style for the image inside logo div */
@@ -69,9 +69,9 @@ header {
 .header-content {
     display: flex;
     align-items: center;
-    margin-left: 5rem;     /* Changed from 1in to 5rem (~1in) */
-    margin-right: 5rem;    /* Changed from 1in to 5rem (~1in) */
-    padding-top: 1.25rem;  /* Changed from 20px to 1.25rem */
+    margin-left: 4rem;     /* Changed from 1in to 5rem (~1in) */
+    margin-right: 4rem;    /* Changed from 1in to 5rem (~1in) */
+    padding-top: 1rem;  /* Changed from 20px to 1.25rem */
     padding-bottom: 0.625rem; /* Changed from 10px to 0.625rem */
 }
 
