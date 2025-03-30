@@ -8,9 +8,8 @@ body {
     background-color: #1a69e0;
     display: flex;
     gap: .75rem;               /* Equal spacing between icons */
-    margin-left: 2rem;       /* Left margin */
+    padding: 10px 0 10px 2rem; /* Combined padding and left margin into padding */
     align-items: center;
-    padding: 10px 0;
 }
 
 
