@@ -7,9 +7,10 @@ body {
 .social-media {
     background-color: #1a69e0;
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;               /* Equal spacing between icons */
+    margin-left: 2rem;       /* Left margin */
     align-items: center;
-    padding: 10px 0
+    padding: 10px 0;
 }
 
 
