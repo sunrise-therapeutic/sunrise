@@ -46,7 +46,7 @@ body {
 .logo {
     width: 4rem;          /* Reduced from 5rem */
     height: auto;         /* Maintain aspect ratio */
-    max-width: 100px;     /* Reduced from 160px */
+    max-width: 50px;     /* Reduced from 160px */
     transition: width 0.3s ease;
     margin-right: 0px; /* Add space between the logo and the text */
 }
