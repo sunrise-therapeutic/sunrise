@@ -8,7 +8,7 @@ body {
     background-color: #1a69e0;
     display: flex;
     gap: .75rem;               /* Equal spacing between icons */
-    padding: 0.625rem 0 0rem 2rem; /* Combined padding and left margin into padding */
+    padding: 0.625rem 0 0rem 3rem; /* Combined padding and left margin into padding */
     align-items: center;
 }
 
@@ -17,7 +17,7 @@ body {
     background-color: #1a69e0;
     display: flex;
     gap: .75rem;               /* Match social-media gap */
-    padding: 0 2rem 0.625rem 0;  /* Mirror social-media padding but on right */
+    padding: 0 3rem 0.625rem 0;  /* Mirror social-media padding but on right */
     align-items: center;
     color: white;
     justify-content: flex-end;  /* Push items to the right */
@@ -42,6 +42,15 @@ body {
 .donate-button:hover {
     background-color: #ff9900;
 }
+
+.logo {
+    width: 5rem;          /* Changed from fixed width to relative unit */
+    height: auto;          /* Maintain aspect ratio */
+    max-width: 160px;      /* Maximum size cap */
+    transition: width 0.3s ease; /* Smooth size changes */
+    margin-right: 0px; /* Add space between the logo and the text */
+}
+
 
 
 header {
@@ -97,11 +106,7 @@ header {
     text-decoration: underline;
 }
 
-.logo {
-    width: 160px; /* Set the desired width */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 0px; /* Add space between the logo and the text */
-}
+
 
 .page-title {
     color: white;
