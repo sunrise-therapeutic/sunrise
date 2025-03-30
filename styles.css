@@ -44,10 +44,10 @@ body {
 }
 
 .logo {
-    width: 5rem;          /* Changed from fixed width to relative unit */
-    height: auto;          /* Maintain aspect ratio */
-    max-width: 160px;      /* Maximum size cap */
-    transition: width 0.3s ease; /* Smooth size changes */
+    width: 4rem;          /* Reduced from 5rem */
+    height: auto;         /* Maintain aspect ratio */
+    max-width: 100px;     /* Reduced from 160px */
+    transition: width 0.3s ease;
     margin-right: 0px; /* Add space between the logo and the text */
 }
 
