@@ -14,13 +14,13 @@ body {
 
 
 .contact-info {
-        background-color: #1a69e0;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        padding: 0.625rem 2rem; 
-        color: white;
-        margin-left: auto; /* Align to the right */
+    background-color: #1a69e0;
+    display: flex;
+    gap: .75rem;               /* Match social-media gap */
+    padding: 0.625rem 2rem 0.625rem 0;  /* Mirror social-media padding but on right */
+    align-items: center;
+    color: white;
+    justify-content: flex-end;  /* Push items to the right */
 }
 
 .contact-info a {
