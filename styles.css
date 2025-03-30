@@ -44,7 +44,7 @@ body {
 }
 
 .logo {
-    width: 20rem;          /* Base size */
+    width: 40rem;          /* Base size */
     height: auto;         /* Maintain aspect ratio */
     max-width: 160px;     /* Hard limit on maximum size */
     transition: all 0.3s ease;
