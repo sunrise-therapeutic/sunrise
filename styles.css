@@ -8,7 +8,7 @@ body {
     background-color: #1a69e0;
     display: flex;
     gap: .75rem;               /* Equal spacing between icons */
-    padding: 0.625rem 0 0.625rem 2rem; /* Combined padding and left margin into padding */
+    padding: 0.625rem 0 0rem 2rem; /* Combined padding and left margin into padding */
     align-items: center;
 }
 
@@ -17,7 +17,7 @@ body {
     background-color: #1a69e0;
     display: flex;
     gap: .75rem;               /* Match social-media gap */
-    padding: 0.625rem 2rem 0.625rem 0;  /* Mirror social-media padding but on right */
+    padding: 0 2rem 0.625rem 0;  /* Mirror social-media padding but on right */
     align-items: center;
     color: white;
     justify-content: flex-end;  /* Push items to the right */
