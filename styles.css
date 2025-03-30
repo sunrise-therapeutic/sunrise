@@ -4,14 +4,20 @@ body {
     padding: 0;
 }
 
-
+.top-bar {
+    background-color: #1a69e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
 
 .contact-info {
-    text-align: right;
-    color: white;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     margin-right: 1in;
-    margin-bottom: 0; /* Remove bottom margin */
-    padding-bottom: 0; /* Remove bottom padding */
+    color: white;
 }
 
 .contact-info a {
@@ -374,10 +380,9 @@ nav ul li .submenu li a:hover {
 }
 
 .social-media {
-    justify-content: left;
-    padding: 10px 0;
-    background-color: #1a69e0;
-    text-indent: 1in;
+    display: flex;
+    gap: 1rem;
+    margin-left: 1in;
 }
 
 
