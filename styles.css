@@ -44,13 +44,19 @@ body {
 }
 
 .logo {
-    width: 2rem;          /* Base size (~48px) */
+    width: 3rem;          /* Base size */
     height: auto;         /* Maintain aspect ratio */
-    max-width: 30px;     /* Slightly larger max-width */
+    max-width: 48px;     /* Hard limit on maximum size */
     transition: all 0.3s ease;
-    margin-right: 0;     /* Remove unit from zero */
 }
 
+/* Add specific style for the image inside logo div */
+.logo img {
+    width: 100%;         /* Fill container width */
+    height: auto;        /* Maintain aspect ratio */
+    display: block;      /* Remove any inline spacing */
+    max-width: inherit;  /* Respect parent's max-width */
+}
 
 
 header {
