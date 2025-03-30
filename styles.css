@@ -8,7 +8,7 @@ body {
     background-color: #1a69e0;
     display: flex;
     gap: .75rem;               /* Equal spacing between icons */
-    padding: 10px 0 10px 2rem; /* Combined padding and left margin into padding */
+    padding: 0.625rem 0 0.625rem 2rem; /* Combined padding and left margin into padding */
     align-items: center;
 }
 
@@ -18,8 +18,9 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
-    padding: 10px 2rem 10px 0; 
+    padding: 0.625rem 2rem 0.625rem 0; 
     color: white;
+    margin-left: auto; /* Align to the right */
 }
 
 .contact-info a {
