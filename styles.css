@@ -1,123 +1,3 @@
-/* Mobile Navigation - Add this near top of file */
-@media screen and (max-width: 768px) {
-    /* Header adjustments */
-    .header-content {
-        margin: 0 15px;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        position: relative;
-        gap: 30px;
-        background-color: #1a69e0;
-        z-index: 1;  /* Lower z-index */
-    }
-
-    .donate-button {
-        margin: 15px;              /* Changed from margin: 15px auto */
-        display: inline-block;      /* Changed from block */
-        position: relative;
-        z-index: 5;
-    }
-    
-    
-    .logo-title {
-        margin: 60px 0 0 0;  /* Increased top margin */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .title-breadcrumb-wrapper {
-        margin: 20px 0;  /* Increased margin */
-        padding: 0 15px;
-    }
-    }
-
-    .logo {
-        width: 120px;
-        margin: 20px;          /* Removed vertical margin */
-        position: relative;
-        z-index: 2;
-    }
-
-    .org-name {
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 25px 0;  /* Increased margin */
-        padding: 0 15px;
-    }
-
-
-    /* Navigation adjustments */
-    .menu {
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        width: 100%;
-        margin: 0;
-        text-align: left;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px 15px;
-    }
-
-    nav ul li .submenu {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        display: none;
-        background-color: #1552b3;
-    }
-
-    nav ul li:hover .submenu {
-        display: block;
-    }
-
-    /* Contact and social adjustments */
-    .social-media {
-        text-indent: 0;
-        text-align: left;          /* Changed from center */
-        padding: 20px 15px;        /* Added left padding */
-        width: 100%;
-        background-color: #1a69e0;
-        position: relative;
-        z-index: 5;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;   /* Changed from center */
-        gap: 15px;
-        margin: 0;
-        padding: 15px;
-        width: 100%;
-        background-color: #1a69e0;
-        position: relative;
-        z-index: 5;
-    }
-}
-
-
-
-
-
-
-
-
-
 body {
     font-family: Arial, sans-serif;
     margin: 5;
@@ -864,6 +744,18 @@ main {
     margin: 2rem 0;
 }
 
+/* Styles for smaller screens (tablets, mobile devices) */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 2% 0;
+    }
+
+    nav ul {
+        text-align: left;
+        padding-left: 10%;
+    }
+}
 
 /* styles for the camp sunrise rotating quotes */
 .quote-section {
