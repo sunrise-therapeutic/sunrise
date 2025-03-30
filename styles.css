@@ -4,6 +4,8 @@ body {
     padding: 0;
 }
 
+
+/* Header - Social Media */
 .social-media {
     background-color: #1a69e0;
     display: flex;
@@ -12,6 +14,24 @@ body {
     align-items: center;
 }
 
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+/* END Header - Social Media */
+
+
+/* Header - Contact Info  (Phone, email, and donation button) */
 
 .contact-info {
     background-color: #1a69e0;
@@ -43,6 +63,9 @@ body {
     background-color: #ff9900;
 }
 
+
+/* Logo styles */
+
 .logo {
     width: 40rem;          /* Base size */
     height: auto;         /* Maintain aspect ratio */
@@ -60,6 +83,7 @@ body {
     max-width: inherit;  /* Respect parent's max-width */
 }
 
+/* Header styles */
 
 header {
     background-color: #1a69e0;
@@ -85,6 +109,20 @@ header {
     font-variant: small-caps;
     letter-spacing: 1px;  /* Add spacing between letters for better readability */
 }
+/*End of header styles */
+
+
+/* Styles for the page title */
+.page-title {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/*END of styles for the page title */
+
+
+/* Styles for the breadcrumb */
 
 .title-breadcrumb-wrapper {
     display: flex;
@@ -114,14 +152,84 @@ header {
     text-decoration: underline;
 }
 
+/* End of styles for the breadcrumb */
 
 
-.page-title {
-    color: white;
-    font-size: 1.5rem;
+
+
+/* Styles for the navigation menu */
+
+/* menu styles */
+
+.menu {
+    margin-right: 0in;
+    padding-top: 0in;
+    margin-top: 80px;
+} 
+
+nav ul {
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Distribute space between menu items */
+    text-align: right;
 }
 
+nav ul li {
+    position: relative;
+    margin-right: 0.3%; /* Adjusted margin */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.5rem 0.5rem 0.5rem; /* Adjusted padding */
+    font-size: 0.9rem; /* Adjusted font size */
+    white-space: nowrap; /* Prevent line break */
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+    padding-bottom: 0.5rem;
+}
+
+
+nav ul li .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a69e0;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    z-index: 1000; /* Ensure submenu is above other content */
+    text-align: left; /* Ensure submenu items are aligned to the left */
+}
+
+nav ul li:hover .submenu {
+    display: block;
+}
+
+nav ul li .submenu li {
+    display: block;
+    margin: 0;
+    padding: 0.3rem 0; /* Added padding to increase vertical space */
+}
+
+nav ul li .submenu li a {
+    padding: 0.3rem 1rem;
+    white-space: nowrap;
+}
+
+nav ul li .submenu li a:hover {
+    background-color: #555;
+}
+
+
+/*End of styles for the navigation menu */
 
 /* text styles */
 
@@ -328,93 +436,8 @@ header {
     margin: 0;
 }
 
-/* menu styles */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between; /* Distribute space between menu items */
-    text-align: right;
-}
-
-nav ul li {
-    position: relative;
-    margin-right: 0.3%; /* Adjusted margin */
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.3rem 0.5rem 0.5rem 0.5rem; /* Adjusted padding */
-    font-size: 0.9rem; /* Adjusted font size */
-    white-space: nowrap; /* Prevent line break */
-}
-
-nav ul li a:hover {
-    background-color: #555;
-    border-radius: 5px;
-    padding-bottom: 0.5rem;
-}
 
 
-nav ul li .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #1a69e0;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    z-index: 1000; /* Ensure submenu is above other content */
-    text-align: left; /* Ensure submenu items are aligned to the left */
-}
-
-nav ul li:hover .submenu {
-    display: block;
-}
-
-nav ul li .submenu li {
-    display: block;
-    margin: 0;
-    padding: 0.5rem 0; /* Added padding to increase vertical space */
-}
-
-nav ul li .submenu li a {
-    padding: 0.5rem 1rem;
-    white-space: nowrap;
-}
-
-nav ul li .submenu li a:hover {
-    background-color: #555;
-}
-
-
-
-
-
-
-
-.menu {
-    margin-right: 0in;
-    padding-top: 0in;
-    margin-top: 80px;
-} 
-
-.social-media a {
-    margin: 0 10px;
-}
-
-.social-media img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s;
-}
-
-.social-media img:hover {
-    transform: scale(1.2);
-}
 
 /*Styles for body area of the page, between header and footer */
 
