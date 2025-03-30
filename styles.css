@@ -4,19 +4,20 @@ body {
     padding: 0;
 }
 
-.top-bar {
+.social-media {
     background-color: #1a69e0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 0
 }
+
 
 .contact-info {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-right: 1in;
+    margin-right: 2rem;  /* Changed from inches to rem */
     color: white;
 }
 
@@ -55,11 +56,6 @@ header {
     padding-bottom: 10px; /* Add bottom padding */
 }
 
-.logo-title {
-    display: flex;
-    align-items: center;
-    margin-top: -60px; /* Move the logo up */
-}
 
 .org-name {
     color: white;
@@ -379,11 +375,7 @@ nav ul li .submenu li a:hover {
     background-color: #555;
 }
 
-.social-media {
-    display: flex;
-    gap: 1rem;
-    margin-left: 1in;
-}
+
 
 
 
