@@ -38,7 +38,7 @@
 
     .logo {
         width: 120px;
-        margin: 40px;          /* Removed vertical margin */
+        margin: 20px;          /* Removed vertical margin */
         position: relative;
         z-index: 2;
     }
