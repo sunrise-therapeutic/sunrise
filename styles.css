@@ -44,9 +44,9 @@ body {
 }
 
 .logo {
-    width: 3rem;          /* Base size */
+    width: 5rem;          /* Base size */
     height: auto;         /* Maintain aspect ratio */
-    max-width: 48px;     /* Hard limit on maximum size */
+    max-width: 60px;     /* Hard limit on maximum size */
     transition: all 0.3s ease;
 }
 
