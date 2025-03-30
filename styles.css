@@ -14,10 +14,11 @@ body {
 
 
 .contact-info {
+    background-color: #1a69e0;
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-right: 2rem;  /* Changed from inches to rem */
+    padding: 10px 2rem 10px 0; 
     color: white;
 }
 
