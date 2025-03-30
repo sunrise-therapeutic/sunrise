@@ -44,11 +44,11 @@ body {
 }
 
 .logo {
-    width: 4rem;          /* Reduced from 5rem */
+    width: 3rem;          /* Base size (~48px) */
     height: auto;         /* Maintain aspect ratio */
-    max-width: 50px;     /* Reduced from 160px */
-    transition: width 0.3s ease;
-    margin-right: 0px; /* Add space between the logo and the text */
+    max-width: 60px;     /* Slightly larger max-width */
+    transition: all 0.3s ease;
+    margin-right: 0;     /* Remove unit from zero */
 }
 
 
