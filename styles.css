@@ -216,11 +216,11 @@ nav ul li:hover .submenu {
 nav ul li .submenu li {
     display: block;
     margin: 0;
-    padding: 0.2rem 0; /* Added padding to increase vertical space */
+    padding: 0.3rem 0; /* Added padding to increase vertical space */
 }
 
 nav ul li .submenu li a {
-    padding: 0.2rem 1rem;
+    padding: 0.3rem 1rem;
     white-space: nowrap;
 }
 
