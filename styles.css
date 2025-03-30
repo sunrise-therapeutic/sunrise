@@ -69,10 +69,10 @@ header {
 .header-content {
     display: flex;
     align-items: center;
-    margin-left: 1in;
-    margin-right: 1in;
-    padding-top: 20px; /* Add top padding */
-    padding-bottom: 10px; /* Add bottom padding */
+    margin-left: 5rem;     /* Changed from 1in to 5rem (~1in) */
+    margin-right: 5rem;    /* Changed from 1in to 5rem (~1in) */
+    padding-top: 1.25rem;  /* Changed from 20px to 1.25rem */
+    padding-bottom: 0.625rem; /* Changed from 10px to 0.625rem */
 }
 
 
