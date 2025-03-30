@@ -48,6 +48,8 @@ body {
     height: auto;         /* Maintain aspect ratio */
     max-width: 160px;     /* Hard limit on maximum size */
     transition: all 0.3s ease;
+    padding-left: 3rem;   /* Match social media left margin */
+    padding-top: 1rem; 
 }
 
 /* Add specific style for the image inside logo div */
