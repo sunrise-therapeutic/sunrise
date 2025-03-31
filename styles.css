@@ -158,12 +158,7 @@ header {
 
 
 /* Styles for the navigation menu */
-
-/* menu styles */
-
 .menu {
-    margin-right: 0in;
-    padding-top: 0in;
     margin-top: 80px;
 } 
 
@@ -172,62 +167,62 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between; /* Distribute space between menu items */
+    justify-content: space-between;
     text-align: right;
 }
 
 nav ul li {
     position: relative;
-    margin-right: 0.3%; /* Adjusted margin */
+    margin-right: 0.3%;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 0.3rem 0.5rem 0.5rem 0.5rem; /* Adjusted padding */
-    font-size: 0.9rem; /* Adjusted font size */
-    white-space: nowrap; /* Prevent line break */
-}
-
-nav ul li a:hover {
-    background-color: #555;
-    border-radius: 5px;
-    padding-bottom: 0.5rem;
-}
-
-
-nav ul li .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #1a69e0;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    z-index: 1000; /* Ensure submenu is above other content */
-    text-align: left; /* Ensure submenu items are aligned to the left */
-}
-
-nav ul li:hover .submenu {
-    display: block;
-}
-
-nav ul li .submenu li {
-    display: block;
-    margin: 0;
-    padding: 0.4rem 0; /* Added padding to increase vertical space */
-}
-
-nav ul li .submenu li a {
-    padding: 0.4rem 1rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
     white-space: nowrap;
 }
 
-nav ul li .submenu li a:hover {
-    background-color: #555;
+/* Single submenu style for all levels */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #1a69e0;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    padding: 0;
 }
 
+/* Handle nested submenus */
+.submenu .submenu {
+    left: 100%;
+    top: 0;
+}
+
+/* Show submenu on hover */
+nav ul li:hover > .submenu {
+    display: block;
+}
+
+/* Style all submenu items */
+.submenu li {
+    display: block;
+    margin: 0;
+}
+
+.submenu li a {
+    padding: 0.3rem 1rem;
+    display: block;
+    color: white;
+}
+
+/* Hover effects */
+nav ul li a:hover,
+.submenu li a:hover {
+    background-color: #555;
+}
 
 /*End of styles for the navigation menu */
 
