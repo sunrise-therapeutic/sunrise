@@ -193,6 +193,7 @@ nav ul li a {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1000;
     padding: 0;
+    text-align: left;  /* Force left alignment */
 }
 
 /* Handle nested submenus */
@@ -216,6 +217,8 @@ nav ul li:hover > .submenu {
     padding: 0.3rem 1rem;
     display: block;
     color: white;
+    text-align: left;  /* Ensure text is left-aligned */
+    justify-content: flex-start;  /* Align flex items to start */
 }
 
 /* Hover effects */
