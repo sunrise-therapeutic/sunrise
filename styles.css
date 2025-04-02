@@ -960,6 +960,7 @@ main {
 
 
 /* Mobile-first Header Styles */
+/* Mobile-first Header Styles */
 @media screen and (max-width: 768px) {
     /* Top bar adjustments */
     .social-media {
@@ -996,23 +997,36 @@ main {
     .title-breadcrumb-wrapper {
         margin: 0.5rem 0;
         text-align: center;
-        gap: 0.5rem;
+        width: 100%;
     }
 
     .org-name {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-align: center;
+        margin: 0.5rem 0;
     }
 
     /* Mobile navigation */
     .menu {
         width: 100%;
-        margin: 1rem 0 0 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #1a69e0;
+        height: 100vh;
+        display: none;
+        padding-top: 4rem;
+        z-index: 999;
+    }
+
+    .menu.active {
+        display: block;
     }
 
     nav ul {
         flex-direction: column;
         width: 100%;
+        padding: 1rem;
     }
 
     nav ul li {
@@ -1021,11 +1035,17 @@ main {
         text-align: center;
     }
 
+    nav ul li a {
+        padding: 0.8rem 1rem;
+        display: block;
+    }
+
     /* Submenu adjustments */
     .submenu {
         position: static;
         width: 100%;
         box-shadow: none;
+        display: none;
     }
 
     .submenu .submenu {
@@ -1034,87 +1054,77 @@ main {
         padding-left: 1rem;
     }
 
-    /* Show/hide submenu with JavaScript */
+    /* Menu toggle button */
     .menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
-
-    .nav-active {
-        display: block;
-    }
-}
-
-/* Mobile menu toggle styles */
-.menu-toggle {
-    position: fixed;
+        position: fixed;
         top: 1rem;
         right: 1rem;
         z-index: 1001;
-        padding: 0.5rem;
         background: transparent;
         border: none;
         cursor: pointer;
-        display: block;
-}
-
-.hamburger {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: white;
-    position: relative;
-    transition: all 0.3s;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 3px;
-    background: white;
-    transition: all 0.3s;
-}
-
-.hamburger::before {
-    top: -8px;
-}
-
-.hamburger::after {
-    bottom: -8px;
-}
-
-/* Active state */
-.menu-toggle.active .hamburger {
-    background: transparent;
-}
-
-.menu-toggle.active .hamburger::before {
-    transform: rotate(45deg);
-    top: 0;
-}
-
-.menu-toggle.active .hamburger::after {
-    transform: rotate(-45deg);
-    bottom: 0;
-}
-
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
+        padding: 0.5rem;
     }
 
-    .menu {
-        display: none;
+    /* Hamburger icon */
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        position: relative;
+        transition: all 0.3s ease;
     }
 
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        bottom: -8px;
+    }
+
+    /* Active hamburger state */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+
+    /* Show active menu */
     .menu.active {
         display: block;
+    }
+
+    /* Mobile layout adjustments */
+    main {
+        margin: 1rem;
+        padding-top: 1rem;
+    }
+
+    .two-column-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .right-column {
+        padding: 1rem 0;
     }
 }
