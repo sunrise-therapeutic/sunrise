@@ -1052,14 +1052,15 @@ main {
 
 /* Mobile menu toggle styles */
 .menu-toggle {
-    display: none;  /* Hidden by default */
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1001;
+        padding: 0.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: block;
 }
 
 .hamburger {
