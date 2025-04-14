@@ -211,6 +211,42 @@
 
 /* End of header styles */
 
+/* Mobile header styles */
+@media (max-width: 768px) {
+    /* Utility bar */
+    .utility-bar {
+        width: 100%;
+        padding: var(--spacing-xs);
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .contact-bar {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Main header */
+    .main-header {
+        padding: 0.5rem;
+    }
+
+    .brand {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title-wrap h1 {
+        font-size: 1rem;
+        padding: 0 2rem;
+        word-wrap: break-word;
+    }
+}
+
 
 /* Styles for the main content area */
 
