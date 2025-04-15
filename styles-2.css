@@ -259,6 +259,48 @@
         align-items: center;  /* Ensure logo centers */
         gap: var(--spacing-md);  /* Increase space between logo and title */
     }
+
+/* Page styles for mobile view */
+    .page-title {
+        font-size: 1.5rem; /* Adjusted for mobile */
+        margin: 0.5rem 0;
+    }
+
+    .page-title h1 {
+        font-size: 2rem; /* Adjusted for mobile */
+    }
+
+    .main-nav {
+        display: none;  /* Hidden by default on mobile */
+    }
+
+    .main-nav.active {
+        display: block;  /* Show when active */
+    }
+
+    .main-nav ul li {
+        display: block;
+        margin: 2% 0;
+    }
+
+    .main-nav ul {
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    .bottom-padding {
+        padding-top: 1rem;    /* Reduced from 2.5rem */
+        padding-bottom: 1rem; /* Reduced from 2rem */
+        padding-left: 0.5rem; /* Reduced from 1rem */
+        padding-right: 0.5rem;/* Reduced from 1rem */
+    }
+
+    /* Optional: Also adjust max-width containers */
+    [style*="max-width"] {
+        padding: 0 0.5rem !important; /* Override inline styles */
+    }
+
+
 }
 
 
