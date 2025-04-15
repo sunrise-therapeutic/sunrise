@@ -248,7 +248,7 @@
 
 
     .logo {
-        width: 80px;  /* Increased from 40px */
+        width: 100px;  /* Increased from 40px */
         height: auto;
         margin: 0.5rem auto;  /* Center logo */
     }
