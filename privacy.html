@@ -23,32 +23,42 @@
     <footer><div id="footer-placeholder"></div></footer>
 
     <script>
-        // Load header and footer
-        fetch("header-2.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
-
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-        // Generate breadcrumb
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load header first
+            fetch("header-2.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Load menu script after header is loaded
+                    const menuScript = document.createElement('script');
+                    menuScript.src = 'menu-2.js';
+                    document.body.appendChild(menuScript);
+                    // Generate breadcrumb after header loads
+                    generateBreadcrumb();
+                })
+                .catch(error => console.error('Error loading header:', error));
+    
+            // Load footer second
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
+    
+        // Move function definition outside
         function generateBreadcrumb() {
             const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-            let breadcrumbHtml = '<nav class="breadcrumb">';
-            breadcrumbHtml += '<a href="./">Home</a>';
-            breadcrumbHtml += ' > <span>Privacy Policy</span>';
-            breadcrumbHtml += '</nav>';
-            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+            if (breadcrumbPlaceholder) {
+                let breadcrumbHtml = '<nav class="breadcrumb">';
+                breadcrumbHtml += '<a href="./">Home</a>';
+                breadcrumbHtml += ' > <span>Privacy Policy</span>';
+                breadcrumbHtml += '</nav>';
+                breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
+            }
         }
     </script>
-    <script src="menu-2.js"></script>
+    
 </body>
 </html>
