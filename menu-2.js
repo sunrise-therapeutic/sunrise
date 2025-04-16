@@ -6,13 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle main menu
     if (menuToggle && mainNav) {
+        console.log('Menu elements found');  // Debug line
         menuToggle.addEventListener('click', () => {
+            console.log('Menu clicked');     // Debug line
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !isExpanded);
             mainNav.classList.toggle('active');
             menuToggle.classList.toggle('active');
+            console.log('Menu state:', mainNav.classList.contains('active')); // Debug line
         });
+    } else {
+        console.log('Menu elements missing:', { menuToggle, mainNav }); // Debug line
     }
+    
 
     // Handle submenu toggles
     subMenuParents.forEach(submenu => {

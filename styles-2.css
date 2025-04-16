@@ -118,15 +118,7 @@ body {
 
 /* Navigation Styles */
 .menu-toggle {
-    display: none;  /* Hidden by default */
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1001;  /* Increased z-index */
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
+    display: none;
 }
 
 .hamburger,
@@ -164,8 +156,7 @@ body {
 }
 
 .main-nav {
-    width: 100%;
-    background: var(--primary-color);
+    display: block;  /* Show by default for desktop */
 }
 
 .main-nav ul {
@@ -253,11 +244,16 @@ body {
 
     /* Navigation */
     .menu-toggle {
-        display: block;
+        .menu-toggle {
+            display: block;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
     }
 
     .main-nav {
-        display: none;  /* Hidden by default on mobile */
+        display: none;  /* Hide by default on mobile */
         position: fixed;
         top: 0;
         left: 0;
@@ -265,12 +261,11 @@ body {
         height: 100vh;
         background: var(--primary-color);
         z-index: 1000;
-        padding-top: 60px;  /* Space for toggle button */
-        overflow-y: auto;
+        padding-top: 60px;
     }
 
     .main-nav.active {
-        display: block;  /* Show when active */
+        display: block !important;  /* Force show when active */
     }
 
     .main-nav ul {
