@@ -1,14 +1,21 @@
 /* CSS Reset and Variables */
 :root {
-    --primary-color: #1a69e0;
-    --hover-color: #555;
-    --text-light: #ffffff;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --header-height: 60px;
-    --footer-bg: #303030;
-    --footer-text: rgba(255, 255, 255, 0.542);
+    /* Colors */
+    --color-primary: #1a69e0;
+    --color-interactive: #555;
+    --color-white: #ffffff;
+    --color-footer: #303030;
+    
+    /* Opacities */
+    --opacity-footer-text: 0.542;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    
+    /* Layout */
+    --height-header: 3.75rem;  /* Convert 60px to rem */
 }
 
 /* Base Styles */
