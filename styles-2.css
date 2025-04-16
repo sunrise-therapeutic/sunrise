@@ -290,7 +290,7 @@ body {
     }
 
     .bottom-padding {
-        padding: 1rem 0.5rem;
+        padding: 0rem 0.5rem;
     }
 
     div[style*="max-width"] {
