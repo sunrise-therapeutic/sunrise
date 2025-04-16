@@ -285,19 +285,19 @@ body {
 
     /* Content area */
     main {
-        margin-left: 0.5rem;    /* Reduced from 1in */
-        margin-right: 0.5rem;   /* Reduced from 1in */
-        padding-top: 1rem;      /* Reduced from 0.75in */
-        padding-bottom: 1rem;   /* Reduced from 1.25in */
+        margin: 0;           /* Remove all margins */
+        padding: 1rem;       /* Uniform padding */
+        width: 100%;         /* Full width */
     }
 
     .bottom-padding {
-        padding: 1rem 0.5rem;   /* Reduced padding all around */
+        padding: 0.5rem;   /* Reduced padding all around */
     }
 
     div[style*="max-width"] {
-        margin: 1rem 0.5rem !important;
-        padding: 0 !important;
+        margin: 0.5rem !important;
+        padding: 0 0.5rem !important;
+        width: auto !important;
     }
 
     /* Grid layouts */
