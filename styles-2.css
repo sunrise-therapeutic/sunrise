@@ -271,7 +271,15 @@
     }
 
     .main-nav {
-        display: none;  /* Hidden by default on mobile */
+        display: none;  /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--primary-color);
+        z-index: 999;
+        padding-top: 4rem;
     }
 
     .main-nav.active {
@@ -295,7 +303,22 @@
         padding-right: 0.5rem;/* Reduced from 1rem */
     }
 
-   
+    main {
+        margin-left: 0;    /* Remove desktop margin */
+        margin-right: 0;   /* Remove desktop margin */
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .bottom-padding {
+        padding: 1rem 0.5rem;  /* Reduced padding all around */
+    }
+
+    /* Ensure container doesn't overflow */
+    div[style*="max-width"] {
+        margin: 1rem 0.5rem !important;  /* Override inline styles */
+        padding: 0 !important;           /* Override inline styles */
+    }
 
 
 }
