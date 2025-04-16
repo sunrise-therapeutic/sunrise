@@ -295,10 +295,7 @@
         padding-right: 0.5rem;/* Reduced from 1rem */
     }
 
-    /* Optional: Also adjust max-width containers */
-    [style*="max-width"] {
-        padding: 0 0.5rem !important; /* Override inline styles */
-    }
+   
 
 
 }
