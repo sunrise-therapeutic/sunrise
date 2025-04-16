@@ -70,10 +70,23 @@ main {
 }
 
 /* Header */
-.site-header {
-    background: var(--primary-color);
-    color: var(--text-light);
+
+header {
+    display: block;
     width: 100%;
+}
+
+#header-placeholder {
+    display: block;
+    width: 100%;
+}
+
+
+.site-header {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 100;
 }
 
 .utility-bar {
