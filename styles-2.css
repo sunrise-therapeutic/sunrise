@@ -285,12 +285,14 @@ body {
 
     /* Content area */
     main {
-        margin: 0;
-        padding: 1rem;
+        margin-left: 0.5rem;    /* Reduced from 1in */
+        margin-right: 0.5rem;   /* Reduced from 1in */
+        padding-top: 1rem;      /* Reduced from 0.75in */
+        padding-bottom: 1rem;   /* Reduced from 1.25in */
     }
 
     .bottom-padding {
-        padding: 0rem 0.5rem;
+        padding: 1rem 0.5rem;   /* Reduced padding all around */
     }
 
     div[style*="max-width"] {
