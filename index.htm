@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Redirect to mobile summary if on mobile and not viewing full site -->
+    <script>
+        if (window.innerWidth < 768 && !sessionStorage.getItem('viewFullSite')) {
+            window.location.href = 'mobile-summary.html';
+        }
+    </script>
+
     <!-- Include the header -->
     <div id="header-placeholder"></div>
   
