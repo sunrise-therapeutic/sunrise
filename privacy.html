@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy</title>
-    <link rel="stylesheet" href="styles-2.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,13 +25,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Load header first
-            fetch("header-2.html")
+            fetch("header.html")
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
                     // Load menu script after header is loaded
                     const menuScript = document.createElement('script');
-                    menuScript.src = 'menu-2.js';
+                    menuScript.src = 'menu.js';
                     document.body.appendChild(menuScript);
                     // Generate breadcrumb after header loads
                     generateBreadcrumb();
