@@ -110,6 +110,14 @@ body {
         For more details on this event and our other programs, or to learn more about us <a href="./" class="full-site-link">view our Full Website</a> (Best viewed on a desktop device.)
     </main>
 
+
+<script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
+<script>
+  window.onload = function() {
+    if (window.imageMapResize) imageMapResize();
+  };
+</script>
+
     <script>
         // Store user's preference if they choose full site
         document.querySelector('.full-site-link').addEventListener('click', () => {
