@@ -97,14 +97,18 @@
 
     <script>
         // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        // Call the function to generate the breadcrumb after the header is loaded
+        generateBreadcrumb();
+        // Dynamically load menu-2.js after header is loaded
+        const script = document.createElement('script');
+        script.src = 'menu-2.js';
+        document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading header:', error));
 
         // Load the footer content from footer.html
         fetch("footer.html")
