@@ -959,3 +959,69 @@ main {
 .footer-bottom p {
     margin: 10px 0;
 }
+
+
+/* Hide menu-toggle on desktop, show on mobile */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #1a69e0;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .menu-toggle {
+    display: block;
+    align-self: flex-end;
+  }
+  .main-nav {
+    display: none;
+    width: 100%;
+    background: #1a69e0;
+    margin-top: 0;
+  }
+  .main-nav.active {
+    display: block;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    width: 100%;
+  }
+  .main-nav ul li {
+    width: 100%;
+    margin: 0;
+  }
+  .main-nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #fff2;
+  }
+  .submenu, .sub-submenu {
+    position: static !important;
+    background: #1a69e0 !important;
+    box-shadow: none !important;
+    min-width: 0 !important;
+  }
+  .submenu {
+    display: none;
+  }
+  .main-nav ul li.expanded > .submenu,
+  .submenu.active {
+    display: block;
+  }
+}
