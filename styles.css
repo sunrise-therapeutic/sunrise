@@ -197,7 +197,7 @@ p, li, a, span {
 
 .main-nav ul li:hover > .submenu,
 .main-nav ul li:focus-within > .submenu {
-  display: block;
+
 }
 
 .submenu li {
