@@ -64,7 +64,7 @@
   <div id="footer-placeholder"></div>
   <script>
     // Load header and menu script
-    fetch("header.htm")
+    fetch("header.html")
       .then(r => r.text())
       .then(data => {
         document.getElementById('header-placeholder').innerHTML = data;
@@ -73,7 +73,7 @@
         document.body.appendChild(script);
       });
     // Load footer
-    fetch("footer.htm")
+    fetch("footer.html")
       .then(r => r.text())
       .then(data => {
         document.getElementById('footer-placeholder').innerHTML = data;
