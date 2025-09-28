@@ -196,8 +196,7 @@ p, li, a, span {
 }
 
 .main-nav ul li:hover > .submenu,
-.main-nav ul li:focus-within > .submenu,
-.main-nav ul li .submenu.active {
+.main-nav ul li:focus-within > .submenu {
   display: block;
 }
 
