@@ -244,10 +244,14 @@ p, li, a, span {
     align-self: flex-end;
   }
   .submenu {
+    display: none;
     position: static;
     box-shadow: none;
     min-width: 0;
     border-radius: 0;
+  }
+  .submenu.active {
+    display: block;
   }
 }
 
