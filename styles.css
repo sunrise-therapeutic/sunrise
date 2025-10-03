@@ -114,6 +114,12 @@ p   { margin-bottom: 1rem; }
 }
 
 /* Nested submenu: appears to the right and aligned with parent menu item */
+
+.submenu .has-submenu {
+  position: relative;
+}
+
+
 .submenu .has-submenu > .submenu {
     position: absolute;
     left: 100%;
