@@ -1,92 +1,85 @@
+<!-- header.html -->
 <header class="site-header">
-  <div class="header-top">
-    <div class="logo-title">
-      <img src="graphics/sunriselogo-250x250.png" alt="Sunrise Logo" class="logo-img">
-      <span class="org-title">Sunrise Therapeutic Riding & Learning Centre</span>
+    <div class="header-top">
+        <div class="logo-container">
+            <!-- Replace src with your actual logo file -->
+            <img src="logo.png" alt="Organization Logo" class="logo">
+            <div class="org-info">
+                <h1 class="org-name">Your Organization Name</h1>
+                <p class="contact">
+                    <a href="mailto:info@yourorg.org">info@yourorg.org</a> |
+                    <a href="tel:+1234567890">+1 (234) 567‑890</a>
+                </p>
+            </div>
+        </div>
+
+        <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E363411QE&id=2"
+           class="donate-btn" target="_blank" rel="noopener noreferrer">
+            Donate Now
+        </a>
     </div>
-    <div class="header-actions">
-      <div class="social-media">
-        <a href="https://x.com/SunriseRiding" target="_blank" aria-label="X (Twitter)">
-          <img src="graphics/x.png" alt="">
-        </a>
-        <a href="https://www.facebook.com/Sunrise-Therapeutic-Riding-and-Learning-Centre-224072694372280/" target="_blank" aria-label="Facebook">
-          <img src="graphics/facebook.png" alt="">
-        </a>
-        <a href="https://www.youtube.com/channel/UCjmZ5ZOKHuc7ldSBQP2SfJA" target="_blank" aria-label="YouTube">
-          <img src="graphics/youtube.png" alt="">
-        </a>
-        <a href="https://www.instagram.com/sunrisetherapeutic/" target="_blank" aria-label="Instagram">
-          <img src="graphics/instagram.png" alt="">
-        </a>
-      </div>
-      <div class="contact-info">
-        <span>Phone: <a href="tel:15198370558">(519) 837-0558</a></span>
-        <span>Email: <a href="mailto:office@sunrise-therapeutic.ca">office@sunrise-therapeutic.ca</a></span>
-        <a class="donate-button" href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E363411QE&id=2" target="_blank">Donate Now</a>
-      </div>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-    </div>
-  </div>
-  <nav class="main-nav" aria-label="Main navigation">
-    <ul>
-      <li><a href="./">Home</a></li>
-      <li>
-        <a href="about.html">About Us</a>
-        <ul class="submenu">
-          <li><a href="history.html">History</a></li>
-          <li><a href="governance.html">Governance and Accountability</a></li>
-          <li><a href="staff.html">Sunrise Staff</a></li>
-          <li><a href="facilities.html">Our Facilities</a></li>
-          <li><a href="horses/horses.html">Sunrise Horses</a></li>
+
+    <!-- Hamburger for mobile -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <ul class="menu">
+
+            <li class="menu-item"><a href="index.html">Home</a></li>
+
+            <!-- About Us -->
+            <li class="menu-item has-submenu">
+                <a href="about.html">About Us</a>
+                <ul class="submenu">
+                    <li><a href="about/mission.html">Mission</a></li>
+                    <li><a href="about/history.html">History</a></li>
+                    <li><a href="about/team.html">Team</a></li>
+                    <li><a href="about/partners.html">Partners</a></li>
+                    <li><a href="about/contact.html">Contact</a></li>
+                </ul>
+            </li>
+
+            <!-- Programs -->
+            <li class="menu-item has-submenu">
+                <a href="programs.html">Programs</a>
+                <ul class="submenu">
+
+                    <!-- Therapy Programs -->
+                    <li class="has-submenu">
+                        <a href="programs/therapy.html">Therapy Programs</a>
+                        <ul class="submenu">
+                            <li><a href="programs/therapy/riding.html">Therapeutic Riding</a></li>
+                            <li><a href="programs/therapy/equine-wellness.html">Equine Facilitated Wellness</a></li>
+                            <li><a href="programs/therapy/group-visits.html">Group Visits</a></li>
+                            <li><a href="programs/therapy/grooming-driving.html">Grooming and Driving Program</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Camp Sunrise -->
+                    <li class="has-submenu">
+                        <a href="programs/camp-sunrise.html">Camp Sunrise</a>
+                        <ul class="submenu">
+                            <li><a href="programs/camp-sunrise/farm-discovery.html">Farm Discovery (ages 5‑8)</a></li>
+                            <li><a href="programs/camp-sunrise/horse-camp.html">Horse Camp (ages 8‑13+)</a></li>
+                            <li><a href="programs/camp-sunrise/leader-training.html">Leader in Training (ages 13‑16+)</a></li>
+                            <li><a href="programs/camp-sunrise/faq.html">Camp Contact Info &amp; FAQ</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="programs/lifeskills.html">Lifeskills Day Program</a></li>
+                    <li><a href="programs/little-breeches.html">Little Breeches</a></li>
+                    <li><a href="programs/student-instructors.html">Student Instructors</a></li>
+                    <li><a href="programs/equine-assisted.html">Equine Assisted Learning</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-item"><a href="volunteer.html">Volunteer</a></li>
+            <li class="menu-item"><a href="support-us/support-us.html">Support Us</a></li>
+            <li class="menu-item"><a href="whatshappening/whatshappening.html">What's Happening</a></li>
+            <li class="menu-item"><a href="contact.html">Contact Us</a></li>
         </ul>
-      </li>
-      <li>
-        <a href="programs/programs.html">Programs</a>
-        <ul class="submenu">
-          <li>
-            <a href="programs/therapyprograms/therapyprograms.html">Therapy Programs</a>
-            <ul class="submenu">
-              <li><a href="programs/therapyprograms/therapeutic-riding.html">Therapeutic Riding</a></li>
-              <li><a href="programs/therapyprograms/efw.html">Equine Facilitated Wellness</a></li>
-              <li><a href="programs/therapyprograms/groupvisits.html">Group Visits</a></li>
-              <li><a href="programs/therapyprograms/groomingdriving.html">Grooming & Driving Programs</a></li>
-              <li><a href="programs/therapyprograms/test.html">*Under Construction*</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="programs/campsunrise/campsunrise.html">Camp Sunrise</a>
-            <ul class="submenu">
-              <li><a href="programs/campsunrise/camp-farm-discovery.html">Farm Discovery (ages 5-8)</a></li>
-              <li><a href="programs/campsunrise/camp-horse-camp.html">Horse Camp (ages 8-13+)</a></li>
-              <li><a href="programs/campsunrise/camp-lit.html">Leader in Training (ages 13-16)</a></li>
-              <li><a href="programs/campsunrise/camp-contact-faq.html">Camp Contact Info & FAQs</a></li>
-            </ul>
-          </li>
-          <li><a href="programs/lifeskills/lifeskills.html">Lifeskills Day Program</a></li>
-          <li><a href="programs/littlebreeches/littlebreeches.html">Little Breeches</a></li>
-          <li><a href="programs/studentinstructors/studentinstructors.html">Student Instructors</a></li>
-          <li><a href="programs/eal/EAL.html">Equine Assisted Learning</a></li>
-        </ul>
-      </li>
-      <li><a href="volunteer.html">Volunteer</a></li>
-      <li>
-        <a href="support-us/support-us.html">Support Us</a>
-        <ul class="submenu">
-          <li><a href="support-us/therapyforest.html">Sunrise Therapy Forest</a></li>
-          <li><a href="support-us/dropitoff.html">Drop it Off for Sunrise</a></li>
-          <li><a href="support-us/friendsofsunrise.html">Friends of Sunrise</a></li>
-          <li><a href="support-us/trailblazers.html">Monthly Mini Trailblazers!</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="whatshappening/whatshappening.html">What's Happening</a>
-        <ul class="submenu">
-          <li><a href="whatshappening/celebratesunrise.html">Celebrate Sunrise</a></li>
-          <li><a href="whatshappening/newsletter.html">Newsletter</a></li>
-          <li><a href="whatshappening/upcomingevents.html">Other Upcoming Events</a></li>
-        </ul>
-      </li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
+    </nav>
 </header>

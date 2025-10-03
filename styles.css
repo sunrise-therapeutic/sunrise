@@ -1,363 +1,187 @@
-:root {
-  --primary: #1a69e0;
-  --accent: #ffcc00;
-  --footer-bg: #222;
-  --text: #fff;
-  --body-bg: #f8f9fa;
-  --font-main: 'Montserrat', Arial, sans-serif;
-}
+/* --------------------------------------------------------------
+   styles.css – Global layout, header, navigation, typography
+   -------------------------------------------------------------- */
 
-html {
-  box-sizing: border-box;
-  font-size: 16px;
+/* ==== Reset / Base ==== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
+html { font-size: 100%; }               /* 16 px = 1rem */
 body {
-  font-family: var(--font-main);
-  background: var(--body-bg);
-  color: #222;
-  margin: 0;
-  padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fafafa;
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  margin: 1rem 0 0.5rem 0;
-}
+/* ==== Typography ==== */
+h1, .h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2, .h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h3, .h3 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+p   { margin-bottom: 1rem; }
 
-h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin: 1rem 0 0.5rem 0;
-}
-
-h3 {
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 700;
-  margin: 1rem 0 0.5rem 0;
-}
-
-p, li, a, span {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-}
-
-.container {
-  width: min(90%, 1200px);
-  margin: 0 auto;
-  padding: 1.5rem 0;
-}
-
+/* ==== Header ==== */
 .site-header {
-  background: var(--primary);
-  color: var(--text);
-  padding: 0;
-  width: 100%;
+    background: #1a69e0;
+    color: #fff;
 }
-
 .header-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+}
+.logo {
+    max-height: 60px;
+    width: auto;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.org-info {
+    line-height: 1.2;
+}
+.org-name {
+    margin: 0;
+    font-size: 1.25rem;
+}
+.contact a {
+    color: #fff;
+    text-decoration: underline;
+}
+.donate-btn {
+    background: #ffdd00;
+    color: #111;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s;
+}
+.donate-btn:hover,
+.donate-btn:focus {
+    background: #ffd500;
 }
 
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo-img {
-  width: 60px;
-  height: 60px;
-}
-
-.org-title {
-  font-variant: small-caps;
-  font-size: clamp(1.2rem, 3vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #fff;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.social-media a img {
-  width: 32px;
-  height: 32px;
-  margin-right: 0.3rem;
-  vertical-align: middle;
-  filter: brightness(0) invert(1);
-  transition: filter 0.2s;
-}
-.social-media a img:hover {
-  filter: brightness(1.5) invert(0.2) sepia(1) saturate(5) hue-rotate(180deg);
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  color: #fff;
-  font-size: 1rem;
-}
-.contact-info a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.donate-button {
-  background: var(--accent);
-  color: #222;
-  padding: 0.5rem 1.2rem;
-  border: none;
-  border-radius: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  margin-left: 1rem;
-  transition: background 0.2s, color 0.2s;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: inline-block;
-}
-.donate-button:hover {
-  background: #fff;
-  color: var(--primary);
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
+/* ==== Navigation ==== */
 .main-nav {
-  background: var(--primary);
-  color: #fff;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+    background: #1a69e0;
+}
+.menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu > .menu-item {
+    position: relative;
+}
+.menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.menu a:hover,
+.menu a:focus {
+    background: rgba(255,255,255,.15);
 }
 
-.main-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.main-nav ul li {
-  position: relative;
-}
-
-.main-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.75rem 1.2rem;
-  display: block;
-  border-radius: 0.3rem;
-  transition: background 0.2s;
-}
-
-.main-nav ul li a:hover,
-.main-nav ul li:focus-within > a {
-  background: var(--accent);
-  color: #222;
-}
-
+/* Sub‑menus */
 .submenu {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: var(--primary);
-  min-width: 220px;
-  z-index: 10;
-  border-radius: 0 0 0.5rem 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.main-nav ul li:hover > .submenu,
-.main-nav ul li:focus-within > .submenu {
-  display: block;
-}
-
-.submenu li {
-  position: relative;
-}
-
-.submenu .submenu {
-  left: 100%;
-  top: 0;
-  border-radius: 0.5rem;
-}
-
-@container (max-width: 900px) {
-  .main-nav ul {
-    flex-direction: column;
-    gap: 0;
-  }
-}
-
-@media (max-width: 900px) {
-  .header-top, .logo-title, .header-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .main-nav {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+    background: #1a69e0;
+    border: 1px solid rgba(255,255,255,.2);
     display: none;
-  }
-  .main-nav.active {
+    z-index: 1000;
+}
+.submenu li a {
+    padding: 0.5rem 1rem;
+}
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu {
     display: block;
-  }
-  .main-nav ul {
-    flex-direction: column;
-    gap: 0;
-  }
-  .main-nav ul li a {
-    padding: 1rem;
-    border-radius: 0;
-  }
-  .menu-toggle {
+}
+
+/* Arrow indicator for items with sub‑menus */
+.has-submenu > a::after {
+    content: "▾";
+    margin-left: 0.3rem;
+    font-size: 0.7em;
+}
+
+/* ==== Mobile Styles ==== */
+.nav-toggle {
+    display: none;                     /* hidden on desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    margin-right: 1rem;
+}
+.nav-toggle span {
     display: block;
-    align-self: flex-end;
-  }
-  .submenu {
-    display: none;
-    position: static;
-    box-shadow: none;
-    min-width: 0;
-    border-radius: 0;
-  }
-  .submenu.active {
-    display: block;
-  }
+    width: 24px;
+    height: 3px;
+    margin: 5px 0;
+    background: #fff;
+    transition: transform .3s;
 }
 
-.site-footer {
-  background: var(--footer-bg);
-  color: #fff;
-  padding: 2rem 1rem 1rem 1rem;
-  font-size: 0.95rem;
-  text-align: center;
+/* Collapse menu on small screens */
+@media (max-width: 768px) {
+    .nav-toggle { display: block; }
+
+    .menu {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s ease-out;
+    }
+    .menu.open { max-height: 2000px; }   /* large enough for all items */
+
+    .menu > .menu-item {
+        width: 100%;
+    }
+    .menu a {
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Sub‑menus become accordion style */
+    .has-submenu > .submenu {
+        position: static;
+        border: none;
+        background: rgba(255,255,255,.05);
+    }
+    .has-submenu > a::after {
+        content: "▸";
+        float: right;
+        transition: transform .2s;
+    }
+    .has-submenu.open > a::after {
+        transform: rotate(90deg);
+    }
+    .has-submenu.open > .submenu {
+        display: block;
+    }
 }
 
-.footer-links {
-  margin-bottom: 1rem;
+/* ==== Utility ==== */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
 }
-.footer-links a {
-  color: #fff;
-  margin: 0 0.5rem;
-  text-decoration: underline;
-  font-size: 1rem;
-}
-.footer-contact {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-.footer-note {
-  font-size: 0.85rem;
-  color: #ccc;
-  margin-top: 1rem;
-}
-
-.thumbnails-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  width: min(95%, 1200px);
-  margin: 2rem auto;
-  padding: 0;
-}
-
-.thumbnail-card {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.thumbnail-card:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
-}
-
-.thumbnail-card img {
-  width: 100%;
-  max-width: 180px;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  margin: 0 auto;
-  display: block;
-}
-
-.thumbnail-label {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 600;
-  color: var(--primary);
-  margin: 0.7rem 0 1rem 0;
-  text-decoration: none;
-}
-
-@media (max-width: 600px) {
-  .thumbnails-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-@@
- .submenu .submenu {
-   left: 100%;
-   top: 0;
-   border-radius: 0.5rem;
- }
- 
-+/* --------------------------------------------------------------
-+   NEW – Prevent hover‑only opening on touch devices
-+   -------------------------------------------------------------- */
-+@media (hover: hover) and (pointer: fine) {
-+  .main-nav ul li:hover > .submenu,
-+  .main-nav ul li:focus-within > .submenu {
-+    display: block;
-+  }
-+}
-+
-+/* Force every submenu (including sub‑sub‑menus) to be hidden by default */
-+.submenu,
-+.submenu .submenu {
-+  display: none !important;
-+}
-+
-+/* Class used by JavaScript to open a submenu on mobile */
-+.submenu.open {
-+  display: block !important;
-+}
-+
- /* --------------------------------------------------------------
-  .thumbnails-container { … }
-  -------------------------------------------------------------- */
