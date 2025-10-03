@@ -106,6 +106,18 @@ p   { margin-bottom: 1rem; }
     display: none;
     z-index: 1000;
 }
+
+/* Nested submenu: appears to the right of parent */
+.submenu .submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 200px;
+  border-radius: 0.5rem;
+  /* Optional: add a little offset for visual clarity */
+  margin-left: 2px;
+}
+
 .submenu li a {
     padding: 0.5rem 1rem;
 }
