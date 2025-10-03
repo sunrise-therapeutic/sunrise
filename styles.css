@@ -329,3 +329,35 @@ p, li, a, span {
     grid-template-columns: 1fr;
   }
 }
+
+@@
+ .submenu .submenu {
+   left: 100%;
+   top: 0;
+   border-radius: 0.5rem;
+ }
+ 
++/* --------------------------------------------------------------
++   NEW – Prevent hover‑only opening on touch devices
++   -------------------------------------------------------------- */
++@media (hover: hover) and (pointer: fine) {
++  .main-nav ul li:hover > .submenu,
++  .main-nav ul li:focus-within > .submenu {
++    display: block;
++  }
++}
++
++/* Force every submenu (including sub‑sub‑menus) to be hidden by default */
++.submenu,
++.submenu .submenu {
++  display: none !important;
++}
++
++/* Class used by JavaScript to open a submenu on mobile */
++.submenu.open {
++  display: block !important;
++}
++
+ /* --------------------------------------------------------------
+  .thumbnails-container { … }
+  -------------------------------------------------------------- */
