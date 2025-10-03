@@ -12,7 +12,7 @@
 }
 html { font-size: 100%; }               /* 16 px = 1rem */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont,
                  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
@@ -24,6 +24,12 @@ h1, .h1 { font-size: clamp(2rem, 5vw, 3rem); }
 h2, .h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
 h3, .h3 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
 p   { margin-bottom: 1rem; }
+
+.container {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
 
 /* ==== Header ==== */
 .site-header {
@@ -107,23 +113,24 @@ p   { margin-bottom: 1rem; }
     z-index: 1000;
 }
 
-/* Nested submenu: appears to the right of parent */
-.submenu .submenu {
-  position: absolute;
-  left: 100%;
-  top: 0;
-  min-width: 200px;
-  border-radius: 0.5rem;
-  /* Optional: add a little offset for visual clarity */
-  margin-left: 2px;
+/* Nested submenu: appears to the right and aligned with parent menu item */
+.submenu .has-submenu > .submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 200px;
+    border-radius: 0.5rem;
+    margin-left: 2px;
+}
+
+/* Show submenu on hover/focus */
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu {
+    display: block;
 }
 
 .submenu li a {
     padding: 0.5rem 1rem;
-}
-.has-submenu:hover > .submenu,
-.has-submenu:focus-within > .submenu {
-    display: block;
 }
 
 /* Arrow indicator for items with sub‑menus */
@@ -134,6 +141,7 @@ p   { margin-bottom: 1rem; }
 }
 
 /* ==== Mobile Styles ==== */
+.menu-toggle,
 .nav-toggle {
     display: none;                     /* hidden on desktop */
     background: transparent;
@@ -141,7 +149,10 @@ p   { margin-bottom: 1rem; }
     cursor: pointer;
     padding: 0.75rem;
     margin-right: 1rem;
+    font-size: 2rem;
+    color: #fff;
 }
+.menu-toggle span,
 .nav-toggle span {
     display: block;
     width: 24px;
@@ -153,6 +164,7 @@ p   { margin-bottom: 1rem; }
 
 /* Collapse menu on small screens */
 @media (max-width: 768px) {
+    .menu-toggle,
     .nav-toggle { display: block; }
 
     .menu {
@@ -175,6 +187,10 @@ p   { margin-bottom: 1rem; }
         position: static;
         border: none;
         background: rgba(255,255,255,.05);
+        display: none;
+    }
+    .has-submenu.open > .submenu {
+        display: block;
     }
     .has-submenu > a::after {
         content: "▸";
@@ -183,9 +199,6 @@ p   { margin-bottom: 1rem; }
     }
     .has-submenu.open > a::after {
         transform: rotate(90deg);
-    }
-    .has-submenu.open > .submenu {
-        display: block;
     }
 }
 
@@ -196,4 +209,54 @@ p   { margin-bottom: 1rem; }
     padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0,0,0,0);
     white-space: nowrap; border: 0;
+}
+
+/* ==== Thumbnails ==== */
+.thumbnails-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    width: min(95%, 1200px);
+    margin: 2rem auto;
+    padding: 0;
+}
+
+.thumbnail-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thumbnail-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+
+.thumbnail-card img {
+    width: 100%;
+    max-width: 180px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+.thumbnail-label {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    color: #1a69e0;
+    margin: 0.7rem 0 1rem 0;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .thumbnails-container {
+        grid-template-columns: 1fr;
+    }
 }
