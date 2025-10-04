@@ -44,7 +44,7 @@ p   { margin-bottom: 1rem; }
     padding: 0.75rem 1rem;
 }
 .logo {
-    max-height: 60px;
+    max-height: 80px;
     width: auto;
 }
 .logo-container {
@@ -264,5 +264,11 @@ p   { margin-bottom: 1rem; }
 @media (max-width: 600px) {
     .thumbnails-container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {          /* tablet‑size and smaller */
+    .logo-container {
+        margin-bottom: 1.2rem;        /* increase/decrease as needed */
     }
 }
