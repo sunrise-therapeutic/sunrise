@@ -1,29 +1,25 @@
-/* --------------------------------------------------------------
-   menu-2.js – Handles mobile toggle and submenu accordion
-   -------------------------------------------------------------- */
-
-document.addEventListener('DOMContentLoaded', () => {
+// menu-2.js – export a single init function
+export function initMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const menu      = document.querySelector('.menu');
 
-    // ---------- Mobile main‑menu toggle ----------
+    if (!navToggle || !menu) return;   // safety net
+
+    // -------- Mobile main‑menu toggle ----------
     navToggle.addEventListener('click', () => {
         const expanded = navToggle.getAttribute('aria-expanded') === 'true';
         navToggle.setAttribute('aria-expanded', !expanded);
         menu.classList.toggle('open');
     });
 
-    // ---------- Sub‑menu accordion for touch devices ----------
+    // -------- Sub‑menu accordion for touch ----------
     const submenuParents = document.querySelectorAll('.has-submenu');
 
     submenuParents.forEach(item => {
         const link = item.querySelector('a');
-
-        // Only intercept clicks that are meant to open the submenu
         link.addEventListener('click', e => {
-            // If we are on a small screen, prevent navigation and toggle
             if (window.innerWidth <= 768) {
-                e.preventDefault();          // stop following the parent link
+                e.preventDefault();          // stop navigation on small screens
                 item.classList.toggle('open');
             }
         });
@@ -37,4 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
             submenuParents.forEach(i => i.classList.remove('open'));
         }
     });
-});
+}
