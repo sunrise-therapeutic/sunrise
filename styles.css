@@ -44,7 +44,7 @@ p   { margin-bottom: 1rem; }
     padding: 0.75rem 1rem;
 }
 .logo {
-    max-height: 80px;
+    max-height: 120px;
     width: auto;
 }
 .logo-container {
@@ -57,7 +57,7 @@ p   { margin-bottom: 1rem; }
 }
 .org-name {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 2rem;
 }
 .contact a {
     color: #fff;
