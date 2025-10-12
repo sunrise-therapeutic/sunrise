@@ -18,7 +18,7 @@ export function initMenu() {
     });
 
     /* -------------------------------------------------------
-       2️⃣ Multi‑level accordion for mobile
+       2️⃣ Multi‑level accordion for mobile - FIXED for nested submenus
        ------------------------------------------------------- */
     // Grab **every** <li class="has-submenu"> – first, second, third level, etc.
     const submenuParents = nav.querySelectorAll('li.has-submenu');
@@ -38,6 +38,19 @@ export function initMenu() {
             // Only treat it as an accordion on small screens
             if (window.innerWidth <= 768) {
                 e.preventDefault();                 // stop navigation to href
+                
+                // Close other submenus at the same level
+                const siblings = Array.from(li.parentElement.children).filter(
+                    child => child !== li && child.classList.contains('has-submenu')
+                );
+                
+                siblings.forEach(sibling => {
+                    sibling.classList.remove('open');
+                    const siblingLink = sibling.querySelector('a');
+                    if (siblingLink) siblingLink.setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle current submenu
                 const isOpen = li.classList.contains('open');
                 li.classList.toggle('open', !isOpen);
                 link.setAttribute('aria-expanded', String(!isOpen));
