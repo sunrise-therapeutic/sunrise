@@ -220,6 +220,20 @@ ol {
     }
 }
 
+/* ----- inside @media (max-width: 768px) ----- */
+
+/* Rotate the arrow when a submenu is open – visual cue */
+.has-submenu.open > a::after {
+    transform: rotate(90deg);
+}
+
+/* Make the whole link look clickable on touch devices */
+.has-submenu > a {
+    cursor: pointer;
+}
+
+
+
 /* -------------------------------------------------------------
    Align menu‑item text and arrow vertically
    ------------------------------------------------------------- */

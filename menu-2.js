@@ -1,36 +1,69 @@
-// menu-2.js – export a single init function
+/* -----------------------------------------------------------
+   menu-2.js – hamburger toggle + multi‑level accordion for mobile
+   ----------------------------------------------------------- */
+
 export function initMenu() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const menu      = document.querySelector('.menu');
+    const header   = document.querySelector('.site-header');
+    const nav      = header.querySelector('.main-nav');
+    const menu     = nav.querySelector('.menu');
+    const toggle   = header.querySelector('.nav-toggle');
 
-    if (!navToggle || !menu) return;   // safety net
-
-    // -------- Mobile main‑menu toggle ----------
-    navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('open');
+    /* -------------------------------------------------------
+       1️⃣ Hamburger (mobile) – show / hide the whole menu
+       ------------------------------------------------------- */
+    toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('open');          // .open makes the <ul> visible
     });
 
-    // -------- Sub‑menu accordion for touch ----------
-    const submenuParents = document.querySelectorAll('.has-submenu');
+    /* -------------------------------------------------------
+       2️⃣ Multi‑level accordion for mobile
+       ------------------------------------------------------- */
+    // Grab **every** <li class="has-submenu"> – first, second, third level, etc.
+    const submenuParents = nav.querySelectorAll('li.has-submenu');
 
-    submenuParents.forEach(item => {
-        const link = item.querySelector('a');
+    submenuParents.forEach(li => {
+        const link = li.querySelector('a');
+
+        // Make the link focusable (helps keyboard users)
+        link.setAttribute('tabindex', '0');
+
+        // ARIA attributes for accessibility
+        link.setAttribute('aria-haspopup', 'true');
+        link.setAttribute('aria-expanded', 'false');
+
+        // Click / tap on the link → toggle its own submenu
         link.addEventListener('click', e => {
+            // Only treat it as an accordion on small screens
             if (window.innerWidth <= 768) {
-                e.preventDefault();          // stop navigation on small screens
-                item.classList.toggle('open');
+                e.preventDefault();                 // stop navigation to href
+                const isOpen = li.classList.contains('open');
+                li.classList.toggle('open', !isOpen);
+                link.setAttribute('aria-expanded', String(!isOpen));
+            }
+            // On larger screens we let the normal hover/focus behaviour run
+        });
+
+        // Keyboard support – Enter or Space also toggles
+        link.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();                 // stop page scroll on Space
+                link.click();                       // reuse the click handler above
             }
         });
     });
 
-    // Optional: close menus when clicking outside
+    /* -------------------------------------------------------
+       3️⃣ Close any open submenu when clicking outside (desktop UX)
+       ------------------------------------------------------- */
     document.addEventListener('click', e => {
-        if (!e.target.closest('.site-header')) {
-            menu.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-            submenuParents.forEach(i => i.classList.remove('open'));
+        if (!nav.contains(e.target)) {
+            submenuParents.forEach(li => {
+                li.classList.remove('open');
+                const a = li.querySelector('a');
+                if (a) a.setAttribute('aria-expanded', 'false');
+            });
         }
     });
 }
