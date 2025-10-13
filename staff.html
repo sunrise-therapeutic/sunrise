@@ -12,9 +12,10 @@
     
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <!-- Main content goes here -->
-        <p class="text-large">Administration</p>
+    <main>
+    <div class="container" style="text-align:left;">
+        <h1>Staff</h1>
+        <h2>Administration</h2>
         <div class="staff-section">
             <p class="staff-info"><strong>Lynne O'Brien</strong>, Executive Director<br>
             Phone: (519) 837-0558 x 31<br>
@@ -29,7 +30,7 @@
             Email: <a href="mailto:rachel@sunrise-therapeutic.ca">rachel@sunrise-therapeutic.ca</a></p>
         </div>
 
-        <p class="text-large">Therapy Programs</p>
+        <h2>Therapy Programs</h2>
         <div class="staff-section">
             <p class="staff-info"><strong>Camilla Giffen, EC Competition Coach Specialist (EC Coach 2), EC Dressage Judge CTRII,</strong> Head Instructor<br>
             Phone: (519) 837-0558 x29<br>
@@ -48,13 +49,13 @@
             <p class="staff-info"><strong>Pam Young, CTRII,</strong> Instructor</p>
         </div>
 
-        <p class="text-large">Camp Sunrise</p>
+        <h2>Camp Sunrise</h2>
         <div class="staff-section">
             <p class="staff-info"><strong>Jenna Sinclair,</strong> Camp Coordinator & Little Breeches Coordinator<br>
             Email: <a href="mailto:campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a></p>
         </div>
 
-        <p class="text-large">Life Skills Program</p>
+        <h2>Life Skills Program</h2>
         <div class="staff-section">
             <p class="staff-info"><strong>Katie Bergin,</strong> Life Skills Coordinator<br>
             Phone: (519) 763-5517<br>
@@ -63,65 +64,49 @@
             <p class="staff-info"><strong>Kyleigh Murray,</strong> Life Skills Assistant</p>
         </div>
 
-        <p class="text-large">Property Maintenance</p>
+        <h2>Property Maintenance</h2>
         <div class="staff-section">
             <p class="staff-info"><strong>Chris Davies,</strong> Maintenance Coordinator</p>
             <p class="staff-info"><strong>Jesse Meatte,</strong> Maintenance Assistant</p>
         </div>
 
-        <p class="text-large">Program Consultants</p>
+        <h2>Program Consultants</h2>
         <div class="staff-section">
             <p class="staff-info"><strong>Carol Peachy-Hill,</strong> Occupational Therapist Reg. (Ont.)</p>
             <p class="staff-info"><strong>Winnie Warywoda,</strong> Physiotherapist</p>
             <p class="staff-info"><strong>Dr. Christopher Stemerdink,</strong> Family Physician</p>
         </div>
-
-        <p class="section-heading"><strong>Legend</strong></p>
-        <div class="staff-section">
-            <p class="staff-info">EC = Equestrian Canada</p>
-            <p class="staff-info">CTRBI = Canadian Therapeutic Riding Basic Instructor</p>
-            <p class="staff-info">CTRII = Canadian Therapeutic Riding Intermediate Instructor</p>
-            <p class="staff-info">CTRSI = Canadian Therapeutic Riding Senior Instructor</p>
-        </div>
+<hr>
+        <h3>Abbreviations</h3>
+        
+            <p><b>EC</b> = Equestrian Canada</p>
+            <p><b>CTRBI</b> = Canadian Therapeutic Riding Basic Instructor</p>
+             <p><b>CTRII</b> = Canadian Therapeutic Riding Intermediate Instructor</p>
+             <p><b>CTRSI</b> = Canadian Therapeutic Riding Senior Instructor</p>
+        
     </main>
 
     <!-- Include the footer -->
     
     <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
- // Generate breadcrumb trail
- function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
-    breadcrumbHtml += ' > <a href="staff.html">Our Staff</a>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
 </body>
 </html>

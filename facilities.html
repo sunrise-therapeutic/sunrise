@@ -12,7 +12,9 @@
     
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
+        <main>
+    <div class="container" style="text-align:left;">
+        <h1>Facilities</h1>
         <!-- Main content goes here -->
         <div class="staff-section">
             <p class="staff-info">
@@ -73,46 +75,31 @@
     
     <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+<script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
 
- // Generate breadcrumb trail
- function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
-    breadcrumbHtml += ' > <a href="facilities.html">Our Facilities</a>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
-
-        // Call the function to load the selected photo into the main image area from the gallery.
-        function changeFeaturedImage(src) {
-            document.getElementById('main-image').src = src;
+    
+</script>
+<script>
+// Call the function to load the selected photo into the main image area from the gallery.
+    function changeFeaturedImage(src) {
+        document.getElementById('main-image').src = src;
         }
-
-
-    </script>
+</script>
 </body>
 </html>
