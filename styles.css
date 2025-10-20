@@ -78,6 +78,10 @@ ol {
 .site-header {
     background: #1a69e0;
     color: #fff;
+    width: 100%;          /* full‑width regardless of parent */
+    max-width: none;      /* cancel any inherited max‑width */
+    margin-left: 0;       /* ensure no auto‑margin centering */
+    margin-right: 0;
 }
 .header-top {
     display: flex;
@@ -87,10 +91,10 @@ ol {
     padding: 0.75rem 1rem;
 }
 .logo {
-    max-height: 120px;
+    max-height: 130px;
     width: auto;
 }
-.logo-container {
+.org-contact-container {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -121,6 +125,68 @@ ol {
 .donate-btn:focus {
     background: #14800a;
 }
+
+/* ==== Social Media Links for Header ==== */
+/* -------------------------------------------------
+   Social‑media icons in the header
+   ------------------------------------------------- */
+.social-media {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;               /* space between icons */
+    margin-left: 1rem;         /* a little breathing room from the donate button */
+}
+
+/* Size the icons – adjust if you need them larger/smaller */
+.social-media img {
+    width: 24px;               /* consistent square icons */
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Hover effect – optional but nice */
+.social-media a:hover img {
+    opacity: 0.85;
+}
+
+/* -------------------------------------------------
+   Mobile adjustments (≤768 px)
+   ------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Stack the social icons under the donate button
+       (still inside the same flex container, but now on a new line) */
+    .header-top {
+        flex-direction: column;
+        align-items: stretch;   /* make children take full width */
+    }
+
+    .logo-container,
+    .org-contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    .donate-btn,
+    .social-media
+    .logo {
+        margin: 0.5rem auto;    /* centre them */
+    }
+
+    .social-media {
+        justify-content: center;   /* centre the icons */
+    }
+
+    .logo {
+        margin-bottom: 0.4rem;        /* slightly smaller on mobile */
+    }
+}
+
+
+
+
+
 
 /* ==== Navigation ==== */
 .main-nav {
@@ -591,8 +657,8 @@ ol {
 
 .thumbnail-label {
     font-size: clamp(1rem, 2vw, 1.2rem);
-    font-weight: 600;
-    color: #1a69e0;
+    font-weight: 500;
+    color: #0d4b8c;
     margin: 0.7rem 0 1rem 0;
     text-decoration: none;
 }
@@ -672,6 +738,14 @@ ol {
     margin-bottom: 0.3rem;/* between label and card bottom */
 }
 
+/* Image style for expanding images */ 
+.expanding-image {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    margin-bottom: 1.5rem;
+}
 
 
 
