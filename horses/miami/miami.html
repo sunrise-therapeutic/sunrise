@@ -3,90 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miami - Sunrise Therapeutic Riding & Learning Centre</title>
+    <title>Miami – Sunrise Therapeutic Riding & Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
 </head>
 <body>
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <p class="text-large page-title">Miami</p>
-        <div class="feature-image">
-            <img src="horses/miami/miami-main.jpg" alt="Miami" id="main-photo">
-        </div>
+    <!-- ====================== MAIN CONTENT ====================== -->
+<main>
+    <div class="container">
 
-        <div class="horse-profile">
-            <div class="profile-photo">
-                <img src="horses/miami/miami-standing.jpg" alt="Miami" id="profile-photo">
-            </div>
-            
-            <div class="profile-info">
-                <p><strong>Born:</strong> 2004</p>
-                <p><strong>Gender:</strong> Mare</p>
-                <p><strong>Breed:</strong> Paint X</p>
-                <p><strong>Height:</strong> 14.3 hh</p>
-                <p><strong>Colour:</strong> Chestnut</p>
-                <p class="horse-description">Miami is a chestnut mare with slight overo Paint breed patterning. She came to Sunrise in the late fall of 2018. She has a very gentle personality and has an incredibly smooth trot which is enjoyed by her students. Miami is great for all Sunrise programming.</p>
-                <p><strong>Sponsor:</strong> I need a sponsor</p>
-            </div>
-        </div>
+        <!-- Page title – centred -->
+        <h1 class="horse-page-title">Miami</h1>
 
-        <div class="photo-gallery-section">
-            <p class="gallery-caption">Click on any image below to view more photos!</p>
-            <div class="photo-gallery">
-                <img src="horses/miami/miami-1.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-2.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-3.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-4.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-5.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-6.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-7.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-8.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-9.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-10.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/miami/miami-11.jpg" alt="Miami" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+        <!-- Two‑column wrapper (desktop) – becomes a stack on mobile -->
+        <section class="horse-layout">
+
+    <!-- ==================== LEFT COLUMN – DETAILS ==================== -->
+    <aside class="horse-details-col">
+        <dl class="horse-details">
+
+            <!-- Row 1 – Born + Gender -->
+            <div class="detail-row">
+                <div class="detail-cell">
+                    <dt class="detail-label">Born</dt>
+                    <dd class="detail-value">2004</dd>
+                </div>
+                <div class="detail-cell">
+                    <dt class="detail-label">Gender</dt>
+                    <dd class="detail-value">Mare</dd>
+                </div>
             </div>
+
+            <!-- Row 2 – Height + Colour -->
+            <div class="detail-row">
+                <div class="detail-cell">
+                    <dt class="detail-label">Height</dt>
+                    <dd class="detail-value">14.3 hh</dd>
+                </div>
+                <div class="detail-cell">
+                    <dt class="detail-label">Colour</dt>
+                    <dd class="detail-value">Chestnut</dd>
+                </div>
+            </div>
+
+            <!-- Row 3 – Breed (full width) -->
+            <div class="detail-row single">
+                <div class="detail-cell">
+                    <dt class="detail-label">Breed</dt>
+                    <dd class="detail-value">Paint X</dd>
+                </div>
+            </div>
+
+            <!-- Row 4 – Description (full width) -->
+            <div class="detail-row single description">
+                <div class="detail-cell">
+                    <dt class="detail-label">Description</dt>
+                    <dd class="detail-value">
+                        Miami is a chestnut mare with slight overo Paint breed patterning. She came to Sunrise in the late fall of 2018. She has a very gentle personality and has an incredibly smooth trot which is enjoyed by her students. Miami is great for all Sunrise programming.
+                    </dd>
+                </div>
+            </div>
+        </dl>
+    </aside>
+
+    <!-- ==================== RIGHT COLUMN – PHOTOS ==================== -->
+    <div class="horse-photos-col">
+
+        <!-- 1️⃣ Main (large) photo – this image will be swapped when a thumb is clicked -->
+        <figure class="photo-display">
+            <img id="main-photo"
+                 src="horses/miami/miami-H.jpg"
+                 alt="Miami – main photo">
+        </figure>
+
+        <!-- 2️⃣ Thumbnail gallery – four thumbs (head‑shot + three extras) -->
+        <div class="photo-gallery">
+            <!-- Thumb 1 – the same image that is shown initially -->
+            <img src="horses/miami/miami-H.jpg"
+                 alt="Miami – thumb 1"
+                 class="gallery-thumb"
+                 data-full="horses/miami/miami-H.jpg"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 2 -->
+            <img src="horses/miami/miami-G.jpg"
+                 alt="Miami – thumb 2"
+                 class="gallery-thumb"
+                 data-full="horses/miami/miami-G.jpg"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 3 -->
+            <img src="horses/miami/miami-3.jpg"
+                 alt="Miami – thumb 3"
+                 class="gallery-thumb"
+                 data-full="horses/miami/miami-3.jpg"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 4 -->
+            <img src="horses/miami/miami-4.jpg"
+                 alt="Miami – thumb 4"
+                 class="gallery-thumb"
+                 data-full="horses/miami/miami-4.jpg"
+                 onclick="swapMain(this)">
         </div>
-    </main>
+    </div>
+</section>
+    </div> <!-- /.container -->
+</main>
 
     <footer><div id="footer-placeholder"></div></footer>
 
     <script>
-        // Load header and footer with correct paths
+        // Load the shared header and footer (paths stay the same)
         fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                generateBreadcrumb();
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                // initialise the menu after header is inserted
+                import("./menu-2.js").then(m => m.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
         fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
             })
-            .catch(error => console.error('Error loading footer:', error));
-
-        function updateProfilePhoto(src) {
-            document.getElementById('profile-photo').src = src;
-        }
-
-        function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
-    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
-    breadcrumbHtml += ' > <span>Miami</span>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+            .catch(err => console.error('Footer load failed:', err));
     </script>
+    <script>
+/**
+ * Swap the large main photo with the image that was tapped.
+ * The thumbnail passes itself (`this`) to the function.
+ * The full‑size URL is stored in the thumbnail's `data-full` attribute.
+ */
+function swapMain(thumb) {
+    const mainImg = document.getElementById('main-photo');
+    if (!mainImg) return;               // safety guard
+
+    // Get the URL of the full‑size image from the thumbnail
+    const newSrc = thumb.getAttribute('data-full');
+
+    // If the user clicks the thumbnail that is already displayed,
+    // we simply do nothing (prevents a needless reload).
+    if (mainImg.src.includes(newSrc)) return;
+
+    // Fade out → change src → fade back in (nice visual cue)
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+        mainImg.src = newSrc;
+        mainImg.style.opacity = '1';
+    }, 150);   // 150 ms matches the CSS transition speed (if any)
+}
+</script>
 </body>
 </html>
