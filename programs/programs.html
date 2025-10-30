@@ -1,142 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Programs</title>
-    <base href="../">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunrise Therapeutic Riding & Learning Centre</title>
+  <base href="../">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
+  <div id="header-placeholder"></div>
+  <main>
+    <div class="container" style="text-align:left;">
+     
+        <h1>Programs</h1>
+      <h2>Therapy Programs</h2>
+      
+    </div>
+    <div class="thumbnails-container">
+      <a class="thumbnail-card" href="programs/therapyprograms/therapeutic-riding.html">
+        <img src="programs/graphics/therapeutic-riding.jpg" alt="Therapeutic Riding">
+        <span class="thumbnail-label">Therapeutic Riding</span>
+      </a>
+        <a class="thumbnail-card" href="programs/therapyprograms/efw.html">
+        <img src="programs/graphics/equine-wellness.jpg" alt="Equine Facilitated Wellness">
+        <span class="thumbnail-label">Equine Facilitated Wellness</span>
+      </a>
+      <a class="thumbnail-card" href="programs/therapyprograms/groupvisits.html">
+        <img src="programs/graphics/group-visits.jpg" alt="Group Visits">
+        <span class="thumbnail-label">Group Visits</span>
+      </a>
+      <a class="thumbnail-card" href="programs/therapyprograms/groomingdriving.html">
+        <img src="programs/graphics/grooming.jpg" alt="Grooming & Driving Program">
+        <span class="thumbnail-label">Grooming & Driving Program</span>
+      </a>
+    </div>
+    <div class="container" style="text-align:left;">
+      <hr style="
+    border: none;               /* remove the default 3‑D border */
+    height: 2px;                /* thickness you want (adjust as needed) */
+    background-color:#0d4b8c;   /* same colour as your h1 / h2 headings */
+    margin: 2rem 0;             /* optional – space above/below the line */
+">
+      <h2>Camp Sunrise</h2>
+    </div>
+    <div class="thumbnails-container">
+      <a class="thumbnail-card" href="programs/campsunrise/camp-farm-discovery.html">
+        <img src="programs/graphics/farm-discovery.jpg" alt="Farm Discovery">
+        <span class="thumbnail-label">Farm Discovery (Ages 5-8)</span>
+      </a>
+        <a class="thumbnail-card" href="programs/campsunrise/camp-horse-camp.html">
+        <img src="programs/graphics/riding-camp.jpg" alt="Riding Camp">
+        <span class="thumbnail-label">Riding Camp (Ages 8-13)</span>
+      </a>
+      <a class="thumbnail-card" href="programs/campsunrise/camp-lit.html">
+        <img src="programs/graphics/leader-training.jpg" alt="Leader in Training">
+        <span class="thumbnail-label">Leader in Training (Ages 13+)</span>
+      </a>
+      <a class="thumbnail-card" href="programs/campsunrise/camp-contact-faq.html">
+        <img src="programs/graphics/camp-faq.jpg" alt="Camps Contact & FAQ">
+        <span class="thumbnail-label">Camps Contact & FAQ</span>
+      </a>
+    </div>
+     <!-- ---------- Life Skills ---------- -->
+<div class="container" style="text-align:left;">
+<hr style="
+    border: none;               /* remove the default 3‑D border */
+    height: 2px;                /* thickness you want (adjust as needed) */
+    background-color:#0d4b8c;   /* same colour as your h1 / h2 headings */
+    margin: 2rem 0;             /* optional – space above/below the line */
+">
+    <h2>Life Skills Day Program</h2>
+</div>
+<div class="thumbnails-container"
+     style="
+        /* Fixed 180 px column – no stretching */
+        grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+        justify-content: center;      /* centre the single column */
+        gap: 1.5rem;">
+    <a class="thumbnail-card"
+       href="programs/lifeskills/lifeskills.html">
+        <img src="programs/graphics/life-skills.jpg"
+             alt="Life Skills Day Program">
+        <span class="thumbnail-label">Life Skills Day Program</span>
+    </a>
+</div>
 
-    <main class="bottom-padding">
-        <div class="blue-divider"></div>
-        <p class="text-large">Therapy Programs</p>
-        <div class="thumbnail-row">
-            <div class="thumbnail-wrapper">
-                <a href="programs/therapyprograms/therapeutic-riding.html">
-                    <img src="programs/graphics/therapeutic-riding.jpg" alt="Therapeutic Riding" class="thumbnail">
-                    <button class="thumbnail-button">Therapeutic Riding</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/therapyprograms/efw.html">
-                    <img src="programs/graphics/equine-wellness.jpg" alt="Equine Facilitated Wellness" class="thumbnail">
-                    <button class="thumbnail-button">Equine Facilitated Wellness</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/therapyprograms/groupvisits.html">
-                    <img src="programs/graphics/group-visits.jpg" alt="Group Visits" class="thumbnail">
-                    <button class="thumbnail-button">Group Visits</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/therapyprograms/groomingdriving.html">
-                    <img src="programs/graphics/grooming.jpg" alt="Grooming Program" class="thumbnail">
-                    <button class="thumbnail-button">Grooming Program</button>
-                </a>
-            </div>
-        </div>
-    
-        <div class="blue-divider"></div>
-        <p class="text-large">Camp Sunrise</p>
-        <div class="thumbnail-row">
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-farm-discovery.html">
-                    <img src="programs/graphics/farm-discovery.jpg" alt="Farm Discovery" class="thumbnail">
-                    <button class="thumbnail-button">Farm Discovery (Ages 5-8)</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-horse-camp.html">
-                    <img src="programs/graphics/riding-camp.jpg" alt="Riding Camp" class="thumbnail">
-                    <button class="thumbnail-button">Riding Camp (Ages 8-13)</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-lit.html">
-                    <img src="programs/graphics/leader-training.jpg" alt="Leader in Training" class="thumbnail">
-                    <button class="thumbnail-button">Leader in Training (Ages 13+)</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-contact-faq.html">
-                    <img src="programs/graphics/camp-faq.jpg" alt="Contact & FAQ" class="thumbnail">
-                    <button class="thumbnail-button">Contact & FAQ</button>
-                </a>
-            </div>
-        </div>
-    
-        <div class="blue-divider"></div>
-        <p class="text-large">Life Skills</p>
-        <div class="thumbnail-row">
-            <div class="thumbnail-wrapper">
-                <a href="programs/lifeskills/lifeskills.html">
-                    <img src="programs/graphics/life-skills.jpg" alt="Life Skills Day Program" class="thumbnail">
-                    <button class="thumbnail-button">Life Skills Day Program</button>
-                </a>
-            </div>
-        </div>
-    
-        <div class="blue-divider"></div>
-        <p class="text-large">Other Programs</p>
-        <div class="thumbnail-row">
-            <div class="thumbnail-wrapper">
-                <a href="programs/littlebreeches/littlebreeches.html">
-                    <img src="programs/graphics/little-breeches.jpg" alt="Little Breeches & Mini Moments" class="thumbnail">
-                    <button class="thumbnail-button">Little Breeches & Mini Moments</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/eal/EAL.html">
-                    <img src="programs/graphics/equine-learning.jpg" alt="Equine Assisted Learning" class="thumbnail">
-                    <button class="thumbnail-button">Equine Assisted Learning</button>
-                </a>
-            </div>
-        </div>
-    </main>
+<!-- ---------- Other Programs ---------- -->
+<div class="container" style="text-align:left;">
+<hr style="
+    border: none;               /* remove the default 3‑D border */
+    height: 2px;                /* thickness you want (adjust as needed) */
+    background-color:#0d4b8c;   /* same colour as your h1 / h2 headings */
+    margin: 2rem 0;             /* optional – space above/below the line */
+">
+    <h2>Other Programs</h2>
+</div>
+<div class="thumbnails-container"
+     style="
+        /* Fixed 180 px columns – no stretching */
+        grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+        justify-content: center;      /* keep left‑aligned (same as other sections) */
+        gap: 1.5rem;">
+    <a class="thumbnail-card"
+       href="programs/littlebreeches/littlebreeches.html">
+        <img src="programs/graphics/little-breeches.jpg"
+             alt="Little Breeches & Mini Moments">
+        <span class="thumbnail-label">Little Breeches & Mini Moments</span>
+    </a>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+    <a class="thumbnail-card"
+       href="programs/eal/EAL.html">
+        <img src="programs/graphics/equine-learning.jpg"
+             alt="Equine Assisted Learning">
+        <span class="thumbnail-label">Equine Assisted Learning</span>
+    </a>
+</div>
+  </main>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+  
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
 
-    // Simple breadcrumb generation
-    function generateBreadcrumb() {
-        const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-        let breadcrumbHtml = '<nav class="breadcrumb">';
-        breadcrumbHtml += '<a href="./">Home</a>';
-        breadcrumbHtml += ' > <span>Programs</span>';
-        breadcrumbHtml += '</nav>';
-        breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-    }
+  <div id="footer-placeholder"></div>
+<script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-    // Call the function to generate the breadcrumb after the header is loaded
-    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
 </body>
 </html>
+

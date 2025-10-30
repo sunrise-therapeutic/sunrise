@@ -3,85 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Therapy Programs</title>
+    <title>Therapy Programs – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <!-- Main content goes here -->
-        <main class="bottom-padding">
-            <p class="text-medium-small" style="margin-bottom: 2rem;">
-                At Sunrise, we strive to foster a <strong>welcoming sense of community</strong>, to challenge each participant to<strong> new levels of personal achievement</strong>, and to maintain the highest possible standards of service with respect to <strong>safety and industry best practices</strong>. All lessons are taught by CanTRA certified instructors, with up to 3 trained volunteers assisting each rider, depending on the rider's needs. Each lesson is tailored to the rider's individual therapy goals, interests and abilities.
+ <!-- Header -->
+ <div id="header-placeholder"></div>
+
+ <!-- MAIN CONTENT -->
+ <main class="container">
+
+    <!-- Two‑column wrapper -->
+    <section class="two-column-layout">
+
+        <!-- LEFT: Text & headings -->
+        <article class="text-column">
+            <h1>Therapy Programs</h1>
+            <p>
+            At Sunrise, we strive to foster <b>a welcoming sense of community</b>, to challenge each participant to <b>new levels of personal achievement</b>, and to maintain the highest possible standards of service with respect to <b>safety and industry best practices</b>. All lessons are taught by CanTRA certified instructors, with up to 3 trained volunteers assisting each rider, depending on the rider's needs. Each lesson is tailored to the rider's individual therapy goals, interests and abilities.
             </p>
-        
-            <div class="thumbnail-row" style="margin-bottom: 2rem;">
-                <div class="thumbnail-wrapper">
-                    <a href="programs/therapyprograms/therapeutic-riding.html">
-                        <img src="programs/therapyprograms/therapeutic-riding.jpg" alt="Therapeutic Riding" class="thumbnail">
-                        <button class="thumbnail-button">Therapeutic Riding</button>
-                    </a>
-                </div>
-                <div class="thumbnail-wrapper">
-                    <a href="programs/therapyprograms/groomingdriving.html">
-                        <img src="programs/therapyprograms/grooming-driving.jpg" alt="Grooming & Driving Programs" class="thumbnail">
-                        <button class="thumbnail-button">Grooming & Driving Programs</button>
-                    </a>
-                </div>
-            </div>
-        
-            <div class="thumbnail-row">
-                <div class="thumbnail-wrapper">
-                    <a href="programs/therapyprograms/groupvisits.html">
-                        <img src="programs/therapyprograms/group-visits.jpg" alt="Group Visits" class="thumbnail">
-                        <button class="thumbnail-button">Group Visits</button>
-                    </a>
-                </div>
-            </div>
-        </main>
-    </main>
+            <p>
+                We are located on a beautiful 102‑acre farm in Puslinch, Ontario, between Guelph and Cambridge,
+                and only minutes from Highway 401. In addition to therapeutic riding lessons, which are taught by
+                Canadian Therapeutic Riding Association (CanTRA) certified instructors, Sunrise offers inclusive
+                programs open to individuals with and without special needs.
+            </p>
+            
+        </article>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+        <!-- RIGHT: Thumbnails (same look as index page) -->
+        <aside class="thumbs-column">
+            <a class="thumbnail-card" href="programs/therapyprograms/therapeutic-riding.html">
+                <img src="programs/therapyprograms/therapeutic-riding.jpg" alt="Therapeutic Riding">
+                <span class="thumbnail-label">Therapeutic Riding</span>
+            </a>
+            <a class="thumbnail-card" href="programs/therapyprograms/groomingdriving.html">
+                <img src="graphics/GOVERNANCEACCOUNTABILITY-1.jpg" alt="Grooming & Driving Program">
+                <span class="thumbnail-label">Grooming & Driving Program</span>
+            </a>
+            <a class="thumbnail-card" href="programs/therapyprograms/groupvisits.html">
+                <img src="programs/therapyprograms/group-visits.jpg" alt="Group Visits">
+                <span class="thumbnail-label">Group Visits</span>
+            </a>
+        </aside>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+    </section>
+</main>
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
+ <!-- Footer -->
+ <div id="footer-placeholder"></div>
 
-        // Generate breadcrumb trail
-        function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="programs/programs.html">Programs</a>';
-    breadcrumbHtml += ' > <a href="programs/therapyprograms/therapyprograms.html">Therapy Programs</a>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+ </script>
 </body>
 </html>
