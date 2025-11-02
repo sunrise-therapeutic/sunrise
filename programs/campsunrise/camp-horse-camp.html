@@ -3,135 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horse Camp</title>
+    <title>Horse Camp – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <!-- -------------------------------------------------
+         Page‑specific CSS (grid layout & mobile ordering)
+         ------------------------------------------------- -->
+    <style>
+        /* -------------------------------------------------
+           Desktop – two‑column grid (text left, photos right)
+           ------------------------------------------------- */
+        .therapeutic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;      /* left ≈ 1/3, right ≈ 2/3 */
+            gap: 2rem;                           /* space between columns / rows */
+            align-items: start;
+        }
+
+        /* Every photo should sit in the right column on desktop */
+        .therapeutic-grid img {
+            width: 100%;
+            border-radius: 0.6rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            grid-column: 2;                     /* force right‑hand column */
+        }
+
+      
+        
+
+
+        /* -------------------------------------------------
+           Mobile – single column, exact order you asked for
+           ------------------------------------------------- */
+        @media (max-width: 768px) {
+            .therapeutic-grid {
+                grid-template-columns: 1fr;      /* one column only */
+                gap: 1.5rem;                     /* a bit tighter on phone */
+            }
+
+            /* On mobile the photos lose the forced column,
+               so they flow in the natural document order. */
+            .therapeutic-grid img {
+                grid-column: auto;
+            }
+
+            /* Bottom‑only text block – wider side margins */
+            .bottom-text {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;               /* generous left/right breathing room */
+                text-align: left;
+            }
+        }
+
+        /* -------------------------------------------------
+           Desktop – keep the bottom block centred with side padding
+           ------------------------------------------------- */
+        @media (min-width: 769px) {
+            .bottom-text {
+                max-width: 900px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+                text-align: left;
+            }
+        
+
+        .therapeutic-grid .right-photos {
+            grid-column: 2;               /* same as the old img rule */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;                  /* space between the three photos */
+            }
+        
+        }
+    </style>
 </head>
 <body>
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <!-- Heading -->
-        <h1 class="text-very-large" style="text-align: center; color: #1a69e0;">Camp 2025 Registration is Now Open!!</h1>
+    <!-- -------------------------------------------------
+         Header (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="header-placeholder"></div>
 
-        <!-- Full-width intro paragraph -->
-        <div style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
-            <p class="text-medium-small">
-                Horse Camp is a farm based camp for children 8 – 13* years of age. Horse Camp is offered in two-week sessions with limited one-week options. Campers participate in horse riding and stable management lessons twice a week and equine assisted learning (EAL) once a week. (*campers with a diagnosis/special need are able to attend from 13 – 21 years of age.)
-            </p>
-        </div>
+    <!-- -------------------------------------------------
+         MAIN CONTENT
+         ------------------------------------------------- -->
+    <main class="container">
+ <h1>Horse Camp (ages 8 - 13*)</h1><br>
+        <!-- =====================================================
+             GRID WRAPPER – holds ALL headings, paragraphs, photos,
+             and the final bottom‑only text block.
+             ===================================================== -->
 
-        <!-- Three-column layout -->
-        <div style="display: flex; gap: 2rem; margin: 2rem auto; max-width: 1200px; padding: 0 1rem;">
-            <!-- Left column - Text content -->
-            <div style="flex: 1;">
-                <h2 class="text-medium-large">Horse Camp activities include:</h2>
-                <ul class="text-medium-small" style="list-style: none; padding-left: 0;">
-                    <li>• Horse Riding</li>
-                    <li>• Stable Management</li>
-                    <li>• Archery</li>
-                    <li>• Swimming</li>
-                    <li>• Low Ropes Challenge Course</li>
-                    <li>• Accessible Playground</li>
-                    <li>• Frog Pond</li>
-                    <li>• Arts & Crafts</li>
-                    <li>• Nature Programs</li>
-                    <li>• Outdoor Games</li>
-                </ul>
 
-                <p class="text-medium-small">
-                    Fridays are special at Sunrise! Every Friday is a theme day. We encourage campers to dress up and show their camp spirit.
-                </p>
 
-                <p class="text-medium-small">
-                    New campers with a special need or diagnosis are required to come to Sunrise for a pre-camp assessment with the Camp Coordinator. A Physician Referral Form and Individual Profile Form is also required. Registration is complete when all paperwork has been received and assessment is completed.
-                </p>
+<section class="therapeutic-grid">
+    <!-- LEFT‑COLUMN wrapper – everything that belongs on the left -->
 
-                <!-- Application button -->
-                <div style="margin: 2rem 0;">
+
+    <div class="left-content">
+        <h2>About Horse Camp</h2>
+         
+        <p>Horse Camp is a farm based camp for children 8 – 13* years of age. Horse Camp is offered in two-week sessions with limited one-week options. Campers participate in horse riding and stable management lessons twice a week and equine assisted learning (EAL) once a week.</p>
+        <p style="margin-inline-start: 5%;"><b>*Note:</b> Campers with a diagnosis/special need are able to attend from 13 – 21 years of age.)</p>
+        
+        <h2>Horse Camp activities include:</h2>
+        <ul>
+            <li>Horse Riding</li>
+            <li>Stable Management</li>
+            <li>Archery</li>
+            <li>Swimming</li>
+            <li>Low Ropes Challenge Course</li>
+            <li>Accessible Playground</li>
+            <li>Frog Pond</li>
+            <li>Arts & Crafts</li>
+            <li>Nature Programs</li>
+            <li>Outdoor Games</li>
+            </ul>
+
+        <p>Fridays are special at Sunrise! Every Friday is a theme day. We encourage campers to dress up and show their camp spirit.</p>
+        <img src="programs/campsunrise/horse-camp-6.jpg" alt="Horse camp">
+        <p>New campers with a special need or diagnosis are required to come to Sunrise for a pre-camp assessment with the Camp Coordinator. A Physician Referral Form and Individual Profile Form is also required. Registration is complete when all paperwork has been received and assessment is completed.</p>
+
+        <h2>Camp Application and other Forms</h2>
+        <div style="margin: 2rem 0;">
                     <a href="https://form.123formbuilder.com/6782971/2025-horse-camp-registration-form" 
-                       class="donate-button" 
+                       class="btn" 
                        target="_blank">
                         Application Form for Camp 2025
                     </a>
-                </div>
-
-                <!-- Contact info -->
-                <div style="margin-top: 2rem;">
-                    <h2 class="text-medium-large">Contact</h2>
-                    <p class="text-medium-small">
-                        Jenna Sinclair<br>
-                        (519) 837-0558 Ext: 23<br>
-                        Email: <a href="mailto:campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a>
-                    </p>
-                </div>
-
-                <!-- Document links -->
-                <div style="margin-top: 2rem;">
-                    <p class="text-medium-small">
-                        <a href="uploads/Fillable-WAIVER-2020.pdf">Waiver 2020</a><br>
-                        <a href="uploads/PHYSICIAN-REFERRAL.docx">Physician's Referral Form</a><br>
-                        <a href="uploads/Individual-Profile-1.pdf">Individual Profile</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Middle column - Photos 1-3 -->
-            <div style="flex: 1;">
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <img src="programs/campsunrise/horse-camp-1.jpg" alt="Horse Camp 1" style="width: 100%; height: auto;">
-                    <img src="programs/campsunrise/horse-camp-2.jpg" alt="Horse Camp 2" style="width: 100%; height: auto;">
-                    <img src="programs/campsunrise/horse-camp-3.jpg" alt="Horse Camp 3" style="width: 100%; height: auto;">
-                </div>
-            </div>
-
-            <!-- Right column - Photos 4-6 -->
-            <div style="flex: 1;">
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <img src="programs/campsunrise/horse-camp-4.jpg" alt="Horse Camp 4" style="width: 100%; height: auto;">
-                    <img src="programs/campsunrise/horse-camp-5.jpg" alt="Horse Camp 5" style="width: 100%; height: auto;">
-                    <img src="programs/campsunrise/horse-camp-6.jpg" alt="Horse Camp 6" style="width: 100%; height: auto;">
-                </div>
-            </div>
         </div>
-    </main>
+        <ul>
+            <li><a href="uploads/Fillable-WAIVER-2020.pdf" target="_blank">Waiver 2020 (PDF)</a></li>
+            <li><a href="uploads/PHYSICIAN-REFERRAL.docx" target="_blank">Physician's Referral Form (DOCX)</a></li>
+            <li><a href="uploads/Individual-Profile-1.pdf" target="_blank">Individual Profile (PDF)</a></li> 
+        </ul>
 
-    <footer><div id="footer-placeholder"></div></footer>
+        <h2>For more information, please contact:</h2>
+            <p>
+                Jenna Sinclair<br>
+                Ph. (519) 837-0558 x23<br>
+                Email: <a href="campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a>
+            </p>
 
-    <script>
-        // ... header and footer loading code ...
+    </div>
 
- // Load the header content from header.html
- fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
+    <div class="right-photos">  
+        <img src="programs/campsunrise/horse-camp-1.jpg" alt="Horse camp">
+        <img src="programs/campsunrise/horse-camp-2.jpg" alt="Horse camp">"
+        <img src="programs/campsunrise/horse-camp-3.jpg" alt="Horse camp">
+        <img src="programs/campsunrise/horse-camp-4.jpg" alt="Horse camp">
+        <img src="programs/campsunrise/horse-camp-5.jpg" alt="Horse camp">
+
+
+    </div>
+
+</section>    
+
+
+
+</main>
+
+    <!-- -------------------------------------------------
+         Footer (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="footer-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         Load header/footer + initialise the menu (unchanged)
+         ------------------------------------------------- -->
+    <script type="module">
+        // Load header, then initialise the menu
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                import('./menu-2.js').then(mod => mod.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-
-
-        function generateBreadcrumb() {
-            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-            let breadcrumbHtml = '<nav class="breadcrumb">';
-            breadcrumbHtml += '<a href="./">Home</a>';
-            breadcrumbHtml += ' > <a href="programs/programs.html">Programs</a>';
-            breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Camp Sunrise</a>';
-            breadcrumbHtml += ' > <span>Horse Camp</span>';
-            breadcrumbHtml += '</nav>';
-            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-        }
+        // Footer fetch (unchanged)
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
     </script>
 </body>
 </html>

@@ -111,7 +111,7 @@ ol {
     color: #fff;
     text-decoration: underline;
 }
-.donate-btn {
+.btn {
     background: #dae71bd0;
     color: #FFF;
     padding: 0.5rem 1rem;
@@ -121,8 +121,8 @@ ol {
     transition: background .2s;
     text-shadow: 0 2px 3px rgba(0,0,0,0.45)
 }
-.donate-btn:hover,
-.donate-btn:focus {
+.btn:hover,
+.btn:focus {
     background: #14800a;
 }
 
@@ -168,7 +168,7 @@ ol {
     }
     
 
-    .donate-btn,
+    .btn,
     .social-media
     .logo {
         margin: 0.5rem auto;    /* centre them */
@@ -663,6 +663,12 @@ ol {
     margin: 0.7rem 0 0.7rem 0;
     text-decoration: none;
 }
+
+
+
+
+
+
 
 /* ------------------------------------------------------------------
    Two‑column layout for about.html and similar pages
