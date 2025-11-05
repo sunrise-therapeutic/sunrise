@@ -7,6 +7,13 @@
   <base href="../">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+ <style>
+    /* left-align cat thumbnails on wider screens, keep centered on narrow */
+    .cats-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,220px)); gap:1.5rem; justify-content:start; width:min(95%,1200px); margin:2rem auto; padding:0; }
+    @media (max-width: 600px) { .cats-container { justify-content:center; } }
+  </style>
+
 </head>
 <body>
   <div id="header-placeholder"></div>
@@ -101,15 +108,63 @@
                 <img src="horses/tucker/tucker-H.jpg" alt="Tucker">
                 <span class="thumbnail-label">Tucker</span>
             </a>
-            <a href="horses/minis/minis.html" class="thumbnail-card">
-                <img src="horses/minis/minis_H.png" alt="Our Mini Horses">
-                <span class="thumbnail-label">The Minis</span>
+
+        </div>
+
+
+
+                <hr style="margin: 2.5rem 0; border: none; height: 2px; background:#1a69e0;">
+        <h2 style="margin-bottom:1rem; color:#0d4b8c; text-align:left;">
+            Our Miniature Horses
+        </h2>
+        <div class="thumbnails-container"> 
+        <p style="text-align:left; max-width:700px; margin-bottom:2rem;">
+            Sunrise is also home to three miniature horses--Sundance, Faline and Buddy. Sundance and Faline are siblings and arrived at Sunrise in 2007. Buddy was acquired more recently in 20##.</p>
+            <img src="horses/minis/minis_H.png" alt="Our Miniature Horses"
+     style="display:block; margin:0.75rem auto; width:100%; max-width:50%; height:auto; border-radius:8px;">
+        </div>  
+        <!-- This second grid contains ONLY the two cat thumbnails -->
+        <div class="thumbnails-container cats-container">
+            <a class="thumbnail-card" href="horses/minis/sundance.html">
+                <img src="horses/minis/sundance-H.png" alt="Sundance">
+                <span class="thumbnail-label">Sundance</span>
             </a>
-            <a href="horses/cats/cats.html" class="thumbnail-card">
-                <img src="horses/cats/cats_H.png" alt="Our Barn Cats">
-                <span class="thumbnail-label">Our Barn Cats</span>
+            <a class="thumbnail-card" href="horses/minis/faline.html">
+                <img src="horses/minis/faline-H.png" alt="Faline">
+                <span class="thumbnail-label">Faline</span>
+            </a>
+                <a class="thumbnail-card" href="horses/minis/buddy.html">
+                <img src="horses/minis/buddy-H.jpg" alt="Buddy">
+                <span class="thumbnail-label">Buddy</span>
             </a>
         </div>
+
+                <hr style="margin: 2.5rem 0; border: none; height: 2px; background:#1a69e0;">
+        <h2 style="margin-bottom:1rem; color:#0d4b8c; text-align:left;">
+            Our Barn Cats
+        </h2>
+        <div class="thumbnails-container"> 
+        <p style="text-align:left; max-width:700px; margin-bottom:2rem;">
+            In addition to our wonderful horses and miniature horses, Sunrise is also home to two adorable barn cats. 
+            Molly and her little sister Dora arrived at Sunrise in September of 2018 just 16 weeks old. 
+            For the first month and a half they were at Sunrise they lived in the office and kept the staff more than just a little amused with their antics.
+            These feline friends help keep the barn free of unwanted pests while entertaining everyone at Sunrise with their playful antics and affectionate nature.</p>
+            <img src="graphics/cats.jpg" alt="Molly and Dora"
+     style="display:block; margin:0.75rem auto; width:100%; max-width:50%; height:auto; border-radius:8px;">
+        </div>  
+        <!-- This second grid contains ONLY the two cat thumbnails -->
+        <div class="thumbnails-container cats-container">
+            <a class="thumbnail-card" href="horses/dora/dora.html">
+                <img src="horses/dora/dora-H.jpg" alt="Dora">
+                <span class="thumbnail-label">Dora</span>
+            </a>
+            <a class="thumbnail-card" href="horses/molly/molly.html">
+                <img src="horses/molly/molly-H.jpg" alt="Molly">
+                <span class="thumbnail-label">Molly</span>
+            </a>
+        </div>
+
+
     </main>
 
     <!-- Include the footer -->
