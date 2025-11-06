@@ -1126,7 +1126,12 @@ ol {
 
 .footer-bottom {
     background-color: #000; /* Black background */
-    padding: 20px 0;
+    /* fallback for older browsers */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* responsive horizontal spacing: min 1rem, fluid with viewport, max 3rem */
+    padding-inline: clamp(1rem, 6vw, 3rem);
+    padding-block: 20px;    /* vertical padding unchanged */
     color: #cccccca7; /* Light grey text */
     text-align: center;
     font-size: 0.8rem;

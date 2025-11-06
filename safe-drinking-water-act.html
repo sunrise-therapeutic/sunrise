@@ -1,76 +1,60 @@
--water-act.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safe Drinking Water Act</title>
+    <title>Safe Drinking Water </title>
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Include the header -->
+    
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
-            <h2 class="text-medium-large" style="color: #000;">Safe Drinking Water Act, 2002</h2>
-            
-            <p class="text-medium-small">
-                In accordance with the Ministry of the Environment's Safe Drinking Water Act, 2002
-            </p>
-            
-            <p class="text-medium-small">
-                Sunrise Therapeutic Riding & Learning Centre, Well Water Supply:<br>
-                Drinking Water System Number: 260045071<br>
-                Drinking Water System Category: Small Non-Municipal Non-Residential
-            </p>
+    <main>
+    <div class="container" style="text-align:left;">
+        <h1>Safe Drinking Water Act, 2002</h1>
+        <p>In accordance with the Ministry of the Environment's Safe Drinking Water Act, 2002</p>
 
-            <p class="text-medium-small">
-                The following documents pertaining to Sunrise's water disinfection system are available for viewing by the public Monday through Friday, 9:00 a.m. – 4:30 p.m., #6920 Conc.1, RR#2, Puslinch, ON NOB 2J0.
-            </p>
-
-            <ul class="text-medium-small" style="list-style: none; padding-left: 0;">
-                <li>• Water System Annual Report</li>
-                <li>• Water System Sampling Logs</li>
-                <li>• Engineering Evaluation Report</li>
-                <li>• Ontario Regulation 170/03: Drinking Water Systems</li>
-            </ul>
-
-            <p class="text-medium-small" style="margin-top: 2rem;">
-                April 25 2011<br>
-                LO/Water System
-            </p>
-        </div>
+    <p>Sunrise Therapeutic Riding & Learning Centre, Well Water Supply:</p>
+    <ul style="list-style: none; padding: 0;  text-indent: 2%;">
+        <li>Drinking Water System Number: 260045071</li>
+        <li> Water System Category: Small Non-Municipal Non-Residential</li>
+    </ul> 
+    <p>The following documents pertaining to Sunrise's water disinfection system are available for viewing by the public 
+    Monday through Friday, 9:00 a.m. – 4:30 p.m., #6920 Conc.1, RR#2, Puslinch, ON NOB 2J0.</p>
+        
+    <ul style="list-style: none; padding: 0; text-indent: 2%;">
+                <li>Water System Annual Report</li>
+                <li>Water System Sampling Logs</li>
+                <li>Engineering Evaluation Report</li>
+                <li>Ontario Regulation 170/03: Drinking Water Systems</li>
+    </ul>     
     </main>
 
+    <!-- Include the footer -->
+    
     <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        // Load header and footer
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-        // Generate breadcrumb
-        function generateBreadcrumb() {
-            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-            let breadcrumbHtml = '<nav class="breadcrumb">';
-            breadcrumbHtml += '<a href="./">Home</a>';
-            breadcrumbHtml += ' > <span>Safe Drinking Water Act</span>';
-            breadcrumbHtml += '</nav>';
-            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-        }
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
 </body>
 </html>

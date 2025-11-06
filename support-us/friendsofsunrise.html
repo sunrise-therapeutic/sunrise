@@ -3,30 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends of Sunrise</title>
+    <title>Friends of Sunrise – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <!-- -------------------------------------------------
+         Page‑specific CSS (grid layout & mobile ordering)
+         ------------------------------------------------- -->
+    <style>
+
+    /* Sponsors row — horizontal on desktop, stacked on small screens */
+    .sponsors {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .sponsors .sponsor img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 220px; /* controls desktop size */
+    }
+
+    @media (max-width: 600px) {
+      .sponsors {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .sponsors .sponsor img {
+        max-width: 320px;
+        width: 80%; /* keeps some side padding on small screens */
+      }
+    }
+   
+
+
+
+        /* -------------------------------------------------
+           Desktop – two‑column grid (text left, photos right)
+           ------------------------------------------------- */
+        .therapeutic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;      /* left ≈ 1/3, right ≈ 2/3 */
+            gap: 2rem;                           /* space between columns / rows */
+            align-items: start;
+        }
+
+        /* Every photo should sit in the right column on desktop */
+        .therapeutic-grid img {
+            width: 100%;
+            border-radius: 0.6rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            grid-column: 2;                     /* force right‑hand column */
+        }
+
+      
+        
+
+
+        /* -------------------------------------------------
+           Mobile – single column, exact order you asked for
+           ------------------------------------------------- */
+        @media (max-width: 768px) {
+            .therapeutic-grid {
+                grid-template-columns: 1fr;      /* one column only */
+                gap: 1.5rem;                     /* a bit tighter on phone */
+            }
+
+            /* On mobile the photos lose the forced column,
+               so they flow in the natural document order. */
+            .therapeutic-grid img {
+                grid-column: auto;
+            }
+
+            /* Bottom‑only text block – wider side margins */
+            .bottom-text {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;               /* generous left/right breathing room */
+                text-align: left;
+            }
+        }
+
+        /* -------------------------------------------------
+           Desktop – keep the bottom block centred with side padding
+           ------------------------------------------------- */
+        @media (min-width: 769px) {
+            .bottom-text {
+                max-width: 900px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+                text-align: left;
+            }
+        
+
+        .therapeutic-grid .right-photos {
+            grid-column: 2;               /* same as the old img rule */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;                  /* space between the three photos */
+            }
+        
+        }
+    </style>
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <!-- Two-column section -->
-        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
-            <!-- Left column - 2/3 width -->
-            <div style="flex: 2;">
-                <h2 style="font-weight: bold;" class="text-medium-large">Thank You to our Recent Donors</h2>
-                <h3 style="font-weight: bold;" class="text-medium-large">Nov. 1, 2018 – June 30, 2019</h3>
-                <p style="font-style: italic; font-size: 0.9rem;">(for privacy reasons, this list does not include individuals)</p>
-                <p style="font-style: italic; font-size: 0.9rem;">For information on past donors (previous fiscal years), please refer to our Annual Reports</p>
-    
-                <h3 style="font-style: italic; color: #1a69e0;" class="text-large">Special Thanks to Our Sunrise Trailblazers</h3>
-                <p style="font-style: italic; font-size: 0.9rem;">(who made donations of $1000 and up)…</p>
-    
-                <ul class="text-medium-small" style="list-style: none; padding: 0;">
+    <!-- -------------------------------------------------
+         Header (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="header-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         MAIN CONTENT
+         ------------------------------------------------- -->
+    <main class="container">
+ <h1>Friends of Sunrise</h1><br>
+        <!-- =====================================================
+             GRID WRAPPER – holds ALL headings, paragraphs, photos,
+             and the final bottom‑only text block.
+             ===================================================== -->
+
+
+
+<section class="therapeutic-grid">
+    <!-- LEFT‑COLUMN wrapper – everything that belongs on the left -->
+
+
+<div class="left-content">
+      <h2 style="font-style: italic;">Thank You to our Recent Donors<br> Nov. 1 2018 &mdash; June 30, 2019*</h2>
+        <p style="font-style: italic; font-size: small;">*For privacy reasons, this list does not include individuals.
+        For information on past donors (previous fiscal years), please refer to our Annual Reports.</p>
+
+<h3 style="font-style: italic;">Special Thanks to Our Sunrise Trailblazers:</h3>
+<p style="font-style: italic;">(who made donations of $1,000 and up)...</p>
+        <ul style="list-style: none; padding: 0;">
                     <li>Airlie Foundation (Coffey Creek Farm)</li>
                     <li>Antolin Enterprises Inc. (McDonald's Restaurants of Guelph)</li>
                     <li>Balnar Management Ltd.</li>
@@ -61,11 +177,13 @@
                     <li>Vet Alliance Inc.</li>
                     <li>Vetoquinol Veterinary Pharmaceuticals</li>
                 </ul>
-            </div>
 
-            <!-- Right column - 1/3 width -->
-            <div style="flex: 1;">
-                <h3 style="font-style: italic; color: #1a69e0;" class="text-large">Thank you to those who provide ongoing Professional Services to Sunrise</h3>
+
+</div>
+
+<div class="right-photos">  
+        
+            <h3 style="font-style: italic;">Thank you to those who provide ongoing Professional Services to Sunrise:</h3>
                 <ul class="text-medium-small" style="list-style: none; padding: 0;">
                     <li>Bayer Animal Health (Dr. Carol Jakel)</li>
                     <li>Boehringer Ingelheim Animal Health (Paulene Tiemens-Weber)</li>
@@ -98,7 +216,7 @@
                     <li>Zoetis Canada (Jeff Peters)</li>
                 </ul>
 
-                <h3 style="font-style: italic; color: #1a69e0;" class="text-large">Thank you also to:</h3>
+                <h3 style="font-style: italic;">Thank you also to:</h3>
                 <p class="text-medium-small">(Nov. 1 2018-June 30, 2019)</p>
                 <ul class="text-medium-small" style="list-style: none; padding: 0;">
                     <li>Ellis Pioneer Community Chapel</li>
@@ -111,62 +229,52 @@
                     <li>Rotary Club of Cambridge North</li>
                     <li>Settlers Supplies Inc.</li>
                 </ul>
-            </div>
-        </div>
 
-        <!-- Centered content section -->
-        <div style="text-align: center; margin: 3rem 0;">
-            <p class="text-medium-large">Please refer to Celebrate Sunrise, Hoofbeat and Forest webpages for event/project donors.</p>
-            
-            <p style="font-style: italic; color: #1a69e0;" class="text-medium-large">Sunrise Cares Major Supporters (2019)</p>
-            
-            <p class="text-medium-small">The Sunrise Cares program provides financial assistance towards registration fees for riders and campers from financially-marginalized families, and subsidizes group visits for classes of children with special needs</p>
-    
-            <img src="support-us/Sunrise-Cares-supporters-2019-logos.jpg" alt="Sunrise Cares Supporters" style="max-width: 800px; width: 100%; margin: 2rem 0;">
-    
-            <p class="text-medium-small">Thank you also to <strong>The Harry E. Foster Charitable Foundation</strong> for our arena lighting upgrades!</p>
-        </div>
-    </main>
+    </div>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+</section>    
+<div style="text-align: center;">
+    <p>Please refer to Celebrate Sunrise, Hoofbeat and Forest webpages for event/project donors.</p>
+    <p style="color: #0d4b8c; font-style: italic;">Sunrise Cares Major Supporters (2019)</p>
+    <p>The Sunrise Cares program provides financial assistance towards registration fees for riders and campers from financially-marginalized families, 
+    and subsidizes group visits for classes of children with special needs</p>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
+    
+</div>
+
+
+<div class="sponsors" aria-label="Sunrise Cares supporters">
+  <div class="sponsor"><img src="support-us/supporter-bridgeway.png" alt="Bridgeway Foundation"></div>
+  <div class="sponsor"><img src="support-us/supporter-guelph-community.png" alt="Guelph Community Foundation"></div>
+  <div class="sponsor"><img src="support-us/supporter-guelph-wish-fund.png" alt="Guelph Wish Fund for Children"></div>
+  <div class="sponsor"><img src="support-us/supporter-foster-pearson-foundation.png" alt="Harry E Foster Foundation and LJ Pearson Foundation"></div>
+</div>
+</main>
+
+    <!-- -------------------------------------------------
+         Footer (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="footer-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         Load header/footer + initialise the menu (unchanged)
+         ------------------------------------------------- -->
+    <script type="module">
+        // Load header, then initialise the menu
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                import('./menu-2.js').then(mod => mod.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-
-
-// Simple breadcrumb generation
-function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="support-us/support-us.html">Support Us</a>';
-    breadcrumbHtml += ' > <span>Friends of Sunrise</span>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-    // Call the function to generate the breadcrumb after the header is loaded
-    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
+        // Footer fetch (unchanged)
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
     </script>
 </body>
 </html>

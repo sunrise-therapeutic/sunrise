@@ -1,64 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy</title>
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Include the header -->
+    
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
+    <main>
+    <div class="container" style="text-align:left;">
+        <h1>Privacy Policy</h1>
+        <p>Sunrise Therapeutic Riding and Learning Centre respects your privacy. 
+            Sunrise protects your personal information and adheres to all legislative requirements with respect to protecting privacy. 
+            We do not rent, sell or trade our mailing lists. The information you provide will be used to deliver services and to keep you informed
+             and up to date on the activities of Sunrise, including programs, services, special events, funding needs, 
+             and volunteer opportunities through periodic contacts. 
+            If at any time you wish to be removed from our mailing list 
+            simply contact us by phone at 519-837-0558 or via email at  <a href="mailto:office@sunrise-therapeutic.ca">office@sunrise-therapeutic.ca</a></p>
         
-            <h2 class="text-medium-large" style="color: #000;">Privacy Policy</h2>
-            <p class="text-medium-small">
-                Sunrise Therapeutic Riding and Learning Centre respects your privacy. Sunrise protects your personal information and adheres to all legislative requirements with respect to protecting privacy. We do not rent, sell or trade our mailing lists. The information you provide will be used to deliver services and to keep you informed and up to date on the activities of Sunrise, including programs, services, special events, funding needs, and volunteer opportunities through periodic contacts. If at any time you wish to be removed from our mailing list simply contact us by phone at 519-837-0558 or via email at <a href="mailto:office@sunrise-therapeutic.ca">office@sunrise-therapeutic.ca</a>.
-            </p>
         
     </main>
 
+    <!-- Include the footer -->
+    
     <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Load header first
-            fetch("header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    // Load menu script after header is loaded
-                    const menuScript = document.createElement('script');
-                    menuScript.src = 'menu.js';
-                    document.body.appendChild(menuScript);
-                    // Generate breadcrumb after header loads
-                    generateBreadcrumb();
-                })
-                .catch(error => console.error('Error loading header:', error));
-    
-            // Load footer second
-            fetch("footer.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading footer:', error));
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
+
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
         });
-    
-        // Move function definition outside
-        function generateBreadcrumb() {
-            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-            if (breadcrumbPlaceholder) {
-                let breadcrumbHtml = '<nav class="breadcrumb">';
-                breadcrumbHtml += '<a href="./">Home</a>';
-                breadcrumbHtml += ' > <span>Privacy Policy</span>';
-                breadcrumbHtml += '</nav>';
-                breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-            }
-        }
-    </script>
-    
+</script>
 </body>
 </html>
