@@ -185,6 +185,56 @@ ol {
 
 
 
+/* ...Mobile adjustments to keep logo and org name together on wide viewports */
+
+/* Wide‑screen header: center logo + contact, keep social left and donate right */
+@media (min-width: 1200px) {
+  .header-top {
+    justify-content: center;   /* centre the main group */
+    position: relative;        /* allow absolute positioning of social / donate */
+    gap: 1.5rem;
+  }
+
+  /* make logo and contact render as one inline group */
+  .logo-container,
+  .org-contact-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* ensure the organisation name and contact sit beside the logo */
+  .logo-container { margin-right: 0.5rem; }
+  .org-contact-container { align-items: center; }
+
+  /* pin social icons to the far left and donate button to the far right */
+  .header-top .social-media {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .header-top .btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* ...End of mobile adjustments to keep logo and org name together on wide viewports */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -747,7 +797,7 @@ ol {
 
 /* Image style for expanding images */ 
 .expanding-image {
-    width: 100%;
+    width: 80%;
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 2px 12px rgba(0,0,0,.07);
