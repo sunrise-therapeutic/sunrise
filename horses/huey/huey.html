@@ -3,90 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huey - Sunrise Therapeutic Riding & Learning Centre</title>
+    <title>Huey – Sunrise Therapeutic Riding & Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
 </head>
 <body>
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <p class="text-large page-title">Huey</p>
-        <div class="feature-image">
-            <img src="horses/huey/huey-main.jpg" alt="Huey" id="main-photo">
-        </div>
+    <!-- ====================== MAIN CONTENT ====================== -->
+<main>
+    <div class="container">
 
-        <div class="horse-profile">
-            <div class="profile-photo">
-                <img src="horses/huey/huey-standing.jpg" alt="Huey" id="profile-photo">
-            </div>
-            
-            <div class="profile-info">
-                <p><strong>Born:</strong> year</p>
-                <p><strong>Gender:</strong> text</p>
-                <p><strong>Breed:</strong> text</p>
-                <p><strong>Height:</strong> ## hh</p>
-                <p><strong>Colour:</strong> text</p>
-                <p class="horse-description">Huey is a... .</p>
-                <p><strong>Sponsor:</strong> text</p>
-            </div>
-        </div>
+        <!-- Page title – centred -->
+        <h1 class="horse-page-title">Hughston ("Huey")</h1>
 
-        <div class="photo-gallery-section">
-            <p class="gallery-caption">Click on any image below to view more photos!</p>
-            <div class="photo-gallery">
-                <img src="horses/huey/huey-1.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-2.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-3.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-4.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-5.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-6.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-7.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-8.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-9.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-10.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
-                <img src="horses/huey/huey-11.jpg" alt="Huey" class="gallery-thumb" onclick="updateProfilePhoto(this.src)">
+        <!-- Two‑column wrapper (desktop) – becomes a stack on mobile -->
+        <section class="horse-layout">
+
+    <!-- ==================== LEFT COLUMN – DETAILS ==================== -->
+    <aside class="horse-details-col">
+        <dl class="horse-details">
+
+            <!-- Row 1 – Born + Gender -->
+            <div class="detail-row">
+                <div class="detail-cell">
+                    <dt class="detail-label">Born</dt>
+                    <dd class="detail-value">YYYY</dd>
+                </div>
+                <div class="detail-cell">
+                    <dt class="detail-label">Gender</dt>
+                    <dd class="detail-value">Gender</dd>
+                </div>
             </div>
+
+            <!-- Row 2 – Height + Colour -->
+            <div class="detail-row">
+                <div class="detail-cell">
+                    <dt class="detail-label">Height</dt>
+                    <dd class="detail-value">## hh</dd>
+                </div>
+                <div class="detail-cell">
+                    <dt class="detail-label">Colour</dt>
+                    <dd class="detail-value">Colour</dd>
+                </div>
+            </div>
+
+            <!-- Row 3 – Breed (full width) -->
+            <div class="detail-row single">
+                <div class="detail-cell">
+                    <dt class="detail-label">Breed</dt>
+                    <dd class="detail-value">Breed</dd>
+                </div>
+            </div>
+
+            <!-- Row 4 – Description (full width) -->
+            <div class="detail-row single description">
+                <div class="detail-cell">
+                    <dt class="detail-label">Description</dt>
+                    <dd class="detail-value">
+                        Description 
+                    </dd>
+                </div>
+            </div>
+        </dl>
+    </aside>
+
+    <!-- ==================== RIGHT COLUMN – PHOTOS ==================== -->
+    <div class="horse-photos-col">
+
+        <!-- 1️⃣ Main (large) photo – this image will be swapped when a thumb is clicked -->
+        <figure class="photo-display">
+            <img id="main-photo"
+                 src="horses/huey/huey-G.jpg"
+                 alt="Huey – main photo">
+        </figure>
+
+        <!-- 2️⃣ Thumbnail gallery – four thumbs (head‑shot + three extras) -->
+        <div class="photo-gallery">
+            <!-- Thumb 1 – the same image that is shown initially -->
+            <img src="horses/huey/huey-G.jpg"
+                 alt="Huey – thumb 1"
+                 class="gallery-thumb"
+                 data-full="horses/huey/huey-G.jpg"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 2 -->
+            <img src="horses/huey/huey-G.jpg"
+                 alt="Huey – thumb 2"
+                 class="gallery-thumb"
+                 data-full="horses/huey/huey-G.jpg"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 3 -->
+            <img src="horses/huey/huey-G.jpg"
+                 alt="Huey – thumb 3"
+                 class="gallery-thumb"
+                 data-full="horses/huey/huey-G.jpg"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 4 -->
+            <img src="horses/huey/huey-G.jpg"
+                 alt="Huey – thumb 4"
+                 class="gallery-thumb"
+                 data-full="horses/huey/huey-G.jpg"
+                 onclick="swapMain(this)">
         </div>
-    </main>
+    </div>
+</section>
+    </div> <!-- /.container -->
+</main>
 
     <footer><div id="footer-placeholder"></div></footer>
 
     <script>
-        // Load header and footer with correct paths
+        // Load the shared header and footer (paths stay the same)
         fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                generateBreadcrumb();
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                // initialise the menu after header is inserted
+                import("./menu-2.js").then(m => m.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
         fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
             })
-            .catch(error => console.error('Error loading footer:', error));
-
-        function updateProfilePhoto(src) {
-            document.getElementById('profile-photo').src = src;
-        }
-
-        function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
-    breadcrumbHtml += ' > <a href="horses/horses.html">Our Horses</a>';
-    breadcrumbHtml += ' > <span>Huey</span>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
+            .catch(err => console.error('Footer load failed:', err));
     </script>
+    <script>
+/**
+ * Swap the large main photo with the image that was tapped.
+ * The thumbnail passes itself (`this`) to the function.
+ * The full‑size URL is stored in the thumbnail's `data-full` attribute.
+ */
+function swapMain(thumb) {
+    const mainImg = document.getElementById('main-photo');
+    if (!mainImg) return;               // safety guard
+
+    // Get the URL of the full‑size image from the thumbnail
+    const newSrc = thumb.getAttribute('data-full');
+
+    // If the user clicks the thumbnail that is already displayed,
+    // we simply do nothing (prevents a needless reload).
+    if (mainImg.src.includes(newSrc)) return;
+
+    // Fade out → change src → fade back in (nice visual cue)
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+        mainImg.src = newSrc;
+        mainImg.style.opacity = '1';
+    }, 150);   // 150 ms matches the CSS transition speed (if any)
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinky – Sunrise Therapeutic Riding & Learning Centre</title>
+    <base href="../../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <!-- ====================== MAIN CONTENT ====================== -->
+<main>
+    <div class="container">
+
+        <!-- Page title – centred -->
+        <h1 class="horse-page-title">Pinky</h1>
+
+        <!-- Two‑column wrapper (desktop) – becomes a stack on mobile -->
+        <section class="horse-layout">
+
+    <!-- ==================== LEFT COLUMN – DETAILS ==================== -->
+    <aside class="horse-details-col">
+        <dl class="horse-details">
+
+            <!-- Row 1 – Born + Gender -->
+            <div class="detail-row">
+                <div class="detail-cell">
+                    <dt class="detail-label">Born</dt>
+                    <dd class="detail-value">YYYY</dd>
+                </div>
+                <div class="detail-cell">
+                    <dt class="detail-label">Gender</dt>
+                    <dd class="detail-value">Gender</dd>
+                </div>
+            </div>
+
+            <!-- Row 2 – Height + Colour -->
+            <div class="detail-row">
+                <div class="detail-cell">
+                    <dt class="detail-label">Height</dt>
+                    <dd class="detail-value">## hh</dd>
+                </div>
+                <div class="detail-cell">
+                    <dt class="detail-label">Colour</dt>
+                    <dd class="detail-value">Colour</dd>
+                </div>
+            </div>
+
+            <!-- Row 3 – Breed (full width) -->
+            <div class="detail-row single">
+                <div class="detail-cell">
+                    <dt class="detail-label">Breed</dt>
+                    <dd class="detail-value">Breed</dd>
+                </div>
+            </div>
+
+            <!-- Row 4 – Description (full width) -->
+            <div class="detail-row single description">
+                <div class="detail-cell">
+                    <dt class="detail-label">Description</dt>
+                    <dd class="detail-value">
+                        Description.
+                    </dd>
+                </div>
+            </div>
+        </dl>
+    </aside>
+
+    <!-- ==================== RIGHT COLUMN – PHOTOS ==================== -->
+    <div class="horse-photos-col">
+
+        <!-- 1️⃣ Main (large) photo – this image will be swapped when a thumb is clicked -->
+        <figure class="photo-display">
+            <img id="main-photo"
+                 src="horses/pinky/pinky-H.png"
+                 alt="Pinky – main photo">
+        </figure>
+
+        <!-- 2️⃣ Thumbnail gallery – four thumbs (head‑shot + three extras) -->
+        <div class="photo-gallery">
+            <!-- Thumb 1 – the same image that is shown initially -->
+            <img src="horses/pinky/pinky-H.png"
+                 alt="Pinky – thumb 1"
+                 class="gallery-thumb"
+                 data-full="horses/pinky/pinky-H.png"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 2 -->
+            <img src="horses/pinky/pinky-H.png"
+                 alt="Pinky – thumb 2"
+                 class="gallery-thumb"
+                 data-full="horses/pinky/pinky-H.png"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 3 -->
+            <img src="horses/pinky/pinky-H.png"
+                 alt="Pinky – thumb 3"
+                 class="gallery-thumb"
+                 data-full="horses/pinky/pinky-H.png"
+                 onclick="swapMain(this)">
+
+            <!-- Thumb 4 -->
+            <img src="horses/pinky/pinky-H.png"
+                 alt="Pinky – thumb 4"
+                 class="gallery-thumb"
+                 data-full="horses/pinky/pinky-H.png"
+                 onclick="swapMain(this)">
+        </div>
+    </div>
+</section>
+    </div> <!-- /.container -->
+</main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+    <script>
+        // Load the shared header and footer (paths stay the same)
+        fetch("header.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                // initialise the menu after header is inserted
+                import("./menu-2.js").then(m => m.initMenu());
+            })
+            .catch(err => console.error('Header load failed:', err));
+
+        fetch("footer.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error('Footer load failed:', err));
+    </script>
+    <script>
+/**
+ * Swap the large main photo with the image that was tapped.
+ * The thumbnail passes itself (`this`) to the function.
+ * The full‑size URL is stored in the thumbnail's `data-full` attribute.
+ */
+function swapMain(thumb) {
+    const mainImg = document.getElementById('main-photo');
+    if (!mainImg) return;               // safety guard
+
+    // Get the URL of the full‑size image from the thumbnail
+    const newSrc = thumb.getAttribute('data-full');
+
+    // If the user clicks the thumbnail that is already displayed,
+    // we simply do nothing (prevents a needless reload).
+    if (mainImg.src.includes(newSrc)) return;
+
+    // Fade out → change src → fade back in (nice visual cue)
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+        mainImg.src = newSrc;
+        mainImg.style.opacity = '1';
+    }, 150);   // 150 ms matches the CSS transition speed (if any)
+}
+</script>
+</body>
+</html>

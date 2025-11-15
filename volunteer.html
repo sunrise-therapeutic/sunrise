@@ -3,18 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer</title>
+    <title>Volunteer – Sunrise Therapeutic Riding &amp; Learning Centre</title>
+   
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <!-- -------------------------------------------------
+         Page‑specific CSS (grid layout & mobile ordering)
+         ------------------------------------------------- -->
+    <style>
+
+
+   
+
+
+
+        /* -------------------------------------------------
+           Desktop – two‑column grid (text left, photos right)
+           ------------------------------------------------- */
+        .therapeutic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;      /* left ≈ 1/3, right ≈ 2/3 */
+            gap: 2rem;                           /* space between columns / rows */
+            align-items: start;
+        }
+
+        /* Every photo should sit in the right column on desktop */
+        .therapeutic-grid img {
+            width: 100%;
+            border-radius: 0.6rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            grid-column: 2;                     /* force right‑hand column */
+        }
+
+      
+        
+
+
+        /* -------------------------------------------------
+           Mobile – single column, exact order you asked for
+           ------------------------------------------------- */
+        @media (max-width: 768px) {
+            .therapeutic-grid {
+                grid-template-columns: 1fr;      /* one column only */
+                gap: 1.5rem;                     /* a bit tighter on phone */
+            }
+
+            /* On mobile the photos lose the forced column,
+               so they flow in the natural document order. */
+            .therapeutic-grid img {
+                grid-column: auto;
+            }
+
+            /* Bottom‑only text block – wider side margins */
+            .bottom-text {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;               /* generous left/right breathing room */
+                text-align: left;
+            }
+        }
+
+        /* -------------------------------------------------
+           Desktop – keep the bottom block centred with side padding
+           ------------------------------------------------- */
+        @media (min-width: 769px) {
+            .bottom-text {
+                max-width: 900px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+                text-align: left;
+            }
+        
+
+        .therapeutic-grid .right-photos {
+            grid-column: 2;               /* same as the old img rule */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;                  /* space between the three photos */
+            }
+        
+        }
+    </style>
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
+    <!-- -------------------------------------------------
+         Header (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="header-placeholder"></div>
 
-        <div style="width: 66%; margin: 2rem auto;">
+    <!-- -------------------------------------------------
+         MAIN CONTENT
+         ------------------------------------------------- -->
+    <main class="container">
+ <h1>Volunteering at Sunrise</h1><br>
+        <!-- =====================================================
+             GRID WRAPPER – holds ALL headings, paragraphs, photos,
+             and the final bottom‑only text block.
+             ===================================================== -->
+
+
+
+<section class="therapeutic-grid">
+    <!-- LEFT‑COLUMN wrapper – everything that belongs on the left -->
+
+
+<div class="left-content">
+       <h2>Can you help?</h2> 
+        <p>Are you interested in making a difference in your community? Do you enjoy working with children and animals? Can you share even one hour per week of your time?</p>
+        <h2>Volunteer Sidewalkers and Leaders</h2>
+        <p>Our programs depend on more than 100 volunteer Leaders and Sidewalkers each week to assist in therapy lessons and share their time with a child or adult with special needs. 
+            Volunteer <b>Leaders</b> are responsible for leading the horse following direction from the lesson instructor. 
+            <b>Sidewalkers</b> provide physical support and encouragement to the rider.
+        </p>
+            
+        <p>Sunrise's goal is to have volunteers work with the same rider and horse each week – this is the Sunrise Therapy Team!</p>
+
+
+
+        <div style="width: 90%; margin: 2rem auto;">
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                 <iframe 
                     src="https://www.youtube.com/embed/7hWDXvV1r5s" 
@@ -26,141 +135,83 @@
             </div>
         </div>
 
-        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
-            <div style="flex: 2;">
-                <p class="text-very-large">Can You Help?</p>
-    
-                <p class="text-medium-small">Are you interested in making a difference in your community? Do you enjoy working with children and animals? Can you share even one hour per week of your time?</p>
-    
-                <p class="text-large">Volunteer Leaders and Sidewalkers assist in therapy lessons.</p>
-    
-                <p class="text-medium-small">More than 100 volunteers are needed each week to share their time with a child or adult with special needs. Volunteer Leaders are responsible for leading the horse following direction from the lesson instructor. Sidewalkers provide physical support and encouragement to the rider.</p>
-    
-                <p class="text-medium-small">Sunrise's goal is to have volunteers work with the same rider and horse each week – this is the Sunrise Therapy Team!</p>
-    
-                <p class="text-large">Volunteer Requirements</p>
-                <ul class="text-medium-small bulleted-list">
-                    <li>Be at least 14 years old</li>
-                    <li>Attend an Orientation</li>
-                    <li>Attend a Volunteer Training Clinic (for Lesson Volunteers only)</li>
-                    <li>Provide two references</li>
-                    <li>Submit a Police Record Check, Vulnerable Sector Check (only those 18 years of age and over)</li>
-                </ul>
-    
-                <p class="text-medium-small">Volunteer Orientations are provided each week by appointment during lesson times where visitors can see volunteers "in action" in the Sunrise riding arena. During an Orientation visit, volunteers tour the Sunrise facility, view a therapeutic riding lesson, and discuss their participation in the program.</p>
-    
-                <p class="text-medium-small">Volunteer Training Clinics are a two-hour hands-on session in the Sunrise barn and arena to prepare volunteers to assist in therapy lessons. All Lesson Volunteers must attend one Volunteer Training Clinic.</p>
-    
-                <p class="text-medium-small">Please contact Fiona Ryder, Volunteer Coordinator/Instructor, to make an Orientation appointment and for the dates of upcoming volunteer training opportunities:</p>
-    
-                <p class="text-medium-small">
-                    Phone: <a href="tel:519-837-0558">519-837-0558, ext. 35</a><br>
-                    Email: <a href="mailto:fiona@sunrise-therapeutic.ca">fiona@sunrise-therapeutic.ca</a><br>
-                    <a href="Volunteer-Application-2017.pdf">Sunrise Volunteer Application form</a>
-                </p>
-    
-                <p class="text-large">Other Volunteer Opportunities</p>
-                <p class="text-medium-small">Other volunteer opportunities are available on a more irregular basis as assistance is required. This activity could include special events, fundraising, gardening, painting, barn chores, property and building maintenance, housekeeping, mailings & other office functions.</p>
-    
-                <p class="text-large">Placement Students</p>
-                <p class="text-medium-small">Sunrise encourages both secondary school, college and university students to consider Sunrise for their Co-op or Practicum placements. Acceptance into the program is based on an interview and space availability. Sunrise welcomes the energy, fresh perspective and knowledge of best practices that students bring to our program!</p>
-            </div>
-    
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
-                <img src="graphics/volunteer-1.jpg" alt="Volunteers at Sunrise" style="width: 100%; height: auto;">
-                <img src="graphics/volunteer-2.jpg" alt="Volunteers at Sunrise" style="width: 100%; height: auto;">
-                <img src="graphics/volunteer-3.jpg" alt="Volunteers at Sunrise" style="width: 100%; height: auto;">
-            </div>
-        </div>
-    </main>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
+       <h2>Volnteer Requirements</h2>
+    
+        <ul>
+            <li>Be at least 14 years of age</li>
+            <li>Attend an Orientation</li>
+            <li>Attend a Volunteer Training Clinic (for Lesson Volunteers only)</li>
+            <li>Provide two references</li>
+            <li>Submit a Police Record Check, Vulnerable Sector Check (only those 18 years of age and over)</li>
+        </ul>
+            
+        <p>Volunteer Orientations are provided each week by appointment during lesson times where visitors can see volunteers "in action" in the Sunrise riding arena. 
+            During an Orientation visit, volunteers tour the Sunrise facility, view a therapeutic riding lesson, and discuss their participation in the program.</p>
+
+        <p>Volunteer Training Clinics are a two-hour hands-on session in the Sunrise barn and arena to prepare volunteers to assist in therapy lessons. 
+            All Lesson Volunteers must attend one Volunteer Training Clinic.</p>
+        <p>Please contact Fiona Ryder, Volunteer Coordinator/Instructor, to make an Orientation appointment and for the dates of upcoming volunteer training opportunities:</p>
+
+            <p>
+                Fiona Ryder, Volunteer Coordinator/Instructor<br>
+                Ph. (519) 837-0558 x35<br>
+                Email: <a href="mailto:fiona@sunrise-therapeutic.ca">fiona@sunrise-therapeutic.ca</a>
+            </p>
+
+        <h2>Other Volunteer Opportunities</h2>
+        <p>Other volunteer opportunities are available on a more irregular basis as assistance is required. 
+        This activity could include special events, 
+        fundraising, gardening, painting, barn chores, property and building maintenance, housekeeping, mailings & other office functions.</p>
+        <h2>Placement Students</h2>
+        <p>Sunrise encourages both secondary school, college and university students to consider Sunrise for their Co-op or Practicum placements. 
+            Acceptance into the program is based on an interview and space availability. 
+            Sunrise welcomes the energy, fresh perspective and knowledge of best practices that students bring to our program!</p>
+
+
+
+</div>
+
+    <div class="right-photos">  
+        <img src="graphics/volunteer-1.jpg" alt="Volunteering at Sunrise">
+        <img src="graphics/volunteer-2.jpg" alt="Volunteering at Sunrise">
+        <img src="graphics/volunteer-3.jpg" alt="Volunteering at Sunrise"> 
+        
+
+
+    </div>
+
+</section>    
+
+
+
+</main>
+
+    <!-- -------------------------------------------------
+         Footer (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="footer-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         Load header/footer + initialise the menu (unchanged)
+         ------------------------------------------------- -->
+    <script type="module">
+        // Load header, then initialise the menu
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                import('./menu-2.js').then(mod => mod.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
- // Generate breadcrumb trail
-function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    const path = window.location.pathname.split('/').filter(part => part && part !== 'sunrise_test' && part !== 'sunrise');
-    let breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
-    let currentPath = '/sunrise_test';
-
-    // Mapping of URLs to breadcrumb names and their hierarchy
-    const breadcrumbMapping = {
-        'index.html': { name: 'Home', parent: '' },
-        'about.html': { name: 'About Us', parent: 'index.html' },
-        'history.html': { name: 'History', parent: 'about.html' },
-        'governance.html': { name: 'Governance and Accountability', parent: 'about.html' },
-        'staff.html': { name: 'Sunrise Staff', parent: 'about.html' },
-        'facilities.html': { name: 'Our Facilities', parent: 'about.html' },
-        'horses.html': { name: 'Our Horses', parent: 'about.html' },
-        'programs.html': { name: 'Programs', parent: 'index.html' },
-        'therapyprograms.html': { name: 'Therapy Programs', parent: 'programs.html' },
-        'campsunrise.html': { name: 'Camp Sunrise', parent: 'programs.html' },
-        'lifeskills.html': { name: 'Lifeskills Day Program', parent: 'programs.html' },
-        'littlebreeches.html': { name: 'Little Breeches', parent: 'programs.html' },
-        'studentinstructors.html': { name: 'Student Instructors', parent: 'programs.html' },
-        'EAL.html': { name: 'Equine Assisted Learning', parent: 'programs.html' },
-        'volunteer.html': { name: 'Volunteer', parent: 'index.html' },
-        'support-us.html': { name: 'Support Us', parent: 'index.html' },
-        'therapyforest.html': { name: 'Sunrise Therapy Forest', parent: 'support-us.html' },
-        'dropitoff.html': { name: 'Drop it Off for Sunrise', parent: 'support-us.html' },
-        'friendsofsunrise.html': { name: 'Friends of Sunrise', parent: 'support-us.html' },
-        'trailblazers.html': { name: 'Monthly Mini Trailblazers', parent: 'support-us.html' },
-        'whatshappening.html': { name: "What's Happening", parent: 'index.html' },
-        'celebratesunrise.html': { name: 'Celebrate Sunrise', parent: 'whatshappening.html' },
-        'newsletter.html': { name: 'Newsletter', parent: 'whatshappening.html' },
-        'upcomingevents.html': { name: 'Other Upcoming Events', parent: 'whatshappening.html' },
-        'contact.html': { name: 'Contact Us', parent: 'index.html' }
-    };
-
-    if (path.length === 0 || (path.length === 1 && (path[0] === 'index.html' || path[0] === ''))) {
-        // Only display "Home" without the carat and additional "Home"
-        breadcrumbHtml = '<nav class="breadcrumb"><a href="./">Home</a>';
-    } else {
-        let parent = 'index.html';
-        path.forEach((part, index) => {
-            if (part !== 'sunrise') {  // Skip 'sunrise' in path construction
-                currentPath += '/' + part;
-                const breadcrumbInfo = breadcrumbMapping[part] || { name: part.replace('.html', '').replace(/-/g, ' '), parent: parent };
-                if (breadcrumbInfo.parent && breadcrumbInfo.parent !== 'index.html') {
-                    const parentInfo = breadcrumbMapping[breadcrumbInfo.parent];
-                    if (parentInfo) {
-                        breadcrumbHtml += ` > <a href="/sunrise_test/${breadcrumbInfo.parent}">${parentInfo.name}</a>`;
-                    }
-                }
-                breadcrumbHtml += ` > <a href="${currentPath}">${breadcrumbInfo.name}</a>`;
-                parent = part;
-            }
-        });
-    }
-
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-// Call the function to generate the breadcrumb after the header is loaded
-document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
+        // Footer fetch (unchanged)
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
     </script>
 </body>
 </html>

@@ -3,94 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Therapeutic Riding</title>
+    <title>Therapeutic Riding – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <!-- -------------------------------------------------
+         Page‑specific CSS (grid layout & mobile ordering)
+         ------------------------------------------------- -->
+    <style>
+        /* -------------------------------------------------
+           Desktop – two‑column grid (text left, photos right)
+           ------------------------------------------------- */
+        .therapeutic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;      /* left ≈ 1/3, right ≈ 2/3 */
+            gap: 2rem;                           /* space between columns / rows */
+            align-items: start;
+        }
+
+        /* Every photo should sit in the right column on desktop */
+        .therapeutic-grid img {
+            width: 100%;
+            border-radius: 0.6rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            grid-column: 2;                     /* force right‑hand column */
+        }
+
+
+        
+
+
+        /* -------------------------------------------------
+           Mobile – single column, exact order you asked for
+           ------------------------------------------------- */
+        @media (max-width: 768px) {
+            .therapeutic-grid {
+                grid-template-columns: 1fr;      /* one column only */
+                gap: 1.5rem;                     /* a bit tighter on phone */
+            }
+
+            /* On mobile the photos lose the forced column,
+               so they flow in the natural document order. */
+            .therapeutic-grid img {
+                grid-column: auto;
+            }
+
+            /* Bottom‑only text block – wider side margins */
+            .bottom-text {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;               /* generous left/right breathing room */
+                text-align: left;
+            }
+        }
+
+        /* -------------------------------------------------
+           Desktop – keep the bottom block centred with side padding
+           ------------------------------------------------- */
+        @media (min-width: 769px) {
+            .bottom-text {
+                max-width: 900px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+                text-align: left;
+            }
+        
+
+        .therapeutic-grid .right-photos {
+            grid-column: 2;               /* same as the old img rule */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;                  /* space between the three photos */
+            }
+        
+        }
+    </style>
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <!-- Two-column layout -->
-        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
-            <!-- Left column - Text content -->
-            <div style="flex: 3;">
-                <h2 class="text-large">Sunrise Therapeutic Riding Program</h2>
-                <p class="text-medium">Who this Program Serves</p>
-                <p class="text-medium-small">Our Therapeutic Riding program is designed for individuals aged 3 & up with physical and/or cognitive special needs, including (but not limited to) those with autism, ADHD, developmental delays, cerebral palsy, Down syndrome, visual impairments or hearing impairments.</p>
-    
-                <h2 class="text-large">Benefits of Therapeutic Riding</h2>
-                <ul class="text-medium-small">
-                    <li>Development of muscle strength and flexibility</li>
-                    <li>Improvement of balance and coordination</li>
-                    <li>Mobilization of trunk and pelvis</li>
-                    <li>Improved learning skills and concentration</li>
-                    <li>Access to social integration</li>
-                    <li>A sense of achievement and independence</li>
-                    <li>Increased self-esteem and self-confidence</li>
-                </ul>
-    
-                <h2 class="text-large">Admission Procedures</h2>
-                <p class="text-medium-small">The following forms must be completed and submitted to Sunrise by mail, fax, e-mail or dropped off in person. Please contact Camilla Giffen, Head Instructor with any questions regarding the admission procedure (contact information below).</p>
-    
-                <p class="text-medium-small"><strong>Please note:</strong> All contraindications to riding are listed on the first pages of the Physician Referral form. Please look over the contraindications carefully before completing the forms.</p>
-    
-                <ul class="text-medium-small">
-                    <li>Physician Referral and Individual Profile (please note: the Physician Referral is not necessary for unmounted programs)</li>
-                    <li>R-10: Degree of Bodily Contact and Photo Release</li>
-                    <li>Liability Waiver (Sunrise has a $5 million dollar liability insurance)</li>
-                </ul>
-    
-                <p class="text-medium-small">Once the forms are fully completed and returned to Sunrise, we will contact you to set up an assessment with our Physiotherapist, Occupational Therapist and/or Speech and Language Pathologist to ensure the suitability of the program for each individual. The needs of the prospective rider will determine which consultant is present at the assessment. The assessment takes approximately 1 hour and involves a discussion regarding goals, history, abilities and needs, followed by a 15–20 minute mounted assessment for the prospective rider.</p>
-    
-                <p class="text-medium-small">Using the information from the assessment, and the rider's availability, we will do our best to place the rider into an appropriate lesson.</p>
-    
-                <p class="text-medium-small">Sunrise has an ongoing wait list so the assessment appointment could take a few months. Riding spaces are also limited, especially at popular times such as Saturdays and weekday evenings.</p>
-    
-                <h2 class="text-large">Lesson Schedule</h2>
-                <p class="text-medium-small">Sunrise offers two sessions per year: Fall (September to December) and Winter/Spring (January to June). Lessons run weekly for 30-60 minutes depending on the number of riders in the lesson. There are scheduled Break Weeks throughout the year during which time there are no classes.</p>
-    
-                <h2 class="text-large">Contact</h2>
-                <p class="text-medium-small">
-                    Camilla Giffen<br>
-                    Ph. (519) 837-0558 x29<br>
-                    Fax: (519) 837-1233<br>
-                    Email: <a href="mailto:camilla@sunrise-therapeutic.ca">camilla@sunrise-therapeutic.ca</a>
-                </p>
-            </div>
-    
-            <!-- Right column - Images -->
-            <div style="flex: 1;">
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <img src="programs/therapyprograms/therapeutic-riding-2.jpg" alt="Therapeutic Riding 2" style="width: 100%; height: auto;">
-                    <img src="programs/therapyprograms/therapeutic-riding-3.jpg" alt="Therapeutic Riding 3" style="width: 100%; height: auto;">
-                    <img src="programs/therapyprograms/therapeutic-riding-4.jpg" alt="Therapeutic Riding 4" style="width: 100%; height: auto;">
-                </div>
-            </div>
-        </div>
-    
-        <!-- Centered quote -->
-        <div style="text-align: center; margin: 3rem 0;">
-            <p class="text-large" style="font-style: italic;">
-                "The confidence and self-assurance I have gained at Sunrise I know will stay with me forever."<br>
-                - Ryan M. (2014)
-            </p>
-        </div>
-    
-        <!-- FAQ Section -->
+    <!-- -------------------------------------------------
+         Header (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="header-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         MAIN CONTENT
+         ------------------------------------------------- -->
+    <main class="container">
+ <h1>Therapeutic Riding Program</h1><br>
+        <!-- =====================================================
+             GRID WRAPPER – holds ALL headings, paragraphs, photos,
+             and the final bottom‑only text block.
+             ===================================================== -->
+      <h2 style="text-align:center; padding-bottom:4rem;"><i>"The confidence and self-assurance I have gained at Sunrise I know will stay with me forever."
+- Ryan M. (2014)</i></h2>
+
+
+<section class="therapeutic-grid">
+    <!-- LEFT‑COLUMN wrapper – everything that belongs on the left -->
+
+
+    <div class="left-content">
+<b>
+<p><a href="programs/therapyprograms/therapeutic-riding.html#whothisprogramserves" style="color: #0d4b8c;">Who this Program Serves</a></p>
+<p><a href="programs/therapyprograms/therapeutic-riding.html#benefits" style="color: #0d4b8c;">Benefits of Therapeutic Riding</a></p>
+<p><a href="programs/therapyprograms/therapeutic-riding.html#admission" style="color: #0d4b8c;">Admission Procedures</a></p>
+<p><a href="programs/therapyprograms/therapeutic-riding.html#contact" style="color: #0d4b8c;">Contact Information</a></p>
+<p><a href="programs/therapyprograms/therapeutic-riding.html#faq" style="color: #0d4b8c;">Frequently Asked Questions</a></p>
+</b>
+        <h2 id="whothisprogramserves">Who this Program Serves</h2> 
+        <p>Our Therapeutic Riding program is designed for individuals aged 3 & up with physical and/or cognitive special needs, including (but not limited to) those with autism, ADHD, developmental delays, cerebral palsy, Down syndrome, visual impairments or hearing impairments.</p>
         
+        <h2 id="benefits">Benefits of Therapeutic Riding</h2>
+            <ul>
+                <li>Development of muscle strength and flexibility</li>
+                <li>Improvement of balance and coordination</li>
+                <li>Mobilization of trunk and pelvis</li>
+                <li>Improved learning skills and concentration</li>
+                <li>Access to social integration</li>
+                <li>A sense of achievement and independence</li>
+                <li>Increased self-esteem and self-confidence</li>
+            </ul>  
+       <h2 id="admission">Admission Procedures</h2>
+
+        <p>
+            The following forms must be completed and submitted to Sunrise by
+            mail, fax, e‑mail or dropped off in person. Please contact Camilla
+            Giffen, Head Instructor with any questions regarding the admission
+            procedure (contact information below).
+        </p>
+        <p>
+            <b>Please note:</b> All contraindications to riding are listed on the first
+            pages of the Physician Referral form. Please look over the contraindications
+            carefully before completing the forms.
+        </p>
+        <ul>
+            <li><a href="uploads/PHYSICIAN-REFERRAL.docx">Physician Referral</a> and <a href="Individual-Profile-1.pdf">Individual Profile</a></li>
+            <li>R‑10: Degree of Bodily Contact and Photo Release</li>
+            <li><a href="uploads/Fillable-WAIVER-2020.pdf"></a><a href="Fillable-WAIVER-2020.pdf">Liability Waiver</a></li> (Sunrise has a $5 million liability insurance)</li>
+        </ul>
+        <p>Once the forms are fully completed and returned to Sunrise, we will contact you to set up an assessment with our Physiotherapist, Occupational Therapist and/or Speech and Language Pathologist to ensure the suitability of the program for each individual. The needs of the prospective rider will determine which consultant is present at the assessment. The assessment takes approximately 1 hour and involves a discussion regarding goals, history, abilities and needs, followed by a 15–20 minute mounted assessment for the prospective rider.</p>   
+        <p>Using the information from the assessment, and the rider's availability, we will do our best to place the rider into an appropriate lesson.</p>
+        <p>Sunrise has an ongoing wait list so the assessment appointment could take a few months. Riding spaces are also limited, especially at popular times such as Saturdays and weekday evenings.</p>
+        <h2 id="contact">Contact Information</h2>
+        <p>For more information regarding the Therapeutic Riding Program, please contact:</p>
+            <p style="text-indent: 2rem;">Camilla Giffen, Head Instructor</p>
+            <p style="text-indent: 2rem;">Phone: (519) 837-0558 x29</p>
+            <p style="text-indent: 2rem;">Email: <a href="mailto: camilla@sunrise-therapeutic.ca">camilla@sunrise-therapeutic.ca</a></p>
+
+        <h2 id="faq">Frequently Asked Questions about the Therapeutic Riding Program</h2>
         
-        <div class="faq-container" style="max-width: 800px; margin: 2rem auto;">
+    <div class="faq-container" style="max-width: 800px; margin: 2rem auto;">
             <!-- Existing FAQ item -->
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
+
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ What is required to register for therapeutic riding lessons?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    What is required to register for therapeutic riding lessons?
                 </summary>
                 <div style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     <ul>
@@ -101,36 +172,36 @@
                 </div>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ Can individuals without special needs participate in lessons at Sunrise?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    Can individuals without special needs participate in lessons at Sunrise?
                 </summary>
                 <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     Yes, we have "Riding Club" for experienced riders ages 8 years and up. This is an integrated program – participants must be able to ride independently (without volunteer assistance), and some riders with special needs join "Riding Club" once they have achieved this goal.
                 </p>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ Can adults participate in therapeutic riding lessons?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    Can adults participate in therapeutic riding lessons?
                 </summary>
                 <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     Certainly, we have many adult riders with special needs.
                 </p>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ Do you have Riding Camps?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    Do you have Riding Camps?
                 </summary>
                 <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                    Yes, during July and August Sunrise offers integrated summer day camps: Riding Camp and Farm Discovery Camp. For more information on our various camp programs check out our <a href="programs/campsunrise/campsunrise.html">Camps</a> page.
+                    Yes, during July and August Sunrise offers integrated summer day camps: Horse Camp and Farm Discovery Camp. For more information on our various camp programs check out our <a href="programs/campsunrise/campsunrise.html">Camps</a> page.
                 </p>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ Are Sunrise staff qualified?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    Are Sunrise staff qualified?
                 </summary>
                 <div style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     <ul>
@@ -143,9 +214,9 @@
                 </div>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ What is CanTRA?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    What is CanTRA?
                 </summary>
                 <div style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     <p>The Canadian Therapeutic Riding Association (CanTRA) is the only governing body of therapeutic riding in Canada. CanTRA member centres are inspected regularly to ensure a high level of safety standards. CanTRA member centres purchase liability insurance through CanTRA to provide adequate coverage and ensure national standards of safety. Sunrise must pay a fee per rider to cover the cost of the insurance.</p>
@@ -160,18 +231,18 @@
                 </div>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ Why must each rider pay a Sunrise membership fee each year?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    Why must each rider pay a Sunrise membership fee each year?
                 </summary>
                 <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     By collecting a membership fee, Sunrise is able to designate some of those funds to cover CanTRA insurance fees and CanTRA membership fee.
                 </p>
             </details>
         
-            <details class="text-medium-small" style="margin-bottom: 1rem;">
-                <summary style="cursor: pointer; color: #1a69e0; font-weight: bold;">
-                    ▼ What if I can't afford the lesson fees?
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; color: #0d4b8c; font-weight: bold;">
+                    What if I can't afford the lesson fees?
                 </summary>
                 <p style="margin-top: 0.5rem; padding-left: 1.5rem;">
                     Sunrise has a "Scholarship Fund" for riders with special needs for financially-marginalized. For more information about our scholarship fund please <a href="/scholarships.html">click here</a>
@@ -179,44 +250,49 @@
             </details>
         </div>
 
+    </div>
 
-    </main>
+    <div class="right-photos">  
+        <img src="programs/therapyprograms/therapeutic-riding-2.jpg"
+             alt="Therapeutic riding">
+        <img src="programs/therapyprograms/therapeutic-riding-3.jpg"
+                 alt="Therapeutic riding">
+        <img src="programs/therapyprograms/therapeutic-riding-4.jpg"
+                 alt="Therapeutic riding">
+        <img src="graphics/ABOUTUS.jpg"
+                 alt="Therapeutic riding">
+    </div>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+</section>    
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
+
+
+</main>
+
+    <!-- -------------------------------------------------
+         Footer (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="footer-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         Load header/footer + initialise the menu (unchanged)
+         ------------------------------------------------- -->
+    <script type="module">
+        // Load header, then initialise the menu
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                import('./menu-2.js').then(mod => mod.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-        // Generate breadcrumb trail
-// Generate breadcrumb
-function generateBreadcrumb() {
-            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-            let breadcrumbHtml = '<nav class="breadcrumb">';
-            breadcrumbHtml += '<a href="./">Home</a>';
-            breadcrumbHtml += ' > <a href="programs.html">Programs</a>';
-            breadcrumbHtml += ' > <a href="programs/therapyprograms/therapyprograms.html">Therapy Programs</a>';
-            breadcrumbHtml += ' > <span>Therapeutic Riding</span>';
-            breadcrumbHtml += '</nav>';
-            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-        }
+        // Footer fetch (unchanged)
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
     </script>
 </body>
 </html>

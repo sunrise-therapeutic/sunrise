@@ -3,180 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camp Sunrise</title>
+    <title>Camp Sunrise – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+<style>
+       /* -------------------------------------------------
+   Responsive video – works the same as your thumbnail grid
+   ------------------------------------------------- */
+.video-wrapper {
+    position: relative;               /* establishes a positioning context */
+    width: 100%;                     /* fill the column width (just like a thumbnail) */
+    max-width: 480px;                /* optional – limit max size, same as your thumbnails */
+    margin: 0 auto;                  /* centre it when there’s extra space */
+    /* 16:9 aspect‑ratio = 9 / 16 = 0.5625 → 56.25% padding‑bottom */
+    padding-bottom: 56.25%;          /* creates the height based on width */
+    background: #000;                /* fallback colour while loading */
+    overflow: hidden;                /* hide any overflow */
+}
+
+/* Make the actual embed fill the wrapper */
+.video-wrapper iframe,
+.video-wrapper video,
+.video-wrapper embed,
+.video-wrapper object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;                       /* remove the default iframe border */
+}
+    
+    
+    
+  /* Quote slide-in / slide-out animations */
+.quote-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 8rem;                 /* reserve vertical space so container doesn't jump */
+  padding: 0.5rem 1rem;
+  font-style: italic;
+  color: #0d4b8c;
+}
+
+.quote-section > div {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0.25rem 0;
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* text styles */
+.quote-text {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.quote-author {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* animation states — match transitionDuration (1000ms) in your script */
+.slide-in {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.3s ease;
+}
+.slide-center {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1s ease, opacity 0.3s ease;
+}
+.slide-out {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.3s ease;
+}
+
+/* keep layout sensible on small screens */
+@media (max-width: 480px) {
+  .quote-section { min-height: 8rem; padding-inline: 0.5rem; }
+  .quote-text { font-size: 0.95rem; }
+  .quote-author { font-size: 0.9rem; }
+}  
+    
+    
+        /* Sponsors row — horizontal on desktop, stacked on small screens */
+    .sponsors {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .sponsors .sponsor img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 220px; /* controls desktop size */
+    }
+
+    @media (max-width: 600px) {
+      .sponsors {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .sponsors .sponsor img {
+        max-width: 320px;
+        width: 80%; /* keeps some side padding on small screens */
+      }
+
+.sponsors .sponsor {
+  display: flex;
+  justify-content: center; /* center the image inside its cell */
+  align-items: center;
+}
+
+/* ensure images are centered even if they are narrower than the cell */
+.sponsors .sponsor img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+
+
+    }
+   
+    
+    
+</style>
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <p class="text-large" style="text-align: center;">Embracing inclusion. Unleashing potential.</p>
+ <!-- Header -->
+ <div id="header-placeholder"></div>
+
+ <!-- MAIN CONTENT -->
+ <main class="container">
+ <h1>Camp Sunrise</h1>
+ <h2>Embracing inclusion. Unleashing potential.</h2>
+    <!-- Two‑column wrapper -->
+    <section class="two-column-layout">
         
-        <div class="video-container">
-            <iframe title="Camp Sunrise" width="1200" height="675" 
+
+        <!-- LEFT: Text & headings -->
+        <article class="text-column">
+
+
+
+
+
+           
+
+            <div class="video-wrapper"">
+            <iframe title="Camp Sunrise"
                 src="https://www.youtube.com/embed/nrn-c62z_Wg?feature=oembed&amp;wmode=opaque&amp;showinfo=0" 
-                style="border: none" 
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>
-        </div>
-    
-        <div class="content-section">
-            <p class="text-medium-small">
+</div>
+            <p style="margin-top: 4rem;">
                 Sunrise is proud to offer inclusive day camps for children and youth aged 5 – 13+. We provide structured programming and theme days throughout the summer. One of our camp sessions has an Interdenominational Christian theme. Our welcoming family atmosphere places an emphasis on teamwork and respect for others.
             </p>
     
-            <p class="text-medium-small">Sunrise provides a safe and friendly atmosphere along with:</p>
-            <ul class="text-medium-small bulleted-list">
+            <p>Sunrise provides a safe and friendly atmosphere along with:</p>
+            <ul>
                 <li>Ontario Camp Association accreditation</li>
                 <li>Canadian Therapeutic Riding Association certified instructors</li>
                 <li>Certified lifeguards</li>
                 <li>Low ratio of counsellors to children (1:6 ratio plus each group will have a Leader-in-Training)</li>
                 <li>Mature, experienced staff with First aid and CPR training</li>
             </ul>
-        </div>
-    
-        <div class="thumbnail-row" style="margin: 2rem 0;">
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-farm-discovery.html">
-                    <img src="programs/campsunrise/campfarmdisc.jpg" alt="Farm Discovery" class="thumbnail square">
-                    <button class="thumbnail-button">Farm Discovery</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-horse-camp.html">
-                    <img src="programs/campsunrise/camp-riding.jpg" alt="Riding Camp" class="thumbnail square">
-                    <button class="thumbnail-button">Horse Camp</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-lit.html">
-                    <img src="programs/campsunrise/camp-lit.jpg" alt="Leader in Training" class="thumbnail square">
-                    <button class="thumbnail-button">Leader in Training</button>
-                </a>
-            </div>
-            <div class="thumbnail-wrapper">
-                <a href="programs/campsunrise/camp-contact-faq.html">
-                    <img src="programs/campsunrise/contact-faq.jpg" alt="Contact & FAQ" class="thumbnail square">
-                    <button class="thumbnail-button">Contact & FAQ</button>
-                </a>
-            </div>
-        </div>
-    
-        <div id="quote-container" class="quote-section">
+            
+        </article>
+
+        <!-- RIGHT: Thumbnails (same look as index page) -->
+        <aside class="thumbs-column">
+            <a class="thumbnail-card" href="programs/campsunrise/camp-farm-discovery.html">
+                <img src="programs/campsunrise/campfarmdisc.jpg" alt="Farm Discovery">
+                <span class="thumbnail-label">Farm Discovery</span>
+            </a>
+            <a class="thumbnail-card" href="programs/campsunrise/camp-horse-camp.html">
+                <img src="programs/campsunrise/camp-riding.jpg" alt="Horse Camp">
+                <span class="thumbnail-label">Horse Camp</span>
+            </a>
+            <a class="thumbnail-card" href="programs/campsunrise/camp-lit.html">
+                <img src="programs/campsunrise/camp-lit.jpg" alt="Leader in Training">
+                <span class="thumbnail-label">Leader in Training</span>
+            <a class="thumbnail-card" href="programs/campsunrise/camp-contact-faq.html">
+                <img src="programs/campsunrise/farm-discovery-1.jpg" alt="Camp Contact & FAQ">
+                <span class="thumbnail-label">Camp Contact & FAQ</span>
+            </a>
+        </aside>
+
+    </section>
+
+<div style="margin-top: 3rem; font-style: italic;"    id="quote-container" class="quote-section" style="text-indent: 2rem; font-style: italic;"></div>
             <!-- Quotes will be inserted here by JavaScript -->
-        </div>
-    
-        <div class="content-section text-center">
-            <p class="text-medium-small">NEW for Camp Sunrise 2018: Creative Science Stations!</p>
-            <p class="text-medium-small">Our science-based camp programming received a big boost through generous grants from:</p>
-            <img src="programs/campsunrise/STEM-logos-1024x182.jpg" alt="STEM Logos" class="centered-image">
-            <p class="text-medium-small">
-                Thank you to our 2018 science supporters! 
-                <a href="https://www.wrcf.ca/" target="_blank">Kitchener Waterloo Community Foundation</a>, 
-                <a href="https://grandriveragsociety.com/" target="_blank">Grand River Agricultural Society</a> and the 
-                <a href="https://www.cndfoundation.org" target="_blank">Cambridge & North Dumfries Community Foundation</a>
-            </p>
-        </div>
-    </main>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+<p>NEW for Camp Sunrise 2018: Creative Science Stations!</p>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+<p>Our science-based camp programming received a big boost through generous grants from:</p>
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
+<div class="sponsors" aria-label="Sunrise Cares supporters">
+  <div class="sponsor"><img src="programs/campsunrise/STEM-logos-KW-Community.jpg" alt="Kitchner-Waterloo Community Foundation"></div>
+  <div class="sponsor"><img src="programs/campsunrise/STEM-logos-Grand-River-Ag.jpg" alt="Grand River Agricultural Society"></div>
+  <div class="sponsor"><img src="programs/campsunrise/STEM-CambridgeNorthDumfriesFoundation.jpg" alt="Guelph Wish Fund for Children"></div>
+</div>
 
-        // Generate breadcrumb trail
-        function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="programs/programs.html">Programs</a>';
-    breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Camp Sunrise</a>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
 
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
 
-// Script to support rotating quotes
-        const quotes = [
-        {
-            text: "When I originally introduced my kids to Sunrise, it was because my youngest, Lucy, has Autism and I knew the staff at Sunrise would be in tune with her special needs. What I didn't expect was for my son, Jeremy, who is 'typical' to love it every bit as much as she did. I love that I can send my children to Sunrise together…I have kept waiting for Jeremy to notice that he is attending a camp designed to cater to kids with special needs but he hasn't noticed. And really, why should he? Kids are kids and camp is camp. I love how at Sunrise everyone is just a camper. Kudos to your dedication to an integrated camp. It's seamless.",
-            author: "Maggie M."
-        },
-        {
-            text: "I was given the opportunity to spend my summer at Sunrise. The memories of camp and the people I met will last a lifetime, and the stories of my experiences will be shared with hopes to inspire others to be more inclusive and accepting.",
-            author: "Andrea P., Sunrise Camp Counsellor"
-        },
-        {
-            text: "Sunrise is a wonderful place – it is more than a summer camp. It is unique and amazing. Our kids have been coming here for 5 years now and we plan our summer vacation around Sunrise because we love it so much. There is no other camp like Sunrise! My daughter has learned more in the 2 week sessions at Sunrise than she did at private lessons at a different farm.",
-            author: "C. Cantwell"
-        }
+
+</main>
+
+ <!-- Footer -->
+ <div id="footer-placeholder"></div>
+
+<script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
+
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+    // Timing configuration — must be declared before displayQuote() runs
+    const displayDuration = 12000;      // how long each quote stays fully visible (ms)
+    const transitionDuration = 1000;   // slide‑out / removal time (ms) — match your CSS animation
+
+    // Script to support rotating quotes
+    const quotes = [
+        { text: "When I originally introduced my kids to Sunrise, it was because my youngest, Lucy, has Autism and I knew the staff at Sunrise would be in tune with her special needs. What I didn't expect was for my son, Jeremy, who is 'typical' to love it every bit as much as she did. I love that I can send my children to Sunrise together…I have kept waiting for Jeremy to notice that he is attending a camp designed to cater to kids with special needs but he hasn't noticed. And really, why should he? Kids are kids and camp is camp. I love how at Sunrise everyone is just a camper. Kudos to your dedication to an integrated camp. It's seamless.", author: "Maggie M." },
+        { text: "I was given the opportunity to spend my summer at Sunrise. The memories of camp and the people I met will last a lifetime, and the stories of my experiences will be shared with hopes to inspire others to be more inclusive and accepting.", author: "Andrea P., Sunrise Camp Counsellor" },
+        { text: "Sunrise is a wonderful place – it is more than a summer camp. It is unique and amazing. Our kids have been coming here for 5 years now and we plan our summer vacation around Sunrise because we love it so much. There is no other camp like Sunrise! My daughter has learned more in the 2 week sessions at Sunrise than she did at private lessons at a different farm.", author: "C. Cantwell" }
     ];
 
     let currentQuote = 0;
-    
-    function displayQuote() {
-    const quoteContainer = document.getElementById('quote-container');
-    const quote = quotes[currentQuote];
-    
-    // Create new quote elements
-    const newQuote = document.createElement('div');
-    newQuote.innerHTML = `
-        <p class="quote-text slide-in">"${quote.text}"</p>
-        <p class="quote-author slide-in">- ${quote.author}</p>
-    `;
-    
-    // Add new quote while it's off-screen
-    quoteContainer.appendChild(newQuote);
-    
-    // Force browser to recognize the new elements
-    void newQuote.offsetWidth;
-    
-    // Slide in
-    newQuote.querySelector('.quote-text').classList.replace('slide-in', 'slide-center');
-    newQuote.querySelector('.quote-author').classList.replace('slide-in', 'slide-center');
-    
-    // After 29 seconds, start sliding out
-    setTimeout(() => {
-        newQuote.querySelector('.quote-text').classList.replace('slide-center', 'slide-out');
-        newQuote.querySelector('.quote-author').classList.replace('slide-center', 'slide-out');
-        
-        // Remove the element after animation completes
-        setTimeout(() => {
-            quoteContainer.removeChild(newQuote);
-        }, 1000);
-    }, 29000);
-    
-    currentQuote = (currentQuote + 1) % quotes.length;
-}
 
-// Initial display and start interval
-displayQuote();
-setInterval(displayQuote, 30000);
-    </script>
+    function displayQuote() {
+        const quoteContainer = document.getElementById('quote-container');
+        const quote = quotes[currentQuote];
+
+        const newQuote = document.createElement('div');
+        newQuote.innerHTML = `
+            <p class="quote-text slide-in">"${quote.text}"</p>
+            <p class="quote-author slide-in">- ${quote.author}</p>
+        `;
+        quoteContainer.appendChild(newQuote);
+        void newQuote.offsetWidth; // force reflow
+
+        newQuote.querySelector('.quote-text').classList.replace('slide-in', 'slide-center');
+        newQuote.querySelector('.quote-author').classList.replace('slide-in', 'slide-center');
+
+        // Start slide-out after displayDuration
+        setTimeout(() => {
+            newQuote.querySelector('.quote-text').classList.replace('slide-center', 'slide-out');
+            newQuote.querySelector('.quote-author').classList.replace('slide-center', 'slide-out');
+
+            // Remove after transitionDuration
+            setTimeout(() => {
+                if (quoteContainer.contains(newQuote)) {
+                    quoteContainer.removeChild(newQuote);
+                }
+            }, transitionDuration);
+        }, displayDuration);
+
+        currentQuote = (currentQuote + 1) % quotes.length;
+    }
+
+    // Initial display and interval (after timing vars are defined)
+    displayQuote();
+    setInterval(displayQuote, displayDuration + transitionDuration);
+</script>
 </body>
 </html>

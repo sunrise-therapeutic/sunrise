@@ -1,97 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celebrate Sunrise!</title>
-    <base href="../">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebrate Sunrise - Sunrise Therapeutic Riding & Learning Centre</title>
+  <base href="../">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
+  <div id="header-placeholder"></div>
+  <main>
+    <div class="container">
+      <h1>Celebrate Sunrise!</h1><br>
+      
+      <p>
+        "Celebrate Sunrise!" is our annual <b>cornerstone fundraising event for our year-round therapy programs</b>, traditionally held each spring.</p>
+      </p>
+      <p>The 2025 event was held on Sunday June 22nd, 2025 and helped make a difference in the lives of children and adults with disabilities! This year's celebration was a great success, as participants:</p>
+      
+        <ul>
+                <li>Enjoyed delicious food prepared by local chefs (cash bar available)</li>
+                <li>Participated in our silent auction, with a wide selection of great prizes</li>
+                <li>Enjoyed our exciting live auction- led by outstanding auctioneer <strong>Robert Milburn</strong></li>
+                <li>Met special guests</li>
+                <li>Learned more about Sunrise programs, and find out why Sunrise is a Canadian leader in the field of therapeutic riding!</li>
+        </ul>
 
-    <main class="bottom-padding">
-        <h1 style="font-size: 50px;color: #1a69e0;text-align: center;font-family:Pacifico;font-weight:400;font-style:italic">Celebrate Sunrise!</h1>   
+<p>Interested in attending next year's celebration? Purchase tickets by contacting <a href="mailto:lynne@sunrise-therapeutic.ca">lynne@sunrise-therapeutic.ca</a></p>
+
+     
+    </div>
+    <div class="thumbnails-container">
+        <img class="thumbnail-card"src="whatshappening/celebrate-sunrise-2.jpg" alt="Celebrate Sunrise">
+       
+        <img class="thumbnail-card" src="whatshappening/celebrate-sunrise-3.jpg" alt="Celebrate Sunrise">
+       
+      
+        <img class="thumbnail-card" src="whatshappening/celebrate-sunrise-4.jpg" alt="Celebrate Sunrise">
         
-        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
-            <p class="text-medium-small">Our "Celebrate Sunrise!" is a <strong>cornerstone fundraising event for our year-round therapy programs.</strong></p>
-            
-            <p class="text-medium-small">Join us Sunday June 22nd, 2025 and help make a difference in the lives of children and adults with disabilities!</p>
-            
-            <ul class="text-medium-small">
-                <li>Enjoy delicious food prepared by local chefs (cash bar available)</li>
-                <li>Participate in our silent auction, with a wide selection of great prizes</li>
-                <li>Enjoy our exciting live auction- led by outstanding auctioneer <strong>Robert Milburn</strong></li>
-                <li>Meet special guests</li>
-                <li>Learn more about Sunrise programs, and find out why Sunrise is a Canadian leader in the field of therapeutic riding!</li>
-            </ul>
-            
-            <p class="text-medium-small">Purchase tickets by contacting <a href="mailto:lynne@sunrise-therapeutic.ca">lynne@sunrise-therapeutic.ca</a></p>
-        </div>
-    
-        <!-- Photo Grid -->
-        <div style="max-width: 1000px; margin: 2rem auto; padding: 0 1rem;">
-            <!-- Top row -->
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
-                <img src="whatshappening/celebrate-sunrise-2.jpg" 
-                     alt="Celebrate Sunrise 2" 
-                     style="width: 400px; height: 300px; object-fit: cover;">
-                <img src="whatshappening/auction-table.jpg" 
-                     alt="Action Table" 
-                     style="width: 400px; height: 300px; object-fit: cover;">
-            </div>
-            <!-- Bottom row -->
-            <div style="display: flex; justify-content: center; gap: 2rem;">
-                <img src="whatshappening/celebrate-sunrise-3.jpg" 
-                     alt="Celebrate Sunrise 3" 
-                     style="width: 400px; height: 300px; object-fit: cover;">
-                <img src="whatshappening/celebrate-sunrise-4.jpg" 
-                     alt="Celebrate Sunrise 4" 
-                     style="width: 400px; height: 300px; object-fit: cover;">
-            </div>
-        </div>
-    </main>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+       <img class="thumbnail-card" src="whatshappening/auction-table.jpg" alt="Celebrate Sunrise">
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+      
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+<script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-    // Simple breadcrumb generation
-    function generateBreadcrumb() {
-        const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-        let breadcrumbHtml = '<nav class="breadcrumb">';
-        breadcrumbHtml += '<a href="./">Home</a>';
-        breadcrumbHtml += ' > <a href="whatshappening/whatshappening.html">What\'s Happening</a>';
-        breadcrumbHtml += ' > <span>Celebrate Sunrise!</span>';
-        breadcrumbHtml += '</nav>';
-        breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-    }
-
-    // Call the function to generate the breadcrumb after the header is loaded
-    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
 </body>
 </html>

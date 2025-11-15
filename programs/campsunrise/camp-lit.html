@@ -3,132 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leader in Training (LIT) Program</title>
+    <title>Leader in Traiing Camp – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <!-- -------------------------------------------------
+         Page‑specific CSS (grid layout & mobile ordering)
+         ------------------------------------------------- -->
+    <style>
+        /* -------------------------------------------------
+           Desktop – two‑column grid (text left, photos right)
+           ------------------------------------------------- */
+        .therapeutic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;      /* left ≈ 1/3, right ≈ 2/3 */
+            gap: 2rem;                           /* space between columns / rows */
+            align-items: start;
+        }
+
+        /* Every photo should sit in the right column on desktop */
+        .therapeutic-grid img {
+            width: 100%;
+            border-radius: 0.6rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            grid-column: 2;                     /* force right‑hand column */
+        }
+
+      
+        
+
+
+        /* -------------------------------------------------
+           Mobile – single column, exact order you asked for
+           ------------------------------------------------- */
+        @media (max-width: 768px) {
+            .therapeutic-grid {
+                grid-template-columns: 1fr;      /* one column only */
+                gap: 1.5rem;                     /* a bit tighter on phone */
+            }
+
+            /* On mobile the photos lose the forced column,
+               so they flow in the natural document order. */
+            .therapeutic-grid img {
+                grid-column: auto;
+            }
+
+            /* Bottom‑only text block – wider side margins */
+            .bottom-text {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;               /* generous left/right breathing room */
+                text-align: left;
+            }
+        }
+
+        /* -------------------------------------------------
+           Desktop – keep the bottom block centred with side padding
+           ------------------------------------------------- */
+        @media (min-width: 769px) {
+            .bottom-text {
+                max-width: 900px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+                text-align: left;
+            }
+        
+
+        .therapeutic-grid .right-photos {
+            grid-column: 2;               /* same as the old img rule */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;                  /* space between the three photos */
+            }
+        
+        }
+    </style>
 </head>
 <body>
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <!-- Heading -->
-        <h1 class="text-very-large" style="text-align: center; color: #1a69e0;">Registration for Camp 2025 is Now Open!!</h1>
+    <!-- -------------------------------------------------
+         Header (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="header-placeholder"></div>
 
-        <!-- Image row -->
-        <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-            <img src="programs/campsunrise/camp-lit-1.jpg" alt="LIT Camp 1" style="width: 300px; height: 300px; object-fit: cover;">
-            <img src="programs/campsunrise/camp-lit-2.jpg" alt="LIT Camp 2" style="width: 300px; height: 300px; object-fit: cover;">
-            <img src="programs/campsunrise/camp-lit-3.jpg" alt="LIT Camp 3" style="width: 300px; height: 300px; object-fit: cover;">
-        </div>
+    <!-- -------------------------------------------------
+         MAIN CONTENT
+         ------------------------------------------------- -->
+    <main class="container">
+ <h1>Leader in Training Camp (ages 13 - 16)</h1><br>
+        <!-- =====================================================
+             GRID WRAPPER – holds ALL headings, paragraphs, photos,
+             and the final bottom‑only text block.
+             ===================================================== -->
 
-        <!-- Text content -->
-        <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
-            <p class="text-medium-small">
-                Being a Leader-in-Training (LIT) at Sunrise is an extremely unique experience for youth aged 13-16. This program provides leadership opportunities, enabling youth to gain and strengthen valuable skills. LIT's will gain first-hand experience as they assist a group of campers while shadowing an experienced camp counsellor. In addition, LIT's earn 40 volunteer hours per session.
-            </p>
 
-            <p class="text-medium-small">LIT's are expected to be engaged, participate fully in the program and help in all of the activities that their group undertakes. They must also:</p>
 
-            <ul class="text-medium-small" style="list-style: none; padding-left: 0;">
-                <li>• Enjoy and be comfortable working with children of all ages</li>
-                <li>• Be interested in furthering their leadership skills</li>
-                <li>• Be able to communicate openly with campers, peers and supervisors</li>
-                <li>• Be an appropriate role model for campers</li>
-                <li>• Behave in a mature, responsible manner at all times during camp</li>
+<section class="therapeutic-grid">
+    <!-- LEFT‑COLUMN wrapper – everything that belongs on the left -->
+
+
+    <div class="left-content">
+        <h2>About Leader in Training Camp</h2>
+         
+        <p>Being a Leader-in-Training (LIT) at Sunrise is an extremely unique experience for youth aged 13-16. This program provides leadership opportunities, enabling youth to gain and strengthen valuable skills. LIT's will gain first-hand experience as they assist a group of campers while shadowing an experienced camp counsellor. In addition, LIT's earn 40 volunteer hours per session.</p>
+        <p>LIT's are expected to be engaged, participate fully in the program and help in all of the activities that their group undertakes. They must also:</p>
+      
+        <ul>
+                <li>Enjoy and be comfortable working with children of all ages</li>
+                <li>Be interested in furthering their leadership skills</li>
+                <li>Be able to communicate openly with campers, peers and supervisors</li>
+                <li>Be an appropriate role model for campers</li>
+                <li>Behave in a mature, responsible manner at all times during camp</li>
             </ul>
 
-            <p class="text-medium-small">
-                The LIT program runs in 2-week sessions and includes training, mentorship, completion certificate, t-shirt and administration.
-            </p>
+        <p>The LIT program runs in 2-week sessions and includes training, mentorship, completion certificate, t-shirt and administration.</p>
+       
 
-            <h2 class="text-medium-large">Leadership Opportunities</h2>
-            <p class="text-medium-small">
-                Each LIT will have at least two opportunities to develop independent leadership skills by planning, organizing and leading a group activity. The Camp Coordinator, Assistant Camp Coordinator and Counsellors serve as resource staff to provide LIT's with assistance, guidance and feedback. Upon completion of the two-week session, each LIT will receive a written evaluation and a certificate.
-            </p>
+        <h2>Leadership Opportunities</h2>
+            <p>Each LIT will have at least two opportunities to develop independent leadership skills by planning, organizing and leading a group activity. The Camp Coordinator, Assistant Camp Coordinator and Counsellors serve as resource staff to provide LIT's with assistance, guidance and feedback. Upon completion of the two-week session, each LIT will receive a written evaluation and a certificate.</p>
 
-            <h2 class="text-medium-large">Application Process</h2>
-            <p class="text-medium-small">
-                If you are interested in becoming an LIT at Camp Sunrise, please complete the LIT Application Form and submit it with your resume. Applicants are expected to come to Sunrise for a group interview (3 or 4 applicants per group). This gives LIT's the chance to develop interview skills in a comfortable setting. The interview is also a time to meet the Camp Coordinator, enabling the coordinator to match each LIT with an appropriate counsellor and camper group, thus ensuring an enjoyable experience for the LIT.
-            </p>
 
-            <!-- Application button -->
-            <div style="text-align: center; margin: 2rem 0;">
-                <a href="https://form.123formbuilder.com/6808447/lit-application-2025-ages-13-17" 
-                   class="donate-button" 
-                   target="_blank">
-                    Application Form for 2025
-                </a>
-            </div>
 
-            <h2 class="text-medium-large">Training Day</h2>
-            <p class="text-medium-small">
-                All LIT's are expected to participate in a one-day orientation and training prior to the start of camp. The training day is led by the Camp Coordinator and will cover:
-            </p>
-            <ul class="text-medium-small" style="list-style: none; padding-left: 0;">
-                <li>• Introduction to Sunrise</li>
-                <li>• Expectations of a Leader-in-Training</li>
-                <li>• Safety on the Farm</li>
-                <li>• Grooming and Tacking Horses</li>
-                <li>• Leading and Sidewalking</li>
-                <li>• Leadership skills</li>
-                <li>• Child Development/Behaviour</li>
-                <li>• Game Adaptation and Creativity</li>
-            </ul>
 
-            <p class="text-medium-small">
-                LIT's will also receive a manual which will include resources on the above topics.
-            </p>
+        <h2>Application Process</h2>
+            <p>If you are interested in becoming an LIT at Camp Sunrise, please complete the LIT Application Form and submit it with your resume. Applicants are expected to come to Sunrise for a group interview (3 or 4 applicants per group). This gives LIT's the chance to develop interview skills in a comfortable setting. The interview is also a time to meet the Camp Coordinator, enabling the coordinator to match each LIT with an appropriate counsellor and camper group, thus ensuring an enjoyable experience for the LIT.
 
-            <h2 class="text-medium-large">Contact</h2>
-            <p class="text-medium-small">
-                Jenna Sinclair, Camp Coordinator<br>
-                (519) 837-0558 Ext: 23<br>
-                Email: <a href="mailto:campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a>
-            </p>
+</p>
 
-            <h2 class="text-medium-large">Additional Forms</h2>
-            <p class="text-medium-small">
-                <a href="uploads/WAIVER-2019.pdf">Waiver</a>
-            </p>
+        <h2>Application Forms and Documents</h2>
+        <div style="margin: 2rem 0;">
+                    <a href="https://form.123formbuilder.com/6808447/lit-application-2025-ages-13-17" 
+                       class="btn" 
+                       target="_blank">
+                        Application Form for LIT 2025
+                    </a>
         </div>
-    </main>
+        
+        <p><a href="uploads/Fillable-WAIVER-2020.pdf" target="_blank">Waiver (PDF)</a></p> 
+        
+        <h2>Training Day</h2>
+        <p>All LIT's are expected to participate in a one-day orientation and training prior to the start of camp. The training day is led by the Camp Coordinator and will cover:</p>
+            <ul>
+                <li>Introduction to Sunrise</li>
+                <li>Expectations of a Leader-in-Training</li>
+                <li>Safety on the Farm</li>
+                <li>Grooming and Tacking Horses</li>
+                <li>Leading and Sidewalking</li>
+                <li>Leadership skills</li>
+                <li>Child Development/Behaviour</li>
+                <li>Game Adaptation and Creativity</li>
+            </ul>
+        <p>LIT's will also receive a manual which will include resources on the above topics.</p>
+        <h2>For more information, please contact:</h2>
+            <p>
+                Jenna Sinclair<br>
+                Ph. (519) 837-0558 x23<br>
+                Email: <a href="campcoordinator@sunrise-therapeutic.ca">campcoordinator@sunrise-therapeutic.ca</a>
+            </p>
 
-    <footer><div id="footer-placeholder"></div></footer>
+    </div>
 
-    <script>
-        // ... header and footer loading code ...
+    <div class="right-photos">  
+        <img src="programs/campsunrise/camp-lit-1.jpg" alt="Leader in training camp">
+        <img src="programs/campsunrise/camp-lit-2.jpg" alt="Leader in training camp">"
+        <img src="programs/campsunrise/camp-lit-3.jpg" alt="Leader in training camp">
+        
 
- // Load the header content from header.html
- fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
+
+    </div>
+
+</section>    
+
+
+
+</main>
+
+    <!-- -------------------------------------------------
+         Footer (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="footer-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         Load header/footer + initialise the menu (unchanged)
+         ------------------------------------------------- -->
+    <script type="module">
+        // Load header, then initialise the menu
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                import('./menu-2.js').then(mod => mod.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-
-
-        function generateBreadcrumb() {
-            const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-            let breadcrumbHtml = '<nav class="breadcrumb">';
-            breadcrumbHtml += '<a href="./">Home</a>';
-            breadcrumbHtml += ' > <a href="programs/programs.html">Programs</a>';
-            breadcrumbHtml += ' > <a href="programs/campsunrise/campsunrise.html">Camp Sunrise</a>';
-            breadcrumbHtml += ' > <span>Leader in Training (LIT) Program</span>';
-            breadcrumbHtml += '</nav>';
-            breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-        }
+        // Footer fetch (unchanged)
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
     </script>
 </body>
 </html>

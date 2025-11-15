@@ -12,83 +12,88 @@
     
     <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <div class="section-heading">1982 Sunrise founded</div>
-        <ul class="text-medium-small bulleted-list">
+    <main>
+    <div class="container" style="text-align:left;">
+        <h1>Our History</h1>
+        <h2>1982 Sunrise founded</h2>
+        <ul>
             <li>Started with 5 riders and 3 horses</li>
             <li>Guelph/Cambridge/Kitchener chapter of the national association, Canadian Therapeutic Riding Association (CanTRA)</li>
             <li>Rented facilities for 14 years, and operated seasonally/weather dependent (six different locations, with most moves necessitated by program growth, before the present farm)</li>
         </ul>
     
-        <div class="section-heading">1990 Camp Sunrise initiated</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>1990 Camp Sunrise initiated</h2>
+        <ul>
             <li>Inclusive summer riding day camp program, for children of all abilities</li>
         </ul>
     
-        <div class="section-heading">1996 A permanent farm home purchased</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>1996 A permanent farm home purchased</h2>
+        <ul>
             <li>Facility had indoor riding arena, enabling Sunrise to move to year-round operation</li>
             <li>Located in Puslinch, just 15 minutes from Guelph and Cambridge</li>
         </ul>
     
-        <div class="section-heading">1996 to 2000 Extensive improvements made to property for accessibility and safety</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>1996 to 2000 Extensive improvements made to property for accessibility and safety</h2>
+        <ul>
             <li>Funded by individuals, corporations and the Ontario Trillium Foundation</li>
             <li>Renovations included creating tack room, viewing lounge / meeting room upstairs and accessible washrooms. Also, improvements to fencing, shelters, etc.</li>
         </ul>
     
-        <div class="section-heading">2001 Drive shed renovated into Children's Activity Room and offices</div>
+        <h2>2001 New Activity Room & Offices</h2>
+        <ul>
+            <li>Drive shed renovated into Children's Activity Room and offices</li>
+        </ul>
     
-        <div class="section-heading">2001 Therapeutic Riding Instructor Training Program initiated</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2001 Therapeutic Riding Instructor Training Program initiated</h2>
+        <ul>
             <li>Only Canadian residential training school</li>
             <li>Student Instructors train at Sunrise from across Canada and around the world</li>
         </ul>
     
-        <div class="section-heading">2002 "Little Breeches' initiated</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2002 "Little Breeches" initiated</h2>
+        <ul>
             <li>Introduction to horses for 4- to 7-year-old children (integrated)</li>
         </ul>
     
-        <div class="section-heading">2006 "Building Brighter Futures" Development Campaign was launched</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2006 "Building Brighter Futures" Development Campaign was launched</h2>
+        <ul>
             <li>This campaign provided a swimming pool, Marguerite's Farm Discovery Camp Centre, and Accessible Adventure Playground</li>
             <li>Farm Discovery Day Camp initiated for younger children (5-8 years)</li>
         </ul>
     
-        <div class="section-heading">2007-2008 Milestones</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2007-2008 Milestones</h2>
+        <ul>
             <li>Sunrise received National CanTRA Accreditation as a Residential Instructor Training School and Exam Centre</li>
             <li>Sunrise received accreditation through the Ontario Camps Association (OCA)</li>
             <li>Tack Room was enlarged and renovated through the Building Brighter Futures Campaign – Ontario Trillium Foundation grant</li>
             <li>New accessible barn washroom</li>
         </ul>
     
-        <div class="section-heading">2010 Developments</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2010 Developments</h2>
+        <ul>
             <li>Rotary Children's Nature Project completed</li>
             <li>McDonald's Children's Room completed - Funded by Ronald McDonald House Charities Canada</li>
             <li>Received three-year Ontario Trillium Foundation (OTF) grant to hire a Child & Youth Recreation Coordinator and purchase marketing material and technical equipment</li>
         </ul>
     
-        <div class="section-heading">2011-2014 Program Expansions</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2011-2014 Program Expansions</h2>
+        <ul>
             <li>Personal Support Worker program initiated at Camp Sunrise</li>
             <li>Junior Leader Program initiated at Camp Sunrise to provide more support options for campers with moderate special needs</li>
             <li>25' Extension to Indoor Arena, funding by UPI Energy LP, to accommodate an improved mounting area</li>
             <li>Paddocks reconfigured, and addition shelters added through Rotary Club of Guelph Charitable Foundation grant</li>
         </ul>
     
-        <div class="section-heading">2015-2016 Life Skills Program Development</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2015-2016 Life Skills Program Development</h2>
+        <ul>
             <li>Life Skills Day Program initiated, funded through Scotiabank (2015-2018)</li>
             <li>Provided a farm and horticulture-based day program for adults with developmental disabilities</li>
             <li>Construction of garden shed, raised garden beds, picnic pavilion and picnic tables</li>
             <li>Extensive upgrades to Butterfly Gardens; initiation of herb and vegetable garden</li>
         </ul>
     
-        <div class="section-heading">2017-2020 Recent Developments</div>
-        <ul class="text-medium-small bulleted-list">
+        <h2>2017-2020 Recent Developments</h2>
+        <ul>
             <li>Hosted 35th Anniversary Conference Weekend with 75 delegates from 29 therapeutic riding centres</li>
             <li>First American Hippotherapy Association Level 1 course offered in Canada</li>
             <li>LED lights installed in all buildings for environmental and cost savings</li>
@@ -102,38 +107,23 @@
     
     <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
- // Generate breadcrumb trail
- function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
-    breadcrumbHtml += ' > <a href="history.html">Our History</a>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
 </body>
 </html>

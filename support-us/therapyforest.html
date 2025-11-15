@@ -3,122 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History</title>
+    <title>Therapy Forest – Sunrise Therapeutic Riding &amp; Learning Centre</title>
     <base href="../">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <!-- -------------------------------------------------
+         Page‑specific CSS (grid layout & mobile ordering)
+         ------------------------------------------------- -->
+    <style>
+        /* -------------------------------------------------
+           Desktop – two‑column grid (text left, photos right)
+           ------------------------------------------------- */
+        .therapeutic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;      /* left ≈ 1/3, right ≈ 2/3 */
+            gap: 2rem;                           /* space between columns / rows */
+            align-items: start;
+        }
+
+        /* Every photo should sit in the right column on desktop */
+        .therapeutic-grid img {
+            width: 100%;
+            border-radius: 0.6rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            grid-column: 2;                     /* force right‑hand column */
+        }
+
+
+        
+
+
+        /* -------------------------------------------------
+           Mobile – single column, exact order you asked for
+           ------------------------------------------------- */
+        @media (max-width: 768px) {
+            .therapeutic-grid {
+                grid-template-columns: 1fr;      /* one column only */
+                gap: 1.5rem;                     /* a bit tighter on phone */
+            }
+
+            /* On mobile the photos lose the forced column,
+               so they flow in the natural document order. */
+            .therapeutic-grid img {
+                grid-column: auto;
+            }
+
+            /* Bottom‑only text block – wider side margins */
+            .bottom-text {
+                max-width: 900px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;               /* generous left/right breathing room */
+                text-align: left;
+            }
+        }
+
+        /* -------------------------------------------------
+           Desktop – keep the bottom block centred with side padding
+           ------------------------------------------------- */
+        @media (min-width: 769px) {
+            .bottom-text {
+                max-width: 900px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+                text-align: left;
+            }
+        
+
+        .therapeutic-grid .right-photos {
+            grid-column: 2;               /* same as the old img rule */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;                  /* space between the three photos */
+            }
+        
+        }
+    </style>
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
 
-    <main class="bottom-padding">
-        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
-            <div style="flex: 2;">
-                <p class="text-very-large" style="color: #228B22;">SUNRISE THERAPY FOREST</p>
-                
-                <p class="text-very-large" style="color: #228B22;">Project Goals</p>
-                <p class="text-medium-small">To establish managed forest and meadow habitats at Sunrise, which would:</p>
-                <ul class="text-medium-small">
-                    <li>Enhance existing biodiversity through planting of native species, and provide new habitats and food sources for pollinators</li>
-                    <li>Provide accessible natural spaces for innovative, inclusive programming for children and adults with disabilities, with a focus on fitness, wellness and nature appreciation.</li>
-                </ul>
-    
-                <p class="text-very-large" style="color: #228B22;">Project Description</p>
-                <p class="text-medium-small">When complete, the project will include 20 acres of managed forest and meadows, and will include pollinator friendly species.</p>
-                <p class="text-medium-small">The forest will include riding trails, accessible walkways, memorial areas, program spaces, benches and accessible interpretive signage.</p>
-    
-                <p class="text-very-large" style="color: #228B22;">Project Uses and Beneficiaries</p>
-                <p class="text-medium-small">The forest will be used for riding lesson activities, inclusive children's nature and recreation programs, and accessible fitness / wellness activities for adults with disabilities:</p>
-                <ul class="text-medium-small">
-                    <li>The forest will provide additional programming space for over 500 individuals presently participating in Sunrise's day camps, 'Little Breeches', therapeutic riding lessons and life skills programs every year.</li>
-                    <li>This resource will also enable new programming (some of which will be planned and implemented with partner agencies) for up to 200 more children and youth annually, and will be the site of wellness programs for Sunrise's future respite and residential clients.</li>
-                </ul>
-    
-                <p class="text-very-large" style="color: #228B22;">Come Grow with Us!</p>
-                <ul class="text-medium-small">
-                    <li><strong>Trailblazer:</strong> Donate a bench or 6'+ tree to the therapy forest. Includes a custom, individual recognition / memorial plaque on your bench, or in front of your tree. (Trees & benches will be procured by Sunrise)</li>
-                    <li><strong>Friends of the Forest:</strong> Honour or remember a loved one in perpetuity within the forest. Add a loved one's name to the collective Memorial or In Honour sign, which will be officially unveiled each September.</li>
-                    <li><strong>Adopt-A-Tree:</strong> Support the forest by 'adopting' one of several designated trees. Donors receive a card with information about their adopted tree. (Trees are on-site, with multiple sponsors per tree)</li>
-                </ul>
-    
-                <p class="text-very-large" style="color: #228B22;">Project Details</p>
-                <ul class="text-medium-small">
-                    <li>A recognition/sign unveiling event will be held once per year, in September, to which all recent Therapy Forest supporters will be invited.</li>
-                    <li>Adopt-A-Tree supporters will receive information about 'their' tree. Each tree will have multiple 'adopters'.</li>
-                    <li>Sunrise staff will determine the species and location of sponsored trees and benches, in keeping with the overall forest design.</li>
-                    <li>Should a sponsored bench or tree become damaged within 5 years, the sponsor's sign will be moved to another bench or tree.</li>
-                    <li>Benches are made of recycled composite materials, and are weather resistant. A limited number of benches are available.</li>
-                    <li>All supporters will receive a tax receipt and a customized certificate or card, suitable for giving as a gift to someone being recognized through this project.</li>
-                    <li>Please note that for the safety of all, the Sunrise Therapy Forest is not open to the general public. Visits are available by appointment, and must be booked in advance with Sunrise office staff.</li>
-                </ul>
-    
-                <p class="text-very-large" style="color: #228B22;">To Make A Donation</p>
-                <p class="text-medium-small">Please print and complete this form: Forest donation Form, which can be sent to SUNRISE 6920 Concession 1, Puslinch, ON N0B 2J0, or emailed to lynne@sunrise-therapeutic.ca</p>
-                <p class="text-medium-small">or purchase elements below and we will be in touch to finalize the details!</p>
-                <p class="text-medium-small">Thank you!</p>
-                <p class="text-medium-small">Please note that payment plans are available for Trailblazer donations!</p>
-            </div>
-    
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
-                <img src="support-us/therapy-forest-sign.jpg" alt="Therapy Forest Sign" style="width: 100%; height: auto;">
-                <img src="support-us/therapy-forest-tree-planting.jpg" alt="Tree Planting" style="width: 100%; height: auto;">
-                <img src="support-us/therapy-forest-trail.jpg" alt="Forest Trail" style="width: 100%; height: auto;">
-            </div>
-        </div>
-    
-        <hr style="border: none; height: 2px; background-color: #1a69e0; margin: 2rem 4rem;">
-    
-        <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-            <div style="width: 300px; height: 200px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                Graphic Placeholder 1
-            </div>
-            <div style="width: 300px; height: 200px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                Graphic Placeholder 2
-            </div>
-        </div>
-    </main>
+    <!-- -------------------------------------------------
+         Header (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="header-placeholder"></div>
 
-    <!-- Include the footer -->
-    
-    <footer><div id="footer-placeholder"></div></footer>
+    <!-- -------------------------------------------------
+         MAIN CONTENT
+         ------------------------------------------------- -->
+    <main class="container">
+ <h1  style="color: #0D4B8C;">Sunrise Therapy Forest</h1><br>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
+
+
+<section class="therapeutic-grid">
+
+    <!-- LEFT‑COLUMN wrapper – everything that belongs on the left -->
+<div class="left-content">
+<b>
+<p><a href="support-us/therapyforest.html#why" style="color: #0D4B8C;">Why a "Therapy Forest"?</a></p>
+<p><a href="support-us/therapyforest.html#features" style="color: #0D4B8C;">Key Features</a></p>
+<p><a href="support-us/therapyforest.html#benefits" style="color: #0D4B8C;">Benefits</a></p>
+<p><a href="support-us/therapyforest.html#grow" style="color: #0D4B8C;">Come Grow wiith Us!</a></p>
+<p><a href="support-us/therapyforest.html#howsponsorshipworks" style="color: #0D4B8C;">What to Expect from your Forest Sponsorship</a></p>
+<p><a href="support-us/therapyforest.html#donate" style="color: #0D4B8C;">To Make a Donation</a></p>
+</b>
+        <h2 id="why" style="color: #0D4B8C;">Why a "Therapy Forest"?</h2> 
+        <p>The Sunrise Therapy Forest reflects Sunrise's commitment to responsible stewardship of our forest and meadow habitats, which:</p>
+        <ul>
+            <li>Enhances existing biodiversity through planting and maintaining native species, and provides new habitats and food sources for pollinators</li>
+            <li>Provides accessible natural spaces for innovative, inclusive programming for children and adults with disabilities, 
+                with a focus on fitness, wellness and nature appreciation.</li>
+        </ul>
+        
+        <h2 id="features"  style="color: #0D4B8C;">Key Features</h2>
+            <ul>
+            <li>20 acres of managed forest and meadows, and includes pollinator friendly species.</li>  
+            <li>Riding trails (currently in development), accessible walkways, memorial areas, program spaces, benches and accessible interpretive signage.</li>
+            </ul>
+
+       <h2 id="benefits"  style="color: #0D4B8C;">Benefits</h2>
+
+            <ul>
+                <li>Provides additional programming space for over 500 individuals presently participating in Sunrise's day camps, 
+                    "Little Breeches," Therapeutic Riding lessons and Life Skills programs every year</li>
+                <li>Supports our <a href="programs/therapyprograms/efw.html">Equine Facilitated Wellness</a> program, and</li>
+                <li>Will be an important resource for Sunrise's future respite and residential clients</li>
+            </ul>
+        
+        <h2 id="grow"  style="color: #0D4B8C;">Come Grow with Us!</h2>
+        <p>You can support the Forest by becoming a <b>Trailblazer</b>, <b>Friend of the Forest</b>, or by <b>adopting a tree</b>:</p>
+         <ul>
+                <li><b>Trailblazer:</b> Donate a bench or 6'+ tree to the therapy forest. 
+                    Includes a custom, individual recognition / memorial plaque on your bench, or in front of your tree. 
+                    (Trees & benches will be procured by Sunrise)</li>
+                <li><b>Friends of the Forest:</b> Honour or remember a loved one in perpetuity within the forest. 
+                    Add a loved one's name to the collective Memorial or In Honour sign, 
+                    which will be officially unveiled each September.</li>
+                <li><b>Adopt-A-Tree:</b> Support the forest by 'adopting' one of several designated trees. Donors receive a card with information about their adopted tree. 
+                    (Trees are on-site, with multiple sponsors per tree)</li>
+            </ul>
+
+        <h2 id="howsponsorshipworks"  style="color: #0D4B8C;">What to Expect from Forest Sponsorship</h2>
+            <ul>
+                <li>A recognition/sign unveiling is held once per year, in September, to which all recent Therapy Forest supporters are invited.</li>
+                <li>Adopt-A-Tree supporters receive information about 'their' tree. Trees may have multiple 'adopters'.</li>
+                <li>Sunrise staff determine the species and location of sponsored trees and benches, in keeping with the overall forest design.</li>
+                <li>Should a sponsored bench or tree become damaged within 5 years, the sponsor's sign is moved to another bench or tree.</li>
+                <li>Benches are made of recycled composite materials, and are weather resistant. A limited number of benches are available.</li>
+                <li>All supporters receive a tax receipt and a customized certificate or card, 
+                    suitable for giving as a gift to someone being recognized through this initiative.</li>
+                <li>Please note that for the safety of all, <b>the Sunrise Therapy Forest is not open to the general public. Visits are available by appointment, 
+                    and must be booked in advance with Sunrise office staff</b>.</li>
+            </ul>
+        
+        <h2 id="donate"  style="color: #0D4B8C;">To Make a Donation</h2>
+        To support the Therapy Forest, print and complete the <a href="support-us/Forest-flyer.pdf" target="_blank" rel="noopener">Therapy Forest Donation Form (PDF)</a> and then return it to us:<br><br>
+            <ul>
+                <li>By email, scan the completed form and send it to: <a href="mailto:lynne@sunrise-therapeutic.ca">lynne@sunrise-therapeutic.ca</a>.</li>
+                <li>By mail to:</li>
+            </ul>
+            <p style="text-indent: 2.5rem; margin: 0; line-height: 1.1;">Sunrise Therapeutic Riding &amp; Learning Centre,</p>
+            <p style="text-indent: 2.5rem; margin: 0; line-height: 1.1;">6920 Concession 1,</p>
+            <p style="text-indent: 2.5rem; margin: 0; line-height: 1.1;">Puslinch, ON NOB 2J0.</p>
+
+
+
+    
+    
+
+    </div>
+
+    <div class="right-photos">  
+        <img src="support-us/therapy-forest-sign.jpg"
+                alt="Therapy Forest sign">
+        <img src="support-us/therapy-forest-tree-planting.jpg"
+                 alt="Tree planting in Therapy Forest">
+        <img src="support-us/therapy-forest-trail.jpg"
+                 alt="Therapy Forest trail">
+    </div>
+
+</section>    
+
+
+
+</main>
+
+    <!-- -------------------------------------------------
+         Footer (dynamic – same as every page)
+         ------------------------------------------------- -->
+    <div id="footer-placeholder"></div>
+
+    <!-- -------------------------------------------------
+         Load header/footer + initialise the menu (unchanged)
+         ------------------------------------------------- -->
+    <script type="module">
+        // Load header, then initialise the menu
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                import('./menu-2.js').then(mod => mod.initMenu());
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-
-
-// Simple breadcrumb generation
-function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="support-us/support-us.html">Support Us</a>';
-    breadcrumbHtml += ' > <span>Sunrise Therapy Forest</span>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-    // Call the function to generate the breadcrumb after the header is loaded
-    document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
+        // Footer fetch (unchanged)
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
     </script>
 </body>
 </html>

@@ -1,148 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Horses</title>
-    <base href="../">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Horses - Sunrise Therapeutic Riding & Learning Centre</title>
+  <base href="../">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+ <style>
+    /* left-align cat thumbnails on wider screens, keep centered on narrow */
+    .cats-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,220px)); gap:1.5rem; justify-content:start; width:min(95%,1200px); margin:2rem auto; padding:0; }
+    @media (max-width: 600px) { .cats-container { justify-content:center; } }
+  </style>
+
 </head>
 <body>
-    <!-- Include the header -->
-    
-    <header><div id="header-placeholder"></div></header>
-
-    <main class="bottom-padding">
-        <!-- Main content goes here -->
-        <p class="text-large">Meet Our Horses and their Little Friends</p>
+  <div id="header-placeholder"></div>
+  <main>
+    <div class="container"  style="text-align:left;">
+      <h1>Our Horses</h1>
+      
+        <p>Meet Our Horses and their Little Friends &mdash; <i>including those in need of sponsors!</i>. </p>
         
-        <div class="horse-grid">
-            <a href="horses/cadbury/cadbury.html" class="horse-card">
-                <img src="horses/cadbury/cadbury_H.jpg" alt="Cadbury">
-                <div class="horse-name">Cadbury</div>
+        <div class="thumbnails-container">
+            <a href="horses/cadbury/cadbury.html" class="thumbnail-card">
+                <img src="horses/cadbury/cadbury-H.jpg" alt="Cadbury">
+                <span class="thumbnail-label">Cadbury</span>
             </a>
-            <a href="horses/chance/chance.html" class="horse-card">
-                <img src="horses/chance/Chance_H.jpg" alt="Chance">
-                <div class="horse-name">Chance</div>
+            
+            <a href="horses/chance/chance.html" class="thumbnail-card needs-sponsor" aria-label="Chance — needs a sponsor">
+                <img src="horses/chance/chance-H.jpg" alt="Chance">
+                <span class="thumbnail-label">Chance</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
             </a>
-            <a href="horses/ella/ella.html" class="horse-card">
-                <img src="horses/ella/ella_H.png" alt="Ella">
-                <div class="horse-name">Ella</div>
+
+            <a href="horses/ella/ella.html" class="thumbnail-card">
+                <img src="horses/ella/ella-H.png" alt="Ella">
+                <span class="thumbnail-label">Ella</span>
             </a>
-            <a href="horses/firefly/firefly.html" class="horse-card">
-                <img src="horses/firefly/Firefly_H.jpg" alt="Firefly">
-                <div class="horse-name">Firefly</div>
+
+            <a href="horses/fantasy/fantasy.html" class="thumbnail-card needs-sponsor" aria-label="Fantasy — needs a sponsor">
+                <img src="horses/fantasy/fantasy-H.jpg" alt="Fantasy">
+                <span class="thumbnail-label">Fantasy</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
             </a>
-            <a href="horses/fantasy/fantasy.html" class="horse-card">
-                <img src="horses/fantasy/Fantasy_H.jpg" alt="Fantasy">
-                <div class="horse-name">Fantasy</div>
+
+
+            <a href="horses/firefly/firefly.html" class="thumbnail-card">
+                <img src="horses/firefly/firefly-H.jpg" alt="Firefly">
+                <span class="thumbnail-label">Firefly</span>
             </a>
-            <a href="horses/huey/huey.html" class="horse-card">
-                <img src="horses/huey/Huey_H.jpg" alt="Huey">
-                <div class="horse-name">Huey</div>
+            <a href="horses/huey/huey.html" class="thumbnail-card">
+                <img src="horses/huey/huey-H.png" alt="Huey">
+                <span class="thumbnail-label">Huey</span>
             </a>
-            <a href="horses/jack/jack.html" class="horse-card">
-                <img src="horses/jack/jack_H.png" alt="Jack">
-                <div class="horse-name">Jack</div>
+            <a href="horses/jack/jack.html" class="thumbnail-card">
+                <img src="horses/jack/jack-H.png" alt="Jack">
+                <span class="thumbnail-label">Jack</span>
             </a>
-            <a href="horses/jackie/jackie.html" class="horse-card">
-                <img src="horses/jackie/Jackie_H.jpg" alt="Jackie">
-                <div class="horse-name">Jackie</div>
+            
+            
+            <a href="horses/jackie/jackie.html" class="thumbnail-card needs-sponsor" aria-label="Jackie — needs a sponsor">
+                <img src="horses/jackie/jackie-H.jpg" alt="Jackie">
+                <span class="thumbnail-label">Jackie</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
             </a>
-            <a href="horses/lena/lena.html" class="horse-card">
-                <img src="horses/lena/Lena_H.jpg" alt="Lena">
-                <div class="horse-name">Lena</div>
+            
+
+            <a href="horses/lena/lena.html" class="thumbnail-card">
+                <img src="horses/lena/lena-H.jpg" alt="Lena">
+                <span class="thumbnail-label">Lena</span>
             </a>
-            <a href="horses/lily/lily.html" class="horse-card">
-                <img src="horses/lily/Lily_H.jpg" alt="Lily">
-                <div class="horse-name">Lily</div>
+            <a href="horses/lily/lily.html" class="thumbnail-card">
+                <img src="horses/lily/lily-H.jpg" alt="Lily">
+                <span class="thumbnail-label">Lily</span>
             </a>
-            <a href="horses/marley/marley.html" class="horse-card">
-                <img src="horses/marley/Marley_H.jpg" alt="Marley">
-                <div class="horse-name">Marley</div>
+            <a href="horses/london/london.html" class="thumbnail-card">
+                <img src="horses/london/london-H.png" alt="London">
+                <span class="thumbnail-label">London</span>
             </a>
-            <a href="horses/miami/miami.html" class="horse-card">
-                <img src="horses/miami/Miami_H.jpg" alt="Miami">
-                <div class="horse-name">Miami</div>
+            <a href="horses/marley/marley.html" class="thumbnail-card">
+                <img src="horses/marley/marley-H.jpg" alt="Marley">
+                <span class="thumbnail-label">Marley</span>
             </a>
-            <a href="horses/nos/nos.html" class="horse-card">
-                <img src="horses/nos/Nos_H.jpg" alt="Nos">
-                <div class="horse-name">Nos</div>
+            <a href="horses/miami/miami.html" class="thumbnail-card">
+                <img src="horses/miami/miami-H.jpg" alt="Miami">
+                <span class="thumbnail-label">Miami</span>
             </a>
-            <a href="horses/peven/peven.html" class="horse-card">
-                <img src="horses/peven/Peven_H.jpg" alt="Pevensie">
-                <div class="horse-name">Pevensie</div>
+            
+            <a href="horses/nos/nos.html" class="thumbnail-card needs-sponsor" aria-label="Nos — needs a sponsor">
+                <img src="horses/nos/nos-H.jpg" alt="Nos">
+                <span class="thumbnail-label">Nos</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
             </a>
-            <a href="horses/rolex/rolex.html" class="horse-card">
-                <img src="horses/rolex/Rolex_H.jpg" alt="Rolex">
-                <div class="horse-name">Rolex</div>
+            
+            
+            <a href="horses/peven/peven.html" class="thumbnail-card">
+                <img src="horses/peven/peven-H.jpg" alt="Pevensie">
+                <span class="thumbnail-label">Pevensie</span>
             </a>
-            <a href="horses/snoopy/snoopy.html" class="horse-card">
-                <img src="horses/snoopy/Snoopy_H.jpg" alt="Snoopy">
-                <div class="horse-name">Snoopy</div>
+            
+            
+            <a href="horses/pinky/pinky.html" class="thumbnail-card needs-sponsor" aria-label="Pinky — needs a sponsor">
+                <img src="horses/pinky/pinky-H.png" alt="Pinky">
+                <span class="thumbnail-label">Pinky</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
             </a>
-            <a href="horses/sparkle/sparkle.html" class="horse-card">
-                <img src="horses/sparkle/Sparkle_H.jpg" alt="Sparkle">
-                <div class="horse-name">Sparkle</div>
+            
+            
+
+            <a href="horses/rolex/rolex.html" class="thumbnail-card">
+                <img src="horses/rolex/rolex-H.png" alt="Rolex">
+                <span class="thumbnail-label">Rolex</span>
             </a>
-            <a href="horses/tucker/tucker.html" class="horse-card">
-                <img src="horses/tucker/Tucker_H.jpg" alt="Tucker">
-                <div class="horse-name">Tucker</div>
+            <a href="horses/snoopy/snoopy.html" class="thumbnail-card">
+                <img src="horses/snoopy/snoopy-H.jpg" alt="Snoopy">
+                <span class="thumbnail-label">Snoopy</span>
             </a>
-            <a href="horses/titan/titan.html" class="horse-card">
-                <img src="horses/titan/titan_H.png" alt="Titan">
-                <div class="horse-name">Titan</div>
+            <a href="horses/sparkle/sparkle.html" class="thumbnail-card">
+                <img src="horses/sparkle/sparkle-H.jpg" alt="Sparkle">
+                <span class="thumbnail-label">Sparkle</span>
             </a>
-            <!-- Repeat for each horse -->
-            <a href="horses/minis/minis.html" class="horse-card">
-                <img src="horses/minis/minis_H.png" alt="Our Mini Horses">
-                <div class="horse-name">The Minis</div>
+            
+            
+            <a href="horses/titan/titan.html" class="thumbnail-card needs-sponsor" aria-label="Titan — needs a sponsor">
+                <img src="horses/titan/titan-H.png" alt="Titan">
+                <span class="thumbnail-label">Titan</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
             </a>
-            <a href="horses/cats/cats.html" class="horse-card">
-                <img src="horses/cats/cats_H.png" alt="Our Barn Cats">
-                <div class="horse-name">Our Barn Cats</div>
+            
+            
+
+            <a href="horses/tucker/tucker.html" class="thumbnail-card">
+                <img src="horses/tucker/tucker-H.jpg" alt="Tucker">
+                <span class="thumbnail-label">Tucker</span>
+            </a>
+
+        </div>
+
+
+
+                <hr style="margin: 2.5rem 0; border: none; height: 2px; background:#1a69e0;">
+        <h2 style="margin-bottom:1rem; color:#0d4b8c; text-align:left;">
+            Our Miniature Horses
+        </h2>
+        <div class="thumbnails-container"> 
+        <p style="text-align:left; max-width:700px; margin-bottom:2rem;">
+            Sunrise is also home to three miniature horses--Sundance, Faline and Buddy. Sundance and Faline are siblings and arrived at Sunrise in 2007. Buddy was acquired more recently in 20##.</p>
+            <img src="horses/minis/minis_H.png" alt="Our Miniature Horses"
+     style="display:block; margin:0.75rem auto; width:100%; max-width:50%; height:auto; border-radius:8px;">
+        </div>  
+        <!-- This second grid contains ONLY the two cat thumbnails -->
+        <div class="thumbnails-container cats-container">
+            <a class="thumbnail-card" href="horses/sundance/sundance.html">
+                <img src="horses/sundance/sundance-H.png" alt="Sundance">
+                <span class="thumbnail-label">Sundance</span>
+            </a>
+            <a class="thumbnail-card" href="horses/faline/faline.html">
+                <img src="horses/faline/faline-H.png" alt="Faline">
+                <span class="thumbnail-label">Faline</span>
+            </a>
+            
+            
+            <a href="horses/buddy/buddy.html" class="thumbnail-card needs-sponsor" aria-label="Buddy — needs a sponsor">
+                <img src="horses/buddy/buddy-H.jpg" alt="Buddy">
+                <span class="thumbnail-label">Buddy</span>
+                <span class="badge" aria-hidden="true">Sponsor me!</span>
+            </a>
+
+        </div>
+
+                <hr style="margin: 2.5rem 0; border: none; height: 2px; background:#1a69e0;">
+        <h2 style="margin-bottom:1rem; color:#0d4b8c; text-align:left;">
+            Our Barn Cats
+        </h2>
+        <div class="thumbnails-container"> 
+        <p style="text-align:left; max-width:700px; margin-bottom:2rem;">
+            In addition to our wonderful horses and miniature horses, Sunrise is also home to two adorable barn cats. 
+            Molly and her little sister Dora arrived at Sunrise in September of 2018 just 16 weeks old. 
+            For the first month and a half they were at Sunrise they lived in the office and kept the staff more than just a little amused with their antics.
+            These feline friends help keep the barn free of unwanted pests while entertaining everyone at Sunrise with their playful antics and affectionate nature.</p>
+            <img src="graphics/cats.jpg" alt="Molly and Dora"
+     style="display:block; margin:0.75rem auto; width:100%; max-width:50%; height:auto; border-radius:8px;">
+        </div>  
+        <!-- This second grid contains ONLY the two cat thumbnails -->
+        <div class="thumbnails-container cats-container">
+            <a class="thumbnail-card" href="horses/dora/dora.html">
+                <img src="horses/dora/dora-H.jpg" alt="Dora">
+                <span class="thumbnail-label">Dora</span>
+            </a>
+            <a class="thumbnail-card" href="horses/molly/molly.html">
+                <img src="horses/molly/molly-H.jpg" alt="Molly">
+                <span class="thumbnail-label">Molly</span>
             </a>
         </div>
+
+
     </main>
 
     <!-- Include the footer -->
     
     <footer><div id="footer-placeholder"></div></footer>
 
-    <script>
-        // Load the header content from header.html
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Call the function to generate the breadcrumb after the header is loaded
-                generateBreadcrumb();
-            })
-            .catch(error => console.error('Error loading header:', error));
+<script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
 
-        // Load the footer content from footer.html
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-     // Generate breadcrumb trail
- function generateBreadcrumb() {
-    const breadcrumbPlaceholder = document.getElementById('breadcrumb-placeholder');
-    let breadcrumbHtml = '<nav class="breadcrumb">';
-    breadcrumbHtml += '<a href="./">Home</a>';
-    breadcrumbHtml += ' > <a href="about.html">About Us</a>';
-    breadcrumbHtml += ' > <a href="horses/horses.html">Sunrise Horses</a>';
-    breadcrumbHtml += '</nav>';
-    breadcrumbPlaceholder.innerHTML = breadcrumbHtml;
-}
-
-        // Call the function to generate the breadcrumb after the header is loaded
-        document.addEventListener('DOMContentLoaded', generateBreadcrumb);
-
-    </script>
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
 </body>
 </html>
