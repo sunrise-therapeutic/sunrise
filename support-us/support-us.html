@@ -7,352 +7,40 @@
   <base href="../">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  
-  <style>
-/* -------------------------------------------------
-   1️⃣ General layout for each fund block
-   ------------------------------------------------- */
-.fund-section {
-    display: grid;
-    grid-template-columns: 300px 1fr;   /* photo = 300 px, text = remaining space */
-    gap: 2rem;
-    align-items: start;
-    margin: 2rem 0;
-}
-
-/* -------------------------------------------------
-   2️⃣ Mobile – stack photo above the details (fluid images)
-   ------------------------------------------------- */
-@media (max-width: 768px) {
-    .fund-section {
-        grid-template-columns: 1fr;      /* single column */
-    }
-
-    .fund-section .photo   { order: 1; }
-    .fund-section .details { order: 2; }
-
-    .fund-section .photo {
-        width: 100%;
-    }
-
-    .fund-section .photo img {
-        width: 100%;
-        height: auto;
-        max-width: 300px;                /* keep original max size */
-        display: block;
-        margin: 0 auto;
-    }
-}
-
-/* -------------------------------------------------
-   3️⃣ Styling for the horizontal rule (keeps the same blue colour)
-   ------------------------------------------------- */
-.fund-section hr {
-    border: none;
-    height: 2px;
-    background-color: #1a69e0;
-    margin: 1.5rem 0;
-}
-</style>
-
-
 </head>
 <body>
   <div id="header-placeholder"></div>
-  <main class="container">
+  <main>
+    <div class="container" style="text-align:left;">
+     
+        <h1>Support Us</h1>
 
-    <!-- Intro text – full width -->
-    <section class="intro">
-        <h1>Support Us!</h1>
-        <p style="font-style: italic; font-size: 1.5rem; text-align: center">Your generous support helps us continue to provide life-changing programs 
-            for individuals with special needs. </p>
-            <p style="margin-inline: 6rem; text-align: center">You can make one-time or monthly donations to help us with general operating costs, 
-            or support a specific fund or program that resonates with you. We also accept donations of items 
-            on our <a href="support-us/wish-list.html">Wish List</a>. 
-            Below are some of the ways you can support what we do at Sunrise.</p>
-    </section>
-
-
- <div style="text-align: center; margin-block: clamp(1rem, 2vw, 2rem);">
-  <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E363411QE&id=2"
-     class="btn" target="_blank" rel="noopener noreferrer">
-    Donate Now
+      
+    </div>
+    <div class="thumbnails-container">
+  <a class="thumbnail-card" href="support-us/donations&sponsorships.html">
+    <img src="support-us/donations.png" alt="Donations & Sponsorships"
+         >
+    <span class="thumbnail-label">Donations & Sponsorships</span>
+  </a>
+  <a class="thumbnail-card" href="support-us/therapyforest.html">
+    <img src="support-us/forest.png" alt="Sunrise Therapy Forest"
+         style="display:block; width:100%; max-width:180px; height:auto; object-fit:contain; margin:0 auto;">
+    <span class="thumbnail-label">Sunrise Therapy Forest</span>
+  </a>
+  
+  <a class="thumbnail-card" href="support-us/wish-list.html">
+    <img src="support-us/wish-list-icon.png" alt="Wish List"
+         style="display:block; width:100%; max-width:180px; height:auto; object-fit:contain; margin:0 auto;">
+    <span class="thumbnail-label">Wish List</span>
   </a>
 </div>
-
-
-
-
-    <!-- ==== FUND BLOCKS – repeat for each fund ==== -->
-    
-    
     
 
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/donate-money-icon.jpg" alt="Donate Money"></div>
-        <div class="details">
-            <h3>One-time or Monthly Donations</h3>
-            <p>One-time or ongoing monthly donations to help us cover general operating and other costs are deeply appreciated. 
-        Your donation will be used to fund our general operations (such as utilities, feed, bedding, veterinary care, etc.) by addressing specific needs as identified by Sunrise staff.</p>
-    <p>Sunrise accepts one-time or ongoing monthly monetary donations of any amount. All donations of $20 or more will receive a tax receipt.</p>
-    <p>To make a donation, please click the <b>Donate Now</b> button above, and select the amount and type of donation (one-time or monthly), or call us at (519) 837-0558 x 31 to make a donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$20.00+</p>
-            <hr>
-        </div>
-    </section>
-    
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/scholarshipfund.jpg" alt="Scholarship fund"></div>
-        <div class="details">
-            <h3>Sunrise Scholarship Fund</h3>
-            <ul>
-                <li>Provide a full semester of therapeutic riding lessons for a local child</li>
-                <li>Provide 4 weeks of lessons for a group of 4-5 children from a special education class</li>
-            </ul>
-            <p>To make a donation to the Sunrise Scholarship Fund, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$700.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/2horses.png" alt="Big Fun in a Mini Size"></div>
-        <div class="details">
-            <h3>Big Fun in a Mini Size</h3>
-            <p>Provide one year's worth of exemplary care for one of our miniature horses, including:
-                <ul>
-                    <li>Specialized feed and supplements</li>
-                    <li>Regular veterinary care</li>
-                    <li>Farrier services</li>
-                    <li>Training and exercise</li>
-                </ul>
-            </p>
-            <p>To make a donation to support our minis, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$2,500.00</p>
-            <hr>
-        </div>
-    </section>
-
-        <section class="fund-section">
-        <div class="photo"><img src="support-us/heartsandhooveshalfsponsor.jpg" alt="Hearts and Hooves: Horse Co-sponsor"></div>
-        <div class="details">
-            <h3>Hearts and Hooves: Horse Co-sponsor (one year)</h3>
-            <p>Our horses are the heart of our programs! 
-                The average cost per year to provide food, veterinarian service, farrier service and daily care is $5,000 for each of our 22 horses. 
-                Sponsor one of our gentle giants and make an impact on the lives of hundreds of individuals a year. Carefully selected and trained, 
-                each horse provides up to 600 hours of therapy a year! This sponsorship will be used to contribute half the cost of one year of examplary care for one of our horses, including:</p>
-                
-                <ul>
-                    <li>Specialized feed and supplements</li>
-                    <li>Regular veterinary care</li>
-                    <li>Farrier services</li>
-                    <li>Training and exercise</li>
-                </ul>
-            </p>
-                For an updated list of horses who need a sponsor, please visit the <a href="horses/horses.html">Horses</a> profile page.</p>
-                <p>To co-sponsor one of our horses, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$2,500.00</p>
-            <hr>
-        </div>
-    </section>
-
-            <section class="fund-section">
-        <div class="photo"><img src="support-us/heartsandhoovesfullsponsor.jpg" alt="Hearts and Hooves: Full Horse Sponsor"></div>
-        <div class="details">
-            <h3>Hearts and Hooves: Full Horse Sponsor (one year)</h3>
-            <p>The human-animal bond is a special relationship, providing a sense of unwavering acceptance and motivating riders to try new skills.<br>
-                At Sunrise, we witness children saying their first words, teens proudly planning and executing multi-step directions, 
-                and adults gaining greater flexibility, core strength and posture. For every rider, there is a multitude of 
-                physical, emotional, social and cognitive benefits that result from their weekly therapeutic riding lesson.
-                It's therapy…and it's fun!</p>
-                <p>This sponsorship will be used to contribute the full cost of one year of examplary care for one of our horses, including:</p>
-                
-                <ul>
-                    <li>Specialized feed and supplements</li>
-                    <li>Regular veterinary care</li>
-                    <li>Farrier services</li>
-                    <li>Training and exercise</li>
-                </ul>
-            </p>
-                For an updated list of horses who need a sponsor, please visit the <a href="horses/horses.html">Horses</a> profile page.</p>
-                <p>To sponsor one of our horses, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$5,000.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/keepwarminwinter.png" alt=""></div>
-        <div class="details">
-            <h3>Keeping Warm in Winter Package</h3>
-            <ul>
-                <li>Repair worn horse blankets</li>
-                <li>Purchase new blankets as needed</li>
-                <li>Purchase soft, warm gloves, for use by our riders and volunteers</li>
-            </ul>
-            <p>To donate a "Keeping Warm in Winter" package, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$750.00</p>
-            <hr>
-        </div>
-    </section>
 
 
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/paddocksponsor.jpg" alt="Paddock Sponsor"></div>
-        <div class="details">
-            <h3>Paddock Sponsor (one year)</h3>
-            <p>This is where our horses live! Paddock sponsorships fund the care and maintenance of our paddocks. 
-                This sponsorship comes with recognition signage on the paddock.</p>
-                <p>To sponsor a paddock, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1,000.00</p>
-            <hr>
-        </div>
-    </section>
+  </main>
 
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/stallsponsor.jpg" alt="Stall Sponsor"></div>
-        <div class="details">
-            <h3>Stall Sponsor (one year)</h3>
-            <p>Although we work hard to minimize our overhead costs, the very nature of the program necessitates some unique expenses! 
-                Stall sponsors are recognized through signage on stall doors in the barn, as well as on the Sponsor board, as appropriate. 
-                This is a great way to support the care of all of our horses, as well as be recognized in a high-traffic area!</p>
-                <p>To sponsor a stall, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1,000.00</p>
-            <hr>
-        </div>
-    </section>
-<h2>Camp Sunrise: Embracing Inclusion</h2>
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/ridingcampcampersponsor.jpg" alt="Making Summer Memories: Sponsor a Horse Camp Camper"></div>
-        <div class="details">
-            <h3>Making Summer Memories: Sponsor a Horse Camp Camper</h3>
-            <p>Send a child to Horse Camp (2 weeks)</p>
-            <p>To sponsor a Horse Camp camper, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$675.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/farmdiscoverycampersponsor.jpg" alt="Making Summer Memories: Sponsor a Farm Discovery Camper"></div>
-        <div class="details">
-            <h3>Making Summer Memories: Sponsor a Farm Discovery Camper</h3>
-            <p>Send a child to attend Farm Discovery Camp (1 week)</p>
-            <p>To sponsor a Farm Discovery Camp camper, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$275.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/poolmaintenancesponsor.jpg" alt="Pool Maintenance Package"></div>
-        <div class="details">
-            <h3>Pool Maintenance Package</h3>
-            <ul>
-                <li>Provide for annual opening / closing costs (professionally done to maintain warranties)</li>
-                <li>Purchase of a year's supply of salt and water testing supplies</li>
-                <li>Replace worn pool toys</li>
-                <li>Purchase new life jackets</li>
-            </ul>
-            <p>To donate a "Pool Maintenance" package, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1,000.00</p>
-            <hr>
-        </div>
-    </section>
-<h2>Supporting the Sunrise Therapy Forest</h2>
-<section class="fund-section">
-        <div class="photo"><img src="support-us/adoptatree.jpg" alt="Adopt-a-Tree"></div>
-        <div class="details">
-            <h3>Adopt-a-Tree (Annual)</h3>
-            <p>Support the Sunrise Therapy Forest by 'adopting' one of several designated trees for a one-year period. 
-            Donors receive a card with information about their adopted tree. There are multiple sponsors per tree at this level. 
-            A recognition/sign unveiling event will be held every September. All those who have supported the forest project in the past year will receive an invitation! 
-            All supporters receive a tax receipt and certificate, suitable for giving as a gift to someone being recognized.</p>
-           <p>For more information about the Forest and how to make a donation, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$25.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/friendsoftheforest.jpg" alt="Friends of the Forest"></div>
-        <div class="details">
-            <h3>Friends of the Forest (Annual)</h3>
-            <p>As a "Friend of the Forest," you can honour or remember a loved one by placing their 
-                name on a collective Memorial or In Honour sign for the current year, which will be unveiled each September.</p> 
-                <p>For more information about becoming a "Friend of the Forest" and how to make a donation, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
-
-        <p>Donors will have an opportunity to discuss final signage details with a Sunrise staff member prior to installation.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$150.00</p>
-            <hr>
-        </div>
-    </section>
-
-    
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/trailblazer-bench.jpg" alt="Trailblazer: Stone Bench"></div>
-        <div class="details">
-            <h3>Trailblazer: Stone Bench</h3>
-            <p>Support the Forest by purchasing a permanent bench with individual recognition or memorial plaque, 
-                which will be unveiled each September.<p>Sunrise staff will determine the species and location 
-            of Trailblazer trees and benches, in keeping with the overall forest design. A limited number of stone benches will be available each year.</p> 
-                
-        <p>Donors will have an opportunity to discuss final signage details with a Sunrise staff member prior to installation.</p>
-        <p>For more information on the Forest and how to arrange a bench with a plaque, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
-
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$500.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-                <div class="photo"><img src="support-us/trailblazer-sapling.jpg"
-     alt="wishlist icon"
-     style="display:block; width:100%; max-width:250px; height:auto; margin:0 auto;"></div>
-        <div class="details">
-        <div class="details">
-            <h3>Trailblazer: Sapling</h3>
-            <p>Support the Forest by purchasing a sapling with an individual recognition or memorial plaque to memorialize 
-                or recognize a loved one, which will be unveiled each September. Includes a custom, individual recognition/memorial plaque in front of your tree.</p> 
-           
-            <br>(Sunrise procures the sapling, and donors will have an opportunity to discuss final signage details with a Sunrise staff member prior to installation.)</p>
-            <p>For more information on the Forest and how to purchase a sapling with a plaque, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$500.00</p>
-            <hr>
-        </div>
-    </section>
-
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/trailblazer-tree.jpg" alt="Trailblazer: Tree Donation"></div>
-        <div class="details">
-            <h3>Trailblazer: Tree</h3>
-            <p>Support the Forest by purchasing a mature tree with an individual
-recognition or memorial plaque memorialize or recognize a loved one, which will be unveiled each September.
-        Includes a custom, individual recognition/memorial plaque in front of your tree. 
-            <br>(Sunrise procures the tree, and donors will have an opportunity to discuss final signage details with a Sunrise staff member prior to installation.)</p>
-            <p>For more information on the Forest and how to purchase a tree with a plaque, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
-            <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1500.00</p>
-            <hr>
-        </div>
-    </section>
-
-<h2>Donating Wish-list Items</h2>
-    <section class="fund-section">
-        <div class="photo"><img src="support-us/wish-list-icon.png"
-     alt="wishlist icon"
-     style="display:block; width:100%; max-width:250px; height:auto; margin:0 auto;"></div>
-        <div class="details">
-            <h3>Physical Items & Gift Cards</h3>
-            <p>In addition to monetary donations, Sunrise also gratefully accepts donations of items on our <a href="support-us/wish-list.html">Sunrise Wish List</a> page, 
-                as well as gift cards from <b>Home Hardware</b>, <b>Home Depot</b> or <b>Greenhawk Equestrian</b>. 
-                </p>
-        </div>
-
-    <!-- …repeat for every other fund… -->
-
-</main>
   
 
 
