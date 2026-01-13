@@ -53,6 +53,32 @@
     background-color: #1a69e0;
     margin: 1.5rem 0;
 }
+
+/* -------------------------------------------------
+   Quick links grid (4 columns desktop, stacked mobile)
+   ------------------------------------------------- */
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
+}
+.quick-links a {
+    display: block;
+    background: #f6f9ff;
+    border: 1px solid #e6eefb;
+    padding: 0.6rem 0.6rem;
+    text-align: center;
+    border-radius: 4px;
+    color: #1a69e0;
+    font-weight: 600;
+    text-decoration: none;
+}
+.quick-links a:hover { background: #e9f0ff; }
+
+@media (max-width: 768px) {
+    .quick-links { grid-template-columns: 1fr; }
+}
 </style>
 
 
@@ -62,23 +88,40 @@
   <main class="container">
 
     <!-- Intro text – full width -->
-    <section class="intro">
-        <h1>Donations & Sponsorships</h1>
+    <section id="top" class="intro">
+        <h1>Ways to Give</h1>
         <p style="font-style: italic; font-size: 1.5rem; text-align: center">Your generous support helps us continue to provide life-changing programs 
             for individuals with special needs. </p>
             <p style="margin-inline: 2rem; text-align: center">You can make one-time or monthly donations to help us with general operating costs, 
             or support a specific fund or program that resonates with you. We also accept donations of items 
-            on our <a href="support-us/wish-list.html">Wish List</a>. 
+            on our <a href="support-us/wish-list.html">Wish List</a> and "in-kind" donations of financial securities like stocks, bonds, mutual funds, etc. 
             Below are some of the ways you can support what we do at Sunrise.</p>
     </section>
 
-
- <div style="text-align: center; margin-block: clamp(1rem, 2vw, 2rem);">
-  <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E363411QE&id=2"
-     class="btn" target="_blank" rel="noopener noreferrer">
-    Donate Now
-  </a>
+<!-- Quick links to page sections -->
+<div class="quick-links container" style="max-width:1100px; margin:0 auto;">
+  <a href="support-us/ways-to-give.html#one-time">One-time or Monthly Cash Donations</a>
+  <a href="support-us/ways-to-give.html#in-kind">In-Kind Donations</a>
+  <a href="support-us/ways-to-give.html#donate-car">Donate a Car</a>
+  <a href="support-us/ways-to-give.html#scholarship-fund">Scholarship Fund</a>
+  <a href="support-us/ways-to-give.html#mini-size">Sponsor a Mini Horse</a>
+  <a href="support-us/ways-to-give.html#hearts-half">Co-sponsor a Horse</a>
+  <a href="support-us/ways-to-give.html#hearts-full">Fully Sponsor a Horse</a>
+  <a href="support-us/ways-to-give.html#keeping-warm">Keeping Warm Package</a>
+  <a href="support-us/ways-to-give.html#paddock-sponsor">Sponsor a Paddock</a>
+  <a href="support-us/ways-to-give.html#stall-sponsor">Sponsor a Stall</a>
+  <a href="support-us/ways-to-give.html#camp-horse">Sponsor a Horse Camp Camper</a>
+  <a href="support-us/ways-to-give.html#farm-discovery">Sponsor a Farm Discovery Camper</a>
+  <a href="support-us/ways-to-give.html#pool-maintenance">Pool Maintenance Package</a>
+  <a href="support-us/ways-to-give.html#therapy-forest-adopt-a-tree">Therapy Forest - Adopt a Tree</a>
+<a href="support-us/ways-to-give.html#therapy-forest-friend">Friend of the Forest (Annual)</a>
+<a href="support-us/ways-to-give.html#trailblazer-bench">Trailblazer Bench</a>
+<a href="support-us/ways-to-give.html#trailblazer-sapling">Trailblazer Sapling</a>
+<a href="support-us/ways-to-give.html#trailblazer-tree">Trailblazer Tree</a>
+<a href="support-us/ways-to-give.html#wishlist">Donate Wish List Items</a>
 </div>
+
+
 
 
 
@@ -88,7 +131,7 @@
     
     
 
-    <section class="fund-section">
+    <section id="one-time" class="fund-section">
         <div class="photo"><img src="support-us/donate-money-icon.jpg" alt="Donate Money"></div>
         <div class="details">
             <h3>One-time or Monthly Donations</h3>
@@ -98,10 +141,25 @@
     <p>To make a donation, please click the <b>Donate Now</b> button above, and select the amount and type of donation (one-time or monthly), or call us at (519) 837-0558 x 31 to make a donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$20.00+</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+<section id="in-kind" class="fund-section">
+        <div class="photo"><img src="support-us/in-kind-donation.png" alt="In-Kind Donations"
+             style="display:block; width:100%; max-width:300px; height:auto; object-fit:contain; margin:0 auto;"></div>
+        <div class="details"><br><br><br>
+            <h3>In-kind Donations of Financial Securities</h3>
+            <p>Gifts of publicly traded securities—including stocks, mutual funds, and ETFs—offer one of the most tax-efficient ways to support Sunrise’s programs.</p>
+            <p>When donations are made directly to Sunrise, capital gains tax is eliminated so more of your gift goes to supporting Sunrise. Giving to Sunrise in-kind can be an effective part of your year-end financial planning.</p>
+<p><a href="support-us/in-kind-donations.html">Click here to learn more about in-kind donations!</a></p>
+
+            <hr>
+<a href="support-us/ways-to-give.html#top">Back to top of page</a>
+        </div>
+    </section>
+
+    <section id="donate-car" class="fund-section">
         <div class="photo"><img src="support-us/donate-car.png" alt="Donate a Car"
              style="display:block; width:100%; max-width:300px; height:auto; object-fit:contain; margin:0 auto;"></div>
         <div class="details">
@@ -115,10 +173,11 @@ processed!</p>
 <p><a href="https://donatecar.ca/org/charitypage/donate.php?charity=SunriseTherapeuticRidingAndLearningCentre" target="_blank" rel="noopener noreferrer">Click here to donate a car to Sunrise!</a></p>
 
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
     
-    <section class="fund-section">
+    <section id="scholarship-fund" class="fund-section">
         <div class="photo"><img src="support-us/scholarshipfund.jpg" alt="Scholarship fund"></div>
         <div class="details">
             <h3>Sunrise Scholarship Fund</h3>
@@ -129,10 +188,11 @@ processed!</p>
             <p>To make a donation to the Sunrise Scholarship Fund, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$700.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="mini-size" class="fund-section">
         <div class="photo"><img src="support-us/2horses.png" alt="Big Fun in a Mini Size"></div>
         <div class="details">
             <h3>Big Fun in a Mini Size</h3>
@@ -148,10 +208,11 @@ processed!</p>
             
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$2,500.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-        <section class="fund-section">
+        <section id="hearts-half" class="fund-section">
         <div class="photo"><img src="support-us/heartsandhooveshalfsponsor.jpg" alt="Hearts and Hooves: Horse Co-sponsor"></div>
         <div class="details">
             <h3>Hearts and Hooves: Horse Co-sponsor (one year)</h3>
@@ -171,10 +232,11 @@ processed!</p>
                 <p>To co-sponsor one of our horses, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$2,500.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-            <section class="fund-section">
+            <section id="hearts-full" class="fund-section">
         <div class="photo"><img src="support-us/heartsandhoovesfullsponsor.jpg" alt="Hearts and Hooves: Full Horse Sponsor"></div>
         <div class="details">
             <h3>Hearts and Hooves: Full Horse Sponsor (one year)</h3>
@@ -196,10 +258,11 @@ processed!</p>
                 <p>To sponsor one of our horses, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$5,000.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="keeping-warm" class="fund-section">
         <div class="photo"><img src="support-us/keepwarminwinter.png" alt=""></div>
         <div class="details">
             <h3>Keeping Warm in Winter Package</h3>
@@ -212,11 +275,12 @@ processed!</p>
             
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$750.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
 
-    <section class="fund-section">
+    <section id="paddock-sponsor" class="fund-section">
         <div class="photo"><img src="support-us/paddocksponsor.jpg" alt="Paddock Sponsor"></div>
         <div class="details">
             <h3>Paddock Sponsor (one year)</h3>
@@ -225,10 +289,11 @@ processed!</p>
                 <p>To sponsor a paddock, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1,000.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="stall-sponsor" class="fund-section">
         <div class="photo"><img src="support-us/stallsponsor.jpg" alt="Stall Sponsor"></div>
         <div class="details">
             <h3>Stall Sponsor (one year)</h3>
@@ -238,10 +303,11 @@ processed!</p>
                 <p>To sponsor a stall, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1,000.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 <h2>Camp Sunrise: Embracing Inclusion</h2>
-    <section class="fund-section">
+    <section id="camp-horse" class="fund-section">
         <div class="photo"><img src="support-us/ridingcampcampersponsor.jpg" alt="Making Summer Memories: Sponsor a Horse Camp Camper"></div>
         <div class="details">
             <h3>Making Summer Memories: Sponsor a Horse Camp Camper</h3>
@@ -249,10 +315,11 @@ processed!</p>
             <p>To sponsor a Horse Camp camper, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$675.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="farm-discovery" class="fund-section">
         <div class="photo"><img src="support-us/farmdiscoverycampersponsor.jpg" alt="Making Summer Memories: Sponsor a Farm Discovery Camper"></div>
         <div class="details">
             <h3>Making Summer Memories: Sponsor a Farm Discovery Camper</h3>
@@ -260,10 +327,11 @@ processed!</p>
             <p>To sponsor a Farm Discovery Camp camper, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$275.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="pool-maintenance" class="fund-section">
         <div class="photo"><img src="support-us/poolmaintenancesponsor.jpg" alt="Pool Maintenance Package"></div>
         <div class="details">
             <h3>Pool Maintenance Package</h3>
@@ -276,10 +344,11 @@ processed!</p>
             <p>To donate a "Pool Maintenance" package, please call us at (519) 837-0558 x 31 to set up your donation over the phone.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1,000.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 <h2>Supporting the Sunrise Therapy Forest</h2>
-<section class="fund-section">
+<section id="therapy-forest-adopt-a-tree" class="fund-section">
         <div class="photo"><img src="support-us/adoptatree.jpg" alt="Adopt-a-Tree"></div>
         <div class="details">
             <h3>Adopt-a-Tree (Annual)</h3>
@@ -290,10 +359,11 @@ processed!</p>
            <p>For more information about the Forest and how to make a donation, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$25.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="therapy-forest-friend" class="fund-section">
         <div class="photo"><img src="support-us/friendsoftheforest.jpg" alt="Friends of the Forest"></div>
         <div class="details">
             <h3>Friends of the Forest (Annual)</h3>
@@ -304,11 +374,12 @@ processed!</p>
         <p>Donors will have an opportunity to discuss final signage details with a Sunrise staff member prior to installation.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$150.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
     
-    <section class="fund-section">
+    <section id="trailblazer-bench" class="fund-section">
         <div class="photo"><img src="support-us/trailblazer-bench.jpg" alt="Trailblazer: Stone Bench"></div>
         <div class="details">
             <h3>Trailblazer: Stone Bench</h3>
@@ -321,10 +392,11 @@ processed!</p>
 
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$500.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="trailblazer-sapling" class="fund-section">
                 <div class="photo"><img src="support-us/trailblazer-sapling.jpg"
      alt="wishlist icon"
      style="display:block; width:100%; max-width:250px; height:auto; margin:0 auto;"></div>
@@ -338,10 +410,11 @@ processed!</p>
             <p>For more information on the Forest and how to purchase a sapling with a plaque, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$500.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
-    <section class="fund-section">
+    <section id="trailblazer-tree" class="fund-section">
         <div class="photo"><img src="support-us/trailblazer-tree.jpg" alt="Trailblazer: Tree Donation"></div>
         <div class="details">
             <h3>Trailblazer: Tree</h3>
@@ -352,11 +425,12 @@ recognition or memorial plaque memorialize or recognize a loved one, which will 
             <p>For more information on the Forest and how to purchase a tree with a plaque, please visit the <a href="support-us/therapyforest.html">Sunrise Therapy Forest</a> page.</p>
             <p style="color:#008080; font-size:1.25rem; font-weight:bold;">$1500.00</p>
             <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
     </section>
 
 <h2>Donating Wish-list Items</h2>
-    <section class="fund-section">
+    <section id="wish-list" class="fund-section">
         <div class="photo"><img src="support-us/wish-list-icon.png"
      alt="wishlist icon"
      style="display:block; width:100%; max-width:250px; height:auto; margin:0 auto;"></div>
@@ -365,6 +439,8 @@ recognition or memorial plaque memorialize or recognize a loved one, which will 
             <p>In addition to monetary donations, Sunrise also gratefully accepts donations of items on our <a href="support-us/wish-list.html">Sunrise Wish List</a> page, 
                 as well as gift cards from <b>Home Hardware</b>, <b>Home Depot</b> or <b>Greenhawk Equestrian</b>. 
                 </p>
+                <hr>
+            <a href="support-us/ways-to-give.html#top">Back to top of page</a>
         </div>
 
     <!-- …repeat for every other fund… -->

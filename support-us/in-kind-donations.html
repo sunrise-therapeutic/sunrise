@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Kind Donations — Sunrise Therapeutic Riding &amp; Learning Centre</title>
+    <base href="../">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><div id="header-placeholder"></div></header>
+
+    <main>
+    <div class="container" style="text-align:left;">
+        <h1>Donating Securities &amp; Legacy Gifts</h1>
+
+        <h2>Donating Publicly Traded Securities &amp; Legacy Gifts to Sunrise</h2>
+        <p>A powerful way to give today and for generations to come.</p>
+
+        <h3>Donating Securities “In Kind” (Instead of Cash)</h3>
+        <p>Gifts of publicly traded securities—including stocks, mutual funds, and ETFs—offer one of the most tax-efficient ways to support Sunrise’s programs.</p>
+        <ul>
+            <li>When securities are donated directly to Sunrise, capital gains tax is eliminated.</li>
+            <li>You receive a charitable tax receipt for the full fair market value on the date of transfer.</li>
+            <li>This often allows you to give more to Sunrise at the same personal cost compared to donating cash.</li>
+            <li>Particularly well-suited for donors holding appreciated investments they no longer need or wish to rebalance.</li>
+        </ul>
+
+        <h3>Why Many Donors Choose Stock Gifts Over Cash</h3>
+        <ul>
+            <li><strong>Cash donation:</strong> Capital gains may be triggered if investments are sold first.</li>
+            <li><strong>Securities donation:</strong> No capital gains tax — more of your gift goes directly to Sunrise’s programs.</li>
+            <li>Especially effective during year-end planning or when gains are being realized elsewhere in a portfolio.</li>
+        </ul>
+
+        <h3>The Power of Legacy &amp; Endowment Giving</h3>
+        <p>Legacy giving creates an enduring impact, ensuring Sunrise’s mission continues to change lives well into the future.</p>
+
+        <h4>Including Sunrise in Your Will</h4>
+        <ul>
+            <li>You retain full control of your assets during your lifetime.</li>
+            <li>Your estate receives a charitable tax credit, which can help offset estate taxes.</li>
+            <li>A meaningful way to leave a lasting legacy while supporting Sunrise’s mission.</li>
+        </ul>
+
+        <h4>Endowment Gifts: Supporting Sunrise Forever</h4>
+        <ul>
+            <li>Endowment gifts are invested, with income used to fund programs year after year.</li>
+            <li>Provides long-term financial stability and funding certainty.</li>
+            <li>Ensures your generosity continues to make an impact for generations.</li>
+        </ul>
+
+        <h3>Why Donors Choose Legacy Gifts</h3>
+        <ul>
+            <li>Aligns charitable intentions with estate and tax planning.</li>
+            <li>Creates multi-generational impact.</li>
+            <li>Can be designated to specific programs or areas of care.</li>
+            <li>A deeply meaningful way to tell your story through giving.</li>
+        </ul>
+
+        <h3>How to Get Started</h3>
+        <ul>
+            <li>Speak with your financial advisor or estate planner about donating securities or including Sunrise in your will.</li>
+            <li>Sunrise can work directly with your advisor to ensure the process is simple and seamless.</li>
+            <li>Every gift — present or future — helps transform lives through Sunrise’s therapeutic programs and life-skills training.</li>
+            <li>Gifts may be designated to operational or capital programs, according to donor preference.</li>
+        </ul>
+
+        <p>Contact the Sunrise office for the brochure containing further information on each of these charitable giving opportunities or to discuss options with your financial advisor:</p>
+        <p><a href="mailto:lynne@sunrise-therapeutic.ca">lynne@sunrise-therapeutic.ca</a> or <a href="tel:+15198370558">519-837-0558 x 31</a></p>
+
+    </div>
+    </main>
+
+    <footer><div id="footer-placeholder"></div></footer>
+
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('../header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            import('../menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
+
+    // Footer fetch
+    fetch('../footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
+</body>
+</html>
