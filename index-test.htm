@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunrise Therapeutic Riding & Learning Centre</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <main>
+    <div class="container" style="text-align:center;">
+      <h1>Sunrise Therapeutic Riding & Learning Centre</h1>
+      <h2>Puslinch, Ontario, Canada</h2>
+      <img src="graphics/sunriselogo-250x250.png" alt="Sunrise Logo" style="width:120px;max-width:40vw;height:auto;margin:1rem 0;">
+      <h3><i>HORSE CAMP AND FARM DISCOVERY CAMP 2026!</i></h3>
+      <p style="max-width:800px; margin:.5rem auto; margin-bottom: 2rem;">Registration is now open for our Horse Camp and Farm Discovery Camp 2026!</p>
+      <p style="max-width:800px; margin:.5rem auto; margin-bottom: 2rem;"><b><a href="https://form.123formbuilder.com/6916884/2026-farm-discovery-camp-registration-form">Farm Discovery Camp 2026 Registration Form</a></p>
+      <p style="max-width:800px; margin:.5rem auto; margin-bottom: 2rem;"><b><a href="https://form.123formbuilder.com/6916886/2026-horse-camp-registration-form">Horse Camp 2026 Registration Form</a></b></p>
+            <h3>Our Mission:</h3>
+      <p style="font-style: italic; max-width:800px; margin:.5rem auto; margin-bottom: 2rem;">
+        "To develop the full potential of children and adults with special needs through therapy, education, horse riding, recreation, and life skills programs, 
+        farm-related and social activities, and to further develop and expand Sunrise’s programming to support a Residence/Respite Village Community."
+      </p>
+      <h3>Sunrise is an accredited Member of:</h3>
+      <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;align-items:center;">
+        <span>Canadian Therapeutic Riding Association (CanTRA)</span>
+        <img src="graphics/cantra-1.png" alt="CanTRA" style="width:60px;height:60px;">
+        <span>Ontario Camps Association (OCA)</span>
+        <img src="graphics/oca.png" alt="OCA" style="width:60px;height:60px;">
+      </div>
+      <div style="margin:2rem 0;">
+        <p>
+          We acknowledge, with gratitude, this traditional territory inhabited by the Attawandaron people before Europeans settled here. We acknowledge other First Nations neighbours including the Haudenosaunee, the Anishnaabe and The Métis nation. We seek a new relationship with the Original Peoples of this land based on honour and deep respect.
+        </p>
+      </div>
+    </div>
+    <div class="thumbnails-container">
+      <a class="thumbnail-card" href="about.html">
+        <img src="graphics/ABOUTUS.jpg" alt="About Us">
+        <span class="thumbnail-label">About Us</span>
+      </a>
+      <a class="thumbnail-card" href="programs/programs.html">
+        <img src="graphics/PROGRAMS-1.jpg" alt="Programs">
+        <span class="thumbnail-label">Programs</span>
+      </a>
+      <a class="thumbnail-card" href="volunteer.html">
+        <img src="graphics/GETINVOLVED.jpg" alt="Volunteer">
+        <span class="thumbnail-label">Volunteer</span>
+      </a>
+      <a class="thumbnail-card" href="support-us/support-us.html">
+        <img src="graphics/SUPPORTUS.jpg" alt="Support Us">
+        <span class="thumbnail-label">Support Us</span>
+      </a>
+      <a class="thumbnail-card" href="whatshappening/whatshappening.html">
+        <img src="graphics/WHATSHAPPENING.jpg" alt="What's Happening">
+        <span class="thumbnail-label">What's Happening</span>
+      </a>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+<script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            // Import the menu module after the header is in the DOM
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
+
+    // Footer fetch (unchanged)
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+</script>
+</body>
+</html>
