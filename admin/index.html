@@ -1,9 +1,22 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Sunrise Therapeutic – Admin</title>
+    <!-- Load the Netlify CMS bundle -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- Optional: make the admin UI fill the viewport -->
+    <style>
+      html,
+      body,
+      #nc-root {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- This is the mount point Netlify CMS looks for -->
+    <div id="nc-root"></div>
+  </body>
 </html>
