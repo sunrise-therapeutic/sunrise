@@ -1,7 +1,7 @@
 backend:
   name: git-gateway          # tells CMS to use Netlify’s Git Gateway
   branch: main                # your default branch name
-  auth_type: auth0            # <‑‑ important: tells CMS to use the Auth0 plugin you installed
+  # auth_type: auth0            # tells CMS to use the Auth0 plugin you installed
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
