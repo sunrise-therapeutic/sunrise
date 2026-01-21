@@ -1,7 +1,7 @@
 backend:
   name: git-gateway          # Netlify’s built‑in gateway
-  branch: main               # your default branch
-  # auth_type: auth0         # ← keep this line **commented out** while we test the core UI
+  branch: main               # your default branch name
+  # auth_type: auth0         # ← keep this line commented out while we test the core UI
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
