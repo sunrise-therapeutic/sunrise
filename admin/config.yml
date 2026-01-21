@@ -1,7 +1,7 @@
 backend:
-  name: git-gateway          # tells CMS to use Netlify’s Git Gateway
-  branch: main                # your default branch name
-  # auth_type: auth0            # tells CMS to use the Auth0 plugin you installed
+  name: git-gateway          # Netlify’s built‑in gateway
+  branch: main               # your default branch
+  # auth_type: auth0         # ← keep this line **commented out** while we test the core UI
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
@@ -12,13 +12,10 @@ collections:
     delete: false
     create: false
     files:
-      - label: "Homepage announcement"
-        name: "homepage_announcement"
-        file: "index-test.html"   # keep this as index-test.html for now; later change to index.html
+      - label: "Test page announcement"
+        name: "test_page_announcement"
+        file: "index-test.html"   # <-- this file must exist at the repo root
         fields:
           - label: "Announcement HTML"
             name: "announcement_html"
             widget: "markdown"
-            hint: |
-              Edit the text inside the <div id="announcement"> tag.
-              Leave empty to hide the banner.
