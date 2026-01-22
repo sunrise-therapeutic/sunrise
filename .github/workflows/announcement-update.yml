@@ -1,0 +1,80 @@
+name: Update announcement via dispatch
+
+# This workflow is triggered by repository dispatch events from notify.html
+on:
+  repository_dispatch:
+    types: [cancellation_update]
+
+jobs:
+  update-announcement:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── Checkout the repo ───────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Configure git (bot identity) ─────────────
+      - name: Set up git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # ── Update index-test.html announcement ─────
+      - name: Update index-test.html announcement
+        env:
+          NEW_MSG: ${{ github.event.client_payload.new_message }}
+          UPDATE_TYPE: ${{ github.event.client_payload.update_type }}
+        run: |
+          # Create a Python script to update index-test.html
+          cat > /tmp/update_announcement.py << 'EOF'
+          import sys
+          import re
+          from datetime import datetime
+          
+          message = sys.argv[1]
+          update_type = sys.argv[2] if len(sys.argv) > 2 else 'index_test'
+          
+          # Read the current index-test.html
+          with open('index-test.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          
+          # Get today's date
+          today = datetime.now().strftime('%a, %b %d, %Y')
+          
+          # Handle clear cancellation request
+          if message.startswith("CLEAR_CANCELLATION|"):
+              # Extract the default message from the payload
+              default_msg = message.split("|", 1)[1]
+              new_content = f'There are no lesson or program cancellations today ({today}).'
+              new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
+          else:
+              # This is a cancellation message, show in red/warning style
+              new_content = message
+              new_style = 'background:#f8d7da;color:#721c24;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #f5c6cb;border-radius:4px;margin:1rem 0;'
+          
+          # Find and replace the entire announcement div
+          # This pattern matches the entire <div id="announcement" ... > ... </div>
+          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+          
+          content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          
+          # Write back the updated content
+          with open('index-test.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          EOF
+          
+          python /tmp/update_announcement.py "$NEW_MSG" "$UPDATE_TYPE"
+
+      # ── Commit & push back to the publishing branch ─
+      - name: Commit changes
+        run: |
+          git add index-test.html
+          git diff --cached --quiet || git commit -m "🚨 Announcement updated via notify.html"
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main

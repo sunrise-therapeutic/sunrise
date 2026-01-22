@@ -208,43 +208,60 @@
             day: 'numeric' 
         });
 
+        // Prepare the payload
         const payload = {
-            ref: 'main',
-            inputs: {
+            event_type: 'cancellation_update',
+            client_payload: {
                 new_message: messageText,
-                update_type: 'index_test'
+                update_type: 'index_test',
+                timestamp: new Date().toISOString()
             }
         };
 
-        // Note: This requires authentication token
-        // The token should be set as a repository secret
-        const token = prompt('Enter GitHub Personal Access Token (or press Cancel for demo mode):');
+        // GitHub repository dispatch endpoint
+        const repo = 'kyase-sunrise/sunrise';
+        const apiUrl = `https://api.github.com/repos/${repo}/dispatches`;
+
+        // GitHub Personal Access Token (stored securely in your GitHub repository secrets)
+        // You must replace this with your actual token from repository secrets
+        // Instructions: See ANNOUNCEMENT_SETUP.md
+        const token = prompt('Enter your GitHub Personal Access Token:\n\n(This is stored in your GitHub repo settings under Secrets > ANNOUNCEMENT_TOKEN)\n\nIf you do not have a token, see ANNOUNCEMENT_SETUP.md for instructions.');
         
         if (token === null) {
-            // Demo mode
-            showMessage('Your announcement has been posted.', 'success');
+            showMessage('Cancelled.', 'error');
             return;
         }
 
-        fetch('https://api.github.com/repos/kyase-sunrise/sunrise/actions/workflows/mobile-update.yml/dispatches', {
+        if (!token || token.length < 10) {
+            showMessage('Invalid token. Please check your GitHub repository secrets.', 'error');
+            return;
+        }
+
+        fetch(apiUrl, {
             method: 'POST',
             headers: {
-                'Authorization': `token ${token}`,
                 'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'token ' + token
             },
             body: JSON.stringify(payload)
         })
         .then(response => {
-            if (response.ok) {
+            if (response.status === 204) {
+                // 204 is success for dispatches
                 showMessage('Your announcement has been posted.', 'success');
+            } else if (response.status === 401 || response.status === 403) {
+                showMessage('Authentication failed. Please check your token and try again.', 'error');
             } else {
-                showMessage('Error posting announcement. Please check your token.', 'error');
+                return response.json().then(data => {
+                    console.error('Response:', data);
+                    showMessage('Error: ' + (data.message || 'Unknown error. Please try again.'), 'error');
+                });
             }
         })
         .catch(err => {
             console.error('Workflow trigger error:', err);
-            showMessage('Error posting announcement. Please try again.', 'error');
+            showMessage('Network error. Please check your connection and try again.', 'error');
         });
     }
 

@@ -53,19 +53,17 @@ jobs:
           if message.startswith("CLEAR_CANCELLATION|"):
               # Extract the default message from the payload
               default_msg = message.split("|", 1)[1]
-              announcement_html = f'''<div style="background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;">
-      {default_msg}
-    </div>'''
+              new_content = f'There are no lesson or program cancellations today ({today}).'
+              new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
           else:
               # This is a cancellation message, show in red/warning style
-              announcement_html = f'''<div style="background:#f8d7da;color:#721c24;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #f5c6cb;border-radius:4px;">
-      {message}
-    </div>'''
+              new_content = message
+              new_style = 'background:#f8d7da;color:#721c24;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #f5c6cb;border-radius:4px;margin:1rem 0;'
           
-          # Find and replace the announcement div content
-          # Match the div and replace its content while keeping the opening and closing tags
-          pattern = r'(<div id="announcement"[^>]*>\s*)(?:<!--.*?-->|<div.*?</div>)(\s*</div>)'
-          replacement = r'\1' + announcement_html + r'\2'
+          # Find and replace the entire announcement div
+          # This pattern matches the entire <div id="announcement" ... > ... </div>
+          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
           
           content = re.sub(pattern, replacement, content, flags=re.DOTALL)
           
