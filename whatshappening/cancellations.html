@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellations – Sunrise Therapeutic Riding &amp; Learning Centre</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+    <style>
+        .cancellation-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .cancellation-container.default {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .cancellation-container.notice {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        .cancellation-message {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        .default-message {
+            color: #28a745;
+        }
+        .cancellation-text {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+ <!-- Header -->
+ <div id="header-placeholder"></div>
+
+ <!-- MAIN CONTENT -->
+ <main class="container">
+
+    <section class="two-column-layout">
+
+        <!-- LEFT: Cancellation Notices -->
+        <article class="text-column">
+            <h1>Lesson &amp; Program Cancellations</h1>
+            <p>Check this page for any lesson, camp, or lifeskills program cancellation announcements.</p>
+
+            <!-- Cancellation Alert Area -->
+            <div id="cancellationArea">
+                <div class="cancellation-container default">
+                    <div class="cancellation-message">
+                        <span class="default-message">There are no lesson or program cancellations today.</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2>About Cancellations</h2>
+            <p>
+                When lessons or programs are cancelled, an announcement will appear at the top of this page. 
+                Cancellation notices are automatically updated daily at midnight.
+            </p>
+            <p>
+                <strong>Note:</strong> If no cancellation notice appears below, all lessons and programs are 
+                proceeding as scheduled.
+            </p>
+        </article>
+
+        <!-- RIGHT: Quick Links -->
+        <aside class="thumbs-column">
+            <a class="thumbnail-card" href="../about.html">
+                <img src="../graphics/HISTORY-1.jpg" alt="About Us">
+                <span class="thumbnail-label">About Us</span>
+            </a>
+            <a class="thumbnail-card" href="whatshappening.html">
+                <img src="../graphics/contact.PNG" alt="What's Happening">
+                <span class="thumbnail-label">What's Happening</span>
+            </a>
+            <a class="thumbnail-card" href="../contact.html">
+                <img src="../graphics/contact.PNG" alt="Contact">
+                <span class="thumbnail-label">Contact</span>
+            </a>
+        </aside>
+
+    </section>
+</main>
+
+ <!-- Footer -->
+ <div id="footer-placeholder"></div>
+
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('../header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            import('../menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
+
+    // Footer fetch
+    fetch('../footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+    // Check if there's a stored cancellation message
+    function loadCancellationStatus() {
+        const cancellationArea = document.getElementById('cancellationArea');
+        const storedMessage = localStorage.getItem('sunrise_cancellation_message');
+        const storedTime = localStorage.getItem('sunrise_cancellation_time');
+        
+        if (storedMessage && storedTime) {
+            const messageTime = new Date(storedTime);
+            const now = new Date();
+            
+            // Check if message has expired (past midnight)
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0);
+            
+            if (now < midnight && messageTime.getDate() === now.getDate()) {
+                // Message is still valid for today
+                cancellationArea.innerHTML = `
+                    <div class="cancellation-container notice">
+                        <div class="cancellation-message">
+                            <span class="cancellation-text">${storedMessage}</span>
+                        </div>
+                    </div>
+                `;
+                return;
+            } else {
+                // Message has expired, clear it
+                localStorage.removeItem('sunrise_cancellation_message');
+                localStorage.removeItem('sunrise_cancellation_time');
+            }
+        }
+        
+        // Display default message
+        const today = new Date().toLocaleDateString('en-US', { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+        });
+        cancellationArea.innerHTML = `
+            <div class="cancellation-container default">
+                <div class="cancellation-message">
+                    <span class="default-message">There are no lesson or program cancellations today (${today}).</span>
+                </div>
+            </div>
+        `;
+    }
+
+    // Load cancellation status on page load
+    loadCancellationStatus();
+
+    // Check for updates every minute
+    setInterval(loadCancellationStatus, 60000);
+ </script>
+</body>
+</html>

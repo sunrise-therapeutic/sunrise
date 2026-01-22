@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify – Sunrise Therapeutic Riding &amp; Learning Centre</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet">
+    <style>
+        .notify-section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #00a651;
+        }
+        .notify-section h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .button-group {
+            margin: 20px 0;
+        }
+        .button-group button {
+            background-color: #00a651;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .button-group button:hover {
+            background-color: #008842;
+        }
+        .button-group button.danger {
+            background-color: #d9534f;
+        }
+        .button-group button.danger:hover {
+            background-color: #c9302c;
+        }
+        .message-input-group {
+            margin: 20px 0;
+        }
+        .message-input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+        .message-input-group textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            box-sizing: border-box;
+            min-height: 80px;
+        }
+        .message-input-group button {
+            background-color: #00a651;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .message-input-group button:hover {
+            background-color: #008842;
+        }
+        .confirmation-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .confirmation-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .confirmation-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+
+ <!-- Header -->
+ <div id="header-placeholder"></div>
+
+ <!-- MAIN CONTENT -->
+ <main class="container">
+
+    <section class="two-column-layout">
+
+        <!-- LEFT: Notification Control -->
+        <article class="text-column">
+            <h1>Program Cancellation Notifications</h1>
+            <p>Use this page to post lesson, camp, or lifeskills program cancellation announcements to the website.</p>
+
+            <!-- Quick Cancel Button -->
+            <div class="notify-section">
+                <h3>Quick Cancellation</h3>
+                <p>Click the button below to immediately post a standard cancellation notice saying all programs are cancelled today due to bad weather.</p>
+                <div class="button-group">
+                    <button id="cancelAllBtn">Cancel all programs today</button>
+                </div>
+            </div>
+
+            <!-- Custom Message -->
+            <div class="notify-section">
+                <h3>Custom Message</h3>
+                <p>Enter a custom message to post specific cancellation information.</p>
+                <div class="message-input-group">
+                    <label for="customMessage">Post a custom message:</label>
+                    <textarea id="customMessage" placeholder="Enter your cancellation message here..."></textarea>
+                    <button id="submitCustomBtn">Submit</button>
+                </div>
+            </div>
+
+            <!-- Remove Cancellation -->
+            <div class="notify-section">
+                <h3>Clear Cancellations</h3>
+                <p>Click the button below to remove any existing cancellation notices and restore the default message.</p>
+                <div class="button-group">
+                    <button id="removeCancelBtn" class="danger">Remove cancellation notice</button>
+                </div>
+            </div>
+
+            <div style="background-color: #e7f3ff; padding: 15px; margin: 20px 0; border-radius: 4px; border-left: 4px solid #2196F3;">
+                <strong>Test Mode:</strong> This page is testing cancellation announcements on <a href="index-test.html">index-test.html</a>.
+            </div>
+
+            <!-- Confirmation Message -->
+            <div class="confirmation-message" id="confirmationMsg"></div>
+        </article>
+
+        <!-- RIGHT: Info/Status -->
+        <aside class="thumbs-column">
+            <div class="notify-section">
+                <h3>About This Page</h3>
+                <p>
+                    Instructors can use this page to post immediate program cancellation announcements that appear 
+                    on the <a href="index-test.html">home page</a>.
+                </p>
+                <p>
+                    In production, these announcements will appear on the main index.html page.
+                </p>
+                <p>
+                    <strong>Note:</strong> Changes may take a few moments to appear on the website.
+                </p>
+            </div>
+        </aside>
+
+    </section>
+</main>
+
+ <!-- Footer -->
+ <div id="footer-placeholder"></div>
+
+ <script type="module">
+    // Load header, then initialise the menu
+    fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+            import('./menu-2.js').then(mod => mod.initMenu());
+        })
+        .catch(err => console.error('Header load failed:', err));
+
+    // Footer fetch
+    fetch('footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+    // Notification functionality
+    const confirmationMsg = document.getElementById('confirmationMsg');
+
+    function showMessage(message, type = 'success') {
+        confirmationMsg.textContent = message;
+        confirmationMsg.className = `confirmation-message ${type}`;
+        confirmationMsg.style.display = 'block';
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            confirmationMsg.style.display = 'none';
+        }, 5000);
+    }
+
+    function triggerWorkflow(messageText) {
+        // Get today's date in format "Mon, Jan 22, 2026"
+        const today = new Date().toLocaleDateString('en-US', { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+        });
+
+        const payload = {
+            ref: 'main',
+            inputs: {
+                new_message: messageText,
+                update_type: 'index_test'
+            }
+        };
+
+        // Note: This requires authentication token
+        // The token should be set as a repository secret
+        const token = prompt('Enter GitHub Personal Access Token (or press Cancel for demo mode):');
+        
+        if (token === null) {
+            // Demo mode
+            showMessage('Your announcement has been posted.', 'success');
+            return;
+        }
+
+        fetch('https://api.github.com/repos/kyase-sunrise/sunrise/actions/workflows/mobile-update.yml/dispatches', {
+            method: 'POST',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (response.ok) {
+                showMessage('Your announcement has been posted.', 'success');
+            } else {
+                showMessage('Error posting announcement. Please check your token.', 'error');
+            }
+        })
+        .catch(err => {
+            console.error('Workflow trigger error:', err);
+            showMessage('Error posting announcement. Please try again.', 'error');
+        });
+    }
+
+    // Cancel all programs button
+    document.getElementById('cancelAllBtn').addEventListener('click', function() {
+        const today = new Date().toLocaleDateString('en-US', { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+        });
+        const message = `All programs are cancelled today (${today}) due to bad weather.`;
+        triggerWorkflow(message);
+    });
+
+    // Custom message submit button
+    document.getElementById('submitCustomBtn').addEventListener('click', function() {
+        const customMsg = document.getElementById('customMessage').value.trim();
+        if (!customMsg) {
+            showMessage('Please enter a message before submitting.', 'error');
+            return;
+        }
+        triggerWorkflow(customMsg);
+        document.getElementById('customMessage').value = '';
+    });
+
+    // Remove cancellation button
+    document.getElementById('removeCancelBtn').addEventListener('click', function() {
+        const today = new Date().toLocaleDateString('en-US', { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+        });
+        const message = `CLEAR_CANCELLATION|There are no lesson or program cancellations today (${today}).`;
+        triggerWorkflow(message);
+        showMessage('The cancellation notice has been removed.', 'success');
+    });
+ </script>
+</body>
+</html>
