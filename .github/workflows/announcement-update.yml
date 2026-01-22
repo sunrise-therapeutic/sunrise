@@ -4,7 +4,8 @@ name: Update announcement via dispatch
 on:
   repository_dispatch:
     types: [cancellation_update]
-
+permissions:
+  contents: write
 jobs:
   update-announcement:
     runs-on: ubuntu-latest
