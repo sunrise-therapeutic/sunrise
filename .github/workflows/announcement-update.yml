@@ -1,6 +1,6 @@
 name: Update announcement via dispatch
 
-# This workflow is triggered by repository dispatch events from notify.html
+# This workflow is triggered by repository dispatch events from notify.html_
 on:
   repository_dispatch:
     types: [cancellation_update]
