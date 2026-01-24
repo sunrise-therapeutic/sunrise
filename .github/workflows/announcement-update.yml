@@ -1,52 +1,136 @@
-name: Update announcement & deploy
+name: Update announcement & deploy to GitHub Pages
 
+# ----------------------------------------------------------------------
+# 1️⃣ Trigger – a repository dispatch from notify.html
+# ----------------------------------------------------------------------
 on:
   repository_dispatch:
     types: [cancellation_update]
 
+# ----------------------------------------------------------------------
+# 2️⃣ Permissions – we need write access for the repo *and* for Pages
+# ----------------------------------------------------------------------
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write      # commit & push
+  pages: write        # allow the deploy‑pages action
+  id-token: write    # required by deploy‑pages (optional but safe)
 
+# ----------------------------------------------------------------------
+# 3️⃣ Job definition
+# ----------------------------------------------------------------------
 jobs:
   announce-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
+    steps:
+      # --------------------------------------------------------------
+      # Checkout the repository
+      # --------------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------------------
+      # Configure git (bot identity)
+      # --------------------------------------------------------------
       - name: Set up git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Run announcement updater (same Python script as before)
+      # --------------------------------------------------------------
+      # Create the Python helper that rewrites the announcement div
+      # --------------------------------------------------------------
+      - name: Write announcement updater script
+        run: |
+          cat > /tmp/update_announcement.py << 'EOF'
+          import sys
+          import re
+          from datetime import datetime
+          
+          message = sys.argv[1]
+          update_type = sys.argv[2] if len(sys.argv) > 2 else 'index_test'
+          
+          # Read the current index‑test.html
+          with open('index-test.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          
+          # Today’s date (e.g. Mon, Jan 22, 2026)
+          today = datetime.now().strftime('%a, %b %d, %Y')
+          
+          # Determine style/content based on CLEAR_CANCELLATION flag
+          if message.startswith("CLEAR_CANCELLATION|"):
+              # Payload format: CLEAR_CANCELLATION|<default message>
+              default_msg = message.split("|", 1)[1]
+              new_content = f'There are no lesson or program cancellations today ({today}).'
+              new_style = ('background:#d4edda;color:#155724;padding:0.5rem;'
+                           'text-align:center;font-weight:bold;'
+                           'border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;')
+          else:
+              new_content = message
+              new_style = ('background:#f8d7da;color:#721c24;padding:0.5rem;'
+                           'text-align:center;font-weight:bold;'
+                           'border:1px solid #f5c6cb;border-radius:4px;margin:1rem 0;')
+          
+          # Replace the whole <div id="announcement">...</div>
+          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+          content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          
+          # Write the updated file back
+          with open('index-test.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          EOF
+
+      # --------------------------------------------------------------
+      # Run the updater script with the payload values
+      # --------------------------------------------------------------
+      - name: Update announcement in index-test.html
         env:
           NEW_MSG: ${{ github.event.client_payload.new_message }}
           UPDATE_TYPE: ${{ github.event.client_payload.update_type }}
         run: |
-          # (copy the same cat > /tmp/update_announcement.py … and python call)
+          python /tmp/update_announcement.py "$NEW_MSG" "$UPDATE_TYPE"
 
-      - name: Commit changes
+      # --------------------------------------------------------------
+      # Commit the change (only if something actually changed)
+      # --------------------------------------------------------------
+      - name: Commit updated index-test.html
         run: |
           git add index-test.html
-          git diff --cached --quiet || git commit -m "🚨 Announcement updated via notify.html"
+          # If there are no changes, skip the commit
+          if ! git diff --cached --quiet; then
+            git commit -m "🚨 Announcement updated via notify.html"
+          else
+            echo "No changes to commit."
+          fi
 
-      - name: Push to main
+      # --------------------------------------------------------------
+      # Push the commit back to the repository
+      # --------------------------------------------------------------
+      - name: Push changes to main
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
 
-      # ----- Deploy to GitHub Pages -------------------------------------------------
-      - name: Setup Pages
+      # --------------------------------------------------------------
+      # ---------- Deploy to GitHub Pages ----------
+      # --------------------------------------------------------------
+      - name: Set up Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Publish the whole repository (or change to a sub‑folder if you use one)
           path: .
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # --------------------------------------------------------------
+      # Optional: output the deployment URL for debugging
+      # --------------------------------------------------------------
+      - name: Show deployment URL
+        run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"
