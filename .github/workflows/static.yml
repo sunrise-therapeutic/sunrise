@@ -1,0 +1,61 @@
+name: Deploy static content to Pages
+
+# --------------------------------------------------------------
+# 1️⃣ Triggers – on every push to main (and manually if you want)
+# --------------------------------------------------------------
+on:
+  push:
+    branches: ["main"]          # <-- adjust if you publish from a different branch
+  workflow_dispatch:           # optional – lets you run it manually from the UI
+
+# --------------------------------------------------------------
+# 2️⃣ Permissions – needed for the deploy‑pages action
+# --------------------------------------------------------------
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # --------------------------------------------------------
+      # Checkout the repo (the commit that just arrived from announcement-update)
+      # --------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------------
+      # Optional: disable Jekyll (our site is pure HTML)
+      # --------------------------------------------------------
+      - name: Add .nojekyll file
+        run: touch .nojekyll
+
+      # --------------------------------------------------------
+      # Set up the Pages environment
+      # --------------------------------------------------------
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      # --------------------------------------------------------
+      # Upload the whole repository as the Pages artifact
+      # --------------------------------------------------------
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .   # publish the repository root (or a sub‑folder if you prefer)
+
+      # --------------------------------------------------------
+      # Deploy to GitHub Pages
+      # --------------------------------------------------------
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # --------------------------------------------------------
+      # Show the live URL (nice for debugging)
+      # --------------------------------------------------------
+      - name: Show deployment URL
+        run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"

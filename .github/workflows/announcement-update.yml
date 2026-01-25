@@ -1,33 +1,32 @@
-name: Update announcement & deploy to GitHub Pages
+name: Update announcement via dispatch
 
 # --------------------------------------------------------------
-# 1️⃣ Trigger – repository dispatch from the Cloudflare worker
+# 1️⃣ Trigger – repository_dispatch from the Cloudflare worker
 # --------------------------------------------------------------
 on:
   repository_dispatch:
-    types: [cancellation_update]
+    types: [cancellation_update]   # must match the worker payload
 
 # --------------------------------------------------------------
-# 2️⃣ Permissions – we need write access for the repo AND Pages
+# 2️⃣ Permissions – we need to write to the repo
 # --------------------------------------------------------------
 permissions:
   contents: write      # commit & push
-  pages: write        # allow the deploy‑pages action
-  id-token: write    # required by deploy‑pages (optional but safe)
+  # (no pages permission needed here – the static workflow will handle that)
 
 jobs:
-  announce-and-deploy:
+  update-announcement:
     runs-on: ubuntu-latest
 
     steps:
       # ----------------------------------------------------------
-      # Checkout the repo (so we can edit index‑test.html)
+      # Checkout the repository so we can edit the file
       # ----------------------------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
       # ----------------------------------------------------------
-      # Configure git (bot identity) – same as before
+      # Configure git (bot identity)
       # ----------------------------------------------------------
       - name: Set up git
         run: |
@@ -71,7 +70,7 @@ jobs:
           with open('index-test.html', 'w', encoding='utf-8') as f:
               f.write(content)
           EOF
-      
+
       # ----------------------------------------------------------
       # Run the updater script with the payload values
       # ----------------------------------------------------------
@@ -102,24 +101,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
-
-      # ----------------------------------------------------------
-      # ---------- Deploy to GitHub Pages ----------
-      # ----------------------------------------------------------
-      - name: Set up Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .   # publish the whole repo (or a subfolder if you prefer)
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      # ----------------------------------------------------------
-      # Optional: output the deployment URL for debugging
-      # ----------------------------------------------------------
-      - name: Show deployment URL
-        run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"
