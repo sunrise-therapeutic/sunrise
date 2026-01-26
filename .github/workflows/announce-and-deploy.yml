@@ -29,22 +29,40 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       
-      # 3. Update the announcement
+       # 3. Update the announcement
       - name: Update announcement
         env:
           NEW_MSG: ${{ github.event.client_payload.new_message }}
         run: |
-          # Create Python script
+          # Create Python script WITH AUTO-EXPIRY
           cat > /tmp/update.py << 'EOF'
           import sys, re
-          from datetime import datetime
+          from datetime import datetime, timedelta
           
           message = sys.argv[1]
+          
           with open('index-test.html', 'r', encoding='utf-8') as f:
               content = f.read()
           
           today = datetime.now().strftime('%a, %b %d, %Y')
           
+          # AUTO-EXPIRY CHECK: If there's an existing announcement from yesterday, clear it
+          announcement_pattern = r'<div id="announcement"[^>]*>(.*?)</div>'
+          existing = re.search(announcement_pattern, content, flags=re.DOTALL)
+          
+          if existing and not message.startswith("CLEAR_CANCELLATION|"):
+              existing_text = existing.group(1)
+              
+              # Check dates in the existing announcement
+              today_date = datetime.now().strftime('%b %d, %Y')  # "Jan 27, 2026"
+              yesterday_date = (datetime.now() - timedelta(days=1)).strftime('%b %d, %Y')
+              
+              # If existing contains yesterday's date but not today's, auto-clear it
+              if yesterday_date in existing_text and today_date not in existing_text:
+                  print("⚠️ Auto-clearing yesterday's announcement")
+                  message = f"CLEAR_CANCELLATION|Auto-cleared: {existing_text.strip()}"
+          
+          # Now process the (possibly updated) message
           if message.startswith("CLEAR_CANCELLATION|"):
               new_content = f'There are no lesson or program cancellations today ({today}).'
               new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
@@ -58,13 +76,12 @@ jobs:
           
           with open('index-test.html', 'w', encoding='utf-8') as f:
               f.write(content)
+              
+          print(f"✅ Updated announcement: {new_content[:50]}...")
           EOF
           
           # Run the update
           python /tmp/update.py "$NEW_MSG"
-          
-          # Show what changed
-          echo "Updated index-test.html with message: $NEW_MSG"
       
       # 4. Commit the change
       - name: Commit changes
