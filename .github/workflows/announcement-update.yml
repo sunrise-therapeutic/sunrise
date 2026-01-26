@@ -111,6 +111,13 @@ jobs:
             echo "⚠️ No changes to commit."
           fi
 
+      - name: Debug - Show current commit
+        run: |
+          echo "Current branch:"
+          git branch -a
+          echo "Recent commits:"
+          git log --oneline -5
+
       - name: Push changes (with PAT to trigger Pages)
         uses: ad-m/github-push-action@v0.6.0
         with:
