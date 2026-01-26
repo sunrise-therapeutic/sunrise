@@ -1,54 +1,61 @@
 name: Update announcement via dispatch
 
-# --------------------------------------------------------------
-# 1️⃣ Trigger – repository_dispatch from the Cloudflare worker
-# --------------------------------------------------------------
 on:
   repository_dispatch:
-    types: [cancellation_update]   # must match the worker payload
+    types: [cancellation_update]
 
-# --------------------------------------------------------------
-# 2️⃣ Permissions – we need to write to the repo
-# --------------------------------------------------------------
 permissions:
-  contents: write      # commit & push
-  # (no pages permission needed here – the static workflow will handle that)
+  contents: write
 
 jobs:
   update-announcement:
     runs-on: ubuntu-latest
 
     steps:
-      # ----------------------------------------------------------
-      # Checkout the repository so we can edit the file
-      # ----------------------------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Get all history for proper diffs
 
-      # ----------------------------------------------------------
-      # Configure git (bot identity)
-      # ----------------------------------------------------------
       - name: Set up git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      # ----------------------------------------------------------
-      # Write the Python helper that updates the announcement div
-      # ----------------------------------------------------------
+      - name: Debug - List files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in root:"
+          ls -la
+          echo "Looking for index-test.html:"
+          find . -name "index-test.html" -type f
+
       - name: Write updater script
         run: |
           cat > /tmp/update_announcement.py << 'EOF'
-          import sys, re
+          import sys, re, os
           from datetime import datetime
           
           # Payload arguments
           message = sys.argv[1]
           update_type = sys.argv[2] if len(sys.argv) > 2 else 'index_test'
           
+          print(f"Updating with message: {message}")
+          print(f"Update type: {update_type}")
+          
+          # Check if file exists
+          html_file = 'index-test.html'
+          if not os.path.exists(html_file):
+              print(f"ERROR: {html_file} not found!")
+              print(f"Current directory: {os.getcwd()}")
+              sys.exit(1)
+          
           # Load the current file
-          with open('index-test.html', 'r', encoding='utf-8') as f:
+          with open(html_file, 'r', encoding='utf-8') as f:
               content = f.read()
+          
+          print(f"File size: {len(content)} characters")
           
           today = datetime.now().strftime('%a, %b %d, %Y')
           
@@ -64,38 +71,46 @@ jobs:
                            'border:1px solid #f5c6cb;border-radius:4px;margin:1rem 0;')
           
           pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          
+          # Check if pattern exists
+          if not re.search(pattern, content, flags=re.DOTALL):
+              print("ERROR: No announcement div found in the HTML!")
+              sys.exit(1)
+          
           replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
           content = re.sub(pattern, replacement, content, flags=re.DOTALL)
           
-          with open('index-test.html', 'w', encoding='utf-8') as f:
+          # Write back
+          with open(html_file, 'w', encoding='utf-8') as f:
               f.write(content)
+          
+          print("✅ Successfully updated announcement!")
           EOF
 
-      # ----------------------------------------------------------
-      # Run the updater script with the payload values
-      # ----------------------------------------------------------
       - name: Update announcement in index-test.html
         env:
           NEW_MSG: ${{ github.event.client_payload.new_message }}
           UPDATE_TYPE: ${{ github.event.client_payload.update_type }}
         run: |
+          echo "Message received: $NEW_MSG"
+          echo "Update type: $UPDATE_TYPE"
           python /tmp/update_announcement.py "$NEW_MSG" "$UPDATE_TYPE"
 
-      # ----------------------------------------------------------
-      # Commit the change (skip if nothing actually changed)
-      # ----------------------------------------------------------
+      - name: Show changes
+        run: |
+          echo "Changes made:"
+          git diff index-test.html || echo "No changes detected"
+
       - name: Commit updated index-test.html
         run: |
           git add index-test.html
           if ! git diff --cached --quiet; then
-            git commit -m "🚨 Announcement updated via notify.html"
+            git commit -m "🚨 Announcement updated via notify.html: ${{ github.event.client_payload.new_message }}"
+            echo "✅ Changes committed!"
           else
-            echo "No changes to commit."
+            echo "⚠️ No changes to commit."
           fi
 
-      # ----------------------------------------------------------
-      # Push the commit back to the repository
-      # ----------------------------------------------------------
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
