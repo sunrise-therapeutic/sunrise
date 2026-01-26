@@ -1,0 +1,99 @@
+name: Announce and Deploy in One Step
+
+on:
+  repository_dispatch:
+    types: [cancellation_update]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      # 1. Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # 2. Git setup
+      - name: Set up git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      
+      # 3. Update the announcement
+      - name: Update announcement
+        env:
+          NEW_MSG: ${{ github.event.client_payload.new_message }}
+        run: |
+          # Create Python script
+          cat > /tmp/update.py << 'EOF'
+          import sys, re
+          from datetime import datetime
+          
+          message = sys.argv[1]
+          with open('index-test.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          
+          today = datetime.now().strftime('%a, %b %d, %Y')
+          
+          if message.startswith("CLEAR_CANCELLATION|"):
+              new_content = f'There are no lesson or program cancellations today ({today}).'
+              new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
+          else:
+              new_content = message
+              new_style = 'background:#f8d7da;color:#721c24;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #f5c6cb;border-radius:4px;margin:1rem 0;'
+          
+          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+          content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          
+          with open('index-test.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          EOF
+          
+          # Run the update
+          python /tmp/update.py "$NEW_MSG"
+          
+          # Show what changed
+          echo "Updated index-test.html with message: $NEW_MSG"
+      
+      # 4. Commit the change
+      - name: Commit changes
+        run: |
+          git add index-test.html
+          if ! git diff --cached --quiet; then
+            git commit -m "🚨 Announcement updated via notify.html"
+            echo "✅ Changes committed locally"
+          else
+            echo "⚠️ No changes to commit"
+          fi
+      
+      # 5. Configure Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      # 6. Upload artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      
+      # 7. Deploy to Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      # 8. Show URL
+      - name: Show deployment URL
+        run: |
+          echo "🚀 Deployed to: ${{ steps.deployment.outputs.page_url }}"
+          echo "📄 Direct link to test page: ${{ steps.deployment.outputs.page_url }}index-test.html"
