@@ -1,0 +1,88 @@
+name: Clear old announcements daily
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 5 AM UTC = midnight EST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  clear-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      
+      - name: Reset to fresh "no cancellations" message
+        run: |
+          cat > /tmp/daily_reset.py << 'EOF'
+          import re
+          from datetime import datetime
+          
+          with open('index-test.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          
+          today = datetime.now().strftime('%a, %b %d, %Y')
+          
+          # ALWAYS set to fresh "no cancellations" with today's date
+          new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
+          new_content = f'There are no lesson or program cancellations today ({today}).'
+          
+          # Check if announcement div exists
+          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          match = re.search(pattern, content, flags=re.DOTALL)
+          
+          if match:
+              # Replace existing announcement
+              replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+              content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+              print(f"✅ Updated announcement to today's date: {today}")
+          else:
+              # Create new announcement if doesn't exist (shouldn't happen)
+              announcement_html = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+              # Insert after main container div
+              insert_point = content.find('<div class="thumbnails-container">')
+              if insert_point != -1:
+                  content = content[:insert_point] + announcement_html + '\n\n' + content[insert_point:]
+                  print(f"✅ Created new announcement with today's date: {today}")
+              else:
+                  print("❌ Could not find insertion point")
+          
+          with open('index-test.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          EOF
+          
+          python /tmp/daily_reset.py
+      
+      - name: Commit and push
+        run: |
+          git add index-test.html
+          git commit -m "🌅 Daily reset: Fresh 'no cancellations' for $(date +'%a, %b %d, %Y')" || echo "No changes to commit (should not happen)"
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: Show result
+        run: |
+          echo "🌅 Daily reset completed!"
+          echo "View at: ${{ steps.deployment.outputs.page_url }}index-test.html"
