@@ -29,8 +29,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       
-      # 3. Update the announcement
-      - name: Update announcement
+      # 3A. Update announcement ONLY if from notify.html
+      - name: Update announcement (from notify.html)
+        if: github.event_name == 'repository_dispatch'
         env:
           NEW_MSG: ${{ github.event.client_payload.new_message }}
         run: |
@@ -62,19 +63,73 @@ jobs:
           
           # Run the update
           python /tmp/update.py "$NEW_MSG"
-          
-          # Show what changed
-          echo "Updated index-test.html with message: $NEW_MSG"
+          echo "✅ Updated announcement: $NEW_MSG"
       
-      # 4. Commit the change
+      # 3B. Ensure valid announcement exists (for regular pushes)
+      - name: Ensure valid announcement exists
+        if: github.event_name == 'push'
+        run: |
+          cat > /tmp/ensure_announcement.py << 'EOF'
+          import re
+          from datetime import datetime
+          
+          with open('index-test.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          
+          today = datetime.now().strftime('%a, %b %d, %Y')
+          
+          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          match = re.search(pattern, content, flags=re.DOTALL)
+          
+          if not match:
+              # No announcement - add default
+              new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
+              new_content = f'There are no lesson or program cancellations today ({today}).'
+              announcement_html = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+              
+              insert_point = content.find('<div class="thumbnails-container">')
+              if insert_point != -1:
+                  content = content[:insert_point] + announcement_html + '\n\n' + content[insert_point:]
+                  print("✅ Added default announcement")
+              else:
+                  print("❌ Could not find insertion point")
+          else:
+              announcement_text = match.group(1).strip()
+              div_html = match.group(0)
+              
+              # Check for empty or invalid announcements
+              is_empty_red = ('background:#f8d7da' in div_html and len(announcement_text) < 10)
+              has_no_text = len(announcement_text) < 5
+              
+              if is_empty_red or has_no_text:
+                  # Fix empty/invalid announcement
+                  new_style = 'background:#d4edda;color:#155724;padding:0.5rem;text-align:center;font-weight:bold;border:1px solid #c3e6cb;border-radius:4px;margin:1rem 0;'
+                  new_content = f'There are no lesson or program cancellations today ({today}).'
+                  replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
+                  content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+                  print("✅ Fixed empty/invalid announcement")
+              else:
+                  print("✅ Announcement exists and looks valid")
+          
+          with open('index-test.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          EOF
+          
+          python /tmp/ensure_announcement.py
+      
+      # 4. Commit the change (if from notify.html or if we fixed something)
       - name: Commit changes
         run: |
           git add index-test.html
           if ! git diff --cached --quiet; then
-            git commit -m "🚨 Announcement updated via notify.html"
-            echo "✅ Changes committed locally"
+            if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+              git commit -m "🚨 Announcement updated via notify.html"
+            else
+              git commit -m "🔧 Fixed/maintained announcement during website update"
+            fi
+            echo "✅ Changes committed"
           else
-            echo "⚠️ No changes to commit"
+            echo "✅ No changes to commit"
           fi
       
       # 5. Configure Pages
