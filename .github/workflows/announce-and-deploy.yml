@@ -65,7 +65,7 @@ jobs:
           python /tmp/update.py "$NEW_MSG"
           echo "✅ Updated announcement: $NEW_MSG"
       
-      # 3B. Ensure valid announcement exists (for regular pushes)
+      # 3B. Ensure valid announcement exists (for regular pushes) - FIXED VERSION
       - name: Ensure valid announcement exists
         if: github.event_name == 'push'
         run: |
@@ -78,7 +78,7 @@ jobs:
           
           today = datetime.now().strftime('%a, %b %d, %Y')
           
-          pattern = r'<div id="announcement"[^>]*>.*?</div>'
+          pattern = r'<div id="announcement"[^>]*>(.*?)</div>'
           match = re.search(pattern, content, flags=re.DOTALL)
           
           if not match:
@@ -94,7 +94,9 @@ jobs:
               else:
                   print("❌ Could not find insertion point")
           else:
-              announcement_text = match.group(1).strip()
+              # FIX: Check if group(1) exists before accessing it
+              announcement_text = match.group(1) if match.group(1) else ""
+              announcement_text = announcement_text.strip()
               div_html = match.group(0)
               
               # Check for empty or invalid announcements
@@ -109,7 +111,7 @@ jobs:
                   content = re.sub(pattern, replacement, content, flags=re.DOTALL)
                   print("✅ Fixed empty/invalid announcement")
               else:
-                  print("✅ Announcement exists and looks valid")
+                  print(f"✅ Announcement exists: {announcement_text[:50]}...")
           
           with open('index-test.html', 'w', encoding='utf-8') as f:
               f.write(content)
