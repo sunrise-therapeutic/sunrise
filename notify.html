@@ -105,44 +105,55 @@
 
         <!-- LEFT: Notification Control -->
         <article class="text-column">
-            <h1>Program Cancellation Notifications</h1>
-            <p>Use this page to post lesson, camp, or lifeskills program cancellation announcements to the website.</p>
+            <h1>Post Announcement on Home Page</h1>
+            <p>Use this page to:</p> 
+            <ul>
+                <li>Announce that all lessons and programs are cancelled today due to bad weather</li>
+                <li>Post a custom message.</li>
+                <li>Remove any existing cancellation notices or custom messages.</li>
+            </ul>
+                <p>Posts will appear in the "At Sunrise Today" section on the Home page and remain visible to the public
+                    until 5am the next morning when it will automatically be replaced by the default message:
+            <em>"There are no lesson or program cancellations today (current date)."</em>
+                
+        
 
             <!-- Quick Cancel Button -->
             <div class="notify-section">
-                <h3>Quick Cancellation</h3>
-                <p>Click the button below to immediately post a standard cancellation notice saying all programs are cancelled today due to bad weather.</p>
+                <p><b>To cancel all lessons and programs for the day</b>, click the button below:</p>
                 <div class="button-group">
-                    <button id="cancelAllBtn">Cancel all programs today</button>
-                </div>
-            </div>
-
-            <!-- Custom Message -->
-            <div class="notify-section">
-                <h3>Custom Message</h3>
-                <p>Enter a custom message to post specific cancellation information.</p>
-                <div class="message-input-group">
-                    <label for="customMessage">Post a custom message:</label>
-                    <textarea id="customMessage" placeholder="Enter your cancellation message here..."></textarea>
-                    <button id="submitCustomBtn">Submit</button>
-                </div>
-            </div>
-
-            <!-- Remove Cancellation -->
-            <div class="notify-section">
-                <h3>Clear Cancellations</h3>
-                <p>Click the button below to remove any existing cancellation notices and restore the default message.</p>
-                <div class="button-group">
-                    <button id="removeCancelBtn" class="danger">Remove cancellation notice</button>
+                   <center> <button id="cancelAllBtn">"All programs are cancelled today (today's date)<br>due to bad weather."</button></center>
                 </div>
             </div>
 
             <!-- Confirmation Message -->
             <div class="confirmation-message" id="confirmationMsg"></div>
 
-            <div style="background-color: #e7f3ff; padding: 15px; margin: 20px 0; border-radius: 4px; border-left: 4px solid #2196F3;">
-                <strong>Test Mode:</strong> This page is testing cancellation announcements on <a href="index-test.html">index-test.html</a>.
+            <!-- Custom Message -->
+            <div class="notify-section">
+                <p><b>To post a custom message</b>, enter the message in the field below and click <b>Submit</b>.</p>
+                <div class="message-input-group">
+                    <textarea id="customMessage" placeholder="Enter your custom message here..."></textarea>
+                    <button id="submitCustomBtn">Submit</button>
+                </div>
             </div>
+
+            <!-- Confirmation Message -->
+            <div class="confirmation-message" id="confirmationMsg"></div>
+
+            <!-- Remove Cancellation -->
+            <div class="notify-section">
+                <p><b>To immediately remove announcements or custom messages and restore the default message</b>, click the button below.</p>
+                <div class="button-group">
+                    <center><button id="removeCancelBtn" class="danger">Remove cancellation notice 
+                        <br>or custom message</button></center>
+                </div>
+            </div>
+
+            <!-- Confirmation Message -->
+            <div class="confirmation-message" id="confirmationMsg"></div>
+
+            
 
             
         </article>
@@ -152,7 +163,7 @@
             <div class="notify-section">
                 <h3>About This Page</h3>
                 <p>
-                    Instructors can use this page to post immediate program cancellation announcements that appear 
+                    Instructors and Sunrise staff can use this page to post immediate program cancellation announcements that appear 
                     on the <a href="index-test.html">Test home page</a>.
                 </p>
                 <p>
@@ -228,7 +239,7 @@
     if (resp.ok) {
       return resp.json().then(data => {
         if (data.ok) {
-          showMessage('Your announcement has been posted. It may take a few moments to appear on the website.', 'success');
+          showMessage('Your announcement has been posted, and will be visible until 5am tomorrow. It may take a few moments to appear on the website.', 'success');
         } else {
           // Unexpected shape – treat as error
           showMessage('Unexpected response from server.', 'error');
