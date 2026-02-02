@@ -41,7 +41,7 @@ jobs:
           from datetime import datetime
           
           message = sys.argv[1]
-          with open('index-test.html', 'r', encoding='utf-8') as f:
+          with open('index.html', 'r', encoding='utf-8') as f:
               content = f.read()
           
           today = datetime.now().strftime('%a, %b %d, %Y')
@@ -57,7 +57,7 @@ jobs:
           replacement = f'<div id="announcement" style="{new_style}">\n    {new_content}\n  </div>'
           content = re.sub(pattern, replacement, content, flags=re.DOTALL)
           
-          with open('index-test.html', 'w', encoding='utf-8') as f:
+          with open('index.html', 'w', encoding='utf-8') as f:
               f.write(content)
           EOF
           
@@ -73,7 +73,7 @@ jobs:
           import re
           from datetime import datetime
           
-          with open('index-test.html', 'r', encoding='utf-8') as f:
+          with open('index.html', 'r', encoding='utf-8') as f:
               content = f.read()
           
           today = datetime.now().strftime('%a, %b %d, %Y')
@@ -113,7 +113,7 @@ jobs:
               else:
                   print(f"✅ Announcement exists: {announcement_text[:50]}...")
           
-          with open('index-test.html', 'w', encoding='utf-8') as f:
+          with open('index.html', 'w', encoding='utf-8') as f:
               f.write(content)
           EOF
           
@@ -122,7 +122,7 @@ jobs:
       # 4. Commit the change (if from notify.html or if we fixed something)
       - name: Commit changes
         run: |
-          git add index-test.html
+          git add index.html
           if ! git diff --cached --quiet; then
             if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
               git commit -m "🚨 Announcement updated via notify.html"
@@ -153,4 +153,4 @@ jobs:
       - name: Show deployment URL
         run: |
           echo "🚀 Deployed to: ${{ steps.deployment.outputs.page_url }}"
-          echo "📄 Direct link to test page: ${{ steps.deployment.outputs.page_url }}index-test.html"
+          echo "📄 Direct link to test page: ${{ steps.deployment.outputs.page_url }}index.html"
