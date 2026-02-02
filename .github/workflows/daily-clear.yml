@@ -30,7 +30,7 @@ jobs:
           import re
           from datetime import datetime
           
-          with open('index-test.html', 'r', encoding='utf-8') as f:
+          with open('index.html', 'r', encoding='utf-8') as f:
               content = f.read()
           
           today = datetime.now().strftime('%a, %b %d, %Y')
@@ -59,7 +59,7 @@ jobs:
               else:
                   print("❌ Could not find insertion point")
           
-          with open('index-test.html', 'w', encoding='utf-8') as f:
+          with open('index.html', 'w', encoding='utf-8') as f:
               f.write(content)
           EOF
           
@@ -67,7 +67,7 @@ jobs:
       
       - name: Commit and push
         run: |
-          git add index-test.html
+          git add index.html
           git commit -m "🌅 Daily reset: Fresh 'no cancellations' for $(date +'%a, %b %d, %Y')" || echo "No changes to commit (should not happen)"
       
       - name: Setup Pages
@@ -85,4 +85,4 @@ jobs:
       - name: Show result
         run: |
           echo "🌅 Daily reset completed!"
-          echo "View at: ${{ steps.deployment.outputs.page_url }}index-test.html"
+          echo "View at: ${{ steps.deployment.outputs.page_url }}index.html"
