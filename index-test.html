@@ -6,9 +6,37 @@
   <title>Sunrise Therapeutic Riding & Learning Centre</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  /* index-test only: hero carousel styles (keeps header untouched) */
+  body.index-test .hero-carousel { width:100%; margin:0; padding:0; position:relative; overflow:hidden; background:#1a69e0; }
+  body.index-test .hero-carousel .carousel-track { display:flex; transition:transform .5s ease; }
+  body.index-test .hero-carousel .carousel-slide { min-width:100%; min-height:520px; background-size:cover; background-position:center; display:flex; align-items:flex-end; padding:2.5rem; color:#fff; position:relative; }
+  body.index-test .hero-carousel .carousel-slide::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.64) 100%); z-index:1; }
+  body.index-test .hero-carousel .slide-copy{position:relative;z-index:2;max-width:560px}
+  body.index-test .hero-carousel .carousel-control{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;border:none;display:flex;align-items:center;justify-content:center;z-index:3;cursor:pointer}
+  body.index-test .hero-carousel .carousel-control.prev{left:1rem}
+  body.index-test .hero-carousel .carousel-control.next{right:1rem}
+  @media (max-width:900px){body.index-test .hero-carousel .carousel-slide{min-height:420px;padding:1.75rem}}
+  @media (max-width:600px){body.index-test .hero-carousel .carousel-slide{min-height:360px;padding:1rem}body.index-test .hero-carousel .carousel-control{width:2.4rem;height:2.4rem}}
+  </style>
 </head>
-<body>
+<body class="index-test">
   <div id="header-placeholder"></div>
+  <section class="hero-carousel" aria-label="Homepage image gallery">
+    <div class="carousel-track">
+      <article class="carousel-slide" style="background-image:url('graphics/volunteer-banner.jpg')">
+        <div class="slide-copy"><p class="eyebrow">Welcome to Sunrise</p><h1>Discover the joy of therapeutic riding</h1><p>Three vivid scenes from our programs, nature and community.</p></div>
+      </article>
+      <article class="carousel-slide" style="background-image:url('graphics/WHATSHAPPENING.jpg')">
+        <div class="slide-copy"><p class="eyebrow">At the barn today</p><h1>Celebrate connection, care and outdoor fun</h1><p>Swipe or click arrows to move through our featured gallery.</p></div>
+      </article>
+      <article class="carousel-slide" style="background-image:url('graphics/PROGRAMS-1.jpg')">
+        <div class="slide-copy"><p class="eyebrow">Programs we offer</p><h1>Life-changing learning through horses</h1><p>Explore camps, therapy, volunteer and community activities.</p></div>
+      </article>
+    </div>
+    <button class="carousel-control prev" type="button" aria-label="Previous">‹</button>
+    <button class="carousel-control next" type="button" aria-label="Next">›</button>
+  </section>
   <main>
     <div class="container" style="text-align:center;">
       <h1>Sunrise Therapeutic Riding & Learning Centre</h1>
@@ -91,13 +119,26 @@
 <script type="module">
     // Load header, then initialise the menu
     fetch('header.html')
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('header-placeholder').innerHTML = html;
-            // Import the menu module after the header is in the DOM
-            import('./menu-2.js').then(mod => mod.initMenu());
-        })
-        .catch(err => console.error('Header load failed:', err));
+      .then(r => r.text())
+      .then(html => {
+        const ph = document.getElementById('header-placeholder');
+        ph.innerHTML = html;
+        // Import the menu module after the header is in the DOM
+        import('./menu-2.js').then(mod => {
+          mod.initMenu();
+          // If a whitespace text node sits between the injected header and the next element, remove it.
+          const nxt = ph.nextSibling;
+          if(nxt && nxt.nodeType === 3 && !/\S/.test(nxt.textContent)) nxt.parentNode.removeChild(nxt);
+          // Measure any visual gap and close it with a page-local inline style (precise and reversible).
+          const header = document.querySelector('header.site-header');
+          const hero = document.querySelector('.hero-carousel');
+          if(header && hero){
+            const gap = Math.round(hero.getBoundingClientRect().top - header.getBoundingClientRect().bottom);
+            if(gap > 0) hero.style.marginTop = `-${gap}px`;
+          }
+        });
+      })
+      .catch(err => console.error('Header load failed:', err));
 
     // Footer fetch (unchanged)
     fetch('footer.html')
@@ -152,6 +193,21 @@
 
     // Fetch weather immediately when page loads
     fetchWeather();
+    // Lightweight carousel controls (page-scoped)
+    (function(){
+      const track = document.querySelector('.hero-carousel .carousel-track');
+      const slides = track ? Array.from(track.children) : [];
+      const prev = document.querySelector('.hero-carousel .carousel-control.prev');
+      const next = document.querySelector('.hero-carousel .carousel-control.next');
+      let index = 0;
+      function update(){ if(!track) return; track.style.transform = `translateX(${ -index * 100 }%)`; }
+      function prevSlide(){ index = (index - 1 + slides.length) % slides.length; update(); }
+      function nextSlide(){ index = (index + 1) % slides.length; update(); }
+      if(prev) prev.addEventListener('click', prevSlide);
+      if(next) next.addEventListener('click', nextSlide);
+      document.addEventListener('keydown', e=>{ if(e.key==='ArrowLeft') prevSlide(); if(e.key==='ArrowRight') nextSlide(); });
+      update();
+    })();
 </script>
 </body>
 </html>
