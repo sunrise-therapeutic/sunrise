@@ -11,20 +11,23 @@
   body.index-test .hero-carousel { width:100%; margin:0; padding:0; position:relative; overflow:hidden; background:#1a69e0; }
   body.index-test .hero-carousel .carousel-track { display:flex; transition:transform .5s ease; }
   body.index-test .hero-carousel .carousel-slide { min-width:100%; min-height:520px; background-size:cover; background-position:center; display:flex; align-items:flex-end; padding:2.5rem; color:#fff; position:relative; }
-  body.index-test .hero-carousel .carousel-slide::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.64) 100%); z-index:1; }
-  body.index-test .hero-carousel .slide-copy{position:relative;z-index:2;max-width:560px}
-  body.index-test .hero-carousel .carousel-control{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;border:none;display:flex;align-items:center;justify-content:center;z-index:3;cursor:pointer}
+  body.index-test .hero-carousel .carousel-slide::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.24) 0%, rgba(0,0,0,0.58) 30%, rgba(0,0,0,0.82) 100%); z-index:1; }
+  body.index-test .hero-carousel .slide-copy{position:relative;z-index:2;max-width:560px;margin-left:3rem;padding-top:0.75rem}
+  body.index-test .hero-carousel .slide-copy .eyebrow{margin:0 0 0.75rem;color:rgba(255,255,255,0.92);text-transform:uppercase;letter-spacing:0.14em;font-size:0.95rem;text-shadow:0 1px 4px rgba(0,0,0,0.45)}
+  body.index-test .hero-carousel .slide-copy h1{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,0.65);margin:0 0 1rem;line-height:1.05}
+  body.index-test .hero-carousel .slide-copy p:not(.eyebrow){color:rgba(255,255,255,0.92);text-shadow:0 1px 8px rgba(0,0,0,0.45);margin:0}
+  body.index-test .hero-carousel .carousel-control{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;border:none;display:flex;align-items:center;justify-content:center;z-index:3;cursor:pointer}
   body.index-test .hero-carousel .carousel-control.prev{left:1rem}
   body.index-test .hero-carousel .carousel-control.next{right:1rem}
-  @media (max-width:900px){body.index-test .hero-carousel .carousel-slide{min-height:420px;padding:1.75rem}}
-  @media (max-width:600px){body.index-test .hero-carousel .carousel-slide{min-height:360px;padding:1rem}body.index-test .hero-carousel .carousel-control{width:2.4rem;height:2.4rem}}
+  @media (max-width:900px){body.index-test .hero-carousel .carousel-slide{min-height:420px;padding:1.75rem}body.index-test .hero-carousel .slide-copy{margin-left:2rem}}
+  @media (max-width:600px){body.index-test .hero-carousel .carousel-slide{min-height:360px;padding:1rem}body.index-test .hero-carousel .slide-copy{margin-left:2.6rem}body.index-test .hero-carousel .carousel-control{width:2.4rem;height:2.4rem}}
   </style>
 </head>
 <body class="index-test">
   <div id="header-placeholder"></div>
   <section class="hero-carousel" aria-label="Homepage image gallery">
     <div class="carousel-track">
-      <article class="carousel-slide" style="background-image:url('graphics/volunteer-banner.jpg')">
+      <article class="carousel-slide" style="background-image:url('graphics/facilities-welcome-sign.jpg')">
         <div class="slide-copy"><p class="eyebrow">Welcome to Sunrise</p><h1>Discover the joy of therapeutic riding</h1><p>Three vivid scenes from our programs, nature and community.</p></div>
       </article>
       <article class="carousel-slide" style="background-image:url('graphics/WHATSHAPPENING.jpg')">
