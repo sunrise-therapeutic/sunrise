@@ -10,40 +10,42 @@
 </head>
 <body>
   <div id="header-placeholder"></div>
-  <main>
+  <main class="celebrate-page">
     <div class="container">
-      <h1>Celebrate Sunrise!</h1><br>
-      
-      <p>
-        "Celebrate Sunrise!" is our annual <b>cornerstone fundraising event for our year-round therapy programs</b>, traditionally held each spring.</p>
-      </p>
-      <p>The 2026 event was held on Sunday June 14th, 2026 and helped make a difference in the lives of children and adults with disabilities! 
-        The 2026 celebration was a great success, as participants:</p>
-      
-        <ul>
-                <li>Enjoyed delicious food prepared by local chefs (cash bar available)</li>
-                <li>Participated in our silent auction, with a wide selection of great prizes</li>
-                <li>Enjoyed our exciting live auction- led by outstanding auctioneer <strong>Robert Milburn</strong></li>
-                <li>Met special guests</li>
-                <li>Learned more about Sunrise programs, and find out why Sunrise is a Canadian leader in the field of therapeutic riding!</li>
-        </ul>
+      <h1>Celebrate Sunrise!</h1>
 
-<p>Sunrise is extremely grateful for all the support we received at our annual Celebrate Sunrise event, and we look forward to seeing you all again next year at our 2027 event!</p>
+      <section class="celebrate-hero">
+        <div class="celebrate-hero-copy">
+          <p>"Celebrate Sunrise!" is our annual cornerstone fundraising event for our year-round therapy programs, traditionally held each spring.</p>
+          <p>We held this year's event on Sunday, June 14, 2026, when we again welcomed supporters, 
+            sponsors, volunteers, and community partners to celebrate our mission and the incredible impact of our programs.</p>
+          <p>As our signature fundraising celebration, <strong>Celebrate Sunrise!</strong> raises vital funds to support our year-round therapeutic riding programs
+             for children and adults with disabilities. Thanks to the incredible generosity of our community, the <strong>2026 event raised an incredible $107,000.</strong></p>
+          <p>Guests enjoyed an unforgettable afternoon featuring:</p>
+          <ul>
+            <li>Delicious food prepared by Little Mushroom Catering &amp; Decadently Yours</li>
+            <li>An exciting live auction led by outstanding auctioneer <strong>Robert Milburn</strong></li>
+            <li>A silent auction with a wide selection of great prizes</li>
+            <li>Opportunities to purchase gifts created by our talented Lifeskills group</li>
+            <li>The chance to learn more about Sunrise programs and meet some of our amazing horses</li>
+          </ul>
+          <p>Sunrise is extremely grateful for all the support we received at our annual Celebrate Sunrise event, and we look forward to seeing you all again next year at our 2027 event!</p>
+        </div>
+        <div class="celebrate-hero-media">
+          <img src="support-us/celebrate-2026-1.jpg" alt="Guests enjoying the 2026 Celebrate Sunrise event">
+        </div>
+      </section>
 
-     
-    </div>
-    <div class="thumbnails-container">
-        <img class="thumbnail-card"src="whatshappening/celebrate-sunrise-2.jpg" alt="Celebrate Sunrise">
-       
-        <img class="thumbnail-card" src="whatshappening/celebrate-sunrise-3.jpg" alt="Celebrate Sunrise">
-       
-      
-        <img class="thumbnail-card" src="whatshappening/celebrate-sunrise-4.jpg" alt="Celebrate Sunrise">
-        
-
-       <img class="thumbnail-card" src="whatshappening/auction-table.jpg" alt="Celebrate Sunrise">
-
-      
+      <section class="celebrate-gallery" aria-label="Celebrate Sunrise photo gallery">
+        <div class="celebrate-gallery-frame">
+          <img id="celebrate-main-photo" class="celebrate-gallery-photo" src="support-us/celebrate-2026-1.jpg" alt="Guests enjoying the 2026 Celebrate Sunrise event">
+          <div class="celebrate-gallery-nav">
+            <button type="button" class="celebrate-gallery-btn" data-direction="-1" aria-label="Show previous photo">❮</button>
+            <button type="button" class="celebrate-gallery-btn" data-direction="1" aria-label="Show next photo">❯</button>
+          </div>
+        </div>
+        <p id="celebrate-gallery-caption" class="celebrate-gallery-caption">Guests gathered for the 2026 Celebrate Sunrise event.</p>
+      </section>
     </div>
   </main>
   <div id="footer-placeholder"></div>
@@ -64,6 +66,49 @@
         .then(html => {
             document.getElementById('footer-placeholder').innerHTML = html;
         });
+
+    const slides = [
+        {
+            src: 'support-us/celebrate-2026-2.jpg',
+            alt: 'A lively fundraising auction at Celebrate Sunrise',
+            caption: 'The event featured a lovely lunch catered by the Little Mushroom Catering & Decadently Yours.'
+        },
+        {
+            src: 'support-us/celebrate-2026-3.jpg',
+            alt: 'Supporters and volunteers enjoying the Celebrate Sunrise celebration',
+            caption: 'Attendees participatedin both live and silent auctions.'
+        },
+        {
+            src: 'support-us/celebrate-2026-4.jpg',
+            alt: 'A close-up of the Celebrate Sunrise event atmosphere',
+            caption: 'Participants could purchase gifts created by our talented Lifeskills group.'
+        }
+    ];
+
+    const mainPhoto = document.getElementById('celebrate-main-photo');
+    const caption = document.getElementById('celebrate-gallery-caption');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const slide = slides[index];
+        mainPhoto.classList.remove('is-animating');
+        void mainPhoto.offsetWidth;
+        mainPhoto.classList.add('is-animating');
+        mainPhoto.src = slide.src;
+        mainPhoto.alt = slide.alt;
+        caption.textContent = slide.caption;
+        currentIndex = index;
+    }
+
+    document.querySelectorAll('.celebrate-gallery-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            const direction = Number(button.dataset.direction);
+            const nextIndex = (currentIndex + direction + slides.length) % slides.length;
+            showSlide(nextIndex);
+        });
+    });
+
+    showSlide(0);
 </script>
 </body>
 </html>

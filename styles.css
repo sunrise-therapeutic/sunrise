@@ -74,6 +74,129 @@ ol {
     padding: 1.5rem 0;
 }
 
+/* ==== Celebrate Sunrise page layout ==== */
+.celebrate-page .celebrate-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.6fr) minmax(280px, 0.4fr);
+    gap: 2rem;
+    align-items: start;
+    margin: 1rem 0 2.5rem;
+}
+
+.celebrate-page .celebrate-hero-copy {
+    align-self: start;
+}
+
+.celebrate-page .celebrate-hero-copy p,
+.celebrate-page .celebrate-hero-copy ul {
+    margin-bottom: 1rem;
+}
+
+.celebrate-page .celebrate-hero-copy ul {
+    padding-left: 1.25rem;
+}
+
+.celebrate-page .celebrate-hero-media img,
+.celebrate-page .celebrate-gallery-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 56, 104, 0.12);
+    object-fit: contain;
+}
+
+.celebrate-page .celebrate-gallery {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.celebrate-page .celebrate-gallery-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f7f9fc;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(15, 56, 104, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.celebrate-page .celebrate-gallery-photo {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    background: #f7f9fc;
+}
+
+.celebrate-page .celebrate-gallery-photo.is-animating {
+    animation: celebrate-photo-fade 0.45s ease both;
+}
+
+.celebrate-page .celebrate-gallery-nav {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+    pointer-events: none;
+}
+
+.celebrate-page .celebrate-gallery-btn {
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    color: rgba(13, 75, 140, 0.95);
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+    transition: transform 0.2s ease, background 0.2s ease;
+    pointer-events: auto;
+}
+
+.celebrate-page .celebrate-gallery-btn:hover,
+.celebrate-page .celebrate-gallery-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.celebrate-page .celebrate-gallery-caption {
+    text-align: center;
+    font-style: italic;
+    color: #5a6874;
+    font-size: 0.95rem;
+}
+
+@keyframes celebrate-photo-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .celebrate-page .celebrate-hero {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .celebrate-page .celebrate-gallery-photo {
+        max-height: min(56vh, 420px);
+    }
+}
+
 /* ==== Header ==== */
 .site-header {
     background: #1a69e0;
