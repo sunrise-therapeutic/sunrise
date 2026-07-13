@@ -134,14 +134,29 @@
                 else if (weatherCode >= 85 && weatherCode <= 86) condition = 'Snow showers';
                 else if (weatherCode >= 95 && weatherCode <= 99) condition = 'Thunderstorm';
                 
-                // Simple wind chill calculation (approximation)
-                let windChill = temp;
-                if (windSpeed > 4.8 && temp < 10) {
-                    // Wind chill formula (simplified)
-                    windChill = Math.round(13.12 + (0.6215 * temp) - (11.37 * Math.pow(windSpeed, 0.16)) + (0.3965 * temp * Math.pow(windSpeed, 0.16)));
+                const currentDate = new Date();
+                const currentMonth = currentDate.getMonth() + 1;
+                const isWarmSeason = currentMonth >= 6 && currentMonth <= 9;
+
+                let comfortIndex = temp;
+                let comfortLabel = 'Feels like';
+
+                if (isWarmSeason) {
+                    // Humidex approximation for warmer months
+                    const humidity = 70;
+                    const humidityIndex = Math.round(temp + (0.5555 * (6.11 * Math.exp(5417.7530 * ((1 / 273.16) - (1 / (temp + 273.16)))) - 10)));
+                    comfortIndex = Math.round(temp + 0.5555 * (humidityIndex - 10));
+                    comfortLabel = 'Humidex';
+                } else {
+                    // Simple wind chill calculation (approximation)
+                    if (windSpeed > 4.8 && temp < 10) {
+                        // Wind chill formula (simplified)
+                        comfortIndex = Math.round(13.12 + (0.6215 * temp) - (11.37 * Math.pow(windSpeed, 0.16)) + (0.3965 * temp * Math.pow(windSpeed, 0.16)));
+                    }
+                    comfortLabel = 'Wind chill';
                 }
                 
-                const weatherText = `${temp}°C, ${condition}, Wind chill: ${windChill}°C`;
+                const weatherText = `${temp}°C, ${condition}, ${comfortLabel}: ${comfortIndex}°C`;
                 document.getElementById('weather-data').textContent = weatherText;
             })
             .catch(err => {
