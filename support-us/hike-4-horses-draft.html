@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hike 4 Horses - Sunrise Therapeutic Riding & Learning Centre</title>
+  <base href="../">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .event-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .three-column-layout {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .three-column-layout__content {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+<br><h1><center>Hike 4 Horses 2026</center></h1>
+  <main class="container">
+    <section class="three-column-layout">
+      <div class="three-column-layout__media">
+        <img class="three-column-layout__photo" src="support-us/hike4horses-5.jpg" alt="Hike 4 Horses event photo 5">
+        <img class="three-column-layout__photo" src="support-us/hike4horses-1.jpg" alt="Hike 4 Horses event photo 1">
+        <img class="three-column-layout__photo" src="support-us/hike4horses-2025-winnner.jpg" alt="Hike 4 Horses 2025 winner" style="object-fit: contain; aspect-ratio: auto; height: auto; max-height: none;">
+      </div>
+
+      <div class="three-column-layout__content">
+        
+        <p> Calling all runners, hikers, dog walkers, horse lovers & families...<br> 
+          Join Sunrise Therapeutic Riding & Learning Centre at the farm for our second annual "Hike 4 Horses" event—a family-friendly fun 
+          afternoon where you can learn more about us and our 
+          amazing horses all while helping our charity raise funds.</p>
+          <p><strong>Date:</strong> Sunday, September 27, 2026</p>
+          <p><strong>Time:</strong> 1pm-4pm (Meet the horses and registration from 12:00-1:00 PM)</p> 
+          <p><strong>Location:</strong> 6920 Concession Road 1, Puslinch, ON N0B 2J0</p>
+          <h2>What to expect:</h2>
+        <ul>
+          <li>Run or walk a 5k trail through the meadows and forests on our beautiful property</li>
+          <li>Lunch provided</li>
+          <li>Free Family Activities including Fire Trucks, meeting the fire department's 
+            Pluggie the robot fire hydrant & Sparky the mascot, face painting, loot and much more!</li>
+          <li>This year participants are welcome to bring their well-behaved dogs for the hike</li>
+          <li>All proceeds from this event support the care and well-being of our horses!</li>
+          <li>Collect pledges from family and friends online and/or make a donation yourself!  
+            (All donations over $20 will receive a charitable tax receipt- Registered Charity # 11920 6027 RR0001)</li>
+        </ul>
+<div class="event-actions" style="justify-content:center; width:100%;">
+  <a
+    class="btn"
+    href="https://wl.donorperfect.net/weblink/weblink.aspx?name=E363411QE&id=13"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="
+      display: inline-block;
+      padding: 1.1rem 2rem;
+      font-size: 2.5rem;
+      line-height: 2.25;
+      font-weight: 700;
+      text-align: center;
+      min-width: 300px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    "
+  >
+    Register Here
+  </a>
+</div>
+      </div>
+
+      <div class="three-column-layout__media">
+        <img class="three-column-layout__photo" src="support-us/hike4horses-3.png" alt="Hike 4 Horses event photo 3">
+        <img class="three-column-layout__photo" src="support-us/hike4horses-2.jpg" alt="Hike 4 Horses event photo 2">
+        <img class="three-column-layout__photo" src="support-us/hike4horses-4.jpg" alt="Hike 4 Horses event photo 4">
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module">
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+        import('./menu-2.js').then(mod => mod.initMenu());
+      })
+      .catch(err => console.error('Header load failed:', err));
+
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+</body>
+</html>
